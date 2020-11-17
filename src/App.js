@@ -53,7 +53,7 @@ import { ThemeProvider } from "styled-components";
 //Services - Frontend Dependencies
 import { UseWalletProvider } from "use-wallet";
 import FarmsProvider from "./services/frontend/contexts/Farms";
-import servicesModalsProvider from "./services/frontend/contexts/Modals";
+import ServicesModalsProvider from "./services/frontend/contexts/Modals";
 import TransactionProvider from "./services/frontend/contexts/Transactions";
 import SushiProvider from "./services/frontend/contexts/SushiProvider";
 import theme from "./services/frontend/theme";
@@ -107,12 +107,18 @@ import { RedirectPathToSwapOnly, RedirectToSwap } from "./services/exchange/page
 import SwapWrapper from "./pages/Swap";
 import PoolWrapper from "./pages/Pool";
 
+// Services - Lite Dependancies
+import { ContextProvider as LiteProvider } from "./services/lite/context";
+
 import ModalsProvider from "./shared/contexts/ModalsContext";
+// import NoticeModal from "./components/Modals/NoticeStandalone";
+// import useModalOpen from "./shared/hooks/useModalOpen";
 
 const App = () => {
   const globalData = useGlobalData();
   const globalChartData = useGlobalChartData();
   const latestBlock = useLatestBlock();
+  // const notice = useModalOpen();
   return (
     <>
       {latestBlock &&
@@ -121,6 +127,7 @@ const App = () => {
       globalChartData &&
       Object.keys(globalChartData).length > 0 ? (
         <>
+          {/* <NoticeModal isOpen={notice.isOpen} closeModal={notice.hide} /> */}
           <Router>
             <Web3ReactManager>
               <Switch>
@@ -210,14 +217,20 @@ const servicesProviders = ({ children }) => {
       <SushiExchangeProviders>
         <SushiVisionProviders>
           <SushiFrontendProviders>
-            <ModalsProvider>
-              <App />
-            </ModalsProvider>
+            <SushiLiteProviders>
+              <ModalsProvider>
+                <App />
+              </ModalsProvider>
+            </SushiLiteProviders>
           </SushiFrontendProviders>
         </SushiVisionProviders>
       </SushiExchangeProviders>
     </>
   );
+};
+
+const SushiLiteProviders = ({ children }) => {
+  return <LiteProvider>{children}</LiteProvider>;
 };
 
 const SushiFrontendProviders = ({ children }) => {
@@ -234,7 +247,7 @@ const SushiFrontendProviders = ({ children }) => {
             <FarmsProvider>
               <AnalyticsApplicationContextProvider>
                 <AnalyticsGlobalDataContextProvider>
-                  <servicesModalsProvider>{children}</servicesModalsProvider>
+                  <ServicesModalsProvider>{children}</ServicesModalsProvider>
                 </AnalyticsGlobalDataContextProvider>
               </AnalyticsApplicationContextProvider>
             </FarmsProvider>
