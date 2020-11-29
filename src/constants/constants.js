@@ -99,6 +99,10 @@ SLP Address on mainnet for reference
 // week4: [ 21, 24, 32, 46, 47, 48, 49, 50, 51, 52],
 // week5: [ 21, 24, 53, 54, 55, 56, 57, 58, 59, 60],
 
+// TODO find alternative, since CORS issue.
+// const ethereum = await axios.get("https://etherchain.org/api/basic_stats");
+// console.log("ETH:", ethereum);
+export const ethBlockTime = 13.310661764705882;
 export const sushiRewardsPerBlock = 80;
 export const votingURL = "https://forum.sushiswapclassic.org/t/pool-rotation-menu-of-the-week-week-46/1154";
 
@@ -106,6 +110,8 @@ const menuSetup = {
   current: [12, 1, 2, 21, 0, 11, 3, 8, 37, 4, 6, 7, 9, 18, 44, 13, 17],
   upcoming: [],
   previous: [
+    10,
+    15,
     19,
     20,
     22,
@@ -380,7 +386,7 @@ export const supportedPools = [
     icon: "🐥",
     uniswapPair: "AMPL/ETH",
     lpToken: "0xCb2286d9471cc185281c4f763d34A962ED212962",
-    allocPoint: "1000",
+    allocPoint: "0",
   },
   {
     pid: 11,

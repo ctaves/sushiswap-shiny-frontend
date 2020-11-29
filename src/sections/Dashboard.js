@@ -5,12 +5,15 @@ import SectionTabs from "../components/Tabs";
 import SearchHeader from "../components/MobileMenu";
 import Sidebar from "../components/Sidebar/Layout";
 import PageTitle from "../components/PageTitles/Default";
-import MainSearch from "../components/Search/Desktop";
+//import MainSearch from "../components/Search/Desktop";
+import MainSearch from "../services/vision/components/Search/secondary";
 import CardSection from "../components/Cards/Section";
 import useMenu from "../shared/hooks/useMenu";
 // Overview
+import CardCurrentMenu from "../components/Overview/CurrentMenu";
+import CardMigrateNotice from "../components/Overview/MigrateNotice";
 import CardMigrate from "../components/Cards/Migrate/Layout";
-import CardTokenActions from "../components/Cards/TokenActions/Standalone";
+import CardTokenActions from "../components/Cards/TokenActions/StandaloneWithoutRemove";
 import { CurrentMenuWrapper } from "../components/WeeklyMenu/Menus";
 import CardChart from "../components/Cards/Chart";
 import SushiGlobalChart from "../services/vision/components/GlobalChart";
@@ -97,14 +100,14 @@ const Dashboard = () => {
 
 export const DashboardContainer = ({ children }) => {
   const mobileMenu = useMenu();
-  const { state } = useSectionState();
+  //const { state } = useSectionState();
 
   return (
     <>
       <div className="sushi-h-screen sushi-flex sushi-overflow-hidden sushi-bg-white">
-        <Sidebar selected={state.section} />
+        <Sidebar />
         <div className="sushi-flex sushi-flex-col sushi-w-0 sushi-flex-1 sushi-overflow-hidden">
-          <SearchHeader changeMenu={mobileMenu.change} isOpen={mobileMenu.isOpen} selected={state.section} />
+          <SearchHeader changeMenu={mobileMenu.change} isOpen={mobileMenu.isOpen} />
           <main
             className="sushi-flex-1 sushi-relative sushi-z-0 sushi-overflow-y-auto focus:sushi-outline-none"
             tabIndex={0}
@@ -178,7 +181,9 @@ const Overview = () => {
     <>
       {/* <IntroBanner /> */}
       <PageTitle title={"👋 いらっしゃいませ「 Welcome Back 」!"} />
-      <MainSearch />
+      <div className="sushi-px-8 my-4 sushi-hidden lg:sushi-block">
+        <MainSearch />
+      </div>
       <div className="sushi-px-8 my-4">
         <span className="sushi-w-full">
           <div className="sushi-flex sushi-items-start sushi-justify-between sushi-space-x-3">
@@ -187,7 +192,9 @@ const Overview = () => {
         </span>
       </div>
       <div className="shadow-inner bg-gray-100">
-        <h3 className="pl-10 pt-4 text-lg leading-6 font-medium text-gray-400">While you're here, you can...</h3>
+        <h3 className="pl-10 pt-4 text-lg leading-6 font-medium text-gray-400">
+          While you're here, you can...(hint: swipe or use arrow keys)
+        </h3>
         <Flickity
           className={"flickity-viewport-visible py-4 overflow-x-hidden outline-none"}
           elementType={"div"}
@@ -205,11 +212,17 @@ const Overview = () => {
           <div className="relative w-4/5 md:w-2/5 mx-auto pl-6">
             <CardTokenActions initialSection={"swap"} currencyIdB={"ETH"} />
           </div>
-          <div className="relative w-4/5 md:w-2/5 mx-auto pl-6">
+          {/* <div className="relative w-4/5 md:w-2/5 mx-auto pl-6">
             <CardMigrate />
+          </div> */}
+          {/* <div className="relative w-4/5 md:w-1/3 mx-auto pl-6">
+            <CurrentMenuWrapper pathToMenu={"/weekly"} />
+          </div> */}
+          <div className="relative w-4/5 md:w-1/3 mx-auto pl-6">
+            <CardCurrentMenu pathToMenu={"/weekly"} />
           </div>
           <div className="relative w-4/5 md:w-1/3 mx-auto pl-6">
-            <CurrentMenuWrapper pathToMenu={"/weekly"} />
+            <CardMigrateNotice />
           </div>
           <div className="relative w-4/5 md:w-1/2 mx-auto pl-6">
             <CardChart>
@@ -247,7 +260,7 @@ const OmakaseBar = () => {
     <>
       <PageTitle title={"Omakase Analytics"} />
       <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:divide-y lg:divide-gray-200 lg:px-8">
+        <div className="px-2 sm:px-4 lg:divide-y lg:divide-gray-200 lg:px-8">
           <nav className="hidden lg:py-2 lg:flex lg:space-x-8" aria-label="Global">
             <a
               href="#"
@@ -276,7 +289,7 @@ const OmakaseBar = () => {
           </nav>
         </div>
       </header>
-      <div className="bg-gray-100 shadow-inner py-6 px-4 space-y-6 sm:p-6">
+      <div className="min-h-full bg-gray-100 shadow-inner py-6 px-4 space-y-6 sm:p-6">
         <div className="shadow sm:rounded-md sm:overflow-hidden">
           <div className="bg-white">
             <CardBalances />
@@ -350,7 +363,10 @@ const MenuOfTheWeek = () => {
   };
   return (
     <>
-      <MainSearch />
+      {/* <MainSearch /> */}
+      <div className="sushi-px-8 my-4 sushi-hidden lg:sushi-block">
+        <MainSearch />
+      </div>
       <WeeklyMenuInfo scrollToMenu={scrollToMenu} />
       <div ref={menuRef} id="menus">
         <WeeklyMenus scrollToCurrent={scrollToCurrent} scrollToPrevious={scrollToPrevious} />
@@ -374,7 +390,10 @@ const Tokens = () => {
   const allTokens = useAllTokenData();
   return (
     <>
-      <MainSearch />
+      {/* <MainSearch /> */}
+      <div className="sushi-px-8 my-4 sushi-hidden lg:sushi-block">
+        <MainSearch />
+      </div>
       <h2 className="sushi-max-w-6xl sushi-mx-auto sushi-mt-8 sushi-px-4 sushi-text-lg sushi-leading-6 sushi-font-medium sushi-text-cool-gray-900 sm:sushi-px-6 lg:sushi-px-8">
         Tokens on Sushiswap
       </h2>
@@ -400,7 +419,10 @@ const Pools = () => {
   }, []);
   return (
     <>
-      <MainSearch />
+      {/* <MainSearch /> */}
+      <div className="sushi-px-8 my-4 sushi-hidden lg:sushi-block">
+        <MainSearch />
+      </div>
       <TablePools title={"Main Farms"} type={"main"} />
     </>
   );
@@ -415,7 +437,10 @@ const Pairs = () => {
   const allPairs = useAllPairData();
   return (
     <>
-      <MainSearch />
+      {/* <MainSearch /> */}
+      <div className="sushi-px-8 my-4 sushi-hidden lg:sushi-block">
+        <MainSearch />
+      </div>
       <h2 className="sushi-max-w-6xl sushi-mx-auto sushi-mt-8 sushi-px-4 sushi-text-lg sushi-leading-6 sushi-font-medium sushi-text-cool-gray-900 sm:sushi-px-6 lg:sushi-px-8">
         Trading pairs on Sushiswap
       </h2>

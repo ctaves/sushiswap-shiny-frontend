@@ -3,7 +3,7 @@ import { MASTERCHEF_POOLS, SUSHI_PAIRS, TOKEN } from "../../apollo/queries";
 import _ from "lodash";
 import axios from "axios";
 
-import { supportedPools, menus, sushiRewardsPerBlock } from "../../constants/constants";
+import { supportedPools, menus, sushiRewardsPerBlock, ethBlockTime } from "../../constants/constants";
 
 export async function getPoolData(status) {
   // status is only "current" or "previous"
@@ -106,7 +106,7 @@ export async function getPoolData(status) {
     },
   });
   const etherscanData = etherscanQuery.data;
-  //console.log("ETHERSCAN_DATA:", etherscanData);
+  console.log("ETHERSCAN_DATA:", etherscanData);
 
   const ethUSD = mergeConstants[0].reserveUSD / mergeConstants[0].reserveETH;
   const token = {
@@ -123,7 +123,7 @@ export async function getPoolData(status) {
   // console.log("ETH:", ethereum);
   const ethereum = {
     currentStats: {
-      block_time: 13.696554978763567,
+      block_time: ethBlockTime,
     },
   };
 

@@ -1,5 +1,6 @@
 import BigNumber from "bignumber.js";
 import React, { useEffect, useState, useCallback, useMemo } from "react";
+import { Link } from "react-router-dom";
 import ExpandButton from "../../Buttons/ExpandButton";
 import useSushi from "../../../services/frontend/hooks/useSushi";
 import { useWallet } from "use-wallet";
@@ -17,48 +18,54 @@ import useAllEarnings from "../../../services/frontend/hooks/useAllEarnings";
 import useAllStakedValue from "../../../services/frontend/hooks/useAllStakedValue";
 import useFarms from "../../../services/frontend/hooks/useFarms";
 
+import StakeSushi from "./StakeSushi";
+import UnstakeSushi from "./UnstakeSushi";
+
+import WalletsModal from "../../Modals/Wallets";
+import useModal from "../../../shared/hooks/useModal";
+
 import SushiLogo from "../../../assets/img/logo.png";
+import xSushiLogo from "../../../assets/img/logo-xsushi-background.png";
+//import SushiBelt from "../Balance/SushiBelt";
 
 const Layout = () => {
   const { account } = useWallet();
-  return <>{account ? <Balances /> : <Loading />}</>;
+  return <>{account ? <Balances /> : <ConnectWallet />}</>;
 };
 
-const Loading = () => {
+const ConnectWallet = () => {
+  const [onPresentWallets] = useModal(<WalletsModal />, null, null);
+  const { priceUSD } = useTokenData("0x6b3595068778dd592e39a122f4f5a5cf09c90fe2");
+  const price = priceUSD ? formattedNum(priceUSD, true) : "";
   return (
     <>
-      <div className="bg-white border border-gray-200 shadow overflow-hidden sm:rounded-lg">
-        <div className="px-4 py-5 border-b border-gray-200 sm:px-6">
-          <h3 className="text-lg leading-6 font-medium text-gray-900">Your SushiBar Stats</h3>
-          <p className="mt-1 max-w-2xl text-sm leading-5 text-gray-500">SUSHI and xSUSHI</p>
-        </div>
-        <div className="px-4 py-5 sm:p-0">
-          <dl>
-            <div className="sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6 sm:py-5">
-              <dt className="text-sm leading-5 font-medium text-gray-500 sm:mt-0 sm:col-span-1">Total SUSHI</dt>
-              <dd className="mt-1 text-sm leading-5 text-gray-900"></dd>
+      <div className="flex overflow-hidden bg-white">
+        {/* Main column */}
+        {/* Title */}
+        <div className="flex flex-col w-0 flex-1 overflow-hidden">
+          <div className="bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
+            <div className="-ml-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-no-wrap">
+              <div className="ml-4 mt-4">
+                <h3 className="text-lg leading-6 font-medium text-gray-900">SUSHI balance</h3>
+                <p className="mt-1 text-sm leading-5 text-gray-500">1 SUSHI = {price}</p>
+              </div>
+              <div className="ml-4 mt-4 flex-shrink-0">
+                <div className="mx-auto rounded-md shadow-lg">
+                  <button
+                    onClick={onPresentWallets}
+                    className="mx-auto flex items-center justify-center px-4 py-2 border border-transparent leading-6 font-medium rounded-md text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
+                  >
+                    Connect Wallet
+                  </button>
+                </div>
+              </div>
             </div>
-            <div className="sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6 sm:py-5">
-              <dt className="text-sm leading-5 font-medium text-gray-500 sm:mt-0 sm:col-span-1">Locked SUSHI</dt>
-              <dd className="mt-1 text-sm leading-5 text-gray-900"></dd>
+          </div>
+          {/* <main className="flex-1 relative z-0 overflow-y-auto focus:outline-none" tabIndex={0}>
+            <div className="px-20">
+              <SushiBelt />
             </div>
-            <div className="sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6 sm:py-5">
-              <dt className="text-sm leading-5 font-medium text-gray-500 sm:mt-0 sm:col-span-1">Unlocked SUSHI</dt>
-              <dd className="mt-1 text-sm leading-5 text-gray-900"></dd>
-            </div>
-            <div className="sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6 sm:py-5">
-              <dt className="text-sm leading-5 font-medium text-gray-500 sm:mt-0 sm:col-span-1">Unstaked SUSHI</dt>
-              <dd className="mt-1 text-sm leading-5 text-gray-900"></dd>
-            </div>
-            <div className="mt-8 sm:mt-0 sm:grid sm:grid-cols-2 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-              <dt className="text-sm leading-5 font-medium text-gray-500 sm:mt-0 sm:col-span-1">Staked SUSHI</dt>
-              <dd className="mt-1 text-sm leading-5 text-gray-900"></dd>
-            </div>
-            <div className="mt-8 sm:mt-0 sm:grid sm:grid-cols-2 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-              <dt className="text-sm leading-5 font-medium text-gray-500 sm:mt-0 sm:col-span-1">xSUSHI Balance</dt>
-              <dd className="mt-1 text-sm leading-5 text-gray-900"></dd>
-            </div>
-          </dl>
+          </main> */}
         </div>
       </div>
     </>
@@ -167,53 +174,40 @@ const Balances = () => {
         </div>
       ),
       cta: (
-        <button
-          type="button"
-          class="font-medium text-orange-600 hover:text-orange-500 transition duration-150 ease-in-out"
+        <Link
+          to="/weekly"
+          class="font-medium text-orange-600 hover:text-orange-700 transition duration-150 ease-in-out"
         >
           Harvest
-        </button>
+        </Link>
       ),
     },
     {
-      title: "Locked",
-      sushi: totalNotStaked ? `${Number(getBalanceNumber(totalNotStaked)).toFixed(4)} SUSHI` : "",
-      usd: totalNotStakedUSD,
+      title: "Locked (2/3)",
+      sushi: "[Feature Under Construction]",
+      usd: "[Feature Under Construction]",
       cta: (
-        <button
-          type="button"
-          class="font-medium text-orange-600 hover:text-orange-500 transition duration-150 ease-in-out"
+        <a
+          href="https://docs.sushiswap.fi"
+          target="_blank"
+          class="font-medium text-orange-600 hover:text-orange-700 transition duration-150 ease-in-out"
         >
           Learn more
-        </button>
+        </a>
       ),
     },
     {
       title: "Unstaked",
       sushi: totalNotStaked ? `${Number(getBalanceNumber(totalNotStaked)).toFixed(4)} SUSHI` : "",
       usd: totalNotStakedUSD,
-      cta: (
-        <button
-          type="button"
-          class="font-medium text-orange-600 hover:text-orange-500 transition duration-150 ease-in-out"
-        >
-          Stake
-        </button>
-      ),
+      cta: <StakeSushi />,
     },
     {
       title: "Staked",
       sushi: sushiStaked ? `${Number(sushiStaked).toFixed(4)} SUSHI` : "",
       xsushi: xSushiBalance ? `${Number(getBalanceNumber(xSushiBalance)).toFixed(4)} xSUSHI` : "",
       usd: sushiStakedUSD,
-      cta: (
-        <button
-          type="button"
-          class="font-medium text-orange-600 hover:text-orange-500 transition duration-150 ease-in-out"
-        >
-          Unstake
-        </button>
-      ),
+      cta: <UnstakeSushi />,
     },
   ];
   return (
@@ -301,7 +295,11 @@ const TableRow = ({ balance }) => {
         <td className="px-6 py-3 text-sm leading-5 text-gray-500 font-medium">
           <div className="flex items-center space-x-2">
             <div className="flex flex-shrink-0 -space-x-1">
-              <img className="max-w-none h-6 w-6 rounded-full text-white shadow-solid" src={SushiLogo} alt="SUSHI" />
+              <img
+                className="max-w-none h-6 w-6 rounded-full text-white shadow-solid"
+                src={balance.xsushi ? xSushiLogo : SushiLogo}
+                alt="SUSHI"
+              />
             </div>
             <div className="flex items-center space-x-3 lg:pl-2">
               {/* <div className="flex-shrink-0 w-2.5 h-2.5 rounded-full bg-pink-600" /> */}
@@ -314,11 +312,11 @@ const TableRow = ({ balance }) => {
             </div>
           </div>
         </td>
-        <td className="hidden md:table-cell px-6 py-3 whitespace-no-wrap text-sm leading-5 text-gray-900 text-right">
+        <td className="table-cell px-6 py-3 whitespace-no-wrap text-sm leading-5 text-gray-900 text-right">
           <div>{balance.sushi}</div>
           {balance.xsushi ? <div>({balance.xsushi})</div> : null}
         </td>
-        <td className="hidden md:table-cell px-6 py-3 whitespace-no-wrap text-sm leading-5 text-gray-500 text-right">
+        <td className="table-cell px-6 py-3 whitespace-no-wrap text-sm leading-5 text-gray-500 text-right">
           {balance.usd}
         </td>
         <td className="pr-6">
