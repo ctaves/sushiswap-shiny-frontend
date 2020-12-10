@@ -8,7 +8,7 @@ import CurrencyLogo from "../CurrencyLogo";
 import DoubleCurrencyLogo from "../DoubleLogo";
 import { RowBetween } from "../Row";
 import { TYPE } from "../../theme";
-import { Input as NumericalInput } from "../NumericalInput";
+import { Input as NumericalInput } from "../NumericalInput/secondary";
 import { ReactComponent as DropDown } from "../../assets/images/dropdown.svg";
 
 import { useActiveWeb3React } from "../../hooks";
@@ -25,10 +25,10 @@ const CurrencySelect = styled.button<{ selected: boolean }>`
   height: 2.2rem;
   font-size: 16px;
   font-weight: 500;
-  background-color: ${({ selected, theme }) => (selected ? theme.bg1 : theme.primary1)};
-  color: ${({ selected, theme }) => (selected ? theme.text1 : theme.white)};
+  background-color: #f4f5f7;
+  color: ${({ selected, theme }) => (selected ? theme.text1 : theme.text1)};
   border-radius: 0.375rem;
-  box-shadow: ${({ selected }) => (selected ? "none" : "0px 6px 10px rgba(0, 0, 0, 0.075)")};
+  box-shadow: ${({ selected }) => (selected ? "none" : "none")};
   outline: none;
   cursor: pointer;
   user-select: none;
@@ -37,7 +37,7 @@ const CurrencySelect = styled.button<{ selected: boolean }>`
 
   :focus,
   :hover {
-    background-color: ${({ selected, theme }) => (selected ? theme.bg2 : darken(0.05, theme.primary1))};
+    background-color: ${({ selected, theme }) => (selected ? darken(0.05, "#f4f5f7") : darken(0.05, "#f4f5f7"))};
   }
 `;
 
@@ -65,7 +65,7 @@ const StyledDropDown = styled(DropDown)<{ selected: boolean }>`
   height: 35%;
 
   path {
-    stroke: ${({ selected, theme }) => (selected ? theme.text1 : theme.white)};
+    stroke: ${({ selected, theme }) => (selected ? theme.text1 : theme.text1)};
     stroke-width: 1.5px;
   }
 `;
@@ -73,15 +73,15 @@ const StyledDropDown = styled(DropDown)<{ selected: boolean }>`
 const InputPanel = styled.div<{ hideInput?: boolean }>`
   ${({ theme }) => theme.flexColumnNoWrap}
   position: relative;
-  border-radius: ${({ hideInput }) => (hideInput ? "8px" : "20px")};
-  background-color: ${({ theme }) => theme.bg2};
+  border-radius: ${({ hideInput }) => (hideInput ? "0.35rem;" : "0.375rem;")};
+  background-color: #f4f5f7;
   z-index: 1;
 `;
 
 const Container = styled.div<{ hideInput: boolean }>`
-  border-radius: ${({ hideInput }) => (hideInput ? "8px" : "20px")};
-  border: 1px solid ${({ theme }) => theme.bg2};
-  background-color: ${({ theme }) => theme.bg1};
+  border-radius: ${({ hideInput }) => (hideInput ? "0.35rem;" : "0.375rem;")};
+  border: 1px solid #f4f5f7;
+  background-color: #f4f5f7;
 `;
 
 const StyledTokenName = styled.span<{ active?: boolean }>`
@@ -92,8 +92,8 @@ const StyledTokenName = styled.span<{ active?: boolean }>`
 
 const StyledBalanceMax = styled.button`
   height: 28px;
-  background-color: #feeddc;
-  border: 1px solid #feeddc;
+  background-color: #d2d6dc;
+  border: 1px solid #d2d6dc;
   border-radius: 0.375rem;
   font-size: 16px;
   padding-right: 10px;
@@ -104,11 +104,11 @@ const StyledBalanceMax = styled.button`
   margin-right: 0.5rem;
   color: #374151;
   :hover {
-    background-color: #fcd9be;
+    background-color: #e5e7eb;
   }
   :focus {
     color: fcd9be;
-    background-color: #fcd9be;
+    background-color: #e5e7eb;
     outline: none;
   }
 

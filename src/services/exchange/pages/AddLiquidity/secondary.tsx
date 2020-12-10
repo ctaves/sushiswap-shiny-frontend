@@ -406,13 +406,13 @@ export default function AddLiquidity({ currencyIdA, currencyIdB }) {
           />
           {currencies[Field.CURRENCY_A] && currencies[Field.CURRENCY_B] && pairState !== PairState.INVALID && (
             <>
-              <LightCard padding="0px" borderRadius={"20px"}>
+              <LightCard padding="0px" borderRadius={"0.375rem"}>
                 <RowBetween padding="1rem">
                   <TYPE.subHeader fontWeight={500} fontSize={14}>
                     {noLiquidity ? "Initial prices" : "Prices"} and pool share
                   </TYPE.subHeader>
                 </RowBetween>{" "}
-                <LightCard padding="1rem" borderRadius={"20px"}>
+                <LightCard padding="1rem" borderRadius={"0.375rem"}>
                   <PoolPriceBar
                     currencies={currencies}
                     poolTokenPercentage={poolTokenPercentage}

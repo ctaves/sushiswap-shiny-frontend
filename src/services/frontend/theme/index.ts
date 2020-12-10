@@ -63,35 +63,35 @@ const theme: DefaultTheme = {
   // text
   text1: darkMode ? "#FFFFFF" : "#000000",
   text2: darkMode ? "#C3C5CB" : "#565A69",
-  text3: darkMode ? "#6C7284" : "#9a7c64",
+  text3: darkMode ? "#6C7284" : "#b3b3b3",
   text4: darkMode ? "#565A69" : "#C3C5CB",
-  text5: darkMode ? "#2C2F36" : "#e6ddd6",
+  text5: darkMode ? "#2C2F36" : "#e5e7eb",
 
   // backgrounds / greys
   bg1: darkMode ? "#212429" : "#FFFFFF",
-  bg2: darkMode ? "#2C2F36" : "#fff7f2",
-  bg3: darkMode ? "#40444F" : "#e6ddd6",
+  bg2: darkMode ? "#2C2F36" : "#e6e7eb",
+  bg3: darkMode ? "#40444F" : "#e5e7eb",
   bg4: darkMode ? "#565A69" : "#CED0D9",
-  bg5: darkMode ? "#6C7284" : "#9a7c64",
+  bg5: darkMode ? "#6C7284" : "#b3b3b3",
 
   //specialty colors
   modalBG: darkMode ? "rgba(0,0,0,.425)" : "rgba(0,0,0,0.3)",
   advancedBG: darkMode ? "rgba(0,0,0,0.1)" : "rgba(255,255,255,0.6)",
 
   //primary colors
-  primary1: darkMode ? "#2172E5" : "#d03800", //"#805e49",
+  primary1: darkMode ? "#2172E5" : "#0e0e23", //"#805e49",
   primary2: darkMode ? "#3680E7" : "#DD6B20", //"#88715f",
   primary3: darkMode ? "#4D8FEA" : "#ED8936", //"#aa9585",
-  primary4: darkMode ? "#376bad70" : "#F6AD55", //"#e2d6cf",
-  primary5: darkMode ? "#153d6f70" : "#FBD38D", //"f0e9e7",
+  primary4: darkMode ? "#376bad70" : "#151539", //"#e2d6cf",
+  primary5: darkMode ? "#153d6f70" : "#0d0d23", //"f0e9e7",
 
   // color text
-  primaryText1: darkMode ? "#6da8ff" : "#d03800", //"#805e49",
+  primaryText1: darkMode ? "#6da8ff" : "#0e0e23", //"#805e49",
 
   // secondary colors
-  secondary1: darkMode ? "#2172E5" : "#d03800", //"#805e49",
-  secondary2: darkMode ? "#17000b26" : "#F6AD55", //"#e2d6cf",
-  secondary3: darkMode ? "#17000b26" : "#FBD38D", //"#f0e9e7",
+  secondary1: darkMode ? "#2172E5" : "#0e0e23", //"#805e49",
+  secondary2: darkMode ? "#17000b26" : "#151539", //"#e2d6cf",
+  secondary3: darkMode ? "#17000b26" : "#0d0d23", //"#f0e9e7",
 
   // other
   red1: "#FF6871",

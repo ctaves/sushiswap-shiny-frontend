@@ -8,8 +8,8 @@ import { Play } from "react-feather";
 import { useDarkModeManager } from "../../contexts/LocalStorage";
 
 const IconWrapper = styled.div`
-  position: absolute;
-  right: 10px;
+  position: relative;
+  float: right;
   color: ${({ theme }) => theme.text1}
   border-radius: 3px;
   height: 16px;
@@ -52,14 +52,8 @@ const CandleStickChart = ({
       time: dayjs().unix(),
       open: parseFloat(formattedData[formattedData.length - 1].close),
       close: parseFloat(base),
-      low: Math.min(
-        parseFloat(base),
-        parseFloat(formattedData[formattedData.length - 1].close)
-      ),
-      high: Math.max(
-        parseFloat(base),
-        parseFloat(formattedData[formattedData.length - 1].close)
-      ),
+      low: Math.min(parseFloat(base), parseFloat(formattedData[formattedData.length - 1].close)),
+      high: Math.max(parseFloat(base), parseFloat(formattedData[formattedData.length - 1].close)),
     });
   }
 
@@ -143,16 +137,14 @@ const CandleStickChart = ({
       toolTip.className = "three-line-legend";
       ref.current.appendChild(toolTip);
       toolTip.style.display = "block";
-      toolTip.style.left = (margin ? 116 : 10) + "px";
-      toolTip.style.top = 20 + "px";
+      toolTip.style.left = (margin ? 50 : 50) + "px";
+      toolTip.style.top = 95 + "px";
       toolTip.style.backgroundColor = "transparent";
 
       // get the title of the chart
       function setLastBarText() {
         toolTip.innerHTML = base
-          ? `<div style="font-size: 22px; margin: 4px 0px; color: ${textColor}">` +
-            valueFormatter(base) +
-            "</div>"
+          ? `<div style="font-size: 24px; margin: 4px 0px; color: ${textColor}">` + valueFormatter(base) + "</div>"
           : "";
       }
       setLastBarText();
@@ -172,7 +164,7 @@ const CandleStickChart = ({
           var price = param.seriesPrices.get(candleSeries).close;
           const time = dayjs.unix(param.time).format("MM/DD h:mm A");
           toolTip.innerHTML =
-            `<div style="font-size: 22px; margin: 4px 0px; color: ${textColor}">` +
+            `<div style="font-size: 24px; margin: 4px 0px; color: ${textColor}">` +
             valueFormatter(price) +
             `<span style="font-size: 12px; margin: 4px 6px; color: ${textColor}">` +
             time +
@@ -186,16 +178,7 @@ const CandleStickChart = ({
 
       setChartCreated(chart);
     }
-  }, [
-    chartCreated,
-    formattedData,
-    width,
-    height,
-    valueFormatter,
-    base,
-    margin,
-    textColor,
-  ]);
+  }, [chartCreated, formattedData, width, height, valueFormatter, base, margin, textColor]);
 
   // responsiveness
   useEffect(() => {

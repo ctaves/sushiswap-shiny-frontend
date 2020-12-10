@@ -9,7 +9,6 @@ const Card = styled(Box)<{
   borderRadius?: string;
 }>`
   width: 100%;
-  border-radius: 0.375rem;
   padding: 1.25rem;
   padding: ${({ padding }) => padding};
   border: ${({ border }) => border};
@@ -19,7 +18,7 @@ export default Card;
 //border-radius: 16px;
 
 export const LightCard = styled(Card)`
-  border: 1px solid ${({ theme }) => theme.bg2};
+  border: 1px solid #f4f5f7;
   background-color: ${({ theme }) => theme.bg1};
 `;
 
@@ -28,7 +27,7 @@ export const LightCard = styled(Card)`
 // `;
 
 export const GreyCard = styled(Card)`
-  background-color: ${"#feeddc"};
+  background-color: ${"#f4f5f7"};
 `;
 
 export const OutlineCard = styled(Card)`

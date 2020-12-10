@@ -12,18 +12,17 @@ const Signers = () => {
                   The path to decentralization
                 </p>
                 <p className="sushi-mt-1 sushi-text-sm sushi-leading-5 sushi-text-gray-500">
-                  9 signers were selected from 50 candidates. 7 out of 9 signers
-                  must approve action items from proposals. The signing
-                  committee can also fast track proposals given timely
-                  necessity...{" "}
+                  9 signers were selected from 50 candidates. 7 out of 9 signers must approve action items from
+                  proposals. The signing committee can also fast track proposals given timely necessity...{" "}
                   <span>
-                    <a
+                    <button
                       href="https://help.sushidocs.com/faqs/governance"
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="sushi-text-sm sushi-font-medium sushi-text-orange-600 hover:sushi-text-orange-500 active:sushi-text-orange-700 sushi-transition sushi-ease-in-out sushi-duration-150"
                     >
                       Learn more
-                    </a>
+                    </button>
                   </span>
                 </p>
               </div>
@@ -39,19 +38,19 @@ const Signers = () => {
               <thead>
                 <tr>
                   <th className="sushi-pr-6 sushi-py-3 sushi-text-xs sushi-font-medium sushi-leading-4 sushi-tracking-wider sushi-text-left sushi-text-gray-500 sushi-uppercase sushi-border-b sushi-border-gray-200 sushi-">
-                    <a href="#" className="sushi-flex sushi-items-center">
+                    <button className="sushi-flex sushi-items-center">
                       <span>Signer</span> {/**/}
-                    </a>
+                    </button>
                   </th>
                   <th className="sushi-pr-6 sushi-py-3 sushi-text-xs sushi-font-medium sushi-leading-4 sushi-tracking-wider sushi-text-left sushi-text-gray-500 sushi-uppercase sushi-border-b sushi-border-gray-200 sushi-">
-                    <a href="#" className="sushi-flex sushi-items-center">
+                    <button className="sushi-flex sushi-items-center">
                       <span className="sushi-text-green-500">Yes</span>
-                    </a>
+                    </button>
                   </th>
                   <th className="sushi-pr-6 sushi-py-3 sushi-text-xs sushi-font-medium sushi-leading-4 sushi-tracking-wider sushi-text-left sushi-text-gray-500 sushi-uppercase sushi-border-b sushi-border-gray-200 sushi-">
-                    <a href="#" className="sushi-flex sushi-items-center">
+                    <button className="sushi-flex sushi-items-center">
                       <span className="sushi-text-red-500">No</span>
-                    </a>
+                    </button>
                   </th>
                   <th className="sushi-pr-6 sushi-py-3 sushi-text-xs sushi-font-medium sushi-leading-4 sushi-tracking-wider sushi-text-left sushi-text-gray-500 sushi-uppercase sushi-border-b sushi-border-gray-200 sushi-">
                     {/**/}
@@ -65,7 +64,7 @@ const Signers = () => {
                 <tr>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-items-center">
-                      <a
+                      <button
                         href="https://twitter.com/SBF_Alameda"
                         target="_blank"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
@@ -73,10 +72,11 @@ const Signers = () => {
                         <img
                           src="https://unavatar.now.sh/twitter/SBF_Alameda"
                           className="sushi-w-10 sushi-h-10 sushi-rounded-full sushi-shadow-md"
+                          alt=""
                         />
-                      </a>{" "}
+                      </button>{" "}
                       <div>
-                        <a
+                        <button
                           href="https://twitter.com/SBF_Alameda"
                           target="_blank"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
@@ -90,33 +90,27 @@ const Signers = () => {
                             <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />{" "}
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
-                        </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Contributor)
-                        </div>
+                        </button>{" "}
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Contributor)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 261,381</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                      273 wallets
-                    </div>
+                    <div>
+                      <span role="img">🍣</span> 261,381
+                    </div>{" "}
+                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">273 wallets</div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 9,341</div>{" "}
+                    <div>
+                      <span role="img">🍣</span> 9,341
+                    </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">12 wallets</div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "96.54949392454367%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "3.450506075456319%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "96.54949392454367%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "3.450506075456319%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">96.5% Yes</div>{" "}
@@ -125,7 +119,7 @@ const Signers = () => {
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <span className="sushi-inline-flex sushi-rounded-md sushi-shadow-sm">
-                      <a
+                      <button
                         href="https://snapshot.page/#/sushi/proposal/Qmbjd7KKaSpAJaJBh96WbGUo4UWEnE7WVo5PxzWS1xZ6MB"
                         target="_blank"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
@@ -139,14 +133,14 @@ const Signers = () => {
                           <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />{" "}
                           <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                         </svg>
-                      </a>
+                      </button>
                     </span>
                   </td>
                 </tr>
                 <tr>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-items-center">
-                      <a
+                      <button
                         href="https://twitter.com/rleshner"
                         target="_blank"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
@@ -154,10 +148,11 @@ const Signers = () => {
                         <img
                           src="https://unavatar.now.sh/twitter/rleshner"
                           className="sushi-w-10 sushi-h-10 sushi-rounded-full sushi-shadow-md"
+                          alt=""
                         />
-                      </a>{" "}
+                      </button>{" "}
                       <div>
-                        <a
+                        <button
                           href="https://twitter.com/rleshner"
                           target="_blank"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
@@ -171,33 +166,27 @@ const Signers = () => {
                             <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />{" "}
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
-                        </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Contributor)
-                        </div>
+                        </button>{" "}
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Contributor)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 231,257</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                      146 wallets
-                    </div>
+                    <div>
+                      <span role="img">🍣</span> 231,257
+                    </div>{" "}
+                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">146 wallets</div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 1,003</div>{" "}
+                    <div>
+                      <span role="img">🍣</span> 1,003
+                    </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">4 wallets</div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "99.56826254787933%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "0.43173745212067405%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "99.56826254787933%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "0.43173745212067405%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">99.6% Yes</div>{" "}
@@ -206,7 +195,7 @@ const Signers = () => {
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <span className="sushi-inline-flex sushi-rounded-md sushi-shadow-sm">
-                      <a
+                      <button
                         href="https://snapshot.page/#/sushi/proposal/Qmf6nY1iffWpX2wHySYYkAnjXiUgCY49yZbj7sR4r6fBqA"
                         target="_blank"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
@@ -220,14 +209,14 @@ const Signers = () => {
                           <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />{" "}
                           <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                         </svg>
-                      </a>
+                      </button>
                     </span>
                   </td>
                 </tr>
                 <tr>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-items-center">
-                      <a
+                      <button
                         href="https://twitter.com/0xMaki"
                         target="_blank"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
@@ -235,10 +224,11 @@ const Signers = () => {
                         <img
                           src="https://unavatar.now.sh/twitter/0xMaki"
                           className="sushi-w-10 sushi-h-10 sushi-rounded-full sushi-shadow-md"
+                          alt=""
                         />
-                      </a>{" "}
+                      </button>{" "}
                       <div>
-                        <a
+                        <button
                           href="https://twitter.com/0xMaki"
                           target="_blank"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
@@ -252,33 +242,27 @@ const Signers = () => {
                             <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />{" "}
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
-                        </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Contributor)
-                        </div>
+                        </button>{" "}
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Contributor)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 191,255</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                      212 wallets
-                    </div>
+                    <div>
+                      <span role="img">🍣</span> 191,255
+                    </div>{" "}
+                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">212 wallets</div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 409</div>{" "}
+                    <div>
+                      <span role="img">🍣</span> 409
+                    </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">6 wallets</div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "99.78658258651613%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "0.21341741348386506%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "99.78658258651613%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "0.21341741348386506%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">99.8% Yes</div>{" "}
@@ -287,7 +271,7 @@ const Signers = () => {
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <span className="sushi-inline-flex sushi-rounded-md sushi-shadow-sm">
-                      <a
+                      <button
                         href="https://snapshot.page/#/sushi/proposal/Qmc7dC3c2csW937MdVrGKPYCZCub7owgVvAazcZ6k8LfXw"
                         target="_blank"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
@@ -301,14 +285,14 @@ const Signers = () => {
                           <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />{" "}
                           <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                         </svg>
-                      </a>
+                      </button>
                     </span>
                   </td>
                 </tr>
                 <tr>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-items-center">
-                      <a
+                      <button
                         href="https://twitter.com/lawmaster"
                         target="_blank"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
@@ -316,10 +300,11 @@ const Signers = () => {
                         <img
                           src="https://unavatar.now.sh/twitter/lawmaster"
                           className="sushi-w-10 sushi-h-10 sushi-rounded-full sushi-shadow-md"
+                          alt=""
                         />
-                      </a>{" "}
+                      </button>{" "}
                       <div>
-                        <a
+                        <button
                           href="https://twitter.com/lawmaster"
                           target="_blank"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
@@ -333,31 +318,27 @@ const Signers = () => {
                             <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />{" "}
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
-                        </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        </button>{" "}
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 178,616</div>{" "}
+                    <div>
+                      <span role="img">🍣</span> 178,616
+                    </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">86 wallets</div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 2,224</div>{" "}
+                    <div>
+                      <span role="img">🍣</span> 2,224
+                    </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">5 wallets</div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "98.76994194682193%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "1.2300580531780845%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "98.76994194682193%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "1.2300580531780845%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">98.8% Yes</div>{" "}
@@ -366,7 +347,7 @@ const Signers = () => {
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <span className="sushi-inline-flex sushi-rounded-md sushi-shadow-sm">
-                      <a
+                      <button
                         href="https://snapshot.page/#/sushi/proposal/QmRiomzmtMw4w6VDZ1Yy5Ybfu6JLAW73JWMfe6MJaJ2VmG"
                         target="_blank"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
@@ -380,14 +361,14 @@ const Signers = () => {
                           <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />{" "}
                           <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                         </svg>
-                      </a>
+                      </button>
                     </span>
                   </td>
                 </tr>
                 <tr>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-items-center">
-                      <a
+                      <button
                         href="https://twitter.com/cmsholdings"
                         target="_blank"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
@@ -395,10 +376,11 @@ const Signers = () => {
                         <img
                           src="https://unavatar.now.sh/twitter/cmsholdings"
                           className="sushi-w-10 sushi-h-10 sushi-rounded-full sushi-shadow-md"
+                          alt=""
                         />
-                      </a>{" "}
+                      </button>{" "}
                       <div>
-                        <a
+                        <button
                           href="https://twitter.com/cmsholdings"
                           target="_blank"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
@@ -412,31 +394,27 @@ const Signers = () => {
                             <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />{" "}
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
-                        </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        </button>{" "}
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 172,483</div>{" "}
+                    <div>
+                      <span role="img">🍣</span> 172,483
+                    </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">33 wallets</div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 9,415</div>{" "}
+                    <div>
+                      <span role="img">🍣</span> 9,415
+                    </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">7 wallets</div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "94.8238211242438%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "5.176178875756182%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "94.8238211242438%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "5.176178875756182%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">94.8% Yes</div>{" "}
@@ -445,7 +423,7 @@ const Signers = () => {
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <span className="sushi-inline-flex sushi-rounded-md sushi-shadow-sm">
-                      <a
+                      <button
                         href="https://snapshot.page/#/sushi/proposal/QmY8XvVds8FwCGENffUiDBUmGq3j6V7dvCKWDWVe4TMV5N"
                         target="_blank"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
@@ -459,14 +437,14 @@ const Signers = () => {
                           <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />{" "}
                           <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                         </svg>
-                      </a>
+                      </button>
                     </span>
                   </td>
                 </tr>
                 <tr>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-items-center">
-                      <a
+                      <button
                         href="https://twitter.com/mattysino"
                         target="_blank"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
@@ -474,10 +452,11 @@ const Signers = () => {
                         <img
                           src="https://unavatar.now.sh/twitter/mattysino"
                           className="sushi-w-10 sushi-h-10 sushi-rounded-full sushi-shadow-md"
+                          alt=""
                         />
-                      </a>{" "}
+                      </button>{" "}
                       <div>
-                        <a
+                        <button
                           href="https://twitter.com/mattysino"
                           target="_blank"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
@@ -491,31 +470,27 @@ const Signers = () => {
                             <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />{" "}
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
-                        </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Contributor)
-                        </div>
+                        </button>{" "}
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Contributor)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 160,726</div>{" "}
+                    <div>
+                      <span role="img">🍣</span> 160,726
+                    </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">38 wallets</div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 591</div>{" "}
+                    <div>
+                      <span role="img">🍣</span> 591
+                    </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">2 wallets</div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "99.63357993522528%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "0.3664200647747227%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "99.63357993522528%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "0.3664200647747227%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">99.6% Yes</div>{" "}
@@ -524,7 +499,7 @@ const Signers = () => {
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <span className="sushi-inline-flex sushi-rounded-md sushi-shadow-sm">
-                      <a
+                      <button
                         href="https://snapshot.page/#/sushi/proposal/Qmew6unHuCZjZea7t3nhNbA1fUWw6eDgz3KKFsWqpebbt1"
                         target="_blank"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
@@ -538,14 +513,14 @@ const Signers = () => {
                           <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />{" "}
                           <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                         </svg>
-                      </a>
+                      </button>
                     </span>
                   </td>
                 </tr>
                 <tr>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-items-center">
-                      <a
+                      <button
                         href="https://twitter.com/mickhagen"
                         target="_blank"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
@@ -553,10 +528,11 @@ const Signers = () => {
                         <img
                           src="https://unavatar.now.sh/twitter/mickhagen"
                           className="sushi-w-10 sushi-h-10 sushi-rounded-full sushi-shadow-md"
+                          alt=""
                         />
-                      </a>{" "}
+                      </button>{" "}
                       <div>
-                        <a
+                        <button
                           href="https://twitter.com/mickhagen"
                           target="_blank"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
@@ -570,31 +546,27 @@ const Signers = () => {
                             <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />{" "}
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
-                        </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Contributor)
-                        </div>
+                        </button>{" "}
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Contributor)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 158,745</div>{" "}
+                    <div>
+                      <span role="img">🍣</span> 158,745
+                    </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">40 wallets</div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 2,614</div>{" "}
+                    <div>
+                      <span role="img">🍣</span> 2,614
+                    </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">4 wallets</div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "98.38017786850284%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "1.6198221314971741%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "98.38017786850284%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "1.6198221314971741%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">98.4% Yes</div>{" "}
@@ -603,7 +575,7 @@ const Signers = () => {
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <span className="sushi-inline-flex sushi-rounded-md sushi-shadow-sm">
-                      <a
+                      <button
                         href="https://snapshot.page/#/sushi/proposal/QmUYW8CjcJ75XRifq2oTJZkRNaAWLo6WdVLYYcydAc3MiZ"
                         target="_blank"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
@@ -617,14 +589,14 @@ const Signers = () => {
                           <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />{" "}
                           <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                         </svg>
-                      </a>
+                      </button>
                     </span>
                   </td>
                 </tr>
                 <tr>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-items-center">
-                      <a
+                      <button
                         href="https://twitter.com/AdamScochran"
                         target="_blank"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
@@ -632,10 +604,11 @@ const Signers = () => {
                         <img
                           src="https://unavatar.now.sh/twitter/AdamScochran"
                           className="sushi-w-10 sushi-h-10 sushi-rounded-full sushi-shadow-md"
+                          alt=""
                         />
-                      </a>{" "}
+                      </button>{" "}
                       <div>
-                        <a
+                        <button
                           href="https://twitter.com/AdamScochran"
                           target="_blank"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
@@ -649,31 +622,27 @@ const Signers = () => {
                             <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />{" "}
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
-                        </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        </button>{" "}
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 147,298</div>{" "}
+                    <div>
+                      <span role="img">🍣</span> 147,298
+                    </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">93 wallets</div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 7,119</div>{" "}
+                    <div>
+                      <span role="img">🍣</span> 7,119
+                    </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">4 wallets</div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "95.3897060363569%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "4.610293963643083%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "95.3897060363569%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "4.610293963643083%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">95.4% Yes</div>{" "}
@@ -682,7 +651,7 @@ const Signers = () => {
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <span className="sushi-inline-flex sushi-rounded-md sushi-shadow-sm">
-                      <a
+                      <button
                         href="https://snapshot.page/#/sushi/proposal/QmSUJjtWXzjb37R6pDYdDHfLiS4TXWSvVDGXoMa4rTiqSo"
                         target="_blank"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
@@ -696,14 +665,14 @@ const Signers = () => {
                           <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />{" "}
                           <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                         </svg>
-                      </a>
+                      </button>
                     </span>
                   </td>
                 </tr>
                 <tr>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-items-center">
-                      <a
+                      <button
                         href="https://twitter.com/zippoxer"
                         target="_blank"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
@@ -711,10 +680,11 @@ const Signers = () => {
                         <img
                           src="https://unavatar.now.sh/twitter/zippoxer"
                           className="sushi-w-10 sushi-h-10 sushi-rounded-full sushi-shadow-md"
+                          alt=""
                         />
-                      </a>{" "}
+                      </button>{" "}
                       <div>
-                        <a
+                        <button
                           href="https://twitter.com/zippoxer"
                           target="_blank"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
@@ -728,33 +698,24 @@ const Signers = () => {
                             <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />{" "}
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
-                        </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Contributor)
-                        </div>
+                        </button>{" "}
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Contributor)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 130,035</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                      109 wallets
-                    </div>
+                    <div>
+                      <span role="img">🍣</span> 130,035
+                    </div>{" "}
+                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">109 wallets</div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 19,347</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">6 wallets</div>
+                    <div>c 19,347</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">6 wallets</div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "87.0484014476728%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "12.951598552327212%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "87.0484014476728%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "12.951598552327212%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">87.0% Yes</div>{" "}
@@ -763,7 +724,7 @@ const Signers = () => {
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <span className="sushi-inline-flex sushi-rounded-md sushi-shadow-sm">
-                      <a
+                      <button
                         href="https://snapshot.page/#/sushi/proposal/QmYeGxz3RacXSYJ5hqxXz4BZcMeYnPkoxUV8RdXiWHSgS8"
                         target="_blank"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
@@ -777,7 +738,7 @@ const Signers = () => {
                           <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />{" "}
                           <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                         </svg>
-                      </a>
+                      </button>
                     </span>
                   </td>
                 </tr>

@@ -29,6 +29,12 @@ const Container = styled.div`
 //     width: 100%;
 //   }
 
+// border: 1px solid #4e4e4e;
+// box-shadow: ${({ open, small }) =>
+//     !open && !small
+//       ? "0px 24px 32px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04) "
+//       : "none"};
+
 const Wrapper = styled.div`
   display: flex;
   position: relative;
@@ -36,6 +42,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: flex-end;
   padding: 10px 10px;
+  border: 1px solid #d2d6dc;
   border-radius: 5px;
   background: ${({ theme, small, open }) =>
     small ? (open ? transparentize(0.4, theme.bg1) : "none") : transparentize(0.4, theme.bg6)};
@@ -46,15 +53,11 @@ const Wrapper = styled.div`
   min-width: 300px;
   box-sizing: border-box;
   box-shadow: ${({ open, small }) =>
-    !open && !small
-      ? "0px 24px 32px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04) "
-      : "none"};
+    !open && !small ? "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)" : "none"};
   @media screen and (max-width: 500px) {
     background: ${({ theme }) => transparentize(0.4, theme.bg1)};
     box-shadow: ${({ open }) =>
-      !open
-        ? "0px 24px 32px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04) "
-        : "none"};
+      !open ? "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)" : "none"};
   }
 `;
 const Input = styled.input`
@@ -70,7 +73,7 @@ const Input = styled.input`
   font-size: ${({ large }) => (large ? "20px" : "14px")};
 
   ::placeholder {
-    color: ${({ theme }) => theme.text3};
+    color: #9fa6b2;
     font-size: 16px;
   }
 
@@ -470,7 +473,7 @@ export const Search = ({ small = false }) => {
               return (
                 <BasicLink to={"/pair/" + pair.id} key={pair.id} onClick={onDismiss}>
                   <MenuItem>
-                    <DoubleTokenLogo a0={pair?.token0?.id} a1={pair?.token1?.id} margin={true} />
+                    <DoubleTokenLogo a0={pair?.token0?.id} a1={pair?.token1?.id} margin={true} sizeraw={10} />
                     <TYPE.body style={{ marginLeft: "10px" }}>
                       {pair.token0.symbol + "-" + pair.token1.symbol} Pair
                     </TYPE.body>

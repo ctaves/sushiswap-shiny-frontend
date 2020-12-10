@@ -85,11 +85,11 @@ const PageTitleBreadcrumb = ({ type, name, price, price2, priceChange, symbol, s
                     {name}
                   </div>
                 </div>
-                <div className="sushi-mt-4 sushi-flex-shrink-0 sushi-flex md:sushi-mt-0 md:sushi-ml-4">
+                {/* <div className="sushi-mt-4 sushi-flex-shrink-0 sushi-flex md:sushi-mt-0 md:sushi-ml-4">
                   <span className="sushi-ml-3">
                     <WalletButton />
                   </span>
-                </div>
+                </div> */}
               </div>
             </div>
           ),
@@ -164,11 +164,11 @@ const PageTitleBreadcrumb = ({ type, name, price, price2, priceChange, symbol, s
                     <div className="sushi-ml-1 sushi-font-normal sushi-text-sm sushi-text-green-500">{priceChange}</div>
                   </div>
                 </div>
-                <div className="sushi-mt-4 sushi-flex-shrink-0 sushi-flex md:sushi-mt-0 md:sushi-ml-4">
+                {/* <div className="sushi-mt-4 sushi-flex-shrink-0 sushi-flex md:sushi-mt-0 md:sushi-ml-4">
                   <span className="sushi-ml-3">
                     <WalletButton />
                   </span>
-                </div>
+                </div> */}
               </div>
             </div>
           ),

@@ -4,32 +4,28 @@ import WechatModal from "../Modals/Wechat";
 import useModal from "../../shared/hooks/useModal";
 
 import SwapIcon from "../../assets/icons/swap.png";
-import MenuIcon from "../../assets/icons/menu.png";
-import AnalyticsIcon from "../../assets/icons/analytics.png";
-import BentoBoxIcon from "../../assets/icons/bentobox_gray.png";
-import CompareIcon from "../../assets/icons/comparison.png";
+import StakeIcon from "../../assets/icons/stake.png";
+// import MenuIcon from "../../assets/icons/menu.png";
+// import AnalyticsIcon from "../../assets/icons/analytics.png";
+// import BentoBoxIcon from "../../assets/icons/bentobox_gray.png";
+// import CompareIcon from "../../assets/icons/comparison.png";
 
 const MenuItems = ({ selected }) => {
   const [onPresentWechat] = useModal(<WechatModal />, null, null);
   return (
     <>
-      <div className="sushi-space-y-1">
-        <div className="sushi-mx-1 sushi-py-2 sushi-px-1 sushi-relative">
-          {/* <div className="sushi-mx-1 sushi-py-2 sushi-px-1 sushi-relative sushi-rounded-md sushi-shadow-md bg-orange-50"> */}
+      <div className="space-y-1">
+        <div className="py-1 relative">
           <Link
-            to="/swap"
+            to="/home"
             className={
-              selected === "swap"
-                ? "sushi-neumorphic-drop-shadow sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-900 sushi-bg-orange-50 focus:sushi-outline-none focus:sushi-bg-orange-50 sushi-transition sushi-ease-in-out sushi-duration-150"
-                : "sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-700 hover:sushi-text-gray-900 hover:sushi-bg-orange-200 focus:sushi-outline-none focus:sushi-bg-orange-200 sushi-transition sushi-ease-in-out sushi-duration-150"
+              selected === "home"
+                ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
+                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:font-semibold focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
             }
           >
-            <img
-              src={SwapIcon}
-              className="sushi-mr-3 sushi-h-6 sushi-w-6 sushi-text-gray-400 group-hover:sushi-text-gray-500 group-focus:sushi-text-gray-600 sushi-transition sushi-ease-in-out sushi-duration-150"
-            />
-            {/* <svg
-              className="sushi-mr-3 sushi-h-6 sushi-w-6 sushi-text-gray-400 group-hover:sushi-text-gray-500 group-focus:sushi-text-gray-600 sushi-transition sushi-ease-in-out sushi-duration-150"
+            <svg
+              className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-900 group-focus:text-gray-600 transition ease-in-out duration-150"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -38,25 +34,98 @@ const MenuItems = ({ selected }) => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
               />
-            </svg> */}
-            Quick Swap
+            </svg>
+            Overview
           </Link>
+          <Link
+            to="/omakase"
+            className={
+              selected === "omakase"
+                ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
+                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:font-semibold focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
+            }
+          >
+            <svg
+              className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-900 group-focus:text-gray-600 transition ease-in-out duration-150"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+              />
+            </svg>
+            Portfolio
+          </Link>
+        </div>
+        <div className="py-2 relative">
+          {/* <div className="mx-1 py-2 px-1 relative rounded-md shadow-md bg-orange-50"> */}
+          <Link
+            to="/swap"
+            className={
+              selected === "swap"
+                ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
+                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:font-semibold focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
+            }
+          >
+            <img
+              src={SwapIcon}
+              className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-900 group-focus:text-gray-600 transition ease-in-out duration-150"
+            />
+            Swap
+          </Link>
+          <div className="group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-500">
+            <svg
+              className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-900 group-focus:text-gray-600 transition ease-in-out duration-150"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            Lending
+            {/* <span className="ml-auto inline-block py-0.5 px-3 text-xs leading-4 font-medium rounded-md gray-100 transition ease-in-out duration-150 group-hover:bg-orange-200 group-focus:bg-orange-200">
+              Coming Soon
+            </span> */}
+          </div>
           <Link
             to="/weekly"
             className={
               selected === "weekly"
-                ? "sushi-neumorphic-drop-shadow sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-900 sushi-bg-orange-50 focus:sushi-outline-none focus:sushi-bg-orange-50 sushi-transition sushi-ease-in-out sushi-duration-150"
-                : "sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-700 hover:sushi-text-gray-900 hover:sushi-bg-orange-200 focus:sushi-outline-none focus:sushi-bg-orange-200 sushi-transition sushi-ease-in-out sushi-duration-150"
+                ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
+                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:font-semibold focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
             }
           >
-            <img
-              src={MenuIcon}
-              className="sushi-mr-3 sushi-h-6 sushi-w-6 sushi-text-gray-400 group-hover:sushi-text-gray-500 group-focus:sushi-text-gray-600 sushi-transition sushi-ease-in-out sushi-duration-150"
-            />
-            {/* <svg
-              className="sushi-mr-3 sushi-h-6 sushi-w-6 sushi-text-gray-400 group-hover:sushi-text-gray-500 group-focus:sushi-text-gray-600 sushi-transition sushi-ease-in-out sushi-duration-150"
+            <svg
+              className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-900 group-focus:text-gray-600 transition ease-in-out duration-150"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M16 4v12l-4-2-4 2V4M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+              />
+            </svg>
+            Weekly Farms
+          </Link>
+          <Link
+            to="/farms"
+            className={
+              selected === "pools"
+                ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
+                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:font-semibold focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
+            }
+          >
+            <svg
+              className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-900 group-focus:text-gray-600 transition ease-in-out duration-150"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -67,68 +136,36 @@ const MenuItems = ({ selected }) => {
                 strokeWidth={2}
                 d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
               />
-            </svg> */}
-            Menu of the Week
-            {/* <span className="sushi-ml-auto sushi-inline-block sushi-py-0.5 sushi-px-3 sushi-text-xs sushi-leading-4 sushi-font-medium sushi-rounded-md sushi-bg-orange-200 sushi-transition sushi-ease-in-out sushi-duration-150 group-hover:sushi-bg-orange-200 group-focus:sushi-bg-orange-200">
-              NEW
-            </span> */}
+            </svg>
+            Permanent Farms
           </Link>
           <Link
-            to="/omakase"
+            to="/pools"
             className={
-              selected === "omakase"
-                ? "sushi-neumorphic-drop-shadow sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-900 sushi-bg-orange-50 focus:sushi-outline-none focus:sushi-bg-orange-50 sushi-transition sushi-ease-in-out sushi-duration-150"
-                : "sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-700 hover:sushi-text-gray-900 hover:sushi-bg-orange-200 focus:sushi-outline-none focus:sushi-bg-orange-200 sushi-transition sushi-ease-in-out sushi-duration-150"
+              selected === "pools"
+                ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
+                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:font-semibold focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
             }
           >
             <img
-              src={AnalyticsIcon}
-              className="sushi-mr-3 sushi-h-6 sushi-w-6 sushi-text-gray-400 group-hover:sushi-text-gray-500 group-focus:sushi-text-gray-600 sushi-transition sushi-ease-in-out sushi-duration-150"
+              src={StakeIcon}
+              className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-900 group-focus:text-gray-600 transition ease-in-out duration-150"
             />
-            {/* <svg
-              className="sushi-mr-3 sushi-h-6 sushi-w-6 sushi-text-gray-400 group-hover:sushi-text-gray-500 group-focus:sushi-text-gray-600 sushi-transition sushi-ease-in-out sushi-duration-150"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-              ></path>
-            </svg> */}
-            Omakase
+            xSUSHI Farm
           </Link>
-          {/* <Link
-            to="/compare"
+        </div>
+        <div className="mt-4"></div>
+        <div className="py-1 relative">
+          <Link
+            to="/tokens"
             className={
-              selected === "compare"
-                ? "sushi-neumorphic-drop-shadow sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-900 sushi-bg-orange-50 focus:sushi-outline-none focus:sushi-bg-orange-50 sushi-transition sushi-ease-in-out sushi-duration-150"
-                : "sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-700 hover:sushi-text-gray-900 hover:sushi-bg-orange-200 focus:sushi-outline-none focus:sushi-bg-orange-200 sushi-transition sushi-ease-in-out sushi-duration-150"
+              selected === "tokens"
+                ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
+                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:font-semibold focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
             }
           >
-            <img
-              src={CompareIcon}
-              className="sushi-mr-3 sushi-h-6 sushi-w-6 sushi-text-gray-400 group-hover:sushi-text-gray-500 group-focus:sushi-text-gray-600 sushi-transition sushi-ease-in-out sushi-duration-150"
-            />
-            Compare
-          </Link> */}
-          <div className="sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-500">
-            {/* <Link
-            to="/bentobox"
-            className={
-              selected === "bentobox"
-                ? "sushi-neumorphic-drop-shadow sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-900 sushi-bg-orange-50 focus:sushi-outline-none focus:sushi-bg-orange-50 sushi-transition sushi-ease-in-out sushi-duration-150"
-                : "sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-700 hover:sushi-text-gray-900 hover:sushi-bg-orange-200 focus:sushi-outline-none focus:sushi-bg-orange-200 sushi-transition sushi-ease-in-out sushi-duration-150"
-            }
-          > */}
-            <img
-              src={BentoBoxIcon}
-              className="sushi-mr-3 sushi-h-6 sushi-w-6 sushi-text-gray-400 group-hover:sushi-text-gray-500 group-focus:sushi-text-gray-600 sushi-transition sushi-ease-in-out sushi-duration-150"
-            />
-            {/* <svg
-              className="sushi-mr-3 sushi-h-6 sushi-w-6 sushi-text-gray-400 group-hover:sushi-text-gray-500 group-focus:sushi-text-gray-600 sushi-transition sushi-ease-in-out sushi-duration-150"
+            <svg
+              className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-900 group-focus:text-gray-600 transition ease-in-out duration-150"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -137,231 +174,117 @@ const MenuItems = ({ selected }) => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zM8 7a1 1 0 00-1 1v4a1 1 0 001 1h4a1 1 0 001-1V8a1 1 0 00-1-1H8z"
               />
-            </svg> */}
-            BentoBox
-            <span className="sushi-ml-auto sushi-inline-block sushi-py-0.5 sushi-px-3 sushi-text-xs sushi-leading-4 sushi-font-medium sushi-rounded-md sushi-bg-orange-200 sushi-transition sushi-ease-in-out sushi-duration-150 group-hover:sushi-bg-orange-200 group-focus:sushi-bg-orange-200">
-              Coming Soon
-            </span>
-          </div>
-          {/* </Link> */}
+            </svg>
+            Tokens
+          </Link>
+          <Link
+            to="/pairs"
+            className={
+              selected === "pairs"
+                ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
+                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:font-semibold focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
+            }
+          >
+            <svg
+              className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-900 group-focus:text-gray-600 transition ease-in-out duration-150"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
+              ></path>
+            </svg>
+            Pairs
+          </Link>
         </div>
-        <div className="sushi-pt-2"></div>
-        <Link
-          to="/home"
-          className={
-            selected === "home"
-              ? "sushi-neumorphic-drop-shadow sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-900 sushi-bg-orange-50 focus:sushi-outline-none focus:sushi-bg-orange-50 sushi-transition sushi-ease-in-out sushi-duration-150"
-              : "sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-700 hover:sushi-text-gray-900 hover:sushi-bg-orange-200 focus:sushi-outline-none focus:sushi-bg-orange-200 sushi-transition sushi-ease-in-out sushi-duration-150"
-          }
-        >
-          <svg
-            className="sushi-mr-3 sushi-h-6 sushi-w-6 sushi-text-gray-400 group-hover:sushi-text-gray-500 group-focus:sushi-text-gray-600 sushi-transition sushi-ease-in-out sushi-duration-150"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+        <div className="py-1 relative">
+          <Link
+            to="/governance"
+            className={
+              selected === "governance"
+                ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
+                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:font-semibold focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
+            }
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-            />
-          </svg>
-          Overview
-        </Link>
-        <Link
-          to="/pools"
-          className={
-            selected === "pools"
-              ? "sushi-neumorphic-drop-shadow sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-900 sushi-bg-orange-50 focus:sushi-outline-none focus:sushi-bg-orange-50 sushi-transition sushi-ease-in-out sushi-duration-150"
-              : "sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-700 hover:sushi-text-gray-900 hover:sushi-bg-orange-200 focus:sushi-outline-none focus:sushi-bg-orange-200 sushi-transition sushi-ease-in-out sushi-duration-150"
-          }
-        >
-          <svg
-            className="sushi-mr-3 sushi-h-6 sushi-w-6 sushi-text-gray-400 group-hover:sushi-text-gray-500 group-focus:sushi-text-gray-600 sushi-transition sushi-ease-in-out sushi-duration-150"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+            <svg
+              className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-900 group-focus:text-gray-600 transition ease-in-out duration-150"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
+              ></path>
+            </svg>
+            Governance
+          </Link>
+          <Link
+            to="/community"
+            className={
+              selected === "community"
+                ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
+                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:font-semibold focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
+            }
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-            />
-            {/* <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
-            /> */}
-          </svg>
-          Farms
-          <span className="sushi-ml-auto sushi-inline-block sushi-py-0.5 sushi-px-3 sushi-text-xs sushi-leading-4 sushi-font-medium sushi-rounded-md sushi-bg-orange-200 sushi-text-orange-800 sushi-transition sushi-ease-in-out sushi-duration-150 group-hover:sushi-bg-orange-200 group-focus:sushi-bg-orange-200">
-            Earn SUSHI
-          </span>
-        </Link>
-        <Link
-          to="/tokens"
-          className={
-            selected === "tokens"
-              ? "sushi-neumorphic-drop-shadow sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-900 sushi-bg-orange-50 focus:sushi-outline-none focus:sushi-bg-orange-50 sushi-transition sushi-ease-in-out sushi-duration-150"
-              : "sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-700 hover:sushi-text-gray-900 hover:sushi-bg-orange-200 focus:sushi-outline-none focus:sushi-bg-orange-200 sushi-transition sushi-ease-in-out sushi-duration-150"
-          }
-        >
-          <svg
-            className="sushi-mr-3 sushi-h-6 sushi-w-6 sushi-text-gray-400 group-hover:sushi-text-gray-500 group-focus:sushi-text-gray-600 sushi-transition sushi-ease-in-out sushi-duration-150"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+            <svg
+              className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-900 group-focus:text-gray-600 transition ease-in-out duration-150"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+              />
+            </svg>
+            Community
+          </Link>
+          <Link
+            to="/about"
+            className={
+              selected === "about"
+                ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
+                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:font-semibold focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
+            }
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zM8 7a1 1 0 00-1 1v4a1 1 0 001 1h4a1 1 0 001-1V8a1 1 0 00-1-1H8z"
-            />
-          </svg>
-          Tokens
-        </Link>
-        <Link
-          to="/pairs"
-          className={
-            selected === "pairs"
-              ? "sushi-neumorphic-drop-shadow sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-900 sushi-bg-orange-50 focus:sushi-outline-none focus:sushi-bg-orange-50 sushi-transition sushi-ease-in-out sushi-duration-150"
-              : "sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-700 hover:sushi-text-gray-900 hover:sushi-bg-orange-200 focus:sushi-outline-none focus:sushi-bg-orange-200 sushi-transition sushi-ease-in-out sushi-duration-150"
-          }
-        >
-          <svg
-            className="sushi-mr-3 sushi-h-6 sushi-w-6 sushi-text-gray-400 group-hover:sushi-text-gray-500 group-focus:sushi-text-gray-600 sushi-transition sushi-ease-in-out sushi-duration-150"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
-            ></path>
-          </svg>
-          Pairs
-          {/* <span className="sushi-ml-auto sushi-inline-block sushi-py-0.5 sushi-px-3 sushi-text-xs sushi-leading-4 sushi-font-medium sushi-rounded-md sushi-bg-orange-200 sushi-transition sushi-ease-in-out sushi-duration-150 group-hover:sushi-bg-orange-200 group-focus:sushi-bg-orange-200">
-            3
-          </span> */}
-        </Link>
-        {/* <Link
-                to="/accounts"
-                className={
-                  selected === "accounts"
-                    ? "sushi-neumorphic-drop-shadow sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-900 sushi-bg-orange-50 focus:sushi-outline-none focus:sushi-bg-orange-50 sushi-transition sushi-ease-in-out sushi-duration-150"
-                    : "sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-700 hover:sushi-text-gray-900 hover:sushi-bg-orange-200 focus:sushi-outline-none focus:sushi-bg-orange-200 sushi-transition sushi-ease-in-out sushi-duration-150"
-                }
-              >
-                <svg
-                  className="sushi-mr-3 sushi-h-6 sushi-w-6 sushi-text-gray-400 group-hover:sushi-text-gray-500 group-focus:sushi-text-gray-600 sushi-transition sushi-ease-in-out sushi-duration-150"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
-                  ></path>
-                </svg>
-                Accounts
-              </Link> */}
-        <Link
-          //href="https://snapshot.page/#/sushi"
-          //target="_blank"
-          to="/governance"
-          className={
-            selected === "governance"
-              ? "sushi-neumorphic-drop-shadow sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-900 sushi-bg-orange-50 focus:sushi-outline-none focus:sushi-bg-orange-50 sushi-transition sushi-ease-in-out sushi-duration-150"
-              : "sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-700 hover:sushi-text-gray-900 hover:sushi-bg-orange-200 focus:sushi-outline-none focus:sushi-bg-orange-200 sushi-transition sushi-ease-in-out sushi-duration-150"
-          }
-        >
-          <svg
-            className="sushi-mr-3 sushi-h-6 sushi-w-6 sushi-text-gray-400 group-hover:sushi-text-gray-500 group-focus:sushi-text-gray-600 sushi-transition sushi-ease-in-out sushi-duration-150"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
-            ></path>
-          </svg>
-          Governance
-          {/* <span className="sushi-ml-auto sushi-inline-block sushi-py-0.5 sushi-px-3 sushi-text-xs sushi-leading-4 sushi-font-medium sushi-rounded-md sushi-bg-orange-200 sushi-transition sushi-ease-in-out sushi-duration-150 group-hover:sushi-bg-orange-200 group-focus:sushi-bg-orange-200">
-            47
-          </span> */}
-        </Link>
-        {/* <Link
-                to="/grants"
-                className={
-                  selected === "grants"
-                    ? "sushi-neumorphic-drop-shadow sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-900 sushi-bg-orange-50 focus:sushi-outline-none focus:sushi-bg-orange-50 sushi-transition sushi-ease-in-out sushi-duration-150"
-                    : "sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-700 hover:sushi-text-gray-900 hover:sushi-bg-orange-200 focus:sushi-outline-none focus:sushi-bg-orange-200 sushi-transition sushi-ease-in-out sushi-duration-150"
-                }
-              >
-                <svg
-                  className="sushi-mr-3 sushi-h-6 sushi-w-6 sushi-text-gray-400 group-hover:sushi-text-gray-500 group-focus:sushi-text-gray-600 sushi-transition sushi-ease-in-out sushi-duration-150"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  ></path>
-                </svg>
-                Grants
-                <span className="sushi-ml-auto sushi-inline-block sushi-py-0.5 sushi-px-3 sushi-text-xs sushi-leading-4 sushi-font-medium sushi-rounded-md sushi-bg-orange-200 sushi-transition sushi-ease-in-out sushi-duration-150 group-hover:sushi-bg-orange-200 group-focus:sushi-bg-orange-200">
-                  2
-                </span>
-              </Link> */}
-        <Link
-          to={"/about"}
-          className={
-            selected === "about"
-              ? "sushi-neumorphic-drop-shadow sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-900 sushi-bg-orange-50 focus:sushi-outline-none focus:sushi-bg-orange-50 sushi-transition sushi-ease-in-out sushi-duration-150"
-              : "sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-700 hover:sushi-text-gray-900 hover:sushi-bg-orange-200 focus:sushi-outline-none focus:sushi-bg-orange-200 sushi-transition sushi-ease-in-out sushi-duration-150"
-          }
-        >
-          <svg
-            className="sushi-mr-3 sushi-h-6 sushi-w-6 sushi-text-gray-400 group-hover:sushi-text-gray-500 group-focus:sushi-text-gray-600 sushi-transition sushi-ease-in-out sushi-duration-150"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            ></path>
-          </svg>
-          About
-        </Link>
+            <svg
+              className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-900 group-focus:text-gray-600 transition ease-in-out duration-150"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+            About
+          </Link>
+        </div>
+
         {/* <a
           href="https://help.sushidocs.com/faqs/faqs"
           className={
             selected === "faqs"
-              ? "sushi-neumorphic-drop-shadow sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-900 sushi-bg-orange-50 focus:sushi-outline-none focus:sushi-bg-orange-50 sushi-transition sushi-ease-in-out sushi-duration-150"
-              : "sushi-group sushi-flex sushi-items-center sushi-px-2 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-gray-700 hover:sushi-text-gray-900 hover:sushi-bg-orange-200 focus:sushi-outline-none focus:sushi-bg-orange-200 sushi-transition sushi-ease-in-out sushi-duration-150"
+              ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
+              : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:font-semibold focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
           }
         >
           <svg
-            className="sushi-mr-3 sushi-h-6 sushi-w-6 sushi-text-gray-400 group-hover:sushi-text-gray-500 group-focus:sushi-text-gray-600 sushi-transition sushi-ease-in-out sushi-duration-150"
+            className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-900 group-focus:text-gray-600 transition ease-in-out duration-150"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -376,71 +299,79 @@ const MenuItems = ({ selected }) => {
           FAQ
         </a> */}
       </div>
-      <div className="sushi-mt-4">
+      <div className="mt-4">
         {/* Secondary navigation */}
-        <div className="sushi-mt-1 sushi-space-y-1" role="group" aria-labelledby="teams-headline">
+        <div className="mt-1 space-y-1" role="group" aria-labelledby="teams-headline">
           {/* <a
             href="https://sushiswapclassic.org/"
             target="_blank"
-            className="sushi-group sushi-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-text-gray-700 sushi-rounded-md hover:sushi-text-gray-900 hover:sushi-bg-orange-50 focus:sushi-outline-none focus:sushi-bg-orange-50 sushi-transition sushi-ease-in-out sushi-duration-150"
+            className="group flex items-center px-3 py-2 text-sm leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition ease-in-out duration-150"
           >
-            <span className="sushi-w-2.5 sushi-h-2.5 sushi-mr-4 sushi-bg-orange-400 sushi-rounded-md" />
-            <span className="sushi-truncate">Sushiswapclassic.org</span>
+            <span className="w-2.5 h-2.5 mr-4 bg-orange-400 rounded-md" />
+            <span className="truncate">Sushiswapclassic.org</span>
           </a> */}
           <a
             href="https://docs.sushiswap.fi/"
             target="_blank"
-            className="sushi-group sushi-flex sushi-items-center sushi-px-3 sushi-py-1 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-text-gray-700 sushi-rounded-md hover:sushi-text-gray-900 hover:sushi-bg-orange-50 focus:sushi-outline-none focus:sushi-bg-orange-50 sushi-transition sushi-ease-in-out sushi-duration-150"
+            className="group flex items-center px-3 py-1 text-sm leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition ease-in-out duration-150"
           >
-            <span className="sushi-w-2.5 sushi-h-2.5 sushi-mr-4 sushi-bg-white sushi-rounded-md" />
-            <span className="sushi-truncate">Docs</span>
+            <span className="w-2.5 h-2.5 mr-4 bg-gray-300 rounded-md" />
+            <span className="truncate">Docs</span>
           </a>
           <a
             href="https://lite.sushiswap.fi/"
             target="_blank"
-            className="sushi-group sushi-flex sushi-items-center sushi-px-3 sushi-py-1 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-text-gray-700 sushi-rounded-md hover:sushi-text-gray-900 hover:sushi-bg-orange-50 focus:sushi-outline-none focus:sushi-bg-orange-50 sushi-transition sushi-ease-in-out sushi-duration-150"
+            className="group flex items-center px-3 py-1 text-sm leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition ease-in-out duration-150"
           >
-            <span className="sushi-w-2.5 sushi-h-2.5 sushi-mr-4 sushi-bg-orange-300 sushi-rounded-md" />
-            <span className="sushi-truncate">SushiSwap Lite</span>
+            <span className="w-2.5 h-2.5 mr-4 bg-orange-300 rounded-md" />
+            <span className="truncate">SushiSwap Lite</span>
           </a>
           <a
             href="https://www.sushiswapclassic.org/"
             target="_blank"
-            className="sushi-group sushi-flex sushi-items-center sushi-px-3 sushi-py-1 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-text-gray-700 sushi-rounded-md hover:sushi-text-gray-900 hover:sushi-bg-orange-50 focus:sushi-outline-none focus:sushi-bg-orange-50 sushi-transition sushi-ease-in-out sushi-duration-150"
+            className="group flex items-center px-3 py-1 text-sm leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition ease-in-out duration-150"
           >
-            <span className="sushi-w-2.5 sushi-h-2.5 sushi-mr-4 sushi-bg-orange-400 sushi-rounded-md" />
-            <span className="sushi-truncate">SushiSwap Classic</span>
+            <span className="w-2.5 h-2.5 mr-4 bg-orange-400 rounded-md" />
+            <span className="truncate">SushiSwap Classic</span>
+          </a>
+          <a
+            href="https://www.sushiswapanalytics.com/"
+            target="_blank"
+            className="group flex items-center px-3 py-1 text-sm leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition ease-in-out duration-150"
+          >
+            <span className="w-2.5 h-2.5 mr-4 bg-orange-400 rounded-md" />
+            <span className="truncate">SushiSwap Analytics</span>
           </a>
           <a
             href="https://discord.gg/NVPXN4e"
             target="_blank"
-            className="sushi-group sushi-flex sushi-items-center sushi-px-3 sushi-py-1 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-text-gray-700 sushi-rounded-md hover:sushi-text-gray-900 hover:sushi-bg-orange-50 focus:sushi-outline-none focus:sushi-bg-orange-50 sushi-transition sushi-ease-in-out sushi-duration-150"
+            className="group flex items-center px-3 py-1 text-sm leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition ease-in-out duration-150"
           >
-            <span className="sushi-w-2.5 sushi-h-2.5 sushi-mr-4 sushi-bg-indigo-500 sushi-rounded-md" />
-            <span className="sushi-truncate">Discord</span>
+            <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-md" />
+            <span className="truncate">Discord</span>
           </a>
           <a
             href="https://twitter.com/sushiswap"
             target="_blank"
-            className="sushi-group sushi-flex sushi-items-center sushi-px-3 sushi-py-1 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-text-gray-700 sushi-rounded-md hover:sushi-text-gray-900 hover:sushi-bg-orange-50 focus:sushi-outline-none focus:sushi-bg-orange-50 sushi-transition sushi-ease-in-out sushi-duration-150"
+            className="group flex items-center px-3 py-1 text-sm leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition ease-in-out duration-150"
           >
-            <span className="sushi-w-2.5 sushi-h-2.5 sushi-mr-4 sushi-bg-teal-400 sushi-rounded-md" />
-            <span className="sushi-truncate">Twitter</span>
+            <span className="w-2.5 h-2.5 mr-4 bg-teal-400 rounded-md" />
+            <span className="truncate">Twitter</span>
           </a>
           <button
             onClick={onPresentWechat}
-            className="sushi-w-full sushi-group sushi-flex sushi-items-center sushi-px-3 sushi-py-1 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-text-gray-700 sushi-rounded-md hover:sushi-text-gray-900 hover:sushi-bg-orange-50 focus:sushi-outline-none focus:sushi-bg-orange-50 sushi-transition sushi-ease-in-out sushi-duration-150"
+            className="w-full group flex items-center px-3 py-1 text-sm leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition ease-in-out duration-150"
           >
-            <span className="sushi-w-2.5 sushi-h-2.5 sushi-mr-4 sushi-bg-green-400 sushi-rounded-md" />
-            <span className="sushi-truncate">Wechat</span>
+            <span className="w-2.5 h-2.5 mr-4 bg-green-400 rounded-md" />
+            <span className="truncate">Wechat</span>
           </button>
           {/* <a
             href="https://www.notion.so/Sushiswap-Shiny-Frontend-38629fec29bd41a3bbe0fa52d404c921"
             target="_blank"
-            className="sushi-group sushi-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-text-gray-700 sushi-rounded-md hover:sushi-text-gray-900 hover:sushi-bg-orange-50 focus:sushi-outline-none focus:sushi-bg-orange-50 sushi-transition sushi-ease-in-out sushi-duration-150"
+            className="group flex items-center px-3 py-2 text-sm leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition ease-in-out duration-150"
           >
-            <span className="sushi-w-2.5 sushi-h-2.5 sushi-mr-4 sushi-bg-white sushi-rounded-md" />
-            <span className="sushi-truncate">Changelog</span>
+            <span className="w-2.5 h-2.5 mr-4 bg-white rounded-md" />
+            <span className="truncate">Changelog</span>
           </a> */}
         </div>
       </div>

@@ -4,7 +4,7 @@ import { Area, XAxis, YAxis, ResponsiveContainer, Tooltip, AreaChart, BarChart, 
 import { AutoRow, RowBetween, RowFixed } from "../Row";
 
 import { toK, toNiceDate, toNiceDateYear, formattedNum, getTimeframe } from "../../utils";
-import { OptionButton } from "../ButtonStyled";
+import { OptionButton } from "../ButtonStyled/secondary";
 import { darken } from "polished";
 import { useMedia, usePrevious } from "react-use";
 import { timeframeOptions } from "../../constants";
@@ -23,6 +23,13 @@ const ChartWrapper = styled.div`
   @media screen and (max-width: 600px) {
     min-height: 200px;
   }
+`;
+
+const OptionsRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border-bottom: 1px solid #e5e7eb;
 `;
 
 const PriceOption = styled(OptionButton)`
@@ -131,180 +138,26 @@ const TokenChart = ({ address, color, base }) => {
 
   return (
     <ChartWrapper>
-      {below600 ? (
-        <RowBetween mb={40}>
-          <DropdownSelect options={CHART_VIEW} active={chartFilter} setActive={setChartFilter} color={color} />
-          <DropdownSelect options={timeframeOptions} active={timeWindow} setActive={setTimeWindow} color={color} />
-        </RowBetween>
-      ) : (
-        <RowBetween
-          mb={
-            chartFilter === CHART_VIEW.LIQUIDITY ||
-            chartFilter === CHART_VIEW.VOLUME ||
-            (chartFilter === CHART_VIEW.PRICE && frequency === DATA_FREQUENCY.LINE)
-              ? 40
-              : 0
-          }
-          align="flex-start"
-        >
-          <AutoColumn gap="8px">
-            <RowFixed>
-              <div className="pt-4 relative pb-5 border-b border-gray-200 space-y-4 sm:pb-0">
-                <div className="space-y-3 md:flex md:items-center md:justify-between md:space-y-0">
-                  <h3 className="text-lg leading-6 font-medium text-gray-900">Market</h3>
-                </div>
-                <div>
-                  <div className="hidden sm:block">
-                    <nav className="-mb-px flex space-x-8">
-                      <button
-                        onClick={() => setChartFilter(CHART_VIEW.LIQUIDITY)}
-                        className={
-                          chartFilter === CHART_VIEW.LIQUIDITY
-                            ? "whitespace-no-wrap pb-4 px-1 border-b-2 border-orange-500 font-medium text-sm leading-5 text-orange-600 focus:outline-none focus:text-orange-800 focus:border-orange-700"
-                            : "whitespace-no-wrap pb-4 px-1 border-b-2 border-transparent font-medium text-sm leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300"
-                        }
-                      >
-                        Liquidity
-                      </button>
-                      <button
-                        onClick={() => setChartFilter(CHART_VIEW.VOLUME)}
-                        className={
-                          chartFilter === CHART_VIEW.VOLUME
-                            ? "whitespace-no-wrap pb-4 px-1 border-b-2 border-orange-500 font-medium text-sm leading-5 text-orange-600 focus:outline-none focus:text-orange-800 focus:border-orange-700"
-                            : "whitespace-no-wrap pb-4 px-1 border-b-2 border-transparent font-medium text-sm leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300"
-                        }
-                      >
-                        Volume
-                      </button>
-                      <button
-                        onClick={() => {
-                          setChartFilter(CHART_VIEW.PRICE);
-                        }}
-                        className={
-                          chartFilter === CHART_VIEW.PRICE
-                            ? "whitespace-no-wrap pb-4 px-1 border-b-2 border-orange-500 font-medium text-sm leading-5 text-orange-600 focus:outline-none focus:text-orange-800 focus:border-orange-700"
-                            : "whitespace-no-wrap pb-4 px-1 border-b-2 border-transparent font-medium text-sm leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300"
-                        }
-                        aria-current="page"
-                      >
-                        Price
-                      </button>
-                    </nav>
-                  </div>
-                </div>
-              </div>
-              {/* <OptionButton
-                active={chartFilter === CHART_VIEW.LIQUIDITY}
-                onClick={() => setChartFilter(CHART_VIEW.LIQUIDITY)}
-                style={{ marginRight: "6px" }}
-              >
-                Liquidity
-              </OptionButton>
-              <OptionButton
-                active={chartFilter === CHART_VIEW.VOLUME}
-                onClick={() => setChartFilter(CHART_VIEW.VOLUME)}
-                style={{ marginRight: "6px" }}
-              >
-                Volume
-              </OptionButton>
-              <OptionButton
-                active={chartFilter === CHART_VIEW.PRICE}
-                onClick={() => {
-                  setChartFilter(CHART_VIEW.PRICE);
-                }}
-              >
-                Price
-              </OptionButton> */}
-            </RowFixed>
-            {chartFilter === CHART_VIEW.PRICE && (
-              <AutoRow gap="4px">
-                <PriceOption
-                  active={frequency === DATA_FREQUENCY.DAY}
-                  onClick={() => {
-                    setTimeWindow(timeframeOptions.MONTH);
-                    setFrequency(DATA_FREQUENCY.DAY);
-                  }}
-                >
-                  D
-                </PriceOption>
-                <PriceOption
-                  active={frequency === DATA_FREQUENCY.HOUR}
-                  onClick={() => setFrequency(DATA_FREQUENCY.HOUR)}
-                >
-                  H
-                </PriceOption>
-                <PriceOption
-                  active={frequency === DATA_FREQUENCY.LINE}
-                  onClick={() => setFrequency(DATA_FREQUENCY.LINE)}
-                >
-                  <Activity size={14} />
-                </PriceOption>
-              </AutoRow>
-            )}
-          </AutoColumn>
-          <AutoRow justify="flex-end" gap="6px" align="flex-start">
-            <div className="pt-4 relative pb-5 border-b border-gray-200 space-y-4 sm:pb-0">
-              <div className="space-y-3 md:flex md:items-center md:justify-between md:space-y-0">
-                <h3 className="text-lg leading-6 font-medium text-gray-900">Timeframe</h3>
-              </div>
-              <div>
-                <div className="hidden sm:block">
-                  <nav className="-mb-px flex space-x-8">
-                    <button
-                      onClick={() => setTimeWindow(timeframeOptions.WEEK)}
-                      className={
-                        timeWindow === timeframeOptions.WEEK
-                          ? "whitespace-no-wrap pb-4 px-1 border-b-2 border-orange-500 font-medium text-sm leading-5 text-orange-600 focus:outline-none focus:text-orange-800 focus:border-orange-700"
-                          : "whitespace-no-wrap pb-4 px-1 border-b-2 border-transparent font-medium text-sm leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300"
-                      }
-                    >
-                      1W
-                    </button>
-                    <button
-                      onClick={() => setTimeWindow(timeframeOptions.MONTH)}
-                      className={
-                        timeWindow === timeframeOptions.MONTH
-                          ? "whitespace-no-wrap pb-4 px-1 border-b-2 border-orange-500 font-medium text-sm leading-5 text-orange-600 focus:outline-none focus:text-orange-800 focus:border-orange-700"
-                          : "whitespace-no-wrap pb-4 px-1 border-b-2 border-transparent font-medium text-sm leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300"
-                      }
-                    >
-                      1M
-                    </button>
-                    <button
-                      onClick={() => setTimeWindow(timeframeOptions.ALL_TIME)}
-                      className={
-                        timeWindow === timeframeOptions.ALL_TIME
-                          ? "whitespace-no-wrap pb-4 px-1 border-b-2 border-orange-500 font-medium text-sm leading-5 text-orange-600 focus:outline-none focus:text-orange-800 focus:border-orange-700"
-                          : "whitespace-no-wrap pb-4 px-1 border-b-2 border-transparent font-medium text-sm leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300"
-                      }
-                      aria-current="page"
-                    >
-                      ALL
-                    </button>
-                  </nav>
-                </div>
-              </div>
-            </div>
-            {/* <OptionButton
-              active={timeWindow === timeframeOptions.WEEK}
-              onClick={() => setTimeWindow(timeframeOptions.WEEK)}
+      {chartFilter === CHART_VIEW.PRICE && (
+        <div className="px-4 pt-8">
+          <AutoRow gap="4px">
+            <PriceOption
+              active={frequency === DATA_FREQUENCY.DAY}
+              onClick={() => {
+                setTimeWindow(timeframeOptions.MONTH);
+                setFrequency(DATA_FREQUENCY.DAY);
+              }}
             >
-              1W
-            </OptionButton>
-            <OptionButton
-              active={timeWindow === timeframeOptions.MONTH}
-              onClick={() => setTimeWindow(timeframeOptions.MONTH)}
-            >
-              1M
-            </OptionButton>
-            <OptionButton
-              active={timeWindow === timeframeOptions.ALL_TIME}
-              onClick={() => setTimeWindow(timeframeOptions.ALL_TIME)}
-            >
-              All
-            </OptionButton> */}
+              D
+            </PriceOption>
+            <PriceOption active={frequency === DATA_FREQUENCY.HOUR} onClick={() => setFrequency(DATA_FREQUENCY.HOUR)}>
+              H
+            </PriceOption>
+            <PriceOption active={frequency === DATA_FREQUENCY.LINE} onClick={() => setFrequency(DATA_FREQUENCY.LINE)}>
+              <Activity size={14} />
+            </PriceOption>
           </AutoRow>
-        </RowBetween>
+        </div>
       )}
       {chartFilter === CHART_VIEW.LIQUIDITY && chartData && (
         <ResponsiveContainer aspect={aspect}>
@@ -485,6 +338,97 @@ const TokenChart = ({ address, color, base }) => {
             />
           </BarChart>
         </ResponsiveContainer>
+      )}
+      {below600 ? (
+        <RowBetween mb={40}>
+          <DropdownSelect options={CHART_VIEW} active={chartFilter} setActive={setChartFilter} color={color} />
+          <DropdownSelect options={timeframeOptions} active={timeWindow} setActive={setTimeWindow} color={color} />
+        </RowBetween>
+      ) : (
+        <RowBetween
+          mb={
+            chartFilter === CHART_VIEW.LIQUIDITY ||
+            chartFilter === CHART_VIEW.VOLUME ||
+            (chartFilter === CHART_VIEW.PRICE && frequency === DATA_FREQUENCY.LINE)
+              ? 40
+              : 0
+          }
+          align="flex-start"
+        >
+          <OptionsRow>
+            <AutoColumn gap="8px">
+              <RowFixed>
+                <OptionButton
+                  active={chartFilter === CHART_VIEW.PRICE}
+                  onClick={() => {
+                    setChartFilter(CHART_VIEW.PRICE);
+                  }}
+                >
+                  Price
+                </OptionButton>
+                <OptionButton
+                  active={chartFilter === CHART_VIEW.LIQUIDITY}
+                  onClick={() => setChartFilter(CHART_VIEW.LIQUIDITY)}
+                  style={{ marginRight: "6px" }}
+                >
+                  Liquidity
+                </OptionButton>
+                <OptionButton
+                  active={chartFilter === CHART_VIEW.VOLUME}
+                  onClick={() => setChartFilter(CHART_VIEW.VOLUME)}
+                  style={{ marginRight: "6px" }}
+                >
+                  Volume
+                </OptionButton>
+              </RowFixed>
+              {/* {chartFilter === CHART_VIEW.PRICE && (
+              <AutoRow gap="4px">
+                <PriceOption
+                  active={frequency === DATA_FREQUENCY.DAY}
+                  onClick={() => {
+                    setTimeWindow(timeframeOptions.MONTH);
+                    setFrequency(DATA_FREQUENCY.DAY);
+                  }}
+                >
+                  D
+                </PriceOption>
+                <PriceOption
+                  active={frequency === DATA_FREQUENCY.HOUR}
+                  onClick={() => setFrequency(DATA_FREQUENCY.HOUR)}
+                >
+                  H
+                </PriceOption>
+                <PriceOption
+                  active={frequency === DATA_FREQUENCY.LINE}
+                  onClick={() => setFrequency(DATA_FREQUENCY.LINE)}
+                >
+                  <Activity size={14} />
+                </PriceOption>
+              </AutoRow>
+            )} */}
+            </AutoColumn>
+            <AutoRow justify="flex-end" gap="6px" align="flex-start">
+              <OptionButton
+                active={timeWindow === timeframeOptions.WEEK}
+                onClick={() => setTimeWindow(timeframeOptions.WEEK)}
+              >
+                1W
+              </OptionButton>
+              <OptionButton
+                active={timeWindow === timeframeOptions.MONTH}
+                onClick={() => setTimeWindow(timeframeOptions.MONTH)}
+              >
+                1M
+              </OptionButton>
+              <OptionButton
+                active={timeWindow === timeframeOptions.ALL_TIME}
+                onClick={() => setTimeWindow(timeframeOptions.ALL_TIME)}
+              >
+                All
+              </OptionButton>
+            </AutoRow>
+          </OptionsRow>
+        </RowBetween>
       )}
     </ChartWrapper>
   );

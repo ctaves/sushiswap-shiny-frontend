@@ -282,7 +282,7 @@ export function useDefaultsFromURLSearch(
   const dispatch = useDispatch<AppDispatch>();
   const parsedQs = useParsedQueryString();
 
-  console.log("parsedQs:", parsedQs, outputCurrency, chainId);
+  //console.log("parsedQs:", parsedQs, outputCurrency, chainId);
 
   const [result, setResult] = useState<
     { inputCurrencyId: string | undefined; outputCurrencyId: string | undefined } | undefined

@@ -16,10 +16,7 @@ import Toggle from "../Toggle";
 import { ThemeContext } from "styled-components";
 import { AutoColumn } from "../Column";
 import { ButtonError } from "../Button";
-import {
-  useSettingsMenuOpen,
-  useToggleSettingsMenu,
-} from "../../state/application/hooks";
+import { useSettingsMenuOpen, useToggleSettingsMenu } from "../../state/application/hooks";
 import { Text } from "rebass";
 import Modal from "../Modal";
 
@@ -93,8 +90,8 @@ const MenuFlyout = styled.span`
   width: 100%;
   min-width: 20.125rem;
   background-color: ${({ theme }) => theme.bg1};
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.01), 0px 4px 8px rgba(0, 0, 0, 0.04),
-    0px 16px 24px rgba(0, 0, 0, 0.04), 0px 24px 32px rgba(0, 0, 0, 0.01);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.01), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04),
+    0px 24px 32px rgba(0, 0, 0, 0.01);
 
   border: 1px solid ${({ theme }) => theme.bg3};
 
@@ -129,10 +126,7 @@ export default function SettingsTab() {
   const toggle = useToggleSettingsMenu();
 
   const theme = useContext(ThemeContext);
-  const [
-    userSlippageTolerance,
-    setUserslippageTolerance,
-  ] = useUserSlippageTolerance();
+  const [userSlippageTolerance, setUserslippageTolerance] = useUserSlippageTolerance();
 
   const [deadline, setDeadline] = useUserDeadline();
 
@@ -148,11 +142,7 @@ export default function SettingsTab() {
   return (
     // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/30451
     <StyledMenu ref={node as any}>
-      <Modal
-        isOpen={showConfirmation}
-        onDismiss={() => setShowConfirmation(false)}
-        maxHeight={100}
-      >
+      <Modal isOpen={showConfirmation} onDismiss={() => setShowConfirmation(false)} maxHeight={100}>
         <ModalContentWrapper>
           <AutoColumn gap="lg">
             <RowBetween style={{ padding: "0 2rem" }}>
@@ -165,9 +155,8 @@ export default function SettingsTab() {
             <Break />
             <AutoColumn gap="lg" style={{ padding: "0 2rem" }}>
               <Text fontWeight={500} fontSize={20}>
-                Expert mode turns off the confirm transaction prompt and allows
-                high slippage trades that often result in bad rates and lost
-                funds.
+                Expert mode turns off the confirm transaction prompt and allows high slippage trades that often result
+                in bad rates and lost funds.
               </Text>
               <Text fontWeight={600} fontSize={20}>
                 ONLY USE THIS MODE IF YOU KNOW WHAT YOU ARE DOING.
@@ -176,11 +165,7 @@ export default function SettingsTab() {
                 error={true}
                 padding={"12px"}
                 onClick={() => {
-                  if (
-                    window.prompt(
-                      `Please type the word "confirm" to enable expert mode.`
-                    ) === "confirm"
-                  ) {
+                  if (window.prompt(`Please type the word "confirm" to enable expert mode.`) === "confirm") {
                     toggleExpertMode();
                     setShowConfirmation(false);
                   }
@@ -195,14 +180,14 @@ export default function SettingsTab() {
         </ModalContentWrapper>
       </Modal>
       <StyledMenuButton onClick={toggle} id="open-settings-dialog-button">
-        ⚙️ Settings
-        {expertMode && (
+        Settings {expertMode && "(Expert Mode)"}
+        {/* {expertMode && (
           <EmojiWrapper>
             <span role="img" aria-label="wizard-icon">
               🧙
             </span>
           </EmojiWrapper>
-        )}
+        )} */}
       </StyledMenuButton>
       {open && (
         <MenuFlyout>

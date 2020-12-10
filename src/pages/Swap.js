@@ -2,7 +2,7 @@ import React from "react";
 import SearchHeader from "../components/MobileMenu";
 import Sidebar from "../components/Sidebar/Layout";
 import CardTokenActions from "../components/Cards/TokenActions/Standalone";
-import Background from "../assets/img/sushi-mountains.jpg";
+import Background from "../assets/illustrations/02a.png";
 
 import WalletsModal from "../components/Modals/Wallets";
 import ShareModal from "../components/Modals/Share";

@@ -38,6 +38,8 @@ import ColumnEarnings from "./Columns/Earnings";
 import WalletsModal from "../../Modals/Wallets";
 import useModal from "../../../shared/hooks/useModal";
 
+//import { useActiveWeb3React } from "../../../services/exchange/hooks";
+
 const Layout = () => {
   const { account } = useWallet();
   return <>{account ? <Account account={account} /> : <ConnectWallet />}</>;

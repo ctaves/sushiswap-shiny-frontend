@@ -1,14 +1,9 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+//import React, { useEffect } from "react";
+//import { Link } from "react-router-dom";
 import { useTokenData } from "../../services/vision/contexts/TokenData";
 import { useGlobalData } from "../../services/vision/contexts/GlobalData";
-import {
-  formattedNum,
-  formattedPercent,
-  getPoolLink,
-  getSwapLink,
-  localNumber,
-} from "../../services/vision/utils";
+import { formattedNum, formattedPercent } from "../../services/vision/utils";
 
 import ExpandButton from "../Buttons/ExpandButton";
 
@@ -65,30 +60,19 @@ const SummaryCard = ({ title }) => {
   //   fetchData();
   // }, []);
 
-  const { priceUSD, priceChangeUSD } = useTokenData(
-    "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2"
-  );
+  const { priceUSD, priceChangeUSD } = useTokenData("0x6b3595068778dd592e39a122f4f5a5cf09c90fe2");
   const price = priceUSD ? formattedNum(priceUSD, true) : "";
   const priceChange = priceChangeUSD ? formattedPercent(priceChangeUSD) : "";
   const globalData = useGlobalData();
   console.log(globalData);
-  const {
-    totalLiquidityUSD,
-    liquidityChangeUSD,
-    oneDayVolumeUSD,
-    volumeChangeUSD,
-  } = useGlobalData();
+  const { totalLiquidityUSD, liquidityChangeUSD, oneDayVolumeUSD, volumeChangeUSD } = useGlobalData();
   const tvl = totalLiquidityUSD ? formattedNum(totalLiquidityUSD, true) : "";
-  const tvlChange = liquidityChangeUSD
-    ? formattedPercent(liquidityChangeUSD, true)
-    : "";
+  const tvlChange = liquidityChangeUSD ? formattedPercent(liquidityChangeUSD, true) : "";
   const volume = oneDayVolumeUSD ? formattedNum(oneDayVolumeUSD, true) : "";
-  const fee = oneDayVolumeUSD
-    ? formattedNum(oneDayVolumeUSD * 0.0005, true)
-    : "";
-  const feeChange = volumeChangeUSD
-    ? formattedPercent(volumeChangeUSD, true)
-    : "";
+  const fee = oneDayVolumeUSD ? formattedNum(oneDayVolumeUSD * 0.0005, true) : "";
+  // const feeChange = volumeChangeUSD
+  //   ? formattedPercent(volumeChangeUSD, true)
+  //   : "";
 
   return (
     <div className="sushi-flex sushi-flex-col sushi-rounded-lg sushi-border sushi-border-gray-200 sushi-overflow-hidden">
@@ -96,12 +80,12 @@ const SummaryCard = ({ title }) => {
         <div className="sushi-relative sushi-pb-5 sushi-border-b sushi-border-gray-200 sushi-space-y-4 sm:sushi-pb-0">
           <div className="sushi-space-y-3 sushi-flex sushi-items-center sushi-justify-between sushi-space-y-0">
             <h3 className="sushi-text-lg sushi-leading-6 sushi-font-medium sushi-text-gray-900">
-              🍱 Summary
+              <span role="img" ariaLabel="">
+                🍱
+              </span>{" "}
+              Summary
             </h3>
-            <ExpandButton
-              widgetPath={"/widgets/summary"}
-              dashboardPath={"/omakase-bar"}
-            />
+            <ExpandButton widgetPath={"/widgets/summary"} dashboardPath={"/omakase-bar"} />
           </div>
         </div>
         <div className="sushi-mt-6 sushi-flex-1">
@@ -111,7 +95,9 @@ const SummaryCard = ({ title }) => {
                 className="sushi-flex sushi-items-center sushi-justify-center sushi-flex-shrink-0 sushi-w-16 sushi-h-16 sushi-text-3xl sushi-rounded-md sushi-shadow-md"
                 style={{ border: "solid 1px #ee6d48" }}
               >
-                🍣
+                <span role="img" ariaLabel="">
+                  🍣
+                </span>
               </div>{" "}
               <div className="sushi-flex-1 sushi-w-0 sushi-ml-5">
                 <dl>
@@ -122,12 +108,11 @@ const SummaryCard = ({ title }) => {
                     <a
                       href="https://www.coingecko.com/en/coins/sushi"
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="sushi-inline-flex sushi-items-center sushi-text-2xl sushi-font-semibold sushi-leading-8 sushi-text-gray-900 hover:sushi-underline"
                     >
                       <span className="sushi-pr-1">{price}</span>{" "}
-                      <div className="sushi-ml-1 sushi-font-normal sushi-text-sm">
-                        {priceChange}
-                      </div>
+                      <div className="sushi-ml-1 sushi-font-normal sushi-text-sm">{priceChange}</div>
                       {/* <svg
                         viewBox="0 0 20 20"
                         fill="currentColor"

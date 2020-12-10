@@ -1,10 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useLastTruthy } from "../../hooks/useLast";
-import {
-  AdvancedSwapDetails,
-  AdvancedSwapDetailsProps,
-} from "./AdvancedSwapDetails";
+import { AdvancedSwapDetails, AdvancedSwapDetailsProps } from "./AdvancedSwapDetails";
 
 const AdvancedDetailsFooter = styled.div<{ show: boolean }>`
   padding-top: calc(16px + 2rem);
@@ -12,8 +9,8 @@ const AdvancedDetailsFooter = styled.div<{ show: boolean }>`
   margin-top: -2rem;
   width: 100%;
   max-width: 800px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
   color: ${({ theme }) => theme.text2};
   background-color: ${({ theme }) => theme.advancedBG};
   z-index: -1;
@@ -22,10 +19,7 @@ const AdvancedDetailsFooter = styled.div<{ show: boolean }>`
   transition: transform 300ms ease-in-out;
 `;
 
-export default function AdvancedSwapDetailsDropdown({
-  trade,
-  ...rest
-}: AdvancedSwapDetailsProps) {
+export default function AdvancedSwapDetailsDropdown({ trade, ...rest }: AdvancedSwapDetailsProps) {
   const lastTrade = useLastTruthy(trade);
 
   return (

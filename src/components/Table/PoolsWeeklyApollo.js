@@ -13,7 +13,7 @@ import Toggle from "../Buttons/ExpandWidget";
 import Loading from "./Loading";
 import Error from "./Error";
 import useSortableData from "../../shared/hooks/useSortableData";
-import SushiChef from "../../assets/img/sushi-chef_bg-fill-light.jpg";
+import SushiChef from "../../assets/img/sushi-chef_bg-fill-light-gray.jpg";
 import "../../assets/css/shine.css";
 
 import { getPoolData } from "./PoolsWeeklyApolloQuery";
@@ -57,7 +57,7 @@ const Title = ({ highestAPY, title }) => {
             {title ? title : "Current Menu"}
             {highestAPY ? (
               <>
-                <span className="sushi-ml-3 sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-0.5 sushi-rounded-md sushi-text-sm sushi-font-medium sushi-leading-5 sushi-bg-orange-100 sushi-text-orange-800">
+                <span className="sushi-ml-3 sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-0.5 sushi-rounded-md sushi-text-sm sushi-font-medium sushi-leading-5 bg-gray-900 text-white">
                   Up to {formatNumber(highestAPY, 0)}% APR
                 </span>
                 <span className="sushi-mr-3"> ✨</span>
@@ -225,7 +225,7 @@ const UnlockWallet = () => {
   return (
     <div
       className="relative sushi-h-full sushi-inline-block sushi-min-w-full sushi-align-middle sushi-border-b sushi-border-gray-200 sushi-shadow sm:sushi-rounded-lg"
-      style={{ backgroundColor: "#ffeddb", overflowX: "hidden" }}
+      style={{ backgroundColor: "#f5f5f5", overflowX: "hidden" }}
     >
       <div
         className="sushi-bg-cover sushi-bg-center"
@@ -241,7 +241,7 @@ const UnlockWallet = () => {
             <div className="sushi-rounded-md sushi-shadow">
               <button
                 onClick={onPresentWallets}
-                className="sushi-w-full sushi-flex sushi-items-center sushi-justify-center sushi-px-5 sushi-py-3 sushi-border sushi-border-transparent sushi-text-base sushi-leading-6 sushi-font-medium sushi-rounded-md sushi-text-white sushi-bg-orange-600 hover:sushi-bg-orange-700 focus:sushi-outline-none focus:sushi-shadow-outline sushi-transition sushi-duration-150 sushi-ease-in-out"
+                className="sushi-w-full sushi-flex sushi-items-center sushi-justify-center sushi-px-5 sushi-py-3 sushi-border sushi-border-transparent sushi-text-base sushi-leading-6 sushi-font-medium sushi-rounded-md sushi-text-white bg-gray-900 hover:bg-gray-800 focus:sushi-outline-none focus:sushi-shadow-outline sushi-transition sushi-duration-150 sushi-ease-in-out"
               >
                 Connect wallet to begin
               </button>

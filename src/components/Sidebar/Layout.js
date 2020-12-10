@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import MenuItems from "./MenuItems";
-// import AccountDropdown from "./AccountDropdown"
+import AccountDropdown from "./AccountDropdown";
 // import SidebarSearch from "./Search"
 
 import logo from "../../assets/img/logo.png";
@@ -9,12 +9,12 @@ import logo from "../../assets/img/logo.png";
 const Sidebar = ({ selected }) => {
   return (
     <div className="sushi-hidden lg:sushi-flex lg:sushi-flex-shrink-0">
-      <div className="sushi-shadow-inner sushi-shadow-lg sushi-flex sushi-flex-col sushi-w-64 sushi-border-r sushi-border-orange-100 sushi-pt-5 sushi-pb-4 sushi-bg-orange-100">
+      <div className="sushi-flex sushi-flex-col sushi-w-64 sushi-pt-5 sushi-pb-4 bg-white">
         <div className="sushi-flex sushi-items-center sushi-flex-shrink-0 sushi-px-5">
           <img className="sushi-h-8 sushi-w-auto" src={logo} alt="Sushiswap" />
           <p className="sushi-text-lg sushi-font-bold sushi-leading-6 sushi-text-gray-900 sm:sushi-truncate sushi-ml-2">
             SushiSwap
-            <a href="https://www.notion.so/Sushiswap-Shiny-Frontend-38629fec29bd41a3bbe0fa52d404c921" target="_blank">
+            {/* <a href="https://www.notion.so/Sushiswap-Shiny-Frontend-38629fec29bd41a3bbe0fa52d404c921" target="_blank">
               <span className="sushi-inline-flex sushi-items-center sushi-ml-2 sushi-px-2.5 sushi-py-0.5 sushi-rounded-md sushi-text-xs sushi-font-medium sushi-leading-4 sushi-bg-orange-200 sushi-text-orange-800">
                 v1.2.0
                 <svg
@@ -29,16 +29,16 @@ const Sidebar = ({ selected }) => {
                   ></path>
                 </svg>
               </span>
-            </a>
+            </a> */}
           </p>
         </div>
         {/* Sidebar component, swap this element with another sidebar if you like */}
         <div className="sushi-h-0 sushi-flex-1 sushi-flex sushi-flex-col sushi-overflow-y-auto">
-          {/* <AccountDropdown /> */}
+          <AccountDropdown />
           {/* Sidebar Search */}
           {/* <SidebarSearch /> */}
           {/* Navigation */}
-          <nav className="sushi-px-3 sushi-mt-6">
+          <nav className="sushi-px-3 sushi-mt-4">
             <MenuItems selected={selected} />
           </nav>
         </div>

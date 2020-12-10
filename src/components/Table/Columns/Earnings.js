@@ -24,7 +24,7 @@ const ColumnEarnings = ({ pool }) => {
                 className="sushi-p-1 sushi-mr-2 sushi-text-xl sushi-transition-colors sushi-duration-300 sushi-rounded sushi-shadow-md sushi-cursor-default hover:sushi-bg-orange-50"
                 style={{ border: "1px solid rgb(238, 109, 72)" }}
               >
-                🍣
+                <span role="img">🍣</span>
               </button>
               <div>
                 <div>

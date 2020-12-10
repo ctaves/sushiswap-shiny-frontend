@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  ThemeProvider as StyledComponentsThemeProvider,
-  createGlobalStyle,
-} from "styled-components";
+import { ThemeProvider as StyledComponentsThemeProvider, createGlobalStyle } from "styled-components";
 import { useDarkModeManager } from "../contexts/LocalStorage";
 import styled from "styled-components";
 import { Text } from "rebass";
@@ -10,11 +7,7 @@ import { Text } from "rebass";
 export default function ThemeProvider({ children }) {
   const [darkMode] = useDarkModeManager();
 
-  return (
-    <StyledComponentsThemeProvider theme={theme(darkMode)}>
-      {children}
-    </StyledComponentsThemeProvider>
-  );
+  return <StyledComponentsThemeProvider theme={theme(darkMode)}>{children}</StyledComponentsThemeProvider>;
 }
 
 const theme = (darkMode, color) => ({
@@ -55,17 +48,17 @@ const theme = (darkMode, color) => ({
   divider: darkMode ? "rgba(43, 43, 43, 0.435)" : "rgba(43, 43, 43, 0.035)",
 
   //primary colors
-  primary1: darkMode ? "#2172E5" : "#d03800", //"#805e49",
+  primary1: darkMode ? "#2172E5" : "#ffffff", //"#805e49",
   primary2: darkMode ? "#3680E7" : "#DD6B20", //"#88715f",
   primary3: darkMode ? "#4D8FEA" : "#ED8936", //"#aa9585",
   primary4: darkMode ? "#376bad70" : "#F6AD55", //"#e2d6cf",
   primary5: darkMode ? "#153d6f70" : "#FBD38D", //"f0e9e7",
 
   // color text
-  primaryText1: darkMode ? "#6da8ff" : "#d03800", //"#805e49",
+  primaryText1: darkMode ? "#6da8ff" : "#ffffff", //"#805e49",
 
   // secondary colors
-  secondary1: darkMode ? "#2172E5" : "#d03800", //"#805e49",
+  secondary1: darkMode ? "#2172E5" : "#ffffff", //"#805e49",
   secondary2: darkMode ? "#17000b26" : "#F6AD55", //"#e2d6cf",
   secondary3: darkMode ? "#17000b26" : "#FBD38D", //"#f0e9e7",
 
@@ -79,9 +72,7 @@ const theme = (darkMode, color) => ({
   link: "#2172E5",
   blue: "2f80ed",
 
-  background: darkMode
-    ? "black"
-    : `radial-gradient(50% 50% at 50% 50%, #70524030 0%, #fff 0%)`,
+  background: darkMode ? "black" : `radial-gradient(50% 50% at 50% 50%, #70524030 0%, #fff 0%)`,
   breakpoints: ["576px", "768px", "991px", "1220px"],
 });
 
@@ -91,21 +82,15 @@ const TextWrapper = styled(Text)`
 
 export const TYPE = {
   main(props) {
-    return (
-      <TextWrapper fontWeight={500} fontSize={14} color={"text1"} {...props} />
-    );
+    return <TextWrapper fontWeight={500} fontSize={14} color={"text1"} {...props} />;
   },
 
   body(props) {
-    return (
-      <TextWrapper fontWeight={400} fontSize={14} color={"text1"} {...props} />
-    );
+    return <TextWrapper fontWeight={400} fontSize={14} color={"text1"} {...props} />;
   },
 
   small(props) {
-    return (
-      <TextWrapper fontWeight={500} fontSize={11} color={"text1"} {...props} />
-    );
+    return <TextWrapper fontWeight={500} fontSize={11} color={"text1"} {...props} />;
   },
 
   header(props) {
@@ -113,25 +98,15 @@ export const TYPE = {
   },
 
   largeHeader(props) {
-    return (
-      <TextWrapper fontWeight={500} color={"text1"} fontSize={24} {...props} />
-    );
+    return <TextWrapper fontWeight={500} color={"text1"} fontSize={24} {...props} />;
   },
 
   light(props) {
-    return (
-      <TextWrapper fontWeight={400} color={"text3"} fontSize={14} {...props} />
-    );
+    return <TextWrapper fontWeight={400} color={"text3"} fontSize={14} {...props} />;
   },
 
   pink(props) {
-    return (
-      <TextWrapper
-        fontWeight={props.faded ? 400 : 600}
-        color={props.faded ? "text1" : "text1"}
-        {...props}
-      />
-    );
+    return <TextWrapper fontWeight={props.faded ? 400 : 600} color={props.faded ? "text1" : "text1"} {...props} />;
   },
 };
 

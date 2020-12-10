@@ -60,7 +60,7 @@ const CurrentMenu = ({ scrollToCurrent, pathToMenu }) => {
                   }
                 : null
             }
-            className="mt-8 w-full bg-orange-600 border border-transparent rounded-md py-4 text-lg leading-5 font-semibold text-white hover:bg-orange-700 focus:outline-none focus:border-orange-700 focus:shadow-outline-orange active:bg-orange-700 transition duration-150 ease-in-out"
+            className="mt-8 w-full bg-gray-900 border border-transparent rounded-md py-4 text-lg leading-5 font-semibold text-white hover:bg-gray-800 focus:outline-none focus:border-orange-700 focus:shadow-outline-orange active:bg-gray-700 transition duration-150 ease-in-out"
           >
             View Menus
           </button>

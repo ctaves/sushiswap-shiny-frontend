@@ -47,13 +47,14 @@ const ColumnUnderlyingTokens = ({ pool }) => {
             {pool.uniswapPair.token1.symbol}
           </div>
           <div className="sushi-flex sushi-items-center sushi-mt-1.5">
-            <svg viewBox="0 0 20 20" fill="currentColor" className="sushi-w-4 sushi-h-4 sushi-mr-2">
+            <span className="ml-1 w-2.5 h-2.5 mr-2 bg-gray-200 rounded-md" />
+            {/* <svg viewBox="0 0 20 20" fill="currentColor" className="sushi-w-4 sushi-h-4 sushi-mr-2">
               <path
                 fillRule="evenodd"
                 d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
                 clipRule="evenodd"
               />
-            </svg>
+            </svg> */}
             ${formatNumber(pool.balanceUSD, 0)} TVL{" "}
             {/* {pool.history.dayAgo ? (
           pool.history.dayAgo &&

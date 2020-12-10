@@ -181,7 +181,7 @@ const CurrentMenu = ({ scrollToCurrent, pathToMenu }) => {
                 }
               : null
           }
-          className="sushi-mt-8 sushi-w-full sushi-bg-orange-600 sushi-border sushi-border-transparent sushi-rounded-md sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-semibold sushi-text-white hover:sushi-bg-orange-500 focus:sushi-outline-none focus:sushi-border-orange-700 focus:sushi-shadow-outline-orange active:sushi-bg-orange-700 sushi-transition sushi-duration-150 sushi-ease-in-out"
+          className="sushi-mt-8 sushi-w-full bg-gray-900 sushi-border sushi-border-transparent sushi-rounded-md sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-semibold sushi-text-white hover:bg-gray-800 focus:sushi-outline-none focus:border-gray-700 focus:shadow-outline-gray active:bg-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out"
         >
           View Menu
         </button>
@@ -225,7 +225,7 @@ export const UpcomingMenu = () => {
                 })}
               </div>
             </p>
-            <button className="sushi-mt-8 sushi-w-full sushi-bg-orange-600 sushi-border sushi-border-transparent sushi-rounded-md sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-semibold sushi-text-white hover:sushi-bg-orange-500 focus:sushi-outline-none focus:sushi-border-orange-700 focus:sushi-shadow-outline-orange active:sushi-bg-orange-700 sushi-transition sushi-duration-150 sushi-ease-in-out">
+            <button className="sushi-mt-8 sushi-w-full bg-gray-900 sushi-border sushi-border-transparent sushi-rounded-md sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-semibold sushi-text-white hover:bg-gray-800 focus:sushi-outline-none focus:border-gray-700 focus:shadow-outline-gray active:bg-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out">
               View Menu
             </button>
           </div>
@@ -238,7 +238,7 @@ export const UpcomingMenu = () => {
 export const PreviousMenus = ({ scrollToPrevious }) => {
   return (
     <>
-      <div className="sushi-relative sushi-w-4/5 md:sushi-w-1/3 sushi-mx-auto sushi-pl-6">
+      <div className="sushi-relative sushi-w-4/5 md:sushi-w-1/3 sushi-mx-auto sushi-pl-6 pr-4">
         <div
           style={{ minHeight: "19.5rem" }}
           className="sushi-border sushi-border-gray-200 sushi-rounded-lg sushi-shadow-md sushi-divide-y sushi-divide-gray-200"
@@ -256,7 +256,7 @@ export const PreviousMenus = ({ scrollToPrevious }) => {
             </p>
             <button
               onClick={scrollToPrevious ? scrollToPrevious : null}
-              className="sushi-mt-8 sushi-w-full sushi-bg-orange-600 sushi-border sushi-border-transparent sushi-rounded-md sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-semibold sushi-text-white hover:sushi-bg-orange-500 focus:sushi-outline-none focus:sushi-border-orange-700 focus:sushi-shadow-outline-orange active:sushi-bg-orange-700 sushi-transition sushi-duration-150 sushi-ease-in-out"
+              className="sushi-mt-8 sushi-w-full bg-gray-900 sushi-border sushi-border-transparent sushi-rounded-md sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-semibold sushi-text-white hover:bg-gray-800 focus:sushi-outline-none focus:border-gray-700 focus:shadow-outline-gray active:bg-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out"
             >
               View Menus
             </button>
@@ -287,7 +287,7 @@ const VoteNextMenu = () => {
               </span>
             </p>
             <a href={votingURL} target="_blank">
-              <button className="sushi-mt-8 sushi-w-full sushi-bg-orange-600 sushi-border sushi-border-transparent sushi-rounded-md sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-semibold sushi-text-white hover:sushi-bg-orange-500 focus:sushi-outline-none focus:sushi-border-orange-700 focus:sushi-shadow-outline-orange active:sushi-bg-orange-700 sushi-transition sushi-duration-150 sushi-ease-in-out">
+              <button className="sushi-mt-8 sushi-w-full bg-gray-900 sushi-border sushi-border-transparent sushi-rounded-md sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-semibold sushi-text-white hover:bg-gray-800 focus:sushi-outline-none focus:border-gray-700 focus:shadow-outline-gray active:bg-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out">
                 Vote Now
               </button>
             </a>
@@ -347,7 +347,7 @@ export default WeeklyMenus;
 //             </p>
 //             <button
 //               type="button"
-//               className="sushi-mt-8 sushi-w-full sushi-bg-orange-600 sushi-border sushi-border-transparent sushi-rounded-md sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-semibold sushi-text-white hover:sushi-bg-orange-500 focus:sushi-outline-none focus:sushi-border-orange-700 focus:sushi-shadow-outline-orange active:sushi-bg-orange-700 sushi-transition sushi-duration-150 sushi-ease-in-out"
+//               className="sushi-mt-8 sushi-w-full bg-gray-900 sushi-border sushi-border-transparent sushi-rounded-md sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-semibold sushi-text-white hover:bg-gray-800 focus:sushi-outline-none focus:border-gray-700 focus:shadow-outline-gray active:bg-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out"
 //             >
 //               {currentTimestamp < menu.startTime ? (
 //                 <CountDown start={menu.startTime} current={currentTimestamp} />
@@ -465,7 +465,7 @@ export default WeeklyMenus;
 //             </p>
 //             <button
 //               type="button"
-//               className="sushi-mt-8 sushi-w-full sushi-bg-orange-600 sushi-border sushi-border-transparent sushi-rounded-md sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-semibold sushi-text-white hover:sushi-bg-orange-500 focus:sushi-outline-none focus:sushi-border-orange-700 focus:sushi-shadow-outline-orange active:sushi-bg-orange-700 sushi-transition sushi-duration-150 sushi-ease-in-out"
+//               className="sushi-mt-8 sushi-w-full bg-gray-900 sushi-border sushi-border-transparent sushi-rounded-md sushi-py-2 sushi-text-sm sushi-leading-5 sushi-font-semibold sushi-text-white hover:bg-gray-800 focus:sushi-outline-none focus:border-gray-700 focus:shadow-outline-gray active:bg-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out"
 //             >
 //               Vote Now
 //             </button>

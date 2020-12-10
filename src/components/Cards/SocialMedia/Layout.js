@@ -1,13 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Tabs from "./Tabs";
 import ExpandButton from "../../Buttons/ExpandButton";
-import {
-  announcements,
-  mediums,
-  tweets,
-  wechats,
-} from "../../../constants/resources.json";
+import { announcements, mediums, tweets, wechats } from "../../../constants/resources.json";
 
 const SocialMediaCard = ({ title }) => {
   const [section, setSection] = useState("announcements");
@@ -16,13 +11,8 @@ const SocialMediaCard = ({ title }) => {
       <div className="sushi-flex-1 sushi-bg-white sushi-p-6 sushi-flex sushi-flex-col sushi-justify-between">
         <div className="sushi-relative sushi-border-b sushi-border-gray-200 sushi-space-y-4 sushi-pb-0">
           <div className="sushi-space-y-3 sushi-flex sushi-items-center sushi-justify-between sushi-space-y-0">
-            <h3 className="sushi-text-lg sushi-leading-6 sushi-font-medium sushi-text-gray-900">
-              📣 SUSHI Content
-            </h3>
-            <ExpandButton
-              widgetPath={"/widgets/social-media"}
-              dashboardPath={"/omakase-bar"}
-            />
+            <h3 className="sushi-text-lg sushi-leading-6 sushi-font-medium sushi-text-gray-900">📣 SUSHI Content</h3>
+            <ExpandButton widgetPath={"/widgets/social-media"} dashboardPath={"/omakase-bar"} />
           </div>
           <Tabs selected={section} setSelected={setSection} />
         </div>

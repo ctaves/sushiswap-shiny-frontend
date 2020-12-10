@@ -16,7 +16,7 @@ const StakeSushi = () => {
   const { onApprove } = useApproveStaking();
   const tokenBalance = useTokenBalance(contractAddresses.sushi[1]);
   const { onEnter } = useEnter();
-  const { onLeave } = useLeave();
+  //const { onLeave } = useLeave();
   const [onPresentDeposit] = useModal(<DepositModal max={tokenBalance} onConfirm={onEnter} tokenName={tokenName} />);
   const handleApprove = useCallback(async () => {
     try {

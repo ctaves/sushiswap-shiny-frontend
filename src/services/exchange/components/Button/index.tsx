@@ -56,10 +56,8 @@ export const ButtonPrimary = styled(Base)`
     background-color: ${({ theme }) => darken(0.1, theme.primary1)};
   }
   &:disabled {
-    background-color: ${({ theme, altDisabledStyle }) =>
-      altDisabledStyle ? theme.primary1 : theme.bg3};
-    color: ${({ theme, altDisabledStyle }) =>
-      altDisabledStyle ? "white" : theme.text3};
+    background-color: ${({ theme, altDisabledStyle }) => (altDisabledStyle ? theme.primary1 : theme.bg3)};
+    color: ${({ theme, altDisabledStyle }) => (altDisabledStyle ? "white" : theme.text3)};
     cursor: auto;
     box-shadow: none;
     border: 1px solid transparent;
@@ -74,20 +72,15 @@ export const ButtonLight = styled(Base)`
   font-size: 16px;
   font-weight: 500;
   &:focus {
-    box-shadow: 0 0 0 1pt
-      ${({ theme, disabled }) => !disabled && darken(0.03, theme.primary5)};
-    background-color: ${({ theme, disabled }) =>
-      !disabled && darken(0.03, theme.primary5)};
+    box-shadow: 0 0 0 1pt ${({ theme, disabled }) => !disabled && darken(0.03, theme.primary5)};
+    background-color: ${({ theme, disabled }) => !disabled && darken(0.03, theme.primary5)};
   }
   &:hover {
-    background-color: ${({ theme, disabled }) =>
-      !disabled && darken(0.03, theme.primary5)};
+    background-color: ${({ theme, disabled }) => !disabled && darken(0.03, theme.primary5)};
   }
   &:active {
-    box-shadow: 0 0 0 1pt
-      ${({ theme, disabled }) => !disabled && darken(0.05, theme.primary5)};
-    background-color: ${({ theme, disabled }) =>
-      !disabled && darken(0.05, theme.primary5)};
+    box-shadow: 0 0 0 1pt ${({ theme, disabled }) => !disabled && darken(0.05, theme.primary5)};
+    background-color: ${({ theme, disabled }) => !disabled && darken(0.05, theme.primary5)};
   }
   :disabled {
     opacity: 0.4;
@@ -107,20 +100,15 @@ export const ButtonGray = styled(Base)`
   font-size: 16px;
   font-weight: 500;
   &:focus {
-    box-shadow: 0 0 0 1pt
-      ${({ theme, disabled }) => !disabled && darken(0.05, theme.bg2)};
-    background-color: ${({ theme, disabled }) =>
-      !disabled && darken(0.05, theme.bg2)};
+    box-shadow: 0 0 0 1pt ${({ theme, disabled }) => !disabled && darken(0.05, theme.bg2)};
+    background-color: ${({ theme, disabled }) => !disabled && darken(0.05, theme.bg2)};
   }
   &:hover {
-    background-color: ${({ theme, disabled }) =>
-      !disabled && darken(0.05, theme.bg2)};
+    background-color: ${({ theme, disabled }) => !disabled && darken(0.05, theme.bg2)};
   }
   &:active {
-    box-shadow: 0 0 0 1pt
-      ${({ theme, disabled }) => !disabled && darken(0.1, theme.bg2)};
-    background-color: ${({ theme, disabled }) =>
-      !disabled && darken(0.1, theme.bg2)};
+    box-shadow: 0 0 0 1pt ${({ theme, disabled }) => !disabled && darken(0.1, theme.bg2)};
+    background-color: ${({ theme, disabled }) => !disabled && darken(0.1, theme.bg2)};
   }
 `;
 
@@ -281,10 +269,7 @@ export function ButtonConfirmed({
   }
 }
 
-export function ButtonError({
-  error,
-  ...rest
-}: { error?: boolean } & ButtonProps) {
+export function ButtonError({ error, ...rest }: { error?: boolean } & ButtonProps) {
   if (error) {
     return <ButtonErrorStyle {...rest} />;
   } else {
@@ -292,11 +277,7 @@ export function ButtonError({
   }
 }
 
-export function ButtonDropdown({
-  disabled = false,
-  children,
-  ...rest
-}: { disabled?: boolean } & ButtonProps) {
+export function ButtonDropdown({ disabled = false, children, ...rest }: { disabled?: boolean } & ButtonProps) {
   return (
     <ButtonPrimary {...rest} disabled={disabled}>
       <RowBetween>
@@ -307,11 +288,7 @@ export function ButtonDropdown({
   );
 }
 
-export function ButtonDropdownLight({
-  disabled = false,
-  children,
-  ...rest
-}: { disabled?: boolean } & ButtonProps) {
+export function ButtonDropdownLight({ disabled = false, children, ...rest }: { disabled?: boolean } & ButtonProps) {
   return (
     <ButtonOutlined {...rest} disabled={disabled}>
       <RowBetween>
@@ -322,10 +299,7 @@ export function ButtonDropdownLight({
   );
 }
 
-export function ButtonRadio({
-  active,
-  ...rest
-}: { active?: boolean } & ButtonProps) {
+export function ButtonRadio({ active, ...rest }: { active?: boolean } & ButtonProps) {
   if (!active) {
     return <ButtonWhite {...rest} />;
   } else {

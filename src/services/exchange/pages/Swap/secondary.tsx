@@ -12,7 +12,7 @@ import ConfirmSwapModal from "../../components/swap/ConfirmSwapModal";
 import CurrencyInputPanel from "../../components/CurrencyInputPanel/secondary";
 import { AutoRow, RowBetween } from "../../components/Row";
 import AdvancedSwapDetailsDropdown from "../../components/swap/AdvancedSwapDetailsDropdown";
-import BetterTradeLink from "../../components/swap/BetterTradeLink";
+//import BetterTradeLink from "../../components/swap/BetterTradeLink";
 import confirmPriceImpactWithoutFee from "../../components/swap/confirmPriceImpactWithoutFee";
 import { ArrowWrapper, BottomGrouping, SwapCallbackError, Wrapper } from "../../components/swap/styleds";
 import TradePrice from "../../components/swap/TradePrice";
@@ -40,7 +40,7 @@ import { useExpertModeManager, useUserDeadline, useUserSlippageTolerance } from 
 import { LinkStyledButton, TYPE } from "../../theme";
 import { maxAmountSpend } from "../../utils/maxAmountSpend";
 import { computeTradePriceBreakdown, warningSeverity } from "../../utils/prices";
-import AppBody from "../AppBody";
+//import AppBody from "../AppBody";
 import { ClickableText } from "../Pool/styleds";
 import Loader from "../../components/Loader";
 
@@ -48,11 +48,11 @@ import Settings from "../../components/Settings/secondary";
 
 import WalletsModal from "../../../../components/Modals/Wallets";
 import useModal from "../../../../shared/hooks/useModal";
-import { isAddress } from "../../utils";
+//import { isAddress } from "../../utils";
 
 export default function Swap({ outputCurrency }) {
   // @ts-ignore
-  const [onPresentWallets] = useModal(<WalletsModal />, null, null);
+  // const [onPresentWallets] = useModal(<WalletsModal />, null, null);
   const loadedUrlParams = useDefaultsFromURLSearch(outputCurrency);
 
   // const formattedOutputCurrency = isAddress(outputCurrency);
@@ -121,12 +121,12 @@ export default function Swap({ outputCurrency }) {
         [Version.v2]: v2Trade,
       }[toggledVersion];
 
-  const betterTradeLinkVersion: Version | undefined =
-    toggledVersion === Version.v2 && isTradeBetter(v2Trade, v1Trade, BETTER_TRADE_LINK_THRESHOLD)
-      ? Version.v1
-      : toggledVersion === Version.v1 && isTradeBetter(v1Trade, v2Trade)
-      ? Version.v2
-      : undefined;
+  // const betterTradeLinkVersion: Version | undefined =
+  //   toggledVersion === Version.v2 && isTradeBetter(v2Trade, v1Trade, BETTER_TRADE_LINK_THRESHOLD)
+  //     ? Version.v1
+  //     : toggledVersion === Version.v1 && isTradeBetter(v1Trade, v2Trade)
+  //     ? Version.v2
+  //     : undefined;
 
   const parsedAmounts = showWrap
     ? {
@@ -433,11 +433,10 @@ export default function Swap({ outputCurrency }) {
             //   Connect Wallet
             // </button>
             //
-            // <ButtonLight onClick={toggleWalletModal}>
-            //   Connect Wallet
-            // </ButtonLight>
-            <ButtonLight onClick={onPresentWallets}>Connect Wallet</ButtonLight>
-          ) : showWrap ? (
+            <ButtonLight onClick={toggleWalletModal}>Connect Wallet</ButtonLight>
+          ) : // <ButtonLight onClick={onPresentWallets}>Connect Wallet</ButtonLight>
+
+          showWrap ? (
             <ButtonPrimary disabled={Boolean(wrapInputError)} onClick={onWrap}>
               {wrapInputError ?? (wrapType === WrapType.WRAP ? "Wrap" : wrapType === WrapType.UNWRAP ? "Unwrap" : null)}
             </ButtonPrimary>

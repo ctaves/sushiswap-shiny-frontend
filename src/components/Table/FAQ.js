@@ -13,18 +13,12 @@ const Pagination = ({ count, skip }) => {
         </p>
       </div>
       <div className="sushi-flex-1 sushi-flex sushi-justify-between sm:sushi-justify-end">
-        <a
-          href="#"
-          className="sushi-relative sushi-inline-flex sushi-items-center sushi-px-4 sushi-py-2 sushi-border sushi-border-cool-gray-300 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-cool-gray-700 sushi-bg-white hover:sushi-text-cool-gray-500 focus:sushi-outline-none focus:sushi-shadow-outline-blue focus:sushi-border-blue-300 active:sushi-bg-cool-gray-100 active:sushi-text-cool-gray-700 sushi-transition sushi-ease-in-out sushi-duration-150"
-        >
+        <button className="sushi-relative sushi-inline-flex sushi-items-center sushi-px-4 sushi-py-2 sushi-border sushi-border-cool-gray-300 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-cool-gray-700 sushi-bg-white hover:sushi-text-cool-gray-500 focus:sushi-outline-none focus:sushi-shadow-outline-blue focus:sushi-border-blue-300 active:sushi-bg-cool-gray-100 active:sushi-text-cool-gray-700 sushi-transition sushi-ease-in-out sushi-duration-150">
           Previous
-        </a>
-        <a
-          href="#"
-          className="sushi-ml-3 sushi-relative sushi-inline-flex sushi-items-center sushi-px-4 sushi-py-2 sushi-border sushi-border-cool-gray-300 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-cool-gray-700 sushi-bg-white hover:sushi-text-cool-gray-500 focus:sushi-outline-none focus:sushi-shadow-outline-blue focus:sushi-border-blue-300 active:sushi-bg-cool-gray-100 active:sushi-text-cool-gray-700 sushi-transition sushi-ease-in-out sushi-duration-150"
-        >
+        </button>
+        <button className="sushi-ml-3 sushi-relative sushi-inline-flex sushi-items-center sushi-px-4 sushi-py-2 sushi-border sushi-border-cool-gray-300 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-rounded-md sushi-text-cool-gray-700 sushi-bg-white hover:sushi-text-cool-gray-500 focus:sushi-outline-none focus:sushi-shadow-outline-blue focus:sushi-border-blue-300 active:sushi-bg-cool-gray-100 active:sushi-text-cool-gray-700 sushi-transition sushi-ease-in-out sushi-duration-150">
           Next
-        </a>
+        </button>
       </div>
     </nav>
   );
@@ -78,9 +72,7 @@ const FAQ = () => {
   return (
     <div className="sushi-bg-white sushi-shadow sushi-overflow-hidden sushi-rounded-md">
       <div className="sushi-bg-white sushi-px-6 sushi-pt-5 sushi-border-b sushi-border-gray-200 sm:sushi-px-6">
-        <h3 className="sushi-text-lg sushi-leading-6 sushi-font-medium sushi-text-gray-900">
-          Open Issues and FAQ
-        </h3>
+        <h3 className="sushi-text-lg sushi-leading-6 sushi-font-medium sushi-text-gray-900">Open Issues and FAQ</h3>
         <div className="sushi-pt-3 sushi-pb-4 sm:sushi-p-0">
           <div className="sm:sushi-hidden">
             <select className="sushi-form-select sushi-block sushi-w-full sushi-text-gray-900 sushi-border-gray-300 focus:sushi-outline-none focus:sushi-shadow-outline-blue focus:sushi-border-blue-300 sushi-transition sushi-ease-in-out sushi-duration-150">
@@ -137,11 +129,7 @@ const FAQ = () => {
           <div className="sushi-flex sushi-rounded-md sushi-shadow-sm">
             <div className="sushi-relative sushi-flex-grow focus-within:sushi-z-10">
               <div className="sushi-absolute sushi-inset-y-0 sushi-left-0 sushi-pl-3 sushi-flex sushi-items-center sushi-pointer-events-none">
-                <svg
-                  className="sushi-h-5 sushi-w-5 sushi-text-gray-400"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
+                <svg className="sushi-h-5 sushi-w-5 sushi-text-gray-400" viewBox="0 0 20 20" fill="currentColor">
                   <path
                     fillRule="evenodd"
                     d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
@@ -156,11 +144,7 @@ const FAQ = () => {
               />
             </div>
             <button className="sushi--ml-px sushi-relative sushi-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-rounded-r-md sushi-border sushi-border-gray-300 sushi-text-sm sushi-leading-5 sushi-bg-gray-50 sushi-text-gray-900 focus:sushi-outline-none focus:sushi-shadow-outline-blue focus:sushi-border-blue-300 focus:sushi-z-10 sushi-transition sushi-ease-in-out sushi-duration-150">
-              <svg
-                className="sushi-h-5 sushi-w-5 sushi-text-gray-400"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
+              <svg className="sushi-h-5 sushi-w-5 sushi-text-gray-400" fill="currentColor" viewBox="0 0 20 20">
                 <path
                   fillRule="evenodd"
                   d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z"
@@ -213,11 +197,7 @@ const FAQ = () => {
                     </div>
                   </div>
                   <div>
-                    <svg
-                      className="sushi-h-5 sushi-w-5 sushi-text-gray-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
+                    <svg className="sushi-h-5 sushi-w-5 sushi-text-gray-400" fill="currentColor" viewBox="0 0 20 20">
                       <path
                         fillRule="evenodd"
                         d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"

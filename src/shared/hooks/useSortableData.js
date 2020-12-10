@@ -1,5 +1,5 @@
-import { backgrounds } from "polished";
-import React, { useState, useMemo } from "react";
+//import { backgrounds } from "polished";
+import { useState, useMemo } from "react";
 
 const useSortableData = (items, config = null) => {
   const [sortConfig, setSortConfig] = useState(config);
@@ -52,11 +52,7 @@ const useSortableData = (items, config = null) => {
     //console.log("SORT KEY:", key);
     //console.log("SORT CONFIG:", sortConfig);
     let direction = "ascending";
-    if (
-      sortConfig &&
-      sortConfig.key === key &&
-      sortConfig.direction === "ascending"
-    ) {
+    if (sortConfig && sortConfig.key === key && sortConfig.direction === "ascending") {
       direction = "descending";
     }
     setSortConfig({ key, direction });

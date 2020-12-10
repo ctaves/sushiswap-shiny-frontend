@@ -11,7 +11,7 @@ const Header = ({ header, index, requestSort, getClassNamesFor }) => {
           (index === 0 ? "sushi-freeze-cell-header" : "")
         }
       >
-        <a href="#" className="sushi-flex sushi-items-center">
+        <button className="sushi-flex sushi-items-center">
           <span>{header.name}</span>
           {
             {
@@ -19,7 +19,7 @@ const Header = ({ header, index, requestSort, getClassNamesFor }) => {
               descending: <DescendingIcon />,
             }[getClassNamesFor(header.sortId)]
           }
-        </a>
+        </button>
       </th>
     </>
   );

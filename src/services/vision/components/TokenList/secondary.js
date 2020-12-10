@@ -14,21 +14,21 @@ import { formattedNum, formattedPercent } from "../../utils";
 import { useMedia } from "react-use";
 import { withRouter } from "react-router-dom";
 import { OVERVIEW_TOKEN_BLACKLIST } from "../../constants";
-import { TOKEN_WHITELIST } from "../../constants";
+//import { TOKEN_WHITELIST } from "../../constants";
 import FormattedName from "../FormattedName";
-import { TYPE } from "../../Theme";
+//import { TYPE } from "../../Theme";
 import { isAddress } from "../../utils/index.js";
 import logoNotFound from "../../../../assets/img/logoNotFound.png";
 
 dayjs.extend(utc);
 
-const PageButtons = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 2em;
-  margin-bottom: 2em;
-`;
+// const PageButtons = styled.div`
+//   width: 100%;
+//   display: flex;
+//   justify-content: center;
+//   margin-top: 2em;
+//   margin-bottom: 2em;
+// `;
 
 const Arrow = styled.div`
   color: ${({ theme }) => theme.primary1};
@@ -174,9 +174,7 @@ function TopTokenList({ tokens, itemMax = 10 }) {
       formattedTokens
         .sort((a, b) => {
           if (sortedColumn === SORT_FIELD.SYMBOL || sortedColumn === SORT_FIELD.NAME) {
-            return a[sortedColumn] > b[sortedColumn]
-              ? (sortDirection ? -1 : 1) * 1
-              : (sortDirection ? -1 : 1) * -1;
+            return a[sortedColumn] > b[sortedColumn] ? (sortDirection ? -1 : 1) * 1 : (sortDirection ? -1 : 1) * -1;
           }
           return parseFloat(a[sortedColumn]) > parseFloat(b[sortedColumn])
             ? (sortDirection ? -1 : 1) * 1
@@ -192,10 +190,7 @@ function TopTokenList({ tokens, itemMax = 10 }) {
         {below680 ? (
           <Row>
             <TokenLogo address={item.id} />
-            <CustomLink
-              style={{ marginLeft: "16px", whiteSpace: "nowrap" }}
-              to={"/token/" + item.id}
-            >
+            <CustomLink style={{ marginLeft: "16px", whiteSpace: "nowrap" }} to={"/token/" + item.id}>
               <FormattedName
                 text={below680 ? item.symbol : item.name}
                 maxCharacters={below600 ? 8 : 16}
@@ -298,10 +293,7 @@ function TopTokenList({ tokens, itemMax = 10 }) {
 
   return (
     <ListWrapper>
-      <DashGrid
-        center={true}
-        style={{ height: "fit-content", padding: "0 1.125rem 1rem 1.125rem" }}
-      >
+      <DashGrid center={true} style={{ height: "fit-content", padding: "0 1.125rem 1rem 1.125rem" }}>
         <Flex alignItems="center" justifyContent="flexStart">
           <ClickableText
             color="text"
@@ -312,8 +304,7 @@ function TopTokenList({ tokens, itemMax = 10 }) {
               setSortDirection(sortedColumn !== SORT_FIELD.NAMe ? true : !sortDirection);
             }}
           >
-            {below680 ? "Symbol" : "Name"}{" "}
-            {sortedColumn === SORT_FIELD.NAME ? (!sortDirection ? "↑" : "↓") : ""}
+            {below680 ? "Symbol" : "Name"} {sortedColumn === SORT_FIELD.NAME ? (!sortDirection ? "↑" : "↓") : ""}
           </ClickableText>
         </Flex>
         {!below680 && (
@@ -404,9 +395,7 @@ function TopTokenList({ tokens, itemMax = 10 }) {
       </PageButtons> */}
       <nav className="bg-white px-4 py-3 flex items-center justify-between border-t border-b border-cool-gray-100 sm:px-6">
         <div className="hidden sm:block">
-          <p className="text-sm leading-5 text-cool-gray-700">
-            {"Page " + page + " of " + maxPage}
-          </p>
+          <p className="text-sm leading-5 text-cool-gray-700">{"Page " + page + " of " + maxPage}</p>
         </div>
         <div className="flex-1 flex justify-between sm:justify-end">
           <div className="relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150">

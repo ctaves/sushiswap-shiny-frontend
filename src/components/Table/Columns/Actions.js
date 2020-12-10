@@ -77,7 +77,7 @@ const ColumnActions = ({ farmId, pool }) => {
             onClick={handleApprove}
             className="sushi-inline-flex sushi-items-center sushi-px-2 sushi-py-3 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
           >
-            🔒 Approve Staking
+            <span role="img">🔒</span> Approve Staking
           </button>
         </span>
       ) : stakedBalance.eq(new BigNumber(0)) && tokenBalance.eq(new BigNumber(0)) && !allowance.toNumber() ? (

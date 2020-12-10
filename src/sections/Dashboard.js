@@ -7,6 +7,7 @@ import Sidebar from "../components/Sidebar/Layout";
 import PageTitle from "../components/PageTitles/Default";
 //import MainSearch from "../components/Search/Desktop";
 import MainSearch from "../services/vision/components/Search/secondary";
+import Features from "../components/Features";
 import CardSection from "../components/Cards/Section";
 import useMenu from "../shared/hooks/useMenu";
 // Overview
@@ -17,11 +18,12 @@ import CardTokenActions from "../components/Cards/TokenActions/StandaloneWithout
 import { CurrentMenuWrapper } from "../components/WeeklyMenu/Menus";
 import CardChart from "../components/Cards/Chart";
 import SushiGlobalChart from "../services/vision/components/GlobalChart";
-import UniGlobalChart from "../services/analytics/components/charts/globalChart";
+import UniGlobalChart from "../services/view/components/charts/globalChart";
 import Flickity from "react-flickity-component";
 import GlobalStats from "../services/vision/components/GlobalStats/secondary";
 import IntroBanner from "../components/Banners/Full";
 // OmakaseBar
+import Portfolio from "../components/Portfolio";
 import CardSummary from "../components/Cards/Summary";
 import CardBalance from "../components/Cards/Balance/Layout";
 import CardResources from "../components/Cards/Resources/Layout";
@@ -109,10 +111,10 @@ export const DashboardContainer = ({ children }) => {
         <div className="sushi-flex sushi-flex-col sushi-w-0 sushi-flex-1 sushi-overflow-hidden">
           <SearchHeader changeMenu={mobileMenu.change} isOpen={mobileMenu.isOpen} />
           <main
-            className="sushi-flex-1 sushi-relative sushi-z-0 sushi-overflow-y-auto focus:sushi-outline-none"
+            className="lg:mt-4 lg:mr-4 lg:p-4 lg:bg-gray-200 lg:rounded-lg sushi-flex-1 sushi-relative sushi-z-0 sushi-overflow-y-auto focus:sushi-outline-none"
             tabIndex={0}
           >
-            {children}
+            <div className="bg-white lg:rounded-lg">{children}</div>
           </main>
         </div>
       </div>
@@ -127,9 +129,12 @@ const DashboardRoutes = () => {
       <Route exact path="/home" component={Overview} />
       <Route exact path="/overview" component={Overview} />
       <Route exact path="/omakase" component={OmakaseBar} />
+      <Route exact path="/account" component={OmakaseBar} />
+      <Route exact path="/portfolio" component={OmakaseBar} />
       <Route exact path="/weekly" component={MenuOfTheWeek} />
       <Route exact path="/tokens" component={Tokens} />
       <Route exact path="/pools" component={Pools} />
+      <Route exact path="/farms" component={Pools} />
       <Route exact path="/pairs" component={Pairs} />
       <Route exact path="/governance" component={Governance} />
       <Route exact path="/about" component={About} />
@@ -180,8 +185,8 @@ const Overview = () => {
   return (
     <>
       {/* <IntroBanner /> */}
-      <PageTitle title={"👋 いらっしゃいませ「 Welcome Back 」!"} />
-      <div className="sushi-px-8 my-4 sushi-hidden lg:sushi-block">
+      {/* <PageTitle title={"👋 いらっしゃいませ「 Welcome Back 」!"} /> */}
+      <div className="sushi-px-8 py-4 sushi-hidden lg:sushi-block">
         <MainSearch />
       </div>
       <div className="sushi-px-8 my-4">
@@ -191,7 +196,8 @@ const Overview = () => {
           </div>
         </span>
       </div>
-      <div className="shadow-inner bg-gray-100">
+      <Features />
+      {/* <div className="shadow-inner bg-gray-100">
         <h3 className="pl-10 pt-4 text-lg leading-6 font-medium text-gray-400">
           While you're here, you can...(hint: swipe or use arrow keys)
         </h3>
@@ -212,12 +218,6 @@ const Overview = () => {
           <div className="relative w-4/5 md:w-2/5 mx-auto pl-6">
             <CardTokenActions initialSection={"swap"} currencyIdB={"ETH"} />
           </div>
-          {/* <div className="relative w-4/5 md:w-2/5 mx-auto pl-6">
-            <CardMigrate />
-          </div> */}
-          {/* <div className="relative w-4/5 md:w-1/3 mx-auto pl-6">
-            <CurrentMenuWrapper pathToMenu={"/weekly"} />
-          </div> */}
           <div className="relative w-4/5 md:w-1/3 mx-auto pl-6">
             <CardCurrentMenu pathToMenu={"/weekly"} />
           </div>
@@ -245,8 +245,8 @@ const Overview = () => {
             </CardChart>
           </div>
         </Flickity>
-      </div>
-      <TablePools type={"active"} title={"All active farms"} />
+      </div> */}
+      {/* <TablePools type={"active"} title={"All active farms"} /> */}
     </>
   );
 };
@@ -292,14 +292,15 @@ const OmakaseBar = () => {
       <div className="min-h-full bg-gray-100 shadow-inner py-6 px-4 space-y-6 sm:p-6">
         <div className="shadow sm:rounded-md sm:overflow-hidden">
           <div className="bg-white">
-            <CardBalances />
+            <Portfolio />
+            {/* <CardBalances /> */}
           </div>
         </div>
-        <div className="shadow sm:rounded-md sm:overflow-hidden">
+        {/* <div className="shadow sm:rounded-md sm:overflow-hidden">
           <div className="bg-white">
             <CardPositions />
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* <Flickity
@@ -364,18 +365,16 @@ const MenuOfTheWeek = () => {
   return (
     <>
       {/* <MainSearch /> */}
-      <div className="sushi-px-8 my-4 sushi-hidden lg:sushi-block">
-        <MainSearch />
-      </div>
+      {/* <div className="sushi-px-8 py-4 sushi-hidden lg:sushi-block"><MainSearch /></div> */}
       <WeeklyMenuInfo scrollToMenu={scrollToMenu} />
       <div ref={menuRef} id="menus">
         <WeeklyMenus scrollToCurrent={scrollToCurrent} scrollToPrevious={scrollToPrevious} />
       </div>
       <div ref={currentRef} id="current">
-        <TablePools title={"Current Menus"} type={"current"} />
+        <TablePools title={"Weekly Farms"} type={"current"} />
       </div>
       <div ref={previousRef} id="previous">
-        <TablePools title={"Previous Menus"} type={"previous"} />
+        <TablePools title={"Previous Farms"} type={"previous"} />
       </div>
     </>
   );
@@ -391,7 +390,7 @@ const Tokens = () => {
   return (
     <>
       {/* <MainSearch /> */}
-      <div className="sushi-px-8 my-4 sushi-hidden lg:sushi-block">
+      <div className="sushi-px-8 py-4 sushi-hidden lg:sushi-block">
         <MainSearch />
       </div>
       <h2 className="sushi-max-w-6xl sushi-mx-auto sushi-mt-8 sushi-px-4 sushi-text-lg sushi-leading-6 sushi-font-medium sushi-text-cool-gray-900 sm:sushi-px-6 lg:sushi-px-8">
@@ -420,10 +419,10 @@ const Pools = () => {
   return (
     <>
       {/* <MainSearch /> */}
-      <div className="sushi-px-8 my-4 sushi-hidden lg:sushi-block">
+      <div className="sushi-px-8 py-4 sushi-hidden lg:sushi-block">
         <MainSearch />
       </div>
-      <TablePools title={"Main Farms"} type={"main"} />
+      <TablePools title={"Permanent Farms"} type={"main"} />
     </>
   );
 };
@@ -438,7 +437,7 @@ const Pairs = () => {
   return (
     <>
       {/* <MainSearch /> */}
-      <div className="sushi-px-8 my-4 sushi-hidden lg:sushi-block">
+      <div className="sushi-px-8 py-4 sushi-hidden lg:sushi-block">
         <MainSearch />
       </div>
       <h2 className="sushi-max-w-6xl sushi-mx-auto sushi-mt-8 sushi-px-4 sushi-text-lg sushi-leading-6 sushi-font-medium sushi-text-cool-gray-900 sm:sushi-px-6 lg:sushi-px-8">
@@ -465,7 +464,7 @@ const Governance = () => {
   useEffect(() => {
     dispatch({ type: "update", section: "governance" });
     const fetchData = async () => {
-      const timelocks = await sushiData.masterchef.TimeLocks().then((results) => {
+      const timelocks = await sushiData.timelock.txs().then((results) => {
         return results;
       });
       setTimelocks(timelocks);
