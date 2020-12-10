@@ -1,19 +1,11 @@
-import React, {
-  createContext,
-  useContext,
-  useReducer,
-  useMemo,
-  useCallback,
-  useState,
-  useEffect,
-} from "react";
+import React, { createContext, useContext, useReducer, useMemo, useCallback, useState, useEffect } from "react";
 import { timeframeOptions, SUPPORTED_LIST_URLS__NO_ENS } from "../constants";
 import Web3 from "web3";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import getTokenList from "../utils/tokenLists";
-import { healthClient } from "../apollo/client";
-import { SUBGRAPH_HEALTH } from "../apollo/queries";
+import { healthClient, blocklytics } from "../apollo/client";
+import { SUBGRAPH_HEALTH, latestBlockQuery } from "../apollo/queries";
 dayjs.extend(utc);
 
 const UPDATE = "UPDATE";
@@ -167,15 +159,7 @@ export default function Provider({ children }) {
             updateLatestBlock,
           },
         ],
-        [
-          state,
-          update,
-          updateTimeframe,
-          updateWeb3,
-          updateSessionStart,
-          updateSupportedTokens,
-          updateLatestBlock,
-        ]
+        [state, update, updateTimeframe, updateWeb3, updateSessionStart, updateSupportedTokens, updateLatestBlock]
       )}
     >
       {children}
@@ -191,11 +175,16 @@ export function useLatestBlock() {
   useEffect(() => {
     async function fetch() {
       try {
-        const res = await healthClient.query({
-          query: SUBGRAPH_HEALTH,
+        // const res = await healthClient.query({
+        //   query: SUBGRAPH_HEALTH,
+        // });
+        // const block = res.data.indexingStatusForCurrentVersion.chains[0].latestBlock.number;
+        const res = await blocklytics.query({
+          query: latestBlockQuery,
         });
-        const block =
-          res.data.indexingStatusForCurrentVersion.chains[0].latestBlock.number;
+        const block = res.data.blocks[0].number;
+        console.log("BLOCK:", block);
+
         if (block) {
           updateLatestBlock(block);
         }
@@ -240,11 +229,7 @@ export function useStartTimestamp() {
         .utc()
         .subtract(
           1,
-          activeWindow === timeframeOptions.week
-            ? "week"
-            : activeWindow === timeframeOptions.ALL_TIME
-            ? "year"
-            : "year"
+          activeWindow === timeframeOptions.week ? "week" : activeWindow === timeframeOptions.ALL_TIME ? "year" : "year"
         )
         .startOf("day")
         .unix() - 1;
@@ -290,9 +275,7 @@ export function useWeb3() {
 
   useEffect(() => {
     if (!web3) {
-      const web3 = new Web3(
-        new Web3.providers.HttpProvider(process.env.REACT_APP_NETWORK_URL)
-      );
+      const web3 = new Web3(new Web3.providers.HttpProvider(process.env.REACT_APP_NETWORK_URL));
       updateWeb3(web3);
     }
   });
@@ -306,14 +289,11 @@ export function useListedTokens() {
 
   useEffect(() => {
     async function fetchList() {
-      const allFetched = await SUPPORTED_LIST_URLS__NO_ENS.reduce(
-        async (fetchedTokens, url) => {
-          const tokensSoFar = await fetchedTokens;
-          const newTokens = await getTokenList(url);
-          return Promise.resolve([...tokensSoFar, ...newTokens.tokens]);
-        },
-        Promise.resolve([])
-      );
+      const allFetched = await SUPPORTED_LIST_URLS__NO_ENS.reduce(async (fetchedTokens, url) => {
+        const tokensSoFar = await fetchedTokens;
+        const newTokens = await getTokenList(url);
+        return Promise.resolve([...tokensSoFar, ...newTokens.tokens]);
+      }, Promise.resolve([]));
       let formatted = allFetched?.map((t) => t.address.toLowerCase());
       updateSupportedTokens(formatted);
     }

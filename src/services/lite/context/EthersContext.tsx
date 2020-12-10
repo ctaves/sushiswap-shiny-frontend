@@ -62,27 +62,27 @@ export const EthersContextProvider = ({ children }) => {
   const [customTokens, setCustomTokens] = useState<Token[]>([]);
   const [loadingTokens, setLoadingTokens] = useState(true);
 
-  useEffect(() => {
-    // Kovan
-    const kovan = new ethers.providers.AlchemyProvider(42, "3NGZpyMoljbXikGsz9hWzKZ_bnqbZny2");
-    const wallet = new ethers.Wallet(PRIVATE_KEY, kovan);
-    setKovanProvider(kovan);
-    setKovanSigner(wallet);
-  }, []);
+  // useEffect(() => {
+  //   // Kovan
+  //   const kovan = new ethers.providers.AlchemyProvider(42, "3NGZpyMoljbXikGsz9hWzKZ_bnqbZny2");
+  //   const wallet = new ethers.Wallet(PRIVATE_KEY, kovan);
+  //   setKovanProvider(kovan);
+  //   setKovanSigner(wallet);
+  // }, []);
 
-  useAsyncEffect(async () => {
-    // Mainnet
-    if (ethereum) {
-      //@ts-ignore
-      const web3 = new ethers.providers.Web3Provider(ethereum);
-      const alchemy = new ethers.providers.AlchemyProvider(
-        web3.network,
-        "production" === process.env.NODE_ENV ? "DnNxl6bicDp7fp7nF_G23RWIeCGu8xsd" : "DgnfFsj5PXR37FkOmUVJ9GtfDsKws446"
-      );
-      setProvider(alchemy);
-      setSigner(await web3.getSigner());
-    }
-  }, [ethereum]);
+  // useAsyncEffect(async () => {
+  //   // Mainnet
+  //   if (ethereum) {
+  //     //@ts-ignore
+  //     const web3 = new ethers.providers.Web3Provider(ethereum);
+  //     const alchemy = new ethers.providers.AlchemyProvider(
+  //       web3.network,
+  //       "production" === process.env.NODE_ENV ? "DnNxl6bicDp7fp7nF_G23RWIeCGu8xsd" : "DgnfFsj5PXR37FkOmUVJ9GtfDsKws446"
+  //     );
+  //     setProvider(alchemy);
+  //     setSigner(await web3.getSigner());
+  //   }
+  // }, [ethereum]);
 
   useEffect(() => {
     if (ethereum) {

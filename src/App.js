@@ -225,11 +225,11 @@ const servicesProviders = ({ children }) => {
       <SushiExchangeProviders>
         <SushiVisionProviders>
           <SushiFrontendProviders>
-            <SushiLiteProviders>
-              <ModalsProvider>
-                <App />
-              </ModalsProvider>
-            </SushiLiteProviders>
+            {/* <SushiLiteProviders> */}
+            <ModalsProvider>
+              <App />
+            </ModalsProvider>
+            {/* </SushiLiteProviders> */}
           </SushiFrontendProviders>
         </SushiVisionProviders>
       </SushiExchangeProviders>
@@ -237,9 +237,9 @@ const servicesProviders = ({ children }) => {
   );
 };
 
-const SushiLiteProviders = ({ children }) => {
-  return <LiteProvider>{children}</LiteProvider>;
-};
+// const SushiLiteProviders = ({ children }) => {
+//   return <LiteProvider>{children}</LiteProvider>;
+// };
 
 const SushiFrontendProviders = ({ children }) => {
   return (

@@ -1,8 +1,8 @@
-import React from 'react'
-import styled, { keyframes } from 'styled-components'
+import React from "react";
+import styled, { keyframes } from "styled-components";
 
 export interface ModalProps {
-  onDismiss?: () => void
+  onDismiss?: () => void;
 }
 
 const Modal: React.FC = ({ children }) => {
@@ -10,8 +10,8 @@ const Modal: React.FC = ({ children }) => {
     <StyledResponsiveWrapper>
       <StyledModal>{children}</StyledModal>
     </StyledResponsiveWrapper>
-  )
-}
+  );
+};
 
 const mobileKeyframes = keyframes`
   0% {
@@ -20,7 +20,7 @@ const mobileKeyframes = keyframes`
   100% {
     transform: translateY(-100%);
   }
-`
+`;
 
 const StyledResponsiveWrapper = styled.div`
   align-items: center;
@@ -30,7 +30,7 @@ const StyledResponsiveWrapper = styled.div`
   position: relative;
   width: 100%;
   max-width: 512px;
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}px) {
+  @media (max-width: ${(props) => props.theme.breakpoint.mobile}px) {
     flex: 1;
     position: absolute;
     top: 100%;
@@ -39,7 +39,7 @@ const StyledResponsiveWrapper = styled.div`
     max-height: calc(100% - ${(props) => props.theme.spacing[4]}px);
     animation: ${mobileKeyframes} 0.3s forwards ease-out;
   }
-`
+`;
 
 const StyledModal = styled.div`
   padding: 0 20px;
@@ -52,8 +52,8 @@ const StyledModal = styled.div`
   position: relative;
   width: 100%;
   min-height: 0;
-`
+`;
 
-const StyledModalContent = styled.div``
+const StyledModalContent = styled.div``;
 
-export default Modal
+export default Modal;
