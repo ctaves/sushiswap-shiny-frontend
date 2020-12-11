@@ -103,7 +103,7 @@ SLP Address on mainnet for reference
 // const ethereum = await axios.get("https://etherchain.org/api/basic_stats");
 // console.log("ETH:", ethereum);
 export const ethBlockTime = 13.310661764705882;
-export const sushiRewardsPerBlock = 80;
+export const sushiRewardsPerBlock = 70;
 export const votingURL = "https://forum.sushiswapclassic.org/t/pool-rotation-menu-of-the-week-week-46/1154";
 
 const menuSetup = {

@@ -1,7 +1,8 @@
-import { client, masterChef } from "../../apollo/client";
-import { MASTERCHEF_POOLS, SUSHI_PAIRS, TOKEN } from "../../apollo/queries";
+import { client, masterChef, masterChefNew } from "../../apollo/client";
+import { MASTERCHEF_POOLS, MASTERCHEF_POOLS_NEW, SUSHI_PAIRS, TOKEN } from "../../apollo/queries";
 import _ from "lodash";
 import axios from "axios";
+//import sushiData from "@sushiswap/sushi-data";
 
 import { supportedPools, menus, sushiRewardsPerBlock, ethBlockTime } from "../../constants/constants";
 
@@ -15,29 +16,46 @@ export async function getPoolData(status) {
   console.log("SUPPORTED_POOLS:", supportedPools);
 
   // Relevant Queries from The Graph ------------------------------------//
-  let masterChefStats = await masterChef.query({
-    query: MASTERCHEF_POOLS(),
+  let masterChefStats = await masterChefNew.query({
+    query: MASTERCHEF_POOLS_NEW(),
     fetchPolicy: "cache-first",
   });
-  let masterChefPools = masterChefStats?.data?.masterChefPools;
+
+  //let masterChefStats = await sushiData.masterchef.Pools();
+  console.log("graphql_masterChefStats:", masterChefStats);
+
+  //let masterChefPools = masterChefStats?.data?.masterChefPools;
+  let masterChefPools = masterChefStats?.data?.masterChefs?.[0]?.pools;
+  // need to change field names since new subgraph has different ones:
+  // pair -> lpToken, id -> pid
+  masterChefPools = masterChefPools.map(({ pair: lpToken, ...rest }) => ({ lpToken, ...rest }));
+  masterChefPools = masterChefPools.map(({ id: pid, ...rest }) => ({ pid, ...rest }));
+
+  console.log("graphql_masterChefPools:", masterChefPools);
+
   const chefAddress = "0xc2edad668740f1aa35e4d8f227fb8e17dca888cd";
   // Choose which pools to display on Menu based on PID for now -----------//
   const active = menus[status];
   let filtered = _.filter(masterChefPools, function(pool) {
     return active.includes(Number(pool.id));
   });
+  console.log("graphql_filtered:", filtered);
   let lpTokens = _.map(filtered, "lpToken");
-  console.log("FILTERED:", filtered);
+  console.log("graphql_lpTokens:", lpTokens);
 
   // *** If issues with the subgraph, load pool info manually from constants.js ***
   if (filtered.length < active.length) {
     filtered = _.filter(supportedPools, function(pool) {
       return active.includes(Number(pool.pid));
+      //return active.includes(Number(pool.id));
     });
+    //console.log("graphql_filtered2:", filtered);
     filtered = _.map(filtered, function(pool) {
       pool.lpToken = pool.lpToken.toLowerCase(); // the graph expects lpToken address to be all lowercase
+      //pool.lpToken = pool.pair.toLowerCase();
       return pool;
     });
+    //console.log("graphql_filtered3:", filtered);
     lpTokens = _.map(filtered, "lpToken");
     masterChefPools = supportedPools;
     console.log("ACTIVE:", active.length);
@@ -49,19 +67,23 @@ export async function getPoolData(status) {
     query: SUSHI_PAIRS(lpTokens, chefAddress),
     fetchPolicy: "cache-first",
   });
+  console.log("graphql_poolStatistics:", poolStatistics);
   const pairs = poolStatistics?.data?.pairs;
   const liquidityPositions = poolStatistics?.data.liquidityPositions;
   const mergeStats = _.map(liquidityPositions, function(lp) {
     return _.merge(lp, _.find(pairs, { id: lp.pair.id }));
   });
+  console.log("graphql_mergeStats:", mergeStats);
   const mergePID = _.map(mergeStats, function(pair) {
     return _.merge(pair, _.find(filtered, { lpToken: pair.id }));
   });
+  console.log("graphql_mergePID:", mergePID);
   // merge with constants for icon, name, etc
   // note: pool.id is a string, in order to compare change to Number
   const mergeConstants = _.map(mergePID, function(pool) {
     return _.merge(pool, _.find(supportedPools, { pid: Number(pool.id) }));
   });
+  console.log("graphql_mergeConstants:", mergeConstants);
 
   // Initialize --------------------------------------------------------//
   console.log("MASTERCHEF_POOLS:", masterChefPools);
@@ -94,6 +116,7 @@ export async function getPoolData(status) {
     query: TOKEN("0x6b3595068778dd592e39a122f4f5a5cf09c90fe2"),
     fetchPolicy: "cache-first",
   });
+  console.log("graphql_sushiswapQuery:", sushiswapQuery);
   const sushiswapData = sushiswapQuery.data.token;
   //console.log("SUSHISWAP_DATA:", sushiswapData);
 
