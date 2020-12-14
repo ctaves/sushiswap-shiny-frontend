@@ -1,10 +1,24 @@
 import { ApolloClient } from "apollo-client";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { HttpLink } from "apollo-link-http";
+<<<<<<< HEAD
 
 export const client = new ApolloClient({
   link: new HttpLink({
     //uri: "https://api.thegraph.com/subgraphs/name/sushiswap/exchange",
+=======
+
+export const blocklytics = new ApolloClient({
+  link: new HttpLink({
+    uri: "https://api.thegraph.com/subgraphs/name/blocklytics/ethereum-blocks",
+  }),
+  cache: new InMemoryCache(),
+  shouldBatch: true,
+});
+
+export const client = new ApolloClient({
+  link: new HttpLink({
+>>>>>>> 92a7ed352e3e2913b3a92feaac08abbfa00521e1
     uri: "https://api.thegraph.com/subgraphs/name/zippoxer/sushiswap-subgraph-fork",
     //uri: 'https://api.thegraph.com/subgraphs/id/QmePtiMXjoFp5YiJeraZhp6YsBQNpLKCKQ4q8DFUjrSk5C'
   }),

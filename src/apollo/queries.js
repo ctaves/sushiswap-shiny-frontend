@@ -1,5 +1,19 @@
 import gql from "graphql-tag";
 
+export const MASTERCHEF_POOLS_NEW = () => {
+  const queryString = `query masterChefs {
+    masterChefs {
+      pools {
+        id
+        balance
+        pair
+        allocPoint
+      }
+    }
+  }`;
+  return gql(queryString);
+};
+
 export const MASTERCHEF_POOLS = () => {
   const queryString = `query masterChefPools {
     masterChefPools {
@@ -77,9 +91,7 @@ export const SUSHI_PAIRS = (ids, masterChefAddress) => {
         trackedReserveETH
     }
 
-    liquidityPositions(where: {user: ${JSON.stringify(
-      masterChefAddress
-    )}, pair_in: ${JSON.stringify(ids)}}) {
+    liquidityPositions(where: {user: ${JSON.stringify(masterChefAddress)}, pair_in: ${JSON.stringify(ids)}}) {
         pair {
           id
         }

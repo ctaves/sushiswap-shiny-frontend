@@ -107,7 +107,7 @@ export const sushiRewardsPerBlock = 70;
 export const votingURL = "https://forum.sushiswapclassic.org/t/pool-rotation-menu-of-the-week-week-46/1154";
 
 const menuSetup = {
-  current: [12, 1, 2, 21, 0, 11, 3, 8, 37, 4, 6, 7, 9, 18, 44, 13, 17],
+  current: [12, 58, 1, 2, 21, 0, 11, 3, 8, 37, 4, 6, 7, 9, 18, 44, 13, 17],
   upcoming: [],
   previous: [
     10,
@@ -149,7 +149,7 @@ const menuSetup = {
     59,
     60,
   ],
-  main: [12, 1, 2, 21, 0, 11, 3, 8, 37, 4, 6, 7, 9, 18, 44, 13, 17],
+  main: [12, 58, 1, 2, 21, 0, 11, 3, 8, 37, 4, 6, 7, 9, 18, 44, 13, 17],
 };
 
 export const menus = {
@@ -178,6 +178,22 @@ export const supportedPools = [
     icon: "🍣",
     uniswapPair: "SUSHI/ETH",
     lpToken: "0x795065dCc9f64b5614C407a6EFDC400DA6221FB0",
+    allocPoint: "4800",
+  },
+  {
+    pid: 58,
+    lpAddresses: {
+      1: "0xaf988afF99d3d0cb870812C325C588D8D8CB7De8",
+    },
+    tokenAddresses: {
+      1: "0x1ceb5cb57c4d4e2b2433641b95dd330a33185a44",
+    },
+    name: "Bee KP3R",
+    symbol: "KP3R-ETH SLP",
+    tokenSymbol: "KP3R",
+    icon: "🐝",
+    uniswapPair: "KP3R/ETH",
+    lpToken: "0xaf988afF99d3d0cb870812C325C588D8D8CB7De8",
     allocPoint: "4800",
   },
   {
