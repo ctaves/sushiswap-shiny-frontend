@@ -4,7 +4,7 @@ import WechatModal from "../Modals/Wechat";
 import useModal from "../../shared/hooks/useModal";
 
 import SwapIcon from "../../assets/icons/swap.png";
-import StakeIcon from "../../assets/icons/stake.png";
+import StakeIcon from "../../assets/icons/xsushi.svg";
 // import MenuIcon from "../../assets/icons/menu.png";
 // import AnalyticsIcon from "../../assets/icons/analytics.png";
 // import BentoBoxIcon from "../../assets/icons/bentobox_gray.png";

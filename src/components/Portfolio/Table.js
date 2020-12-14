@@ -1,6 +1,6 @@
 import React from "react";
 import SushiLogo from "../../assets/img/logo.png";
-import xSushiLogo from "../../assets/img/logo-xsushi-background.png";
+import xSushiLogo from "../../assets/icons/xsushi.svg";
 
 const Table = ({ balances, price, total, SushiBalanceUSD, totalSushiBalance, totalSushiBalanceUSD }) => {
   return (
