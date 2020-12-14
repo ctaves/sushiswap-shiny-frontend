@@ -194,11 +194,7 @@ export const supportedPools = [
     icon: "🐝",
     uniswapPair: "KP3R/ETH",
     lpToken: "0xaf988afF99d3d0cb870812C325C588D8D8CB7De8",
-<<<<<<< HEAD
     allocPoint: "200",
-=======
-    allocPoint: "4800",
->>>>>>> 64df9b1759313a2c21a76ff3832f812c8c5e6f2a
   },
   {
     pid: 21,
