@@ -4,8 +4,8 @@ import Web3 from "web3";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import getTokenList from "../utils/tokenLists";
-import { healthClient } from "../apollo/client";
-import { SUBGRAPH_HEALTH } from "../apollo/queries";
+import { healthClient, blocklytics } from "../apollo/client";
+import { SUBGRAPH_HEALTH, latestBlockQuery } from "../apollo/queries";
 dayjs.extend(utc);
 
 const UPDATE = "UPDATE";
@@ -172,6 +172,7 @@ export function useLatestBlock() {
 
   const latestBlock = state?.[LATEST_BLOCK];
 
+<<<<<<< HEAD
   // useEffect(() => {
   //   async function fetch() {
   //     try {
@@ -190,6 +191,32 @@ export function useLatestBlock() {
   //     fetch();
   //   }
   // }, [latestBlock, updateLatestBlock]);
+=======
+  useEffect(() => {
+    async function fetch() {
+      try {
+        // const res = await healthClient.query({
+        //   query: SUBGRAPH_HEALTH,
+        // });
+        // const block = res.data.indexingStatusForCurrentVersion.chains[0].latestBlock.number;
+        const res = await blocklytics.query({
+          query: latestBlockQuery,
+        });
+        const block = res.data.blocks[0].number;
+        console.log("BLOCK:", block);
+
+        if (block) {
+          updateLatestBlock(block);
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    if (!latestBlock) {
+      fetch();
+    }
+  }, [latestBlock, updateLatestBlock]);
+>>>>>>> 92a7ed352e3e2913b3a92feaac08abbfa00521e1
 
   return latestBlock;
 }
