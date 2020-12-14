@@ -2,12 +2,8 @@ import { client, masterChef, masterChefNew } from "../../apollo/client";
 import { MASTERCHEF_POOLS, MASTERCHEF_POOLS_NEW, SUSHI_PAIRS, TOKEN } from "../../apollo/queries";
 import _ from "lodash";
 import axios from "axios";
-<<<<<<< HEAD
-import sushiData from "@sushiswap/sushi-data";
-=======
 //import sushiData from "@sushiswap/sushi-data";
 
->>>>>>> 92a7ed352e3e2913b3a92feaac08abbfa00521e1
 import { supportedPools, menus, sushiRewardsPerBlock, ethBlockTime } from "../../constants/constants";
 
 export async function getPoolData(status) {
@@ -98,14 +94,7 @@ export async function getPoolData(status) {
       return Number(pool.allocPoint);
     }
   });
-  const MCHEF = await sushiData.masterchef.info().then((results) => {
-    return results;
-  });
-  console.log("MCHEF_ALLOC:", MCHEF);
-  console.log("MCHEF_POOLS:", masterChefPools);
-
   const totalAllocPoint = totalAllocPointWithoutVesting;
-  console.log("TOTALALLOCPOINT:", totalAllocPoint);
   // const totalAllocPointWithVesting = _.sumBy(masterChefPools, function(pool) {
   //   return Number(pool.allocPoint);
   // });
