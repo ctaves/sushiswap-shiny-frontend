@@ -210,7 +210,7 @@ export const supportedPools = [
     icon: "‍🌽",
     uniswapPair: "WBTC/ETH",
     lpToken: "0xceff51756c56ceffca006cd410b03ffc46dd3a58",
-    allocPoint: "3140",
+    allocPoint: "3500",
   },
   {
     pid: 0,
@@ -258,7 +258,7 @@ export const supportedPools = [
     icon: "🦆",
     uniswapPair: "DAI/ETH",
     lpToken: "0xC3D03e4F041Fd4cD388c549Ee2A29a9E5075882f",
-    allocPoint: "3140",
+    allocPoint: "3492",
   },
   {
     pid: 3,
@@ -274,7 +274,7 @@ export const supportedPools = [
     icon: "🦍",
     uniswapPair: "sUSD/ETH",
     lpToken: "0xF1F85b2C54a2bD284B1cf4141D64fD171Bd85539",
-    allocPoint: "1000",
+    allocPoint: "500",
   },
   {
     pid: 4,
@@ -290,7 +290,7 @@ export const supportedPools = [
     icon: "🍄",
     uniswapPair: "COMP/ETH",
     lpToken: "0x31503dcb60119a812fee820bb7042752019f2355",
-    allocPoint: "454",
+    allocPoint: "200",
   },
   {
     pid: 37,
@@ -354,7 +354,7 @@ export const supportedPools = [
     icon: "🦑",
     uniswapPair: "UMA/ETH",
     lpToken: "0x001b6450083e531a5a7bf310bd2c1af4247e23d4",
-    allocPoint: "454",
+    allocPoint: "250",
   },
   {
     pid: 8,
@@ -386,7 +386,7 @@ export const supportedPools = [
     icon: "🦖",
     uniswapPair: "BAND/ETH",
     lpToken: "0xA75F7c2F025f470355515482BdE9EFA8153536A8",
-    allocPoint: "454",
+    allocPoint: "250",
   },
   {
     pid: 10,
@@ -418,7 +418,7 @@ export const supportedPools = [
     icon: "🐋",
     uniswapPair: "YFI/ETH",
     lpToken: "0x088ee5007C98a9677165D78dD2109AE4a3D04d0C",
-    allocPoint: "2320",
+    allocPoint: "2520",
   },
   {
     pid: 13,
@@ -482,7 +482,7 @@ export const supportedPools = [
     icon: "🍠",
     uniswapPair: "YAM/ETH",
     lpToken: "0x0f82e57804d0b1f6fab2370a43dcfad3c7cb239c",
-    allocPoint: "200",
+    allocPoint: "150",
   },
   {
     pid: 16,
@@ -530,7 +530,7 @@ export const supportedPools = [
     icon: "🦄",
     uniswapPair: "UNI/ETH",
     lpToken: "0xdafd66636e2561b0284edde37e42d192f2844d40",
-    allocPoint: "200",
+    allocPoint: "100",
   },
   {
     pid: 19,
