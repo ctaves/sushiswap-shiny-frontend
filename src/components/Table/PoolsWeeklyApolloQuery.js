@@ -37,6 +37,8 @@ export async function getPoolData(status) {
   // Choose which pools to display on Menu based on PID for now -----------//
   const active = menus[status];
   let filtered = _.filter(masterChefPools, function(pool) {
+    //console.log("filtered:", pool, pool.pid);
+    //return active.includes(Number(pool.pid));
     return active.includes(Number(pool.id));
   });
   console.log("graphql_filtered:", filtered);
@@ -45,6 +47,8 @@ export async function getPoolData(status) {
 
   // *** If issues with the subgraph, load pool info manually from constants.js ***
   if (filtered.length < active.length) {
+    console.log("REVERTING TO CONSTANTS...");
+    console.log("filtered:", filtered, active);
     filtered = _.filter(supportedPools, function(pool) {
       return active.includes(Number(pool.pid));
       //return active.includes(Number(pool.id));
