@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 // Analytics
@@ -35,7 +35,10 @@ import { toChecksumAddress } from "web3-utils";
 import { useQuery } from "@apollo/client";
 
 // Layout
-import Table from "./Table";
+import TableSushi from "./Tables/Sushi";
+import TableFarms from "./Tables/Farms";
+import TableTotal from "./Tables/Total";
+import TableLP from "./Tables/LiquidityPositions";
 
 // Wallet integration
 import { useActiveWeb3React } from "../../services/exchange/hooks";
@@ -56,6 +59,13 @@ import { useTokenData } from "../../services/vision/contexts/TokenData";
 import { formattedNum } from "../../services/vision/utils";
 import { getBalanceNumber } from "../../services/frontend/utils/formatBalance";
 
+// vision dependancies
+import { useEthPrice } from "../../services/vision/contexts/GlobalData";
+import { client } from "../../services/vision/apollo/client";
+import { USER_POSITIONS, USER_HISTORY } from "../../services/vision/apollo/queries";
+import { getLPReturnsOnPair } from "../../services/vision/utils/returns";
+import { FEE_WARNING_TOKENS } from "../../services/vision/constants";
+
 import _ from "lodash";
 
 const Account = () => {
@@ -64,6 +74,78 @@ const Account = () => {
   console.log("ethereum:", ethereum, account);
   //const { account } = useActiveWeb3React();
   const id = account;
+
+  // GET USER SNAPSHOTS
+  const [snapshots, setSnapshots] = useState();
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        let skip = 0;
+        let allResults = [];
+        let found = false;
+        while (!found) {
+          let result = await client.query({
+            query: USER_HISTORY,
+            variables: {
+              skip: skip,
+              user: account.toLowerCase(),
+            },
+            fetchPolicy: "cache-first",
+          });
+
+          console.log("LP SNAPSHOT:", result.data.liquidityPositionSnapshots);
+
+          allResults = allResults.concat(result.data.liquidityPositionSnapshots);
+          if (result.data.liquidityPositionSnapshots.length < 1000) {
+            found = true;
+          } else {
+            skip += 1000;
+          }
+        }
+        if (allResults) {
+          setSnapshots(allResults);
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    fetchData();
+  }, [account]);
+
+  // Get Unstaked Liquidity Positions
+  const [ethPrice] = useEthPrice();
+  const [positions, setPositions] = useState();
+  useEffect(() => {
+    async function fetchData(account) {
+      try {
+        let result = await client.query({
+          query: USER_POSITIONS,
+          variables: {
+            user: account.toLowerCase(),
+          },
+          fetchPolicy: "no-cache",
+        });
+        if (result?.data?.liquidityPositions) {
+          let formattedPositions = await Promise.all(
+            result?.data?.liquidityPositions.map(async (positionData) => {
+              const returnData = await getLPReturnsOnPair(account, positionData.pair, ethPrice, snapshots);
+              return {
+                ...positionData,
+                ...returnData,
+              };
+            })
+          );
+          setPositions(formattedPositions);
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    fetchData(account);
+  }, [account, snapshots]);
+
+  console.log("POSITIONS:", positions);
+  console.log("SNAPSHOTS:", snapshots);
 
   // Get Sushi Price in USD
   const { priceUSD } = useTokenData("0x6b3595068778dd592e39a122f4f5a5cf09c90fe2");
@@ -210,14 +292,19 @@ const Account = () => {
     const sushiLocked = (parseFloat(user.sushiHarvestedSinceLockup) + pendingSushi - sushiAtLockup) * 2;
     const sushiLockedUSD = sushiLocked * sushiPrice;
 
+    console.log("USER:", user);
+    console.log("PAIR:", pair);
+
     farmBalances.push({
       name: pair?.token0.symbol + "-" + pair?.token1.symbol,
       slp: decimalFormatter.format(slp),
+      token0Address: pair?.token0.id,
       token0Symbol: pair?.token0.symbol,
       token0Balance: decimalFormatter.format(token0),
+      token1Address: pair?.token1.id,
       token1Symbol: pair?.token1.symbol,
       token1Balance: decimalFormatter.format(token1),
-      valueUSD: currencyFormatter.format(pair?.reserveUSD * share),
+      valueUSD: pair?.reserveUSD * share,
       pendingSushi: decimalFormatter.format(pendingSushi),
       pendingSushiUSD: currencyFormatter.format(pendingSushi * sushiPrice),
       harvestedSushi: decimalFormatter.format(user.sushiHarvested),
@@ -226,17 +313,17 @@ const Account = () => {
       lockedSushiUSD: sushiLockedUSD,
       entriesUSD: currencyFormatter.format(user.entryUSD),
       exitsUSD: currencyFormatter.format(user.exitUSD),
-      profitUSD: currencyFormatter.format(
+      profitUSD:
         parseFloat(pair?.reserveUSD * share) +
-          parseFloat(user.exitUSD) +
-          parseFloat(user.sushiHarvestedUSD) +
-          parseFloat(pendingSushi * sushiPrice) -
-          parseFloat(user.entryUSD)
-      ),
+        parseFloat(user.exitUSD) +
+        parseFloat(user.sushiHarvestedUSD) +
+        parseFloat(pendingSushi * sushiPrice) -
+        parseFloat(user.entryUSD),
     });
   });
 
   console.log("FARM BALANCES:", farmBalances);
+  console.log("FARM VALUE: ", _.sumBy(farmBalances, "valueUSD"));
 
   const totalSushiBalance =
     Number(sumEarning) +
@@ -244,13 +331,24 @@ const Account = () => {
     Number(getBalanceNumber(totalNotStaked)) +
     Number(barStaked);
 
+  console.log("BALANCES:", {
+    totalSushiBalance: totalSushiBalance,
+    sumEarning: sumEarning,
+    lockedSushi: _.sumBy(farmBalances, "lockedSushi"),
+    notStaked: getBalanceNumber(totalNotStaked),
+    staked: Number(barStaked),
+  });
+
   const balances = [
     {
       title: "Harvestable",
-      sushi: <div className="text-right">{sumEarning} SUSHI</div>,
-      usd: <div className="text-right text-gray-500">${sumEarning * priceUSD}</div>,
+      sushi: <div className="text-right">{formattedNum(sumEarning, false)} SUSHI</div>,
+      usd: <div className="text-right text-gray-500">{formattedNum(sumEarning * priceUSD, true)}</div>,
       cta: (
-        <Link to="/" class="font-medium text-orange-600 hover:text-orange-700 transition duration-150 ease-in-out">
+        <Link
+          to="/"
+          class="text-right font-medium text-gray-900 hover:text-gray-700 transition duration-150 ease-in-out"
+        >
           Harvest
         </Link>
       ),
@@ -263,7 +361,7 @@ const Account = () => {
         <a
           href="https://docs.sushiswap.fi"
           target="_blank"
-          class="font-medium text-orange-600 hover:text-orange-700 transition duration-150 ease-in-out"
+          class="text-right font-medium text-gray-900 hover:text-gray-700 transition duration-150 ease-in-out"
         >
           Learn more
         </a>
@@ -283,16 +381,55 @@ const Account = () => {
       cta: <UnstakeSushi />,
     },
   ];
+
+  console.log("formatted:", totalSushiBalance, formattedNum(totalSushiBalance), formattedNum(totalSushiBalance, true));
+  console.log(
+    "formatted:",
+    totalSushiBalance * sushiPrice,
+    formattedNum(totalSushiBalance * sushiPrice),
+    formattedNum(totalSushiBalance * sushiPrice, true)
+  );
+
+  let LPBalance = 0;
+  positions?.forEach((position) => {
+    const poolOwnership = position.liquidityTokenBalance / position.pair.totalSupply;
+    const valueUSD = poolOwnership * position.pair.reserveUSD;
+    LPBalance = LPBalance + valueUSD;
+  });
+
+  const totalBalanceUSD = formattedNum(
+    totalSushiBalance * sushiPrice + _.sumBy(farmBalances, "valueUSD") + LPBalance,
+    true
+  );
+
+  // if any position has token from fee warning list, show warning
+  const [showWarning, setShowWarning] = useState(false);
+  useEffect(() => {
+    if (positions) {
+      for (let i = 0; i < positions.length; i++) {
+        if (
+          FEE_WARNING_TOKENS.includes(positions[i].pair.token0.id) ||
+          FEE_WARNING_TOKENS.includes(positions[i].pair.token1.id)
+        ) {
+          setShowWarning(true);
+        }
+      }
+    }
+  }, [positions]);
+
   return (
     <>
-      <Table
+      <TableTotal totalBalanceUSD={totalBalanceUSD} account={account} />
+      <TableSushi
         balances={balances}
         price={currencyFormatter.format(sushiPrice)}
-        totalSushiBalance={decimalFormatter.format(totalSushiBalance)}
-        totalSushiBalanceUSD={currencyFormatter.format(totalSushiBalance * sushiPrice)}
+        totalSushiBalance={formattedNum(totalSushiBalance)}
+        totalSushiBalanceUSD={formattedNum(totalSushiBalance * sushiPrice, true)}
       />
+      <TableFarms positions={farmBalances} farmBalanceUSD={formattedNum(_.sumBy(farmBalances, "valueUSD"), true)} />
+      <TableLP positions={positions} ethPrice={ethPrice} LPBalanceUSD={formattedNum(LPBalance, true)} />
 
-      <div>{currencyFormatter.format(investments)}</div>
+      {/* <div>{currencyFormatter.format(investments)}</div>
       <div>
         {decimalFormatter.format(barStaked)} SUSHI ({currencyFormatter.format(barStakedUSD)})
       </div>
@@ -365,7 +502,7 @@ const Account = () => {
             </>
           );
         })}
-      </div>
+      </div> */}
     </>
   );
 };

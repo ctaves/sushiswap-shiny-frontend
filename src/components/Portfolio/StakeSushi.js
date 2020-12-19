@@ -1,13 +1,13 @@
 import BigNumber from "bignumber.js";
 import React, { useCallback, useState } from "react";
 import useModal from "../../services/frontend/hooks/useModal";
-import useTokenBalance from "../../services/frontend/hooks/useTokenBalance";
 import DepositModal from "../../services/frontend/views/StakeXSushi/components/DepositModal";
 import { contractAddresses } from "../../services/frontend/sushi/lib/constants";
-import useEnter from "../../services/frontend/hooks/useEnter";
-import useLeave from "../../services/frontend/hooks/useLeave";
-import useAllowanceStaking from "../../services/frontend/hooks/useAllowanceStaking";
-import useApproveStaking from "../../services/frontend/hooks/useApproveStaking";
+
+import useTokenBalance from "./hooks/useTokenBalance";
+import useEnter from "./hooks/useEnter";
+import useAllowanceStaking from "./hooks/useAllowanceStaking";
+import useApproveStaking from "./hooks/useApproveStaking";
 
 const StakeSushi = () => {
   const tokenName = "SUSHI";
@@ -16,7 +16,7 @@ const StakeSushi = () => {
   const { onApprove } = useApproveStaking();
   const tokenBalance = useTokenBalance(contractAddresses.sushi[1]);
   const { onEnter } = useEnter();
-  //const { onLeave } = useLeave();
+
   const [onPresentDeposit] = useModal(<DepositModal max={tokenBalance} onConfirm={onEnter} tokenName={tokenName} />);
   const handleApprove = useCallback(async () => {
     try {

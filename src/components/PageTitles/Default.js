@@ -7,10 +7,16 @@ const PageTitle = ({ logo, title, noBorder }) => {
   const [onPresentShare] = useModal(<ShareModal />, null, null);
   return (
     <>
-      <div
+      {/* <div
         className={
           (!noBorder && "sushi-border-b sushi-border-gray-200 ") +
           "sushi-border-b sushi-border-gray-200 sushi-px-4 sushi-py-4 sm:sushi-flex sm:sushi-items-center sm:sushi-justify-between sm:sushi-px-6 lg:sushi-px-8"
+        }
+      > */}
+      <div
+        className={
+          (!noBorder && "sushi-border-b sushi-border-gray-200 ") +
+          "sushi-border-b sushi-border-gray-200 sushi-px-4 sushi-py-4 sushi-flex sushi-items-center sushi-justify-between sm:sushi-px-6 lg:sushi-px-8"
         }
       >
         <div className="sushi-flex sushi-items-center sushi-flex-shrink-0">
@@ -30,8 +36,10 @@ const PageTitle = ({ logo, title, noBorder }) => {
             {title}
           </h1>
         </div> */}
+        {/* <span className="sushi-w-auto sushi-order-1 sushi-ml-3 sushi-shadow-sm sushi-rounded-md sm:sushi-order-0 sm:sushi-ml-0"> */}
+
         <div className="sushi-mt-4 sushi-flex sm:sushi-mt-0 sm:sushi-ml-4">
-          <span className="sushi-w-full md:sushi-w-auto sushi-order-1 sushi-ml-3 sushi-shadow-sm sushi-rounded-md sm:sushi-order-0 sm:sushi-ml-0">
+          {/* <span className="sushi-w-full md:sushi-w-auto sushi-order-1 sushi-ml-3 sushi-shadow-sm sushi-rounded-md sm:sushi-order-0 sm:sushi-ml-0">
             <button
               type="button"
               onClick={onPresentShare}
@@ -47,10 +55,10 @@ const PageTitle = ({ logo, title, noBorder }) => {
                 ></path>
               </svg>
             </button>
-          </span>
-          <span className="sushi-w-full md:sushi-w-auto sushi-order-0 sm:sushi-order-1 sm:sushi-ml-3 sushi-shadow-sm sushi-rounded-md">
+          </span> */}
+          {/* <span className="sushi-w-full md:sushi-w-auto sushi-order-0 sm:sushi-order-1 sm:sushi-ml-3 sushi-shadow-sm sushi-rounded-md">
             <WalletButton />
-          </span>
+          </span> */}
         </div>
       </div>
     </>

@@ -153,9 +153,13 @@ const App = () => {
               <Route exact path="/wallet" component={Wallet} />
               <Route exact path="/widget/bentobox" component={BentoBox} />
               {/* Account Routes */}
+              <Route exact path="/search" component={Dashboard} />
               <Route exact path="/omakase" component={Dashboard} />
               <Route exact path="/account" component={Dashboard} />
+              <Route exact path="/portfolio/balances" component={Dashboard} />
+              <Route exact path="/portfolio/transactions" component={Dashboard} />
               <Route exact path="/portfolio" component={Dashboard} />
+
               {/* Farm Routes */}
               {/* <Route exact path="/weekly" component={Dashboard} /> */}
               {/* <Route exact path="/pools" component={Dashboard} /> */}
@@ -166,7 +170,10 @@ const App = () => {
                 <Redirect to="/farms/weekly" />
               </Route>
               <Route exact path="/farms" component={Dashboard} />
-              <Route exact path="/farms/weekly" component={Dashboard} />
+              <Route exact path="/farms/special" component={Dashboard} />
+              <Route exact path="/onsen">
+                <Redirect to="/farms/special" />
+              </Route>
               <Route exact path="/farms/permanent" component={Dashboard} />
               <Route exact path="/farms/xsushi" component={Dashboard} />
               <Route exact path="/stake" component={Dashboard} />
@@ -177,6 +184,7 @@ const App = () => {
               <Route exact path="/pairs" component={Dashboard} />
               <Route exact path="/pair/:pairId" component={Dashboard} />
               <Route exact path="/governance" component={Dashboard} />
+              <Route exact path="/community" component={Dashboard} />
               <Route exact path="/about" component={Dashboard} />
               <Route exact path="/faq" component={Dashboard} />
               <Route exact path="/faqs" component={Dashboard} />

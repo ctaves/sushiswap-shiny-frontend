@@ -21,8 +21,8 @@ const Tabs = ({ tabs, selected, setSelected, count }) => {
                 <span
                   className={
                     selected === tab.id
-                      ? "sushi-ml-2 sushi-inline-block sushi-py-0.5 sushi-px-2 sushi-text-xs sushi-leading-4 sushi-font-medium sushi-rounded-full sushi-bg-orange-200 sushi-transition sushi-ease-in-out sushi-duration-150 group-hover:sushi-bg-orange-200 group-focus:sushi-bg-orange-200"
-                      : "sushi-ml-2 sushi-inline-block sushi-py-0.5 sushi-px-2 sushi-text-xs sushi-leading-4 sushi-font-medium sushi-rounded-full sushi-bg-gray-200 sushi-transition sushi-ease-in-out sushi-duration-150 group-hover:sushi-bg-gray-200 group-focus:sushi-bg-gray-200"
+                      ? "sushi-ml-2 sushi-inline-block sushi-py-0.5 sushi-px-2 sushi-text-xs sushi-leading-4 sushi-font-medium sushi-rounded-full bg-gray-900 sushi-transition sushi-ease-in-out sushi-duration-150 group-hover:bg-gray-700 group-focus:bg-gray-700"
+                      : "sushi-ml-2 sushi-inline-block sushi-py-0.5 sushi-px-2 sushi-text-xs sushi-leading-4 sushi-font-medium sushi-rounded-full bg-gray-900 sushi-transition sushi-ease-in-out sushi-duration-150 roup-hover:bg-gray-700 group-focus:bg-gray-700"
                   }
                 >
                   {count}

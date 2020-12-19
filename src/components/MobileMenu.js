@@ -10,7 +10,7 @@ const SearchHeader = ({ selected, changeMenu, isOpen }) => {
   return (
     <>
       {/* Navbar */}
-      <nav className="sushi-block lg:sushi-hidden sushi-flex-shrink-0 sushi-bg-orange-100">
+      <nav className="sushi-block lg:sushi-hidden sushi-flex-shrink-0 bg-white border border-b border-gray-200 shadow">
         <div className="sushi-max-w-7xl sushi-mx-auto sushi-px-2 sm:sushi-px-4 lg:sushi-px-8">
           <div className="sushi-relative sushi-flex sushi-items-center sushi-justify-between sushi-h-16">
             {/* Logo section */}
@@ -52,7 +52,7 @@ const SearchHeader = ({ selected, changeMenu, isOpen }) => {
             <div className="sushi-flex lg:sushi-hidden">
               {/* Mobile menu button */}
               <button
-                className="sushi-inline-flex sushi-items-center sushi-justify-center sushi-p-2 sushi-rounded-md sushi-text-orange-600 hover:sushi-text-white hover:sushi-bg-orange-200 focus:sushi-outline-none focus:sushi-bg-orange-200 focus:sushi-text-white sushi-transition sushi-duration-150 sushi-ease-in-out"
+                className="sushi-inline-flex sushi-items-center sushi-justify-center sushi-p-2 sushi-rounded-md text-gray-900 hover:text-gray-700 hover:bg-white focus:sushi-outline-none focus:bg-gray-900 focus:text-white sushi-transition sushi-duration-150 sushi-ease-in-out"
                 aria-label="Main menu"
                 aria-expanded="false"
                 onClick={() => {

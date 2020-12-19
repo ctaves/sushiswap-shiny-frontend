@@ -94,9 +94,9 @@ const MenuItems = ({ selected }) => {
             </span> */}
           </div>
           <Link
-            to="/weekly"
+            to="/farms/special"
             className={
-              selected === "weekly"
+              selected === "special"
                 ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
                 : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:font-semibold focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
             }
@@ -114,7 +114,7 @@ const MenuItems = ({ selected }) => {
                 d="M16 4v12l-4-2-4 2V4M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
               />
             </svg>
-            Weekly Farms
+            Special Farms
           </Link>
           <Link
             to="/farms"

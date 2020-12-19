@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef, createContext, useContext, useReducer } from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Link, Route, Redirect } from "react-router-dom";
 import SectionTabs from "../components/Tabs";
 // Dashboard
+import MobileNavigation from "../components/MobileNavigation";
 import SearchHeader from "../components/MobileMenu";
 import Sidebar from "../components/Sidebar/Layout";
 import PageTitle from "../components/PageTitles/Default";
@@ -22,8 +23,9 @@ import UniGlobalChart from "../services/view/components/charts/globalChart";
 import Flickity from "react-flickity-component";
 import GlobalStats from "../services/vision/components/GlobalStats/secondary";
 import IntroBanner from "../components/Banners/Full";
-// OmakaseBar
-import Portfolio from "../components/Portfolio";
+// Portfolio
+import PortfolioPage from "../components/Portfolio";
+import TransactionsPage from "../components/Portfolio/Transactions";
 import CardSummary from "../components/Cards/Summary";
 import CardBalance from "../components/Cards/Balance/Layout";
 import CardResources from "../components/Cards/Resources/Layout";
@@ -52,6 +54,8 @@ import Pair from "../pages/Pair";
 import Token from "../pages/Token";
 // About
 import CardAbout from "../components/Cards/About";
+// Community
+import CommunityPage from "../components/Community";
 // Faq
 import TableFAQ from "../components/Table/FAQ";
 // Governance
@@ -101,6 +105,12 @@ const Dashboard = () => {
 };
 
 export const DashboardContainer = ({ children }) => {
+  useEffect(() => {
+    window.scrollTo({
+      behavior: "smooth",
+      top: 0,
+    });
+  }, []);
   const mobileMenu = useMenu();
   //const { state } = useSectionState();
 
@@ -109,14 +119,15 @@ export const DashboardContainer = ({ children }) => {
       <div className="sushi-h-screen sushi-flex sushi-overflow-hidden sushi-bg-white">
         <Sidebar />
         <div className="sushi-flex sushi-flex-col sushi-w-0 sushi-flex-1 sushi-overflow-hidden">
-          <SearchHeader changeMenu={mobileMenu.change} isOpen={mobileMenu.isOpen} />
+          {/* <SearchHeader changeMenu={mobileMenu.change} isOpen={mobileMenu.isOpen} /> */}
           <main
             className="lg:mt-4 lg:mr-4 lg:p-4 lg:bg-gray-200 lg:rounded-lg sushi-flex-1 sushi-relative sushi-z-0 sushi-overflow-y-auto focus:sushi-outline-none"
             tabIndex={0}
           >
-            <div className="bg-white lg:rounded-lg">{children}</div>
+            <div className="bg-white lg:rounded-lg mb-16">{children}</div>
           </main>
         </div>
+        <MobileNavigation changeMenu={mobileMenu.change} isOpen={mobileMenu.isOpen} />
       </div>
     </>
   );
@@ -128,15 +139,19 @@ const DashboardRoutes = () => {
       <Route exact path="/" component={Overview} />
       <Route exact path="/home" component={Overview} />
       <Route exact path="/overview" component={Overview} />
-      <Route exact path="/omakase" component={OmakaseBar} />
-      <Route exact path="/account" component={OmakaseBar} />
-      <Route exact path="/portfolio" component={OmakaseBar} />
+      <Route exact path="/search" component={Search} />
+      <Route exact path="/omakase" component={PortfolioBalances} />
+      <Route exact path="/account" component={PortfolioBalances} />
+      <Route exact path="/portfolio" component={PortfolioBalances} />
+      <Route exact path="/portfolio/balances" component={PortfolioBalances} />
+      <Route exact path="/portfolio/transactions" component={PortfolioTransactions} />
       <Route exact path="/weekly" component={MenuOfTheWeek} />
       <Route exact path="/tokens" component={Tokens} />
       <Route exact path="/pools" component={Pools} />
       <Route exact path="/farms" component={Pools} />
       <Route exact path="/pairs" component={Pairs} />
       <Route exact path="/governance" component={Governance} />
+      <Route exact path="/community" component={Community} />
       <Route exact path="/about" component={About} />
       <Route exact path="/faqs" component={Faqs} />
       <Route exact path="/bentobox" component={BentoBoxWrapper} />
@@ -173,6 +188,29 @@ const BentoBoxWrapper = () => {
     <>
       {/* <PageTitle title={"Bentobox Lending"} logo={BentoBoxLogo} /> */}
       <BentoBox />
+    </>
+  );
+};
+
+const Search = () => {
+  return (
+    <>
+      <PageTitle title={"Browse"} />
+      <div className="py-4 px-4 lg:sushi-block">
+        <MainSearch />
+      </div>
+    </>
+  );
+};
+
+const Community = () => {
+  return (
+    <>
+      <PageTitle title={"A community full of chefs"} />
+      <div className="py-4 px-4 lg:sushi-block">
+        <MainSearch />
+        <CommunityPage />
+      </div>
     </>
   );
 };
@@ -251,99 +289,78 @@ const Overview = () => {
   );
 };
 
-const OmakaseBar = () => {
+const PortfolioBalances = () => {
   const { dispatch } = useContext(SectionContext);
   useEffect(() => {
-    dispatch({ type: "update", section: "omakase" });
+    dispatch({ type: "update", section: "portfolio" });
   }, []);
   return (
     <>
-      <PageTitle title={"Omakase Analytics"} />
-      <header className="bg-white shadow">
-        <div className="px-2 sm:px-4 lg:divide-y lg:divide-gray-200 lg:px-8">
-          <nav className="hidden lg:py-2 lg:flex lg:space-x-8" aria-label="Global">
-            <a
-              href="#"
-              className="rounded-md py-2 px-3 inline-flex items-center text-sm leading-5 font-medium text-gray-900 hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
-            >
-              Account
-            </a>
-            <a
-              href="#"
-              className="rounded-md py-2 px-3 inline-flex items-center text-sm leading-5 font-medium text-gray-900 hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
-            >
-              Compare Liquidity
-            </a>
-            <a
-              href="#"
-              className="rounded-md py-2 px-3 inline-flex items-center text-sm leading-5 font-medium text-gray-900 hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
-            >
-              Compare Trading
-            </a>
-            <a
-              href="#"
-              className="rounded-md py-2 px-3 inline-flex items-center text-sm leading-5 font-medium text-gray-900 hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
-            >
-              Movement
-            </a>
-          </nav>
+      <div className="border-b border-gray-200 px-4 pt-4 sm:px-6 lg:px-8">
+        <div className="space-y-4 sm:flex sm:items-baseline sm:space-y-0 sm:space-x-10">
+          <h3 className="text-lg leading-6 font-medium text-gray-900">Omakase: Your Portflio</h3>
+          <div>
+            <nav className="-mb-px flex space-x-8">
+              <Link
+                href="/portfolio/balances"
+                className="whitespace-no-wrap pb-4 px-1 border-b-2 border-gray-900 font-medium text-sm leading-5 text-gray-900 focus:outline-none focus:text-gray-900 focus:border-gray-900"
+                aria-current="page"
+              >
+                Balances
+              </Link>
+              <Link
+                to="/portfolio/transactions"
+                className="whitespace-no-wrap pb-4 px-1 border-b-2 border-transparent font-medium text-sm leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300"
+              >
+                Transactions
+              </Link>
+            </nav>
+          </div>
         </div>
-      </header>
-      <div className="min-h-full bg-gray-100 shadow-inner py-6 px-4 space-y-6 sm:p-6">
+      </div>
+      <div className="min-h-full bg-gray-100 shadow-inner py-6 space-y-6 sm:p-6">
         <div className="shadow sm:rounded-md sm:overflow-hidden">
           <div className="bg-white">
-            <Portfolio />
-            {/* <CardBalances /> */}
+            <PortfolioPage />
           </div>
         </div>
-        {/* <div className="shadow sm:rounded-md sm:overflow-hidden">
-          <div className="bg-white">
-            <CardPositions />
-          </div>
-        </div> */}
       </div>
+    </>
+  );
+};
 
-      {/* <Flickity
-        className={"flickity-viewport-visible shadow-inner py-4 bg-gray-100 overflow-x-hidden outline-none"}
-        elementType={"div"}
-        options={{
-          cellAlign: "left",
-          imagesLoaded: true,
-          pageDots: false,
-          prevNextButtons: false,
-          contain: true,
-        }}
-        disableImagesLoaded={false}
-        reloadOnUpdate
-        static
-      >
-        <div className="relative w-4/5 md:w-2/5 mx-auto pl-4">
-          <CardBalance title={"Your SUSHI Balance"} />
+const PortfolioTransactions = () => {
+  const { dispatch } = useContext(SectionContext);
+  useEffect(() => {
+    dispatch({ type: "update", section: "portfolio" });
+  }, []);
+  return (
+    <>
+      <div className="border-b border-gray-200 px-4 pt-4 sm:px-6 lg:px-8">
+        <div className="space-y-4 sm:flex sm:items-baseline sm:space-y-0 sm:space-x-10">
+          <h3 className="text-lg leading-6 font-medium text-gray-900">Omakase: Your Portflio</h3>
+          <div>
+            <nav className="-mb-px flex space-x-8">
+              <Link
+                to="/portfolio/balances"
+                className="whitespace-no-wrap pb-4 px-1 border-b-2 border-transparent font-medium text-sm leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300"
+              >
+                Balances
+              </Link>
+              <Link
+                href="/portfolio/transactions"
+                className="whitespace-no-wrap pb-4 px-1 border-b-2 border-gray-900 font-medium text-sm leading-5 text-gray-900 focus:outline-none focus:text-gray-900 focus:border-gray-900"
+                aria-current="page"
+              >
+                Transactions
+              </Link>
+            </nav>
+          </div>
         </div>
-        <div className="relative w-4/5 md:w-1/3 mx-auto pl-4">
-          <CardBalances title={"Your xSUSHI Balance"} />
-        </div>
-        <div className="relative w-4/5 md:w-1/2 mx-auto px-4">
-          <CardPositions title={"Your xSUSHI Balance"} />
-        </div>
-        <div className="relative w-4/5 md:w-1/2 mx-auto pl-4">
-          <CardKitchen title={"What's Cooking?"} />
-        </div>
-        <div className="relative w-4/5 md:w-1/2 mx-auto pl-4">
-          <CardServing title={"Who's Serving?"} />
-        </div>
-      </Flickity> */}
-      {/* <CardSection>
-        <CardSummary title={"Summary"} />
-        <CardBalance title={"SUSHI Actions"} />
-      </CardSection> */}
-      {/* <div className="sushi-mx-4 sushi-my-6">
-        <CardBalances title={"Your xSUSHI Balance"} />
-      </div> */}
-      {/* <CardSection>
-        <CardSocialMedia title={"📣 Social Media"} />
-        <CardResources title={"📚 Resources"} />
-      </CardSection> */}
+      </div>
+      <div className="min-h-full bg-gray-100 shadow-inner py-6 space-y-6 sm:p-6">
+        <TransactionsPage />
+      </div>
     </>
   );
 };

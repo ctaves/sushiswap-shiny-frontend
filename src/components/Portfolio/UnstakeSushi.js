@@ -1,19 +1,20 @@
 import React, { useState, useMemo } from "react";
-import { useWallet } from "use-wallet";
 import { contractAddresses } from "../../services/frontend/sushi/lib/constants";
 import { getContract } from "../../services/frontend/utils/erc20";
-import useTokenBalance from "../../services/frontend/hooks/useTokenBalance";
 import useModal from "../../services/frontend/hooks/useModal";
 import WithdrawModal from "../../services/frontend/views/StakeXSushi/components/WithdrawModal";
-import useLeave from "../../services/frontend/hooks/useLeave";
+
+//import { useActiveWeb3React } from "../../services/exchange/hooks";
+import useTokenBalance from "./hooks/useTokenBalance";
+import useLeave from "./hooks/useLeave";
 
 const UnstakeXSushi = () => {
   const { tokenAddress } = {
     tokenAddress: contractAddresses.xSushi[1],
   };
-  const { ethereum } = useWallet();
+  const { ethereum } = window;
   const lpContract = useMemo(() => {
-    debugger;
+    //debugger;
     return getContract(ethereum, tokenAddress);
   }, [ethereum, tokenAddress]);
 

@@ -2,8 +2,8 @@ import React from "react";
 import { menus, supportedPools } from "../../constants/constants";
 import { isAddress } from "../../services/vision/utils/index.js";
 import logoNotFound from "../../assets/img/logoNotFound.png";
-import logoBackground from "../../assets/img/logo-background.png";
-import logoXSushiBackground from "../../assets/img/logo-xsushi-background.png";
+import logoBackground from "../../assets/img/logo_background.jpg";
+import logoXSushiBackground from "../../assets/img/logox_background.jpg";
 import _ from "lodash";
 
 const MigrateNoticeWrapper = () => {
@@ -56,7 +56,7 @@ export const MigrateNotice = () => {
           </div>
         </p>
         <a href="https://lite.sushiswap.fi/#/liquidity/migrate" target="_blank">
-          <button className="mt-8 w-full bg-orange-600 border border-transparent rounded-md py-4 text-lg leading-5 font-semibold text-white hover:bg-orange-700 focus:outline-none focus:border-orange-700 focus:shadow-outline-orange active:bg-orange-700 transition duration-150 ease-in-out">
+          <button className="mt-8 w-full bg-gray-900 border border-transparent rounded-md py-4 text-lg leading-5 font-semibold text-white hover:bg-gray-700 focus:outline-none focus:border-gray-700 focus:shadow-outline-orange active:bg-gray-700 transition duration-150 ease-in-out">
             Migrate from Uniswap
           </button>
         </a>
