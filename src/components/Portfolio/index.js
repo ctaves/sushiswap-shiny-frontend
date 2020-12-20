@@ -342,8 +342,8 @@ const Account = () => {
   const balances = [
     {
       title: "Harvestable",
-      sushi: <div className="text-right">{formattedNum(sumEarning, false)} SUSHI</div>,
-      usd: <div className="text-right text-gray-500">{formattedNum(sumEarning * priceUSD, true)}</div>,
+      sushi: formattedNum(sumEarning, false),
+      usd: formattedNum(sumEarning * priceUSD, true),
       cta: (
         <Link
           to="/"
@@ -426,8 +426,8 @@ const Account = () => {
         totalSushiBalance={formattedNum(totalSushiBalance)}
         totalSushiBalanceUSD={formattedNum(totalSushiBalance * sushiPrice, true)}
       />
-      <TableFarms positions={farmBalances} farmBalanceUSD={formattedNum(_.sumBy(farmBalances, "valueUSD"), true)} />
       <TableLP positions={positions} ethPrice={ethPrice} LPBalanceUSD={formattedNum(LPBalance, true)} />
+      <TableFarms positions={farmBalances} farmBalanceUSD={formattedNum(_.sumBy(farmBalances, "valueUSD"), true)} />
 
       {/* <div>{currencyFormatter.format(investments)}</div>
       <div>

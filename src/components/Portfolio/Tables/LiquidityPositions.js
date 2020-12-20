@@ -30,20 +30,124 @@ const Table = ({ positions, ethPrice, LPBalanceUSD }) => {
           <main className="flex-1 relative z-0 overflow-y-auto focus:outline-none" tabIndex={0}>
             <div className="block">
               <div className="align-middle inline-block min-w-full border-b border-gray-200">
-                <table className="min-w-full table-fixed">
-                  <TableHead />
-                  <tbody className="bg-white divide-y divide-gray-100">
-                    {positions &&
-                      positions.map((position) => {
-                        return <TableRow position={position} ethPrice={ethPrice} />;
-                      })}
-                  </tbody>
-                </table>
+                <div className="align-middle inline-block min-w-full border-b border-gray-200">
+                  <table className="hidden sm:block min-w-full table-fixed">
+                    <TableHead />
+                    <tbody className="bg-white divide-y divide-gray-100">
+                      {positions &&
+                        positions.map((position) => {
+                          return <TableRow position={position} ethPrice={ethPrice} />;
+                        })}
+                    </tbody>
+                  </table>
+                  <div className="block sm:hidden">
+                    <ul className="divide-y divide-gray-200 overflow-hidden shadow sm:hidden">
+                      {positions &&
+                        positions.map((position) => {
+                          return <Card position={position} ethPrice={ethPrice} />;
+                        })}
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </main>
         </div>
       </div>
+    </>
+  );
+};
+
+const Card = ({ position, ethPrice }) => {
+  const poolOwnership = position.liquidityTokenBalance / position.pair.totalSupply;
+  const valueUSD = poolOwnership * position.pair.reserveUSD;
+  return (
+    <>
+      <li>
+        <a href="#" className="block px-4 py-4 bg-white hover:bg-cool-gray-50">
+          <div className="flex items-center space-x-4">
+            <div className="flex-1 flex space-x-2 truncate">
+              <div className="flex flex-shrink-0 -space-x-1">
+                <img
+                  className="relative z-30 inline-block h-6 w-6 rounded-full text-white shadow-solid"
+                  src={`https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${isAddress(
+                    position.pair.token0.id
+                  )}/logo.png`}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = logoNotFound;
+                  }}
+                />
+                <img
+                  className="relative z-20 -ml-1 inline-block h-6 w-6 rounded-full text-white shadow-solid"
+                  src={`https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${isAddress(
+                    position.pair.token1.id
+                  )}/logo.png`}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = logoNotFound;
+                  }}
+                />
+              </div>
+              <div className="text-left text-cool-gray-500 text-sm truncate">
+                <div>
+                  <Link to={"/pair/" + position.pair.id} className="truncate hover:text-gray-600">
+                    <span>{position.pair.token0.symbol + "-" + position.pair.token1.symbol}</span>
+                  </Link>
+                </div>
+                <div className="mt-2">
+                  <div className="text-gray-900">{formattedNum(valueUSD, true, true)}</div>
+                  <div>
+                    {formattedNum(poolOwnership * parseFloat(position.pair.reserve0))} {position.pair.token0.symbol}
+                  </div>
+                  <div>
+                    {formattedNum(poolOwnership * parseFloat(position.pair.reserve1))} {position.pair.token1.symbol}
+                  </div>
+                </div>
+                <div className="mt-2">
+                  <div className="text-green-500">{formattedNum(position?.fees.sum, true, true)}</div>
+                  <div>
+                    {parseFloat(position.pair.token0.derivedETH)
+                      ? formattedNum(
+                          position?.fees.sum / (parseFloat(position.pair.token0.derivedETH) * ethPrice) / 2,
+                          false,
+                          true
+                        )
+                      : 0}{" "}
+                    {position.pair.token0.symbol}
+                  </div>
+                  <div>
+                    {parseFloat(position.pair.token1.derivedETH)
+                      ? formattedNum(
+                          position?.fees.sum / (parseFloat(position.pair.token1.derivedETH) * ethPrice) / 2,
+                          false,
+                          true
+                        )
+                      : 0}{" "}
+                    {position.pair.token1.symbol}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="mt-3 rounded-md bg-gray-100">
+            <div className="p-2 flex">
+              <button
+                type="button"
+                className="w-full mr-1 inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+              >
+                Add
+              </button>
+              <button
+                type="button"
+                className="w-full ml-1 inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+              >
+                Remove
+              </button>
+            </div>
+          </div>
+        </a>
+      </li>
     </>
   );
 };
@@ -72,8 +176,7 @@ const TableHead = () => {
 const TableRow = ({ position, ethPrice }) => {
   const poolOwnership = position.liquidityTokenBalance / position.pair.totalSupply;
   const valueUSD = poolOwnership * position.pair.reserveUSD;
-
-  console.log("POSITION:", position);
+  //console.log("POSITION:", position);
   return (
     <>
       <tr>

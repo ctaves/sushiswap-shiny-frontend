@@ -34,7 +34,7 @@ const Table = ({ positions, farmBalanceUSD }) => {
           <main className="flex-1 relative z-0 overflow-y-auto focus:outline-none" tabIndex={0}>
             <div className="block">
               <div className="align-middle inline-block min-w-full border-b border-gray-200">
-                <table className="min-w-full table-fixed">
+                <table className="hidden sm:block min-w-full table-fixed">
                   <TableHead />
                   <tbody className="bg-white divide-y divide-gray-100">
                     {positions &&
@@ -43,11 +43,119 @@ const Table = ({ positions, farmBalanceUSD }) => {
                       })}
                   </tbody>
                 </table>
+                <div className="block sm:hidden">
+                  <ul className="divide-y divide-gray-200 overflow-hidden shadow sm:hidden">
+                    {positions &&
+                      positions.map((position) => {
+                        return <Card position={position} />;
+                      })}
+                  </ul>
+                </div>
               </div>
             </div>
           </main>
         </div>
       </div>
+    </>
+  );
+};
+
+const Card = ({ position }) => {
+  return (
+    <>
+      {/* Activity list (smallest breakopoint only) */}
+      <li>
+        <a href="#" className="block px-4 py-4 bg-white hover:bg-cool-gray-50">
+          <div className="flex items-center space-x-4">
+            <div className="flex-1 flex space-x-2 truncate">
+              <div className="flex flex-shrink-0 -space-x-1">
+                <img
+                  className="relative z-30 inline-block h-6 w-6 rounded-full text-white shadow-solid"
+                  src={`https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${isAddress(
+                    position.token0Address
+                  )}/logo.png`}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = logoNotFound;
+                  }}
+                />
+                <img
+                  className="relative z-20 -ml-1 inline-block h-6 w-6 rounded-full text-white shadow-solid"
+                  src={`https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${isAddress(
+                    position.token1Address
+                  )}/logo.png`}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = logoNotFound;
+                  }}
+                />
+              </div>
+              <div className="text-left text-cool-gray-500 text-sm truncate">
+                <p className="truncate text-gray-800">{position.name}</p>
+                <div className="mt-2">
+                  <div className="text-gray-900">{formattedNum(position.valueUSD, true)}</div>
+                  <div>
+                    {position.token0Balance} {position.token0Symbol}
+                  </div>
+                  <div>
+                    {position.token1Balance} {position.token1Symbol}
+                  </div>
+                </div>
+                <div className="mt-2">
+                  <div className="text-gray-900">
+                    Harvestable: {position.pendingSushi} ({position.pendingSushiUSD})
+                  </div>
+                  <div>
+                    Rewarded: {position.harvestedSushi} ({position.harvestedSushiUSD})
+                  </div>
+                  <div>
+                    Locked: {decimalFormatter.format(position.lockedSushi)} (
+                    {formattedNum(position.lockedSushiUSD, true)})
+                  </div>
+                </div>
+                <div className="mt-2">
+                  <div className="text-gray-900">
+                    Profit/Loss:{" "}
+                    <span className={position.profitUSD > 0 ? "text-green-600" : "text-red-600"}>
+                      {formattedNum(position.profitUSD, true)}
+                    </span>
+                  </div>
+                  <div>Entries: {position.entriesUSD}</div>
+                  <div>Exits: {position.exitsUSD}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="mt-3 rounded-md bg-gray-100">
+            <div className="p-2">
+              <div>
+                <button
+                  type="button"
+                  className="w-full inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                >
+                  Harvest
+                </button>
+              </div>
+              <div className="mt-2">
+                <button
+                  type="button"
+                  className="w-full inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                >
+                  Stake
+                </button>
+              </div>
+              <div className="mt-2">
+                <button
+                  type="button"
+                  className="w-full inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                >
+                  Unstake
+                </button>
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
     </>
   );
 };
