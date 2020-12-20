@@ -21,55 +21,53 @@ const Transactions = () => {
   }, [transactions]);
   return (
     <>
-      <div className="mt-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="mt-2 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {/* Card */}
-            <div className="bg-white overflow-hidden shadow rounded-lg">
-              <div className="p-5">
-                <div className="flex items-center">
-                  <div className="ml-5 w-0 flex-1">
-                    <dl>
-                      <dt className="text-sm leading-5 font-medium text-cool-gray-500 truncate">Total Value Swapped</dt>
-                      <dd>
-                        <div className="text-lg leading-7 font-medium text-cool-gray-900">
-                          {totalSwappedUSD ? formattedNum(totalSwappedUSD, true) : "-"}
-                        </div>
-                      </dd>
-                    </dl>
-                  </div>
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Card */}
+          <div className="bg-white overflow-hidden shadow sm:rounded-lg">
+            <div className="p-5">
+              <div className="flex items-center">
+                <div className="ml-5 w-0 flex-1">
+                  <dl>
+                    <dt className="text-sm leading-5 font-medium text-cool-gray-500 truncate">Total Value Swapped</dt>
+                    <dd>
+                      <div className="text-lg leading-7 font-medium text-cool-gray-900">
+                        {totalSwappedUSD ? formattedNum(totalSwappedUSD, true) : "-"}
+                      </div>
+                    </dd>
+                  </dl>
                 </div>
               </div>
             </div>
-            <div className="bg-white overflow-hidden shadow rounded-lg">
-              <div className="p-5">
-                <div className="flex items-center">
-                  <div className="ml-5 w-0 flex-1">
-                    <dl>
-                      <dt className="text-sm leading-5 font-medium text-cool-gray-500 truncate">Total Fees Paid</dt>
-                      <dd>
-                        <div className="text-lg leading-7 font-medium text-cool-gray-900">
-                          {totalSwappedUSD ? formattedNum(totalSwappedUSD * 0.003, true) : "-"}
-                        </div>
-                      </dd>
-                    </dl>
-                  </div>
+          </div>
+          <div className="bg-white overflow-hidden shadow sm:rounded-lg">
+            <div className="p-5">
+              <div className="flex items-center">
+                <div className="ml-5 w-0 flex-1">
+                  <dl>
+                    <dt className="text-sm leading-5 font-medium text-cool-gray-500 truncate">Total Fees Paid</dt>
+                    <dd>
+                      <div className="text-lg leading-7 font-medium text-cool-gray-900">
+                        {totalSwappedUSD ? formattedNum(totalSwappedUSD * 0.003, true) : "-"}
+                      </div>
+                    </dd>
+                  </dl>
                 </div>
               </div>
             </div>
-            <div className="bg-white overflow-hidden shadow rounded-lg">
-              <div className="p-5">
-                <div className="flex items-center">
-                  <div className="ml-5 w-0 flex-1">
-                    <dl>
-                      <dt className="text-sm leading-5 font-medium text-cool-gray-500 truncate">Total Transactions</dt>
-                      <dd>
-                        <div className="text-lg leading-7 font-medium text-cool-gray-900">
-                          {transactionCount ? transactionCount : "-"}
-                        </div>
-                      </dd>
-                    </dl>
-                  </div>
+          </div>
+          <div className="bg-white overflow-hidden shadow sm:rounded-lg">
+            <div className="p-5">
+              <div className="flex items-center">
+                <div className="ml-5 w-0 flex-1">
+                  <dl>
+                    <dt className="text-sm leading-5 font-medium text-cool-gray-500 truncate">Total Transactions</dt>
+                    <dd>
+                      <div className="text-lg leading-7 font-medium text-cool-gray-900">
+                        {transactionCount ? transactionCount : "-"}
+                      </div>
+                    </dd>
+                  </dl>
                 </div>
               </div>
             </div>
