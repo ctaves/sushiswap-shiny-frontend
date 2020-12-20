@@ -59,6 +59,7 @@ const Tabs = ({ selected, setSelected }) => {
 
 const TokenActionsCard = ({ initialSection, title, currencyIdA, currencyIdB }) => {
   const [section, setSection] = useState(initialSection);
+  const [removeView, setRemoveView] = useState("account");
   return (
     <div className="mb-4 md:shadow-md sushi-flex sushi-flex-col md:rounded-lg md:border border-gray-200 sushi-overflow-hidden">
       <div className="sushi-flex-1 sushi-bg-white sushi-p-6 sushi-flex sushi-flex-col sushi-justify-between">
@@ -98,9 +99,22 @@ const TokenActionsCard = ({ initialSection, title, currencyIdA, currencyIdB }) =
               </div>
             ),
             remove: (
-              <div className="sushi-mt-6 sushi-flex-1">
-                <ClassicRemove currencyIdA={currencyIdA} currencyIdB={currencyIdB} />
-              </div>
+              <>
+                {
+                  {
+                    account: (
+                      <div className="sushi-mt-6 sushi-flex-1">
+                        <ClassicRemove currencyIdA={currencyIdA} currencyIdB={currencyIdB} />
+                      </div>
+                    ),
+                    remove: (
+                      <div className="sushi-mt-6 sushi-flex-1">
+                        <ClassicRemove currencyIdA={currencyIdA} currencyIdB={currencyIdB} />
+                      </div>
+                    ),
+                  }[removeView]
+                }
+              </>
             ),
           }[section]
         }
