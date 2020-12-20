@@ -31,7 +31,7 @@ const Table = ({ positions, ethPrice, LPBalanceUSD }) => {
             <div className="block">
               <div className="align-middle inline-block min-w-full border-b border-gray-200">
                 <div className="align-middle inline-block min-w-full border-b border-gray-200">
-                  <table className="hidden sm:block min-w-full table-fixed">
+                  <table className="hidden sm:table min-w-full table-fixed">
                     <TableHead />
                     <tbody className="bg-white divide-y divide-gray-100">
                       {positions &&

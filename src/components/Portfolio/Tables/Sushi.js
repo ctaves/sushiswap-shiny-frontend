@@ -25,7 +25,7 @@ const Table = ({ balances, price, total, SushiBalanceUSD, totalSushiBalance, tot
           <main className="flex-1 relative z-0 overflow-y-auto focus:outline-none" tabIndex={0}>
             <div className="block">
               <div className="align-middle inline-block min-w-full border-b border-gray-200">
-                <table className="hidden sm:block min-w-full table-fixed">
+                <table className="hidden sm:table min-w-full table-fixed">
                   <TableHead />
                   <tbody className="bg-white divide-y divide-gray-100">
                     {balances &&
@@ -142,11 +142,11 @@ const TableRow = ({ balance }) => {
           </div>
         </td>
         <td className="table-cell px-6 py-3 whitespace-no-wrap text-sm leading-5 text-gray-900 text-right">
-          <div>{balance.sushi} SUSHI</div>
+          <div>{balance.sushi}</div>
           {balance.xsushi ? <div>({balance.xsushi})</div> : null}
         </td>
         <td className="table-cell px-6 py-3 whitespace-no-wrap text-sm leading-5 text-gray-500 text-right">
-          <div className="text-right text-gray-500">{balance.usd}</div>
+          {balance.usd}
         </td>
         <td className="pr-6">
           <div className="relative flex justify-end items-center">{balance.cta}</div>
