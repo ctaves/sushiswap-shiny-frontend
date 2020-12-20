@@ -153,6 +153,7 @@ const App = () => {
               <Route exact path="/wallet" component={Wallet} />
               <Route exact path="/widget/bentobox" component={BentoBox} />
               {/* Account Routes */}
+              <Route exact path="/connect" component={Dashboard} />
               <Route exact path="/search" component={Dashboard} />
               <Route exact path="/omakase" component={Dashboard} />
               <Route exact path="/account" component={Dashboard} />

@@ -77,7 +77,7 @@ const Transactions = () => {
 
       <div className="shadow sm:rounded-md sm:overflow-hidden">
         <div className="bg-white">
-          <div className="p-4">
+          <div className="px-8 py-6">
             <TxnList transactions={transactions} color={"#0e0e23"} />
           </div>
         </div>

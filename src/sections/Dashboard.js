@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef, createContext, useContext, useReducer } from "react";
 import { Link, Route, Redirect } from "react-router-dom";
+import WalletRoute from "../shared/WalletRoute";
+import PublicRoute from "../shared/PublicRoute";
 import SectionTabs from "../components/Tabs";
+import ConnectPage from "../pages/Connect";
 // Dashboard
 import MobileNavigation from "../components/MobileNavigation";
 import SearchHeader from "../components/MobileMenu";
@@ -124,7 +127,7 @@ export const DashboardContainer = ({ children }) => {
             className="lg:mt-4 lg:mr-4 lg:p-4 lg:bg-gray-200 lg:rounded-lg sushi-flex-1 sushi-relative sushi-z-0 sushi-overflow-y-auto focus:sushi-outline-none"
             tabIndex={0}
           >
-            <div className="bg-white lg:rounded-lg mb-16">{children}</div>
+            <div className="bg-white lg:rounded-lg mb-16 sm:mb-0">{children}</div>
           </main>
         </div>
         <MobileNavigation changeMenu={mobileMenu.change} isOpen={mobileMenu.isOpen} />
@@ -139,12 +142,13 @@ const DashboardRoutes = () => {
       <Route exact path="/" component={Overview} />
       <Route exact path="/home" component={Overview} />
       <Route exact path="/overview" component={Overview} />
+      <PublicRoute exact path="/connect" component={Connect} />
       <Route exact path="/search" component={Search} />
-      <Route exact path="/omakase" component={PortfolioBalances} />
-      <Route exact path="/account" component={PortfolioBalances} />
-      <Route exact path="/portfolio" component={PortfolioBalances} />
-      <Route exact path="/portfolio/balances" component={PortfolioBalances} />
-      <Route exact path="/portfolio/transactions" component={PortfolioTransactions} />
+      <WalletRoute exact path="/omakase" component={PortfolioBalances} />
+      <WalletRoute exact path="/account" component={PortfolioBalances} />
+      <WalletRoute exact path="/portfolio" component={PortfolioBalances} />
+      <WalletRoute exact path="/portfolio/balances" component={PortfolioBalances} />
+      <WalletRoute exact path="/portfolio/transactions" component={PortfolioTransactions} />
       <Route exact path="/weekly" component={MenuOfTheWeek} />
       <Route exact path="/tokens" component={Tokens} />
       <Route exact path="/pools" component={Pools} />
@@ -188,6 +192,14 @@ const BentoBoxWrapper = () => {
     <>
       {/* <PageTitle title={"Bentobox Lending"} logo={BentoBoxLogo} /> */}
       <BentoBox />
+    </>
+  );
+};
+
+const Connect = () => {
+  return (
+    <>
+      <ConnectPage />
     </>
   );
 };

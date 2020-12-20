@@ -11,7 +11,7 @@ const useAllowanceStaking = () => {
   const sushi = useSushi();
   const lpContract = getSushiContract(sushi);
   const stakingContract = getXSushiStakingContract(sushi);
-  console.log("StakingContract:", sushi, lpContract, stakingContract);
+  //console.log("StakingContract:", sushi, lpContract, stakingContract);
   const fetchAllowance = useCallback(async () => {
     if (account) {
       const allowance = await getAllowance(lpContract, account, stakingContract.options.address);
