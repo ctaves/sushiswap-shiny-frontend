@@ -14,17 +14,17 @@ const LimitNoticeWrapper = () => {
 export const LimitNotice = () => {
   return (
     <>
-      <div className="p-6">
+      <div className="py-6">
         <h2 className="text-lg leading-6 font-medium text-gray-900">
           Limit Orders{" "}
-          <span className="ml-auto inline-block items-center px-3 py-0.5 rounded-md text-sm font-medium leading-5 bg-orange-100 text-orange-800">
+          <span className="ml-auto inline-block items-center px-3 py-0.5 rounded-md text-sm font-medium leading-5 bg-gray-100 text-gray-800">
             BETA
           </span>
         </h2>
         <p className="mt-4 text-sm leading-5 text-gray-500">
           Want to place an order for the future? Try out limit orders on SushiSwap Lite.
         </p>
-        <div className="mt-4 rounded-md bg-orange-100 p-4">
+        <div className="mt-4 rounded-md bg-gray-100 p-4">
           <div className="flex">
             <div className="flex-shrink-0">
               {/* Heroicon name: exclamation */}
@@ -42,10 +42,10 @@ export const LimitNotice = () => {
               </svg>
             </div>
             <div className="ml-3">
-              <h3 className="text-sm leading-5 font-medium text-yellow-800">Beta Feature</h3>
-              <div className="mt-2 text-sm leading-5 text-yellow-700">
+              <h3 className="text-sm leading-5 font-medium text-gray-800">Beta Feature</h3>
+              <div className="mt-2 text-sm leading-5 text-gray-700">
                 <p>
-                  Please note this feature is in beta and contracts are unaudited. Read{" "}
+                  Please note this feature is in beta and contracts are undergoing audits. Read{" "}
                   <a
                     href="https://github.com/sushiswap/sushiswap-settlement/blob/master/contracts/Settlement.sol"
                     target="_blank"

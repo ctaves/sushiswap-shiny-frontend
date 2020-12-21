@@ -19,7 +19,7 @@ const MigrateNoticeWrapper = () => {
 export const MigrateNotice = () => {
   return (
     <>
-      <div className="p-6">
+      <div className="py-6">
         <h2 className="text-lg leading-6 font-medium text-gray-900">Migrate for Better Rewards</h2>
         <p className="mt-4 text-sm leading-5 text-gray-500">
           Migrate your Uniswap LP in one click with optimized gas. SushiSwap provides competitive trading fees and

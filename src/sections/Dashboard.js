@@ -310,7 +310,7 @@ const PortfolioBalances = () => {
     <>
       <div className="border-b border-gray-200 px-4 pt-4 sm:px-6 lg:px-8">
         <div className="space-y-4 sm:flex sm:items-baseline sm:space-y-0 sm:space-x-10">
-          <h3 className="text-lg leading-6 font-medium text-gray-900">Omakase: Your Portflio</h3>
+          <h3 className="text-lg leading-6 font-medium text-gray-900">Omakase: Your Portfolio</h3>
           <div>
             <nav className="-mb-px flex space-x-8">
               <Link
@@ -350,7 +350,7 @@ const PortfolioTransactions = () => {
     <>
       <div className="border-b border-gray-200 px-4 pt-4 sm:px-6 lg:px-8">
         <div className="space-y-4 sm:flex sm:items-baseline sm:space-y-0 sm:space-x-10">
-          <h3 className="text-lg leading-6 font-medium text-gray-900">Omakase: Your Portflio</h3>
+          <h3 className="text-lg leading-6 font-medium text-gray-900">Omakase: Your Portfolio</h3>
           <div>
             <nav className="-mb-px flex space-x-8">
               <Link
@@ -419,13 +419,13 @@ const Tokens = () => {
   return (
     <>
       {/* <MainSearch /> */}
-      <div className="sushi-px-8 py-4 sushi-hidden lg:sushi-block">
+      <div className="sushi-px-4 py-4 sushi-hidden lg:sushi-block">
         <MainSearch />
       </div>
-      <h2 className="sushi-max-w-6xl sushi-mx-auto sushi-mt-8 sushi-px-4 sushi-text-lg sushi-leading-6 sushi-font-medium sushi-text-cool-gray-900 sm:sushi-px-6 lg:sushi-px-8">
-        Tokens on Sushiswap
-      </h2>
-      <div className="sushi-mt-4 sushi-inline-block sushi-min-w-full sushi-overflow-hidden sushi-align-middle sushi-px-6">
+      {/* <h2 className="sushi-max-w-6xl sushi-mx-auto sushi-mt-4 sushi-px-4 sushi-text-lg sushi-leading-6 sushi-font-medium sushi-text-cool-gray-900 sm:sushi-px-6 lg:sushi-px-8">
+        Tokens on SushiSwap
+      </h2> */}
+      <div className="sushi-mt-4 sushi-inline-block sushi-min-w-full sushi-overflow-hidden sushi-align-middle">
         <div
           style={{
             position: "relative",

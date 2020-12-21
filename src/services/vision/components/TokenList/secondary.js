@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
@@ -14,21 +13,18 @@ import { formattedNum, formattedPercent } from "../../utils";
 import { useMedia } from "react-use";
 import { withRouter } from "react-router-dom";
 import { OVERVIEW_TOKEN_BLACKLIST } from "../../constants";
-//import { TOKEN_WHITELIST } from "../../constants";
 import FormattedName from "../FormattedName";
-//import { TYPE } from "../../Theme";
-import { isAddress } from "../../utils/index.js";
-import logoNotFound from "../../../../assets/img/logoNotFound.png";
+import { TYPE } from "../../Theme";
 
 dayjs.extend(utc);
 
-// const PageButtons = styled.div`
-//   width: 100%;
-//   display: flex;
-//   justify-content: center;
-//   margin-top: 2em;
-//   margin-bottom: 2em;
-// `;
+const PageButtons = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+  margin-bottom: 2em;
+`;
 
 const Arrow = styled.div`
   color: ${({ theme }) => theme.primary1};
@@ -57,7 +53,7 @@ const DashGrid = styled.div`
     &:first-child {
       justify-content: flex-start;
       text-align: left;
-      width: 245px;
+      width: 100px;
     }
   }
 
@@ -148,15 +144,11 @@ function TopTokenList({ tokens, itemMax = 10 }) {
       tokens &&
       Object.keys(tokens)
         .filter((key) => {
-          //console.log("key:", key);
-          //return TOKEN_WHITELIST.includes(key); // include only farm tokens
-          return !OVERVIEW_TOKEN_BLACKLIST.includes(key); // include non farm tokens
+          return !OVERVIEW_TOKEN_BLACKLIST.includes(key);
         })
         .map((key) => tokens[key])
     );
   }, [tokens]);
-
-  //console.log("FORMATTED_TOKENS:", formattedTokens);
 
   useEffect(() => {
     if (tokens && formattedTokens) {
@@ -185,13 +177,18 @@ function TopTokenList({ tokens, itemMax = 10 }) {
   }, [formattedTokens, itemMax, page, sortDirection, sortedColumn]);
 
   const ListItem = ({ item, index }) => {
+    console.log("item:", index, item);
+    if (item.id == "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9") {
+      item = { ...item, name: "Aave Token", symbol: "AAVE" };
+    }
     return (
       <DashGrid style={{ height: "48px" }} focus={true}>
-        {below680 ? (
+        <DataText area="name" fontWeight="500">
           <Row>
             <TokenLogo address={item.id} />
             <CustomLink style={{ marginLeft: "16px", whiteSpace: "nowrap" }} to={"/token/" + item.id}>
               <FormattedName
+                address={item.id}
                 text={below680 ? item.symbol : item.name}
                 maxCharacters={below600 ? 8 : 16}
                 adjustSize={true}
@@ -199,94 +196,18 @@ function TopTokenList({ tokens, itemMax = 10 }) {
               />
             </CustomLink>
           </Row>
-        ) : (
-          <Row>
-            <td
-              //className="py-1.5 text-sm whitespace-no-wrap border-b border-gray-200 bg-white truncate"
-              className="py-1.5 text-sm whitespace-no-wrap bg-white truncate"
-              style={
-                {
-                  //minWidth: "15rem",
-                  // position: "-webkit-sticky",
-                  // position: "sticky",
-                  // width: "16rem",
-                  // minWidth: "16rem",
-                  // maxWidth: "16rem",
-                  // left: "0px",
-                  // boxShadow: "10px 0 5px -2px #f3f3f3",
-                  // borderColor: "transparent",
-                }
-              }
-            >
-              <div className="flex items-center">
-                <div className="flex-shrink-0 w-10 h-10 text-3xl">
-                  <img
-                    class="max-w-none h-6 w-6 rounded-full text-white shadow-solid mt-2"
-                    src={`https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${isAddress(
-                      item.id
-                    )}/logo.png`}
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = logoNotFound;
-                    }}
-                    alt={item.name + " Logo"}
-                  />
-                </div>
-                <div className="ml-4">
-                  <div className="flex items-center">
-                    <Link
-                      to={"/token/" + item.id}
-                      className="flex items-center text-sm font-medium leading-5 text-gray-900 hover:underline"
-                    >
-                      {item.name}
-                      <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 ml-1">
-                        <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />{" "}
-                        <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-                      </svg>
-                    </Link>
-                    {item.new ? (
-                      <span className="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-teal-100 text-teal-800">
-                        New
-                      </span>
-                    ) : null}
-                  </div>
-                </div>
-              </div>
-            </td>
-          </Row>
-        )}
-        {/* <DataText area="name" fontWeight="500">
-          <Row>
-            {!below680 && (
-              <div style={{ marginRight: "1rem", width: "10px" }}>{index}</div>
-            )}
-            <TokenLogo address={item.id} />
-            <CustomLink
-              style={{ marginLeft: "16px", whiteSpace: "nowrap" }}
-              to={"/token/" + item.id}
-            >
-              <FormattedName
-                text={below680 ? item.symbol : item.name}
-                maxCharacters={below600 ? 8 : 16}
-                adjustSize={true}
-                link={true}
-              />
-            </CustomLink>
-          </Row>
-        </DataText> */}
+        </DataText>
         {!below680 && (
           <DataText area="symbol" color="text" fontWeight="500">
-            <FormattedName text={item.symbol} maxCharacters={5} />
+            <FormattedName address={item.id} text={item.symbol} maxCharacters={5} />
           </DataText>
         )}
-        <DataText area="liq">{formattedNum(item.totalLiquidityUSD, true)}</DataText>
-        <DataText area="vol">{formattedNum(item.oneDayVolumeUSD, true)}</DataText>
-        {!below1080 && (
-          <DataText area="price" color="text" fontWeight="500">
-            {formattedNum(item.priceUSD, true)}
-          </DataText>
-        )}
-        {!below1080 && <DataText area="change">{formattedPercent(item.priceChangeUSD)}</DataText>}
+        {!below1080 && <DataText area="liq">{formattedNum(item.totalLiquidityUSD, true)}</DataText>}
+        {!below1080 && <DataText area="vol">{formattedNum(item.oneDayVolumeUSD, true)}</DataText>}
+        <DataText area="price" color="text" fontWeight="500">
+          {formattedNum(item.priceUSD, true)}
+        </DataText>
+        <DataText area="change">{formattedPercent(item.priceChangeUSD)}</DataText>
       </DashGrid>
     );
   };
@@ -320,57 +241,56 @@ function TopTokenList({ tokens, itemMax = 10 }) {
             </ClickableText>
           </Flex>
         )}
-
-        <Flex alignItems="center">
-          <ClickableText
-            area="liq"
-            onClick={(e) => {
-              setSortedColumn(SORT_FIELD.LIQ);
-              setSortDirection(sortedColumn !== SORT_FIELD.LIQ ? true : !sortDirection);
-            }}
-          >
-            Liquidity {sortedColumn === SORT_FIELD.LIQ ? (!sortDirection ? "↑" : "↓") : ""}
-          </ClickableText>
-        </Flex>
-        <Flex alignItems="center">
-          <ClickableText
-            area="vol"
-            onClick={(e) => {
-              setSortedColumn(SORT_FIELD.VOL);
-              setSortDirection(sortedColumn !== SORT_FIELD.VOL ? true : !sortDirection);
-            }}
-          >
-            Volume (24hrs)
-            {sortedColumn === SORT_FIELD.VOL ? (!sortDirection ? "↑" : "↓") : ""}
-          </ClickableText>
-        </Flex>
         {!below1080 && (
           <Flex alignItems="center">
             <ClickableText
-              area="price"
+              area="liq"
               onClick={(e) => {
-                setSortedColumn(SORT_FIELD.PRICE);
-                setSortDirection(sortedColumn !== SORT_FIELD.PRICE ? true : !sortDirection);
+                setSortedColumn(SORT_FIELD.LIQ);
+                setSortDirection(sortedColumn !== SORT_FIELD.LIQ ? true : !sortDirection);
               }}
             >
-              Price {sortedColumn === SORT_FIELD.PRICE ? (!sortDirection ? "↑" : "↓") : ""}
+              Liquidity {sortedColumn === SORT_FIELD.LIQ ? (!sortDirection ? "↑" : "↓") : ""}
             </ClickableText>
           </Flex>
         )}
         {!below1080 && (
           <Flex alignItems="center">
             <ClickableText
-              area="change"
+              area="vol"
               onClick={(e) => {
-                setSortedColumn(SORT_FIELD.CHANGE);
-                setSortDirection(sortedColumn !== SORT_FIELD.CHANGE ? true : !sortDirection);
+                setSortedColumn(SORT_FIELD.VOL);
+                setSortDirection(sortedColumn !== SORT_FIELD.VOL ? true : !sortDirection);
               }}
             >
-              Price Change (24hrs)
-              {sortedColumn === SORT_FIELD.CHANGE ? (!sortDirection ? "↑" : "↓") : ""}
+              Volume (24hrs)
+              {sortedColumn === SORT_FIELD.VOL ? (!sortDirection ? "↑" : "↓") : ""}
             </ClickableText>
           </Flex>
         )}
+        <Flex alignItems="center">
+          <ClickableText
+            area="price"
+            onClick={(e) => {
+              setSortedColumn(SORT_FIELD.PRICE);
+              setSortDirection(sortedColumn !== SORT_FIELD.PRICE ? true : !sortDirection);
+            }}
+          >
+            Price {sortedColumn === SORT_FIELD.PRICE ? (!sortDirection ? "↑" : "↓") : ""}
+          </ClickableText>
+        </Flex>
+        <Flex alignItems="center">
+          <ClickableText
+            area="change"
+            onClick={(e) => {
+              setSortedColumn(SORT_FIELD.CHANGE);
+              setSortDirection(sortedColumn !== SORT_FIELD.CHANGE ? true : !sortDirection);
+            }}
+          >
+            {!below1080 ? "Price Change (24hrs)" : "Change (24hrs)"}
+            {sortedColumn === SORT_FIELD.CHANGE ? (!sortDirection ? "↑" : "↓") : ""}
+          </ClickableText>
+        </Flex>
       </DashGrid>
       <Divider />
       <List p={0}>
@@ -384,7 +304,7 @@ function TopTokenList({ tokens, itemMax = 10 }) {
             );
           })}
       </List>
-      {/* <PageButtons>
+      <PageButtons>
         <div onClick={() => setPage(page === 1 ? page : page - 1)}>
           <Arrow faded={page === 1 ? true : false}>←</Arrow>
         </div>
@@ -392,24 +312,7 @@ function TopTokenList({ tokens, itemMax = 10 }) {
         <div onClick={() => setPage(page === maxPage ? page : page + 1)}>
           <Arrow faded={page === maxPage ? true : false}>→</Arrow>
         </div>
-      </PageButtons> */}
-      <nav className="bg-white px-4 py-3 flex items-center justify-between border-t border-b border-cool-gray-100 sm:px-6">
-        <div className="hidden sm:block">
-          <p className="text-sm leading-5 text-cool-gray-700">{"Page " + page + " of " + maxPage}</p>
-        </div>
-        <div className="flex-1 flex justify-between sm:justify-end">
-          <div className="relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150">
-            <div onClick={() => setPage(page === 1 ? page : page - 1)}>
-              <Arrow faded={page === 1 ? true : false}>← Previous</Arrow>
-            </div>
-          </div>
-          <div className="ml-3 relative inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700 transition ease-in-out duration-150">
-            <div onClick={() => setPage(page === maxPage ? page : page + 1)}>
-              <Arrow faded={page === maxPage ? true : false}>Next →</Arrow>
-            </div>
-          </div>
-        </div>
-      </nav>
+      </PageButtons>
     </ListWrapper>
   );
 }

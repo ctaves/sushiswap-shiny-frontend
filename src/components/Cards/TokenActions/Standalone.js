@@ -3,8 +3,10 @@ import ClassicSwap from "../../../services/exchange/pages/Swap/secondary";
 import ClassicPool from "../../../services/exchange/pages/AddLiquidity/secondary";
 import ClassicRemove from "../../../services/exchange/pages/RemoveLiquidity/secondary";
 import Stakes from "./Stakes";
+import Migrate from "../../Migrate";
 import { MigrateNotice } from "../../Overview/MigrateNotice";
 import { LimitNotice } from "../../Overview/LimitNotice";
+import LiquidityBalances from "./LiquidityBalances";
 //import Stake from "../../../services/frontend/views/Farm/components/Stake";
 //import TokenSwap from "../TokenSwap";
 
@@ -34,7 +36,7 @@ const Tabs = ({ selected, setSelected }) => {
   return (
     <div>
       <div className="sushi-block">
-        <nav className="sushi--mb-px sushi-flex sushi-space-x-8">
+        <nav className="sushi--mb-px sushi-flex space-x-4">
           {tabs.map((tab) => {
             return (
               <button
@@ -61,7 +63,10 @@ const TokenActionsCard = ({ initialSection, title, currencyIdA, currencyIdB }) =
   const [section, setSection] = useState(initialSection);
   const [removeView, setRemoveView] = useState("account");
   return (
-    <div className="mb-4 md:shadow-md sushi-flex sushi-flex-col md:rounded-lg md:border border-gray-200 sushi-overflow-hidden">
+    <div
+      className="mb-4 md:shadow-md sushi-flex sushi-flex-col md:rounded-lg md:border border-gray-200 sushi-overflow-hidden"
+      style={{ minHeight: "20rem" }}
+    >
       <div className="sushi-flex-1 sushi-bg-white sushi-p-6 sushi-flex sushi-flex-col sushi-justify-between">
         <div className="sushi-relative sushi-border-b sushi-border-gray-200 sushi-space-y-4 sushi-pb-0">
           {title ? (
@@ -82,7 +87,8 @@ const TokenActionsCard = ({ initialSection, title, currencyIdA, currencyIdB }) =
             ),
             migrate: (
               <>
-                <MigrateNotice />
+                <Migrate />
+                {/* <MigrateNotice /> */}
                 {/* <div className="sushi-mt-6 sushi-flex-1">
               <ClassicSwap />
               </div> */}
@@ -104,10 +110,10 @@ const TokenActionsCard = ({ initialSection, title, currencyIdA, currencyIdB }) =
                   {
                     account: (
                       <div className="sushi-mt-6 sushi-flex-1">
-                        <ClassicRemove currencyIdA={currencyIdA} currencyIdB={currencyIdB} />
+                        <LiquidityBalances />
                       </div>
                     ),
-                    remove: (
+                    action: (
                       <div className="sushi-mt-6 sushi-flex-1">
                         <ClassicRemove currencyIdA={currencyIdA} currencyIdB={currencyIdB} />
                       </div>

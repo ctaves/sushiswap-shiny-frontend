@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 //import { useColorScheme } from "react-native-appearance";
-
-import AsyncStorage from "@react-native-community/async-storage";
+//import * as Localization from "expo-localization";
+//import AsyncStorage from "@react-native-community/async-storage";
 
 export const GlobalContext = React.createContext({
   load: async () => {},
   clear: async () => {},
+  locale: "",
+  setLocale: async (_locale: string) => {},
   darkMode: false,
-  setDarkMode: async (_darkMode) => {},
+  setDarkMode: async (_darkMode: boolean) => {},
   mnemonic: "",
   setMnemonic: (_mnemonic: string) => {},
 });
@@ -15,34 +17,48 @@ export const GlobalContext = React.createContext({
 // tslint:disable-next-line:max-func-body-length
 export const GlobalContextProvider = ({ children }) => {
   //const colorScheme = useColorScheme();
+  //const [locale, setLocale] = useState(Localization.locale);
   //const [darkMode, setDarkMode] = useState(colorScheme === "dark");
-  const [darkMode, setDarkMode] = useState(true);
+  const [locale, setLocale] = useState("en");
+  const [darkMode, setDarkMode] = useState(false);
   const [mnemonic, setMnemonic] = useState("");
   return (
     <GlobalContext.Provider
       value={{
         load: async () => {
-          const mode = await AsyncStorage.getItem("dark_mode");
-          setDarkMode(mode === "true");
-          const mne = await AsyncStorage.getItem("mnemonic");
+          //setLocale((await AsyncStorage.getItem("locale")) || Localization.locale);
+          //const mode = await AsyncStorage.getItem("dark_mode");
+          //setDarkMode(mode === "true");
+          //const mne = await AsyncStorage.getItem("mnemonic");
+          const mne = await localStorage.getItem("mnemonic");
           if (mne) {
             setMnemonic(mne);
           }
         },
         clear: async () => {
+          //   setDarkMode(false);
+          //   await AsyncStorage.removeItem("dark_mode");
+          //   await AsyncStorage.removeItem("mnemonic");
           setDarkMode(false);
-          await AsyncStorage.removeItem("dark_mode");
-          await AsyncStorage.removeItem("mnemonic");
+          await localStorage.removeItem("dark_mode");
+          await localStorage.removeItem("mnemonic");
+        },
+        locale,
+        setLocale: async (l: string) => {
+          //await AsyncStorage.setItem("locale", l);
+          //setLocale(l);
         },
         darkMode,
         setDarkMode: async (mode: boolean) => {
-          await AsyncStorage.setItem("dark_mode", String(mode));
-          setDarkMode(mode);
+          //await AsyncStorage.setItem("dark_mode", String(mode));
+          //setDarkMode(mode);
         },
         mnemonic,
         setMnemonic: async (mne: string) => {
-          await AsyncStorage.setItem("mnemonic", mne);
+          await localStorage.setItem("mnemonic", mne);
           setMnemonic(mne);
+          //await AsyncStorage.setItem("mnemonic", mne);
+          //setMnemonic(mne);
         },
       }}
     >
