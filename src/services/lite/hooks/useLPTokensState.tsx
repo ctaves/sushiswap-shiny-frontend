@@ -45,6 +45,7 @@ const useLPTokensState: (mode: Mode) => LPTokensState = (mode) => {
 
   const updateLPTokens = async () => {
     if (address && provider && tokens.length > 0 && !updatingLPTokens) {
+      console.log("MODE:", mode);
       try {
         updatingLPTokens = true;
         const data = await (mode === "my-pools"

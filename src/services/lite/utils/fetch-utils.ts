@@ -197,7 +197,7 @@ export const fetchMyUniswapLPTokens = async (
   provider: ethers.providers.JsonRpcProvider
 ) => {
   const result = await fetchLPTokens(UNISWAP_FACTORY, account, tokens, provider);
-  console.log("fetchMyUniswapLPTokens:", result);
+  console.log("fetchMyUniswapLPTokens:", result, UNISWAP_FACTORY, account, tokens, provider);
   return result;
 };
 
@@ -213,8 +213,21 @@ const fetchLPTokens = async (
   console.log("fetchLPTokens:", account, tokens, provider);
 
   const factoryContract = getContract("IUniswapV2Factory", factory, provider);
+
+  console.log("factoryContract:", factoryContract);
+
   const length = await factoryContract.allPairsLength();
+
+  console.log("Length:", length);
   const scanner = getContract("LPTokenScanner", LP_TOKEN_SCANNER, provider);
+
+  console.log("scanner:", scanner);
+
+  const pairsTest = await scanner.findPairs(account, factory, 0, Math.min(0 + LP_TOKENS_LIMIT, length.toNumber()));
+
+  console.log("pairsTest:", pairsTest);
+
+  //const length = await factoryContract.allPairsLength();
   const pages: number[] = [];
   for (let i = 0; i < length; i += LP_TOKENS_LIMIT) pages.push(i);
   const pairs = (
@@ -224,6 +237,11 @@ const fetchLPTokens = async (
       )
     )
   ).flat();
+
+  console.log("pairs:", pairs);
+  console.log("pages:", pages, length.toNumber());
+  //console.log("balanceOf:", await scanner.findBalances(account, ["0xBb2b8038a1640196FbE3e38816F3e67Cba72D940"]));
+
   const balances = await fetchTokenBalances(
     account,
     pairs.map((pair) => pair.token)
