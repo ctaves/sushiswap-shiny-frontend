@@ -583,7 +583,7 @@ export const supportedPools = [
   {
     pid: 25,
     lpAddresses: {
-      1: "c",
+      1: "0x382c4a5147Fd4090F7BE3A9Ff398F95638F5D39E",
     },
     tokenAddresses: {
       1: "0x5dbcf33d8c2e976c6b560249878e6f1491bca25c",
@@ -593,7 +593,7 @@ export const supportedPools = [
     tokenSymbol: "yUSD",
     icon: "🌀",
     uniswapPair: "yUSD/ETH",
-    lpToken: "0x5dbcf33d8c2e976c6b560249878e6f1491bca25c",
+    lpToken: "0x382c4a5147Fd4090F7BE3A9Ff398F95638F5D39E",
     allocPoint: "200",
   },
   // Onsen Mids

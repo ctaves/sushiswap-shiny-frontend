@@ -5,11 +5,7 @@ import XSushiAbi from "./abi/xsushi.json";
 import SushiAbi from "./abi/sushi.json";
 import UNIV2PairAbi from "./abi/uni_v2_lp.json";
 import WETHAbi from "./abi/weth.json";
-import {
-  contractAddresses,
-  SUBTRACT_GAS_LIMIT,
-  supportedPools,
-} from "../../../../constants/constants.js";
+import { contractAddresses, SUBTRACT_GAS_LIMIT, supportedPools } from "../../../../constants/constants.js";
 import * as Types from "./types.js";
 
 export class Contracts {
@@ -17,8 +13,7 @@ export class Contracts {
     this.web3 = web3;
     this.defaultConfirmations = options.defaultConfirmations;
     this.autoGasMultiplier = options.autoGasMultiplier || 1.5;
-    this.confirmationType =
-      options.confirmationType || Types.ConfirmationType.Confirmed;
+    this.confirmationType = options.confirmationType || Types.ConfirmationType.Confirmed;
     this.defaultGas = options.defaultGas;
     this.defaultGasPrice = options.defaultGasPrice;
 
@@ -43,6 +38,7 @@ export class Contracts {
   setProvider(provider, networkId) {
     const setProvider = (contract, address) => {
       contract.setProvider(provider);
+      console.log("TESTING:", contract, address);
       if (address) contract.options.address = address;
       else console.error("Contract address not found in network", networkId);
     };
@@ -52,12 +48,10 @@ export class Contracts {
     setProvider(this.xSushiStaking, contractAddresses.xSushi[networkId]);
     setProvider(this.weth, contractAddresses.weth[networkId]);
 
-    this.pools.forEach(
-      ({ lpContract, lpAddress, tokenContract, tokenAddress }) => {
-        setProvider(lpContract, lpAddress);
-        setProvider(tokenContract, tokenAddress);
-      }
-    );
+    this.pools.forEach(({ lpContract, lpAddress, tokenContract, tokenAddress }) => {
+      setProvider(lpContract, lpAddress);
+      setProvider(tokenContract, tokenAddress);
+    });
   }
 
   setDefaultAccount(account) {
@@ -66,12 +60,7 @@ export class Contracts {
   }
 
   async callContractFunction(method, options) {
-    const {
-      confirmations,
-      confirmationType,
-      autoGasMultiplier,
-      ...txOptions
-    } = options;
+    const { confirmations, confirmationType, autoGasMultiplier, ...txOptions } = options;
 
     if (!this.blockGasLimit) {
       await this.setGasLimit();
@@ -83,10 +72,7 @@ export class Contracts {
 
     if (confirmationType === Types.ConfirmationType.Simulate || !options.gas) {
       let gasEstimate;
-      if (
-        this.defaultGas &&
-        confirmationType !== Types.ConfirmationType.Simulate
-      ) {
+      if (this.defaultGas && confirmationType !== Types.ConfirmationType.Simulate) {
         txOptions.gas = this.defaultGas;
       } else {
         try {
@@ -102,8 +88,7 @@ export class Contracts {
 
         const multiplier = autoGasMultiplier || this.autoGasMultiplier;
         const totalGas = Math.floor(gasEstimate * multiplier);
-        txOptions.gas =
-          totalGas < this.blockGasLimit ? totalGas : this.blockGasLimit;
+        txOptions.gas = totalGas < this.blockGasLimit ? totalGas : this.blockGasLimit;
       }
 
       if (confirmationType === Types.ConfirmationType.Simulate) {
@@ -129,8 +114,7 @@ export class Contracts {
     let hashOutcome = OUTCOMES.INITIAL;
     let confirmationOutcome = OUTCOMES.INITIAL;
 
-    const t =
-      confirmationType !== undefined ? confirmationType : this.confirmationType;
+    const t = confirmationType !== undefined ? confirmationType : this.confirmationType;
 
     if (!Object.values(Types.ConfirmationType).includes(t)) {
       throw new Error(`Invalid confirmation type: ${t}`);
@@ -139,10 +123,7 @@ export class Contracts {
     let hashPromise;
     let confirmationPromise;
 
-    if (
-      t === Types.ConfirmationType.Hash ||
-      t === Types.ConfirmationType.Both
-    ) {
+    if (t === Types.ConfirmationType.Hash || t === Types.ConfirmationType.Both) {
       hashPromise = new Promise((resolve, reject) => {
         promi.on("error", (error) => {
           if (hashOutcome === OUTCOMES.INITIAL) {
@@ -166,15 +147,11 @@ export class Contracts {
       });
     }
 
-    if (
-      t === Types.ConfirmationType.Confirmed ||
-      t === Types.ConfirmationType.Both
-    ) {
+    if (t === Types.ConfirmationType.Confirmed || t === Types.ConfirmationType.Both) {
       confirmationPromise = new Promise((resolve, reject) => {
         promi.on("error", (error) => {
           if (
-            (t === Types.ConfirmationType.Confirmed ||
-              hashOutcome === OUTCOMES.RESOLVED) &&
+            (t === Types.ConfirmationType.Confirmed || hashOutcome === OUTCOMES.RESOLVED) &&
             confirmationOutcome === OUTCOMES.INITIAL
           ) {
             confirmationOutcome = OUTCOMES.REJECTED;
