@@ -36,6 +36,7 @@ export async function getPoolData(status) {
   const chefAddress = "0xc2edad668740f1aa35e4d8f227fb8e17dca888cd";
   // Choose which pools to display on Menu based on PID for now -----------//
   const active = menus[status];
+  console.log("active:", active, status);
   let filtered = _.filter(masterChefPools, function(pool) {
     //console.log("filtered:", pool, pool.pid);
     //return active.includes(Number(pool.pid));
@@ -53,29 +54,34 @@ export async function getPoolData(status) {
       return active.includes(Number(pool.pid));
       //return active.includes(Number(pool.id));
     });
-    //console.log("graphql_filtered2:", filtered);
+    console.log("graphql_filtered2:", filtered);
     filtered = _.map(filtered, function(pool) {
       pool.lpToken = pool.lpToken.toLowerCase(); // the graph expects lpToken address to be all lowercase
       //pool.lpToken = pool.pair.toLowerCase();
       return pool;
     });
-    //console.log("graphql_filtered3:", filtered);
+    console.log("graphql_filtered3:", filtered);
     lpTokens = _.map(filtered, "lpToken");
     masterChefPools = supportedPools;
     console.log("ACTIVE:", active.length);
     console.log("FILTERED_backup:", filtered.length);
   }
 
+  console.log("filtered_manual:", filtered, filtered.length, status, menus[status].length);
+  console.log("lpTokens:", lpTokens);
   //const lpTokens = _.map(masterChefStats?.data?.masterChefPools, "lpToken");
   let poolStatistics = await client.query({
     query: SUSHI_PAIRS(lpTokens, chefAddress),
-    fetchPolicy: "cache-first",
+    //fetchPolicy: "cache-first",
   });
-  console.log("graphql_poolStatistics:", poolStatistics);
+  console.log("graphql_poolStatistics:", lpTokens.length, poolStatistics, status);
   const pairs = poolStatistics?.data?.pairs;
   const liquidityPositions = poolStatistics?.data.liquidityPositions;
-  const mergeStats = _.map(liquidityPositions, function(lp) {
-    return _.merge(lp, _.find(pairs, { id: lp.pair.id }));
+  // const mergeStats = _.map(liquidityPositions, function(lp) {
+  //   return _.merge(lp, _.find(pairs, { id: lp.pair.id }));
+  // })
+  const mergeStats = _.map(pairs, function(lp) {
+    return _.merge(lp, _.find(liquidityPositions, { pair: { id: lp.id } }));
   });
   console.log("graphql_mergeStats:", mergeStats);
   const mergePID = _.map(mergeStats, function(pair) {
