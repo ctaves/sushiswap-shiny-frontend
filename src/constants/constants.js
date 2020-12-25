@@ -886,22 +886,22 @@ export const supportedPools = [
     lpToken: "0x23a9292830fc80db7f563edb28d2fe6fb47f8624",
     allocPoint: "20",
   },
-  {
-    pid: 99,
-    lpAddresses: {
-      1: "0xb1d38026062ac10feda072ca0e9b7e35f1f5795a",
-    },
-    tokenAddresses: {
-      1: "0x5bc25f649fc4e26069ddf4cf4010f9f706c23831",
-    },
-    name: "Onsen Low",
-    symbol: "DUSD-ETH SLP",
-    tokenSymbol: "DUSD",
-    icon: "♨️",
-    uniswapPair: "DUSD/ETH",
-    lpToken: "0xb1d38026062ac10feda072ca0e9b7e35f1f5795a",
-    allocPoint: "20",
-  },
+  // {
+  //   pid: 99,
+  //   lpAddresses: {
+  //     1: "0xb1d38026062ac10feda072ca0e9b7e35f1f5795a",
+  //   },
+  //   tokenAddresses: {
+  //     1: "0x5bc25f649fc4e26069ddf4cf4010f9f706c23831",
+  //   },
+  //   name: "Onsen Low",
+  //   symbol: "DUSD-ETH SLP",
+  //   tokenSymbol: "DUSD",
+  //   icon: "♨️",
+  //   uniswapPair: "DUSD/ETH",
+  //   lpToken: "0xb1d38026062ac10feda072ca0e9b7e35f1f5795a",
+  //   allocPoint: "20",
+  // },
   {
     pid: 73,
     lpAddresses: {
