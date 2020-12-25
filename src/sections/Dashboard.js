@@ -127,7 +127,7 @@ const DashboardRoutes = () => {
       <Route exact path="/home" component={Overview} />
       <Route exact path="/overview" component={Overview} />
       <Route exact path="/omakase" component={OmakaseBar} />
-      <Route exact path="/weekly" component={MenuOfTheWeek} />
+      <Route exact path="/onsen" component={MenuOfTheWeek} />
       <Route exact path="/tokens" component={Tokens} />
       <Route exact path="/pools" component={Pools} />
       <Route exact path="/pairs" component={Pairs} />
@@ -350,7 +350,7 @@ const OmakaseBar = () => {
 const MenuOfTheWeek = () => {
   const { dispatch } = useContext(SectionContext);
   useEffect(() => {
-    dispatch({ type: "update", section: "weekly" });
+    dispatch({ type: "update", section: "onsen" });
   }, []);
   const menuRef = useRef(null);
   const currentRef = useRef(null);

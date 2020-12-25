@@ -17,15 +17,14 @@ const WeeklyMenuInfo = ({ scrollToMenu }) => {
           <div className="sushi-pt-10 sushi-pb-12 sushi-px-6 sm:sushi-pt-16 sm:sushi-px-16 lg:sushi-py-16 lg:sushi-pr-0 xl:sushi-py-20 xl:sushi-px-20">
             <div className="lg:sushi-self-center">
               <h2 className="sushi-text-3xl sushi-leading-9 sushi-font-extrabold sushi-text-gray-900 sm:sushi-text-3xl sm:sushi-leading-10">
-                <span className="sushi-block">👑 いただきます!</span>
-                <span className="sushi-block">Delicious bonuses</span>
+                <span className="sushi-block">♨️ 温泉へようこそ</span>
+                <span className="sushi-block">Steamy bonuses</span>
               </h2>
               <p className="sushi-mt-4 sushi-text-base sushi-leading-6 sushi-text-gray-900">
-                Menu of the week is a rotational rewards system. The amplified rewards for the pools in the menu only
-                last for a week and are meant to incentivize new liquidity providers and reward current liquidity
-                providers for certain pairs. A community voting process determines which pairs are featured for which
-                week, they may choose to keep some or change others. Users will always be able to harvest SUSHI from all
-                previously featured pools.
+                Onsen is a rotational rewards system. The amplified rewards for the pools in the menu are meant to
+                incentivize new liquidity providers and reward current liquidity providers for certain pairs. A
+                community voting process determines which pairs are featured they may choose to keep some or change
+                others. Users will always be able to harvest SUSHI from all previously featured pools.
               </p>
               <button
                 onClick={scrollToMenu}

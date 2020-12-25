@@ -144,7 +144,10 @@ const App = () => {
                 <Route exact path="/" component={Dashboard} />
                 <Route exact path="/home" component={Dashboard} />
                 <Route exact path="/omakase" component={Dashboard} />
-                <Route exact path="/weekly" component={Dashboard} />
+                <Route exact path="/onsen" component={Dashboard} />
+                <Route exact path="/weekly">
+                  <Redirect to="/onsen" />
+                </Route>
                 <Route exact path="/tokens" component={Dashboard} />
                 <Route exact path="/pools" component={Dashboard} />
                 <Route exact path="/pairs" component={Dashboard} />
