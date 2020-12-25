@@ -693,22 +693,22 @@ export const supportedPools = [
     lpToken: "0xdff71165a646be71fcfbaa6206342faa503aed5d",
     allocPoint: "100",
   },
-  {
-    pid: 64,
-    lpAddresses: {
-      1: "0x378b4c5f2a8a0796a8d4c798ef737cf00ae8e667",
-    },
-    tokenAddresses: {
-      1: "0x960b236A07cf122663c4303350609A66A7B288C0",
-    },
-    name: "Onsen Mid",
-    symbol: "ANT-ETH SLP",
-    tokenSymbol: "ANT",
-    icon: "♨️",
-    uniswapPair: "ANT/ETH",
-    lpToken: "0x378b4c5f2a8a0796a8d4c798ef737cf00ae8e667",
-    allocPoint: "100",
-  },
+  // {
+  //   pid: 64,
+  //   lpAddresses: {
+  //     1: "0x378b4c5f2a8a0796a8d4c798ef737cf00ae8e667",
+  //   },
+  //   tokenAddresses: {
+  //     1: "0x960b236A07cf122663c4303350609A66A7B288C0",
+  //   },
+  //   name: "Onsen Mid",
+  //   symbol: "ANT-ETH SLP",
+  //   tokenSymbol: "ANT",
+  //   icon: "♨️",
+  //   uniswapPair: "ANT/ETH",
+  //   lpToken: "0x378b4c5f2a8a0796a8d4c798ef737cf00ae8e667",
+  //   allocPoint: "100",
+  // },
   {
     pid: 65,
     lpAddresses: {
@@ -982,22 +982,22 @@ export const supportedPools = [
     lpToken: "0xe5f06db4f3473e7e35490f1f98017728496fe81e",
     allocPoint: "20",
   },
-  {
-    pid: 86,
-    lpAddresses: {
-      1: "0xaa500101c73065f755ba9b902d643705ef2523e3",
-    },
-    tokenAddresses: {
-      1: "0xef9cd7882c067686691b6ff49e650b43afbbcc6b",
-    },
-    name: "Onsen Low",
-    symbol: "FNX-ETH SLP",
-    tokenSymbol: "FNX",
-    icon: "♨️",
-    uniswapPair: "FNX/ETH",
-    lpToken: "0xaa500101c73065f755ba9b902d643705ef2523e3",
-    allocPoint: "20",
-  },
+  // {
+  //   pid: 86,
+  //   lpAddresses: {
+  //     1: "0xaa500101c73065f755ba9b902d643705ef2523e3",
+  //   },
+  //   tokenAddresses: {
+  //     1: "0xef9cd7882c067686691b6ff49e650b43afbbcc6b",
+  //   },
+  //   name: "Onsen Low",
+  //   symbol: "FNX-ETH SLP",
+  //   tokenSymbol: "FNX",
+  //   icon: "♨️",
+  //   uniswapPair: "FNX/ETH",
+  //   lpToken: "0xaa500101c73065f755ba9b902d643705ef2523e3",
+  //   allocPoint: "20",
+  // },
   {
     pid: 92,
     lpAddresses: {
