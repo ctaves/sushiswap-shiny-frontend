@@ -982,22 +982,22 @@ export const supportedPools = [
     lpToken: "0xe5f06db4f3473e7e35490f1f98017728496fe81e",
     allocPoint: "20",
   },
-  // {
-  //   pid: 86,
-  //   lpAddresses: {
-  //     1: "0xaa500101c73065f755ba9b902d643705ef2523e3",
-  //   },
-  //   tokenAddresses: {
-  //     1: "0xef9cd7882c067686691b6ff49e650b43afbbcc6b",
-  //   },
-  //   name: "Onsen Low",
-  //   symbol: "FNX-ETH SLP",
-  //   tokenSymbol: "FNX",
-  //   icon: "♨️",
-  //   uniswapPair: "FNX/ETH",
-  //   lpToken: "0xaa500101c73065f755ba9b902d643705ef2523e3",
-  //   allocPoint: "20",
-  // },
+  {
+    pid: 86,
+    lpAddresses: {
+      1: "0xaa500101c73065f755ba9b902d643705ef2523e3",
+    },
+    tokenAddresses: {
+      1: "0xef9cd7882c067686691b6ff49e650b43afbbcc6b",
+    },
+    name: "Onsen Low",
+    symbol: "FNX-ETH SLP",
+    tokenSymbol: "FNX",
+    icon: "♨️",
+    uniswapPair: "FNX/ETH",
+    lpToken: "0xaa500101c73065f755ba9b902d643705ef2523e3",
+    allocPoint: "20",
+  },
   {
     pid: 92,
     lpAddresses: {
@@ -1203,7 +1203,7 @@ export const supportedPools = [
     symbol: "nTRUMP-DAI SLP",
     tokenSymbol: "nTRUMP",
     icon: "♨️",
-    uniswapPair: "nTRUMP/ETH",
+    uniswapPair: "nTRUMP/DAI",
     lpToken: "0xab3f8e0214d862bf7965d3cec7431d7c1a85cb34",
     allocPoint: "10",
   },
