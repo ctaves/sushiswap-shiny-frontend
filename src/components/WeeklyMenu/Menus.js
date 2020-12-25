@@ -275,10 +275,9 @@ const VoteNextMenu = () => {
           className="sushi-border sushi-border-gray-200 sushi-rounded-lg sushi-shadow-md sushi-divide-y sushi-divide-gray-200"
         >
           <div className="sushi-p-6">
-            <h2 className="sushi-text-lg sushi-leading-6 sushi-font-medium sushi-text-gray-900">Next Week's Menu 🍛</h2>
+            <h2 className="sushi-text-lg sushi-leading-6 sushi-font-medium sushi-text-gray-900">Add to Onsen</h2>
             <p className="sushi-mt-4 sushi-text-sm sushi-leading-5 sushi-text-gray-500">
-              The menu for each week is currently discussed and polled on the Sushiswap Forum. Participate in
-              governance!
+              Additions to the special Onsen menus are discussed on the Sushiswap Forum. Participate in governance!
             </p>
             <p className="sushi-mt-8">
               <span className="sushi-text-2xl sushi-leading-10 sushi-font-extrabold sushi-text-gray-900">

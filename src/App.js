@@ -111,7 +111,7 @@ import SwapWrapper from "./pages/Swap";
 import PoolWrapper from "./pages/Pool";
 
 // Services - Lite Dependancies
-import { ContextProvider as LiteProvider } from "./services/lite/context";
+//import { ContextProvider as LiteProvider } from "./services/lite/context";
 
 import ModalsProvider from "./shared/contexts/ModalsContext";
 // import NoticeModal from "./components/Modals/NoticeStandalone";
