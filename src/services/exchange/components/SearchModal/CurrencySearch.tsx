@@ -1,14 +1,5 @@
 import { Currency, ETHER, Token } from "@sushiswap/sdk";
-import React, {
-  KeyboardEvent,
-  RefObject,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import React, { KeyboardEvent, RefObject, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import ReactGA from "react-ga";
 import { useTranslation } from "react-i18next";
 import { FixedSizeList } from "react-window";
@@ -98,12 +89,8 @@ export function CurrencySearch({
     return [
       ...(searchToken ? [searchToken] : []),
       // sort any exact symbol matches first
-      ...sorted.filter(
-        (token) => token.symbol?.toLowerCase() === symbolMatch[0]
-      ),
-      ...sorted.filter(
-        (token) => token.symbol?.toLowerCase() !== symbolMatch[0]
-      ),
+      ...sorted.filter((token) => token.symbol?.toLowerCase() === symbolMatch[0]),
+      ...sorted.filter((token) => token.symbol?.toLowerCase() !== symbolMatch[0]),
     ];
   }, [filteredTokens, searchQuery, searchToken, tokenComparator]);
 
@@ -137,8 +124,7 @@ export function CurrencySearch({
           handleCurrencySelect(ETHER);
         } else if (filteredSortedTokens.length > 0) {
           if (
-            filteredSortedTokens[0].symbol?.toLowerCase() ===
-              searchQuery.trim().toLowerCase() ||
+            filteredSortedTokens[0].symbol?.toLowerCase() === searchQuery.trim().toLowerCase() ||
             filteredSortedTokens.length === 1
           ) {
             handleCurrencySelect(filteredSortedTokens[0]);
@@ -155,7 +141,7 @@ export function CurrencySearch({
     <Column style={{ width: "100%", flex: "1 1" }}>
       <PaddedColumn gap="14px">
         <RowBetween>
-          <Text fontWeight={500} fontSize={16}>
+          <Text fontWeight={500} fontSize={16} color={theme.text1}>
             Select a token
             <QuestionHelper text="Find a token by searching for its name or symbol or by pasting its address below." />
           </Text>
@@ -171,20 +157,13 @@ export function CurrencySearch({
           onKeyDown={handleEnter}
         />
         {showCommonBases && (
-          <CommonBases
-            chainId={chainId}
-            onSelect={handleCurrencySelect}
-            selectedCurrency={selectedCurrency}
-          />
+          <CommonBases chainId={chainId} onSelect={handleCurrencySelect} selectedCurrency={selectedCurrency} />
         )}
         <RowBetween>
-          <Text fontSize={14} fontWeight={500}>
+          <Text fontSize={14} fontWeight={500} color={theme.text1}>
             Token Name
           </Text>
-          <SortButton
-            ascending={invertSearchOrder}
-            toggleSortOrder={() => setInvertSearchOrder((iso) => !iso)}
-          />
+          <SortButton ascending={invertSearchOrder} toggleSortOrder={() => setInvertSearchOrder((iso) => !iso)} />
         </RowBetween>
       </PaddedColumn>
 
@@ -218,9 +197,7 @@ export function CurrencySearch({
                   alt={`${selectedListInfo.current.name} list logo`}
                 />
               ) : null}
-              <TYPE.main id="currency-search-selected-list-name">
-                {selectedListInfo.current.name}
-              </TYPE.main>
+              <TYPE.main id="currency-search-selected-list-name">{selectedListInfo.current.name}</TYPE.main>
             </Row>
           ) : null}
           <LinkStyledButton

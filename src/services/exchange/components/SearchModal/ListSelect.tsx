@@ -1,22 +1,18 @@
-import React, { memo, useCallback, useMemo, useRef, useState } from "react";
+import React, { memo, useCallback, useContext, useMemo, useRef, useState } from "react";
 import { ArrowLeft } from "react-feather";
 import ReactGA from "react-ga";
 // @ts-ignore
 import { usePopper } from "react-popper";
 import { useDispatch, useSelector } from "react-redux";
 import { Text } from "rebass";
-import styled from "styled-components";
+import styled, { ThemeContext } from "styled-components";
 import { ReactComponent as DropDown } from "../../assets/images/dropdown.svg";
 import { useFetchListCallback } from "../../hooks/useFetchListCallback";
 import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 
 import useToggle from "../../hooks/useToggle";
 import { AppDispatch, AppState } from "../../state";
-import {
-  acceptListUpdate,
-  removeList,
-  selectList,
-} from "../../state/lists/actions";
+import { acceptListUpdate, removeList, selectList } from "../../state/lists/actions";
 import { useSelectedListUrl } from "../../state/lists/hooks";
 import { CloseIcon, ExternalLink, LinkStyledButton, TYPE } from "../../theme";
 import listVersionLabel from "../../utils/listVersionLabel";
@@ -43,10 +39,10 @@ const PopoverContainer = styled.div<{ show: boolean }>`
   transition: visibility 150ms linear, opacity 150ms linear;
   background: ${({ theme }) => theme.bg2};
   border: 1px solid ${({ theme }) => theme.bg3};
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.01), 0px 4px 8px rgba(0, 0, 0, 0.04),
-    0px 16px 24px rgba(0, 0, 0, 0.04), 0px 24px 32px rgba(0, 0, 0, 0.01);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.01), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04),
+    0px 24px 32px rgba(0, 0, 0, 0.01);
   color: ${({ theme }) => theme.text2};
-  border-radius: 0.5rem;
+  border-radius: ${({ theme }) => theme.borderRadius};
   padding: 1rem;
   display: grid;
   grid-template-rows: 1fr;
@@ -70,6 +66,7 @@ const StyledListUrlText = styled.div`
   font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: ${({ theme }) => theme.text2};
 `;
 
 function ListOrigin({ listUrl }: { listUrl: string }) {
@@ -77,10 +74,7 @@ function ListOrigin({ listUrl }: { listUrl: string }) {
   const host = useMemo(() => {
     if (ensName) return undefined;
     const lowerListUrl = listUrl.toLowerCase();
-    if (
-      lowerListUrl.startsWith("ipfs://") ||
-      lowerListUrl.startsWith("ipns://")
-    ) {
+    if (lowerListUrl.startsWith("ipfs://") || lowerListUrl.startsWith("ipns://")) {
       return listUrl;
     }
     try {
@@ -97,16 +91,9 @@ function listUrlRowHTMLId(listUrl: string) {
   return `list-row-${listUrl.replace(/\./g, "-")}`;
 }
 
-const ListRow = memo(function ListRow({
-  listUrl,
-  onBack,
-}: {
-  listUrl: string;
-  onBack: () => void;
-}) {
-  const listsByUrl = useSelector<AppState, AppState["lists"]["byUrl"]>(
-    (state) => state.lists.byUrl
-  );
+const ListRow = memo(function ListRow({ listUrl, onBack }: { listUrl: string; onBack: () => void }) {
+  const theme = useContext(ThemeContext);
+  const listsByUrl = useSelector<AppState, AppState["lists"]["byUrl"]>((state) => state.lists.byUrl);
   const selectedListUrl = useSelectedListUrl();
   const dispatch = useDispatch<AppDispatch>();
   const { current: list, pendingUpdate: pending } = listsByUrl[listUrl];
@@ -154,11 +141,7 @@ const ListRow = memo(function ListRow({
       action: "Start Remove List",
       label: listUrl,
     });
-    if (
-      window.prompt(
-        `Please confirm you would like to remove this list by typing REMOVE`
-      ) === `REMOVE`
-    ) {
+    if (window.prompt(`Please confirm you would like to remove this list by typing REMOVE`) === `REMOVE`) {
       ReactGA.event({
         category: "Lists",
         action: "Confirm Remove List",
@@ -171,18 +154,9 @@ const ListRow = memo(function ListRow({
   if (!list) return null;
 
   return (
-    <Row
-      key={listUrl}
-      align="center"
-      padding="16px"
-      id={listUrlRowHTMLId(listUrl)}
-    >
+    <Row key={listUrl} align="center" padding="16px" id={listUrlRowHTMLId(listUrl)}>
       {list.logoURI ? (
-        <ListLogo
-          style={{ marginRight: "1rem" }}
-          logoURI={list.logoURI}
-          alt={`${list.name} list logo`}
-        />
+        <ListLogo style={{ marginRight: "1rem" }} logoURI={list.logoURI} alt={`${list.name} list logo`} />
       ) : (
         <div style={{ width: "24px", height: "24px", marginRight: "1rem" }} />
       )}
@@ -192,6 +166,7 @@ const ListRow = memo(function ListRow({
             fontWeight={isSelected ? 500 : 400}
             fontSize={16}
             style={{ overflow: "hidden", textOverflow: "ellipsis" }}
+            color={theme.text1}
           >
             {list.name}
           </Text>
@@ -211,7 +186,6 @@ const ListRow = memo(function ListRow({
           style={{
             width: "2rem",
             padding: ".8rem .35rem",
-            borderRadius: "12px",
             fontSize: "14px",
             marginRight: "0.5rem",
           }}
@@ -222,29 +196,15 @@ const ListRow = memo(function ListRow({
         </ButtonOutlined>
 
         {open && (
-          <PopoverContainer
-            show={true}
-            ref={setPopperElement as any}
-            style={styles.popper}
-            {...attributes.popper}
-          >
+          <PopoverContainer show={true} ref={setPopperElement as any} style={styles.popper} {...attributes.popper}>
             <div>{list && listVersionLabel(list.version)}</div>
             <SeparatorDark />
-            <ExternalLink
-              href={`https://tokenlists.org/token-list?url=${listUrl}`}
-            >
-              View list
-            </ExternalLink>
-            <UnpaddedLinkStyledButton
-              onClick={handleRemoveList}
-              disabled={Object.keys(listsByUrl).length === 1}
-            >
+            <ExternalLink href={`https://tokenlists.org/token-list?url=${listUrl}`}>View list</ExternalLink>
+            <UnpaddedLinkStyledButton onClick={handleRemoveList} disabled={Object.keys(listsByUrl).length === 1}>
               Remove list
             </UnpaddedLinkStyledButton>
             {pending && (
-              <UnpaddedLinkStyledButton onClick={handleAcceptListUpdate}>
-                Update list
-              </UnpaddedLinkStyledButton>
+              <UnpaddedLinkStyledButton onClick={handleAcceptListUpdate}>Update list</UnpaddedLinkStyledButton>
             )}
           </PopoverContainer>
         )}
@@ -257,7 +217,6 @@ const ListRow = memo(function ListRow({
             width: "5rem",
             minWidth: "5rem",
             padding: "0.5rem .35rem",
-            borderRadius: "12px",
             fontSize: "14px",
           }}
         >
@@ -271,7 +230,6 @@ const ListRow = memo(function ListRow({
               width: "5rem",
               minWidth: "4.5rem",
               padding: "0.5rem .35rem",
-              borderRadius: "12px",
               fontSize: "14px",
             }}
             onClick={selectThisList}
@@ -288,7 +246,7 @@ const AddListButton = styled(ButtonSecondary)`
   /* height: 1.8rem; */
   max-width: 4rem;
   margin-left: 1rem;
-  border-radius: 12px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   padding: 10px 18px;
 `;
 
@@ -297,19 +255,12 @@ const ListContainer = styled.div`
   overflow: auto;
 `;
 
-export function ListSelect({
-  onDismiss,
-  onBack,
-}: {
-  onDismiss: () => void;
-  onBack: () => void;
-}) {
+export function ListSelect({ onDismiss, onBack }: { onDismiss: () => void; onBack: () => void }) {
+  const theme = useContext(ThemeContext);
   const [listUrlInput, setListUrlInput] = useState<string>("");
 
   const dispatch = useDispatch<AppDispatch>();
-  const lists = useSelector<AppState, AppState["lists"]["byUrl"]>(
-    (state) => state.lists.byUrl
-  );
+  const lists = useSelector<AppState, AppState["lists"]["byUrl"]>((state) => state.lists.byUrl);
   const adding = Boolean(lists[listUrlInput]?.loadingRequestId);
   const [addError, setAddError] = useState<string | null>(null);
 
@@ -343,10 +294,7 @@ export function ListSelect({
   }, [adding, dispatch, fetchList, listUrlInput]);
 
   const validUrl: boolean = useMemo(() => {
-    return (
-      uriToHttp(listUrlInput).length > 0 ||
-      Boolean(parseENSAddress(listUrlInput))
-    );
+    return uriToHttp(listUrlInput).length > 0 || Boolean(parseENSAddress(listUrlInput));
   }, [listUrlInput]);
 
   const handleEnterKey = useCallback(
@@ -384,10 +332,10 @@ export function ListSelect({
     <Column style={{ width: "100%", flex: "1 1" }}>
       <PaddedColumn>
         <RowBetween>
-          <div>
+          <div style={{ color: theme.text1 }}>
             <ArrowLeft style={{ cursor: "pointer" }} onClick={onBack} />
           </div>
-          <Text fontWeight={500} fontSize={20}>
+          <Text fontWeight={500} fontSize={20} color={theme.text1}>
             Manage Lists
           </Text>
           <CloseIcon onClick={onDismiss} />
@@ -397,7 +345,7 @@ export function ListSelect({
       <Separator />
 
       <PaddedColumn gap="14px">
-        <Text fontWeight={600}>
+        <Text fontWeight={600} color={theme.text1}>
           Add a list{" "}
           <QuestionHelper text="Token lists are an open specification for lists of ERC20 tokens. You can use any token list by entering its URL below. Beware that third party token lists can contain fake or malicious ERC20 tokens." />
         </Text>
@@ -409,18 +357,14 @@ export function ListSelect({
             value={listUrlInput}
             onChange={handleInput}
             onKeyDown={handleEnterKey}
-            style={{ height: "2.75rem", borderRadius: 12, padding: "12px" }}
+            style={{ height: "2.75rem", padding: "12px" }}
           />
           <AddListButton onClick={handleAddList} disabled={!validUrl}>
             Add
           </AddListButton>
         </Row>
         {addError ? (
-          <TYPE.error
-            title={addError}
-            style={{ textOverflow: "ellipsis", overflow: "hidden" }}
-            error
-          >
+          <TYPE.error title={addError} style={{ textOverflow: "ellipsis", overflow: "hidden" }} error>
             {addError}
           </TYPE.error>
         ) : null}

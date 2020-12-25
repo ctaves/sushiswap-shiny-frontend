@@ -42,7 +42,7 @@ const Layout = ({ title, type }) => {
   const [highestAPY, setAPY] = useState();
   return (
     <>
-      <Title highestAPY={highestAPY} title={title} />
+      {/* <Title highestAPY={highestAPY} title={title} /> */}
       <PoolsQuery setAPY={setAPY} type={type} />
     </>
   );
@@ -263,7 +263,7 @@ const TableFilter = ({ search, term, columns, setColumns }) => {
   const [onPresentWallets] = useModal(<WalletsModal />);
   return (
     <>
-      <div className="border-t border-gray-200 mt-4 px-4 pt-4 pb-3">
+      <div className="border-t border-gray-200 px-4 pt-4 pb-3">
         <div>
           <div className="flex rounded-md shadow-sm">
             <button className="relative flex items-center px-3 py-1.5 rounded-md border border-gray-300 text-sm leading-5 bg-white text-gray-900 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 transition ease-in-out duration-150">

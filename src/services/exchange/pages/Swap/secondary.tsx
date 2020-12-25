@@ -396,7 +396,8 @@ export default function Swap({ outputCurrency }) {
           ) : null}
 
           {showWrap ? null : (
-            <Card padding={".25rem .75rem 0 .75rem"} borderRadius={"20px"}>
+            //@ts-ignore
+            <Card padding={".25rem .75rem 0 .75rem"} borderRadius={theme.borderRadius}>
               <AutoColumn gap="4px">
                 {Boolean(trade) && (
                   <RowBetween align="center">

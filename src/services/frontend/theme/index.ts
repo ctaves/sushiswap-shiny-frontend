@@ -22,8 +22,9 @@ const mediaWidthTemplates: {
   return accumulator;
 }, {}) as any;
 
+//@ts-ignore
 const theme: DefaultTheme = {
-  borderRadius: 12,
+  borderRadius: "12px",
   breakpoint: {
     mobile: 400,
   },

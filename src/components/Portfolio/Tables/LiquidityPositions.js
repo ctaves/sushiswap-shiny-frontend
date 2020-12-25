@@ -29,8 +29,8 @@ const Table = ({ positions, ethPrice, LPBalanceUSD }) => {
           {/* Main content */}
           <main className="flex-1 relative z-0 overflow-y-auto focus:outline-none" tabIndex={0}>
             <div className="block">
-              <div className="align-middle inline-block min-w-full border-b border-gray-200">
-                <div className="align-middle inline-block min-w-full border-b border-gray-200">
+              <div className="align-middle inline-block min-w-full">
+                <div className="align-middle inline-block min-w-full">
                   <table className="hidden sm:table min-w-full table-fixed">
                     <TableHead />
                     <tbody className="bg-white divide-y divide-gray-100">

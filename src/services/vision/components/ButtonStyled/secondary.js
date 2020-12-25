@@ -10,7 +10,7 @@ const Base = styled(RebassButton)`
   padding: 8px 12px;
   font-size: 0.825rem;
   font-weight: 600;
-  border-radius: 12px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   cursor: pointer;
   outline: none;
   border: 1px solid transparent;
@@ -23,7 +23,7 @@ const BaseCustom = styled(RebassButton)`
   padding: 16px 12px;
   font-size: 0.825rem;
   font-weight: 400;
-  border-radius: 12px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   cursor: pointer;
   outline: none;
 `;
@@ -64,7 +64,7 @@ export const ButtonLight = styled(Base)`
   color: ${({ color, theme }) => (color ? darken(0.1, color) : theme.primary1)};
 
   min-width: fit-content;
-  border-radius: 12px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   white-space: nowrap;
 
   a {
@@ -100,7 +100,7 @@ export const ButtonDark = styled(Base)`
   background-color: ${({ color, theme }) => (color ? color : theme.primary1)};
   color: white;
   width: fit-content;
-  border-radius: 12px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   white-space: nowrap;
 
   :hover {

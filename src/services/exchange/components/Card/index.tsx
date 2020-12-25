@@ -27,7 +27,7 @@ export const LightCard = styled(Card)`
 // `;
 
 export const GreyCard = styled(Card)`
-  background-color: ${"#f4f5f7"};
+  background-color: ${({ theme }) => theme.bg3};
 `;
 
 export const OutlineCard = styled(Card)`
@@ -49,7 +49,7 @@ export const PinkCard = styled(Card)`
 const BlueCardStyled = styled(Card)`
   background-color: ${({ theme }) => theme.primary5};
   color: ${({ theme }) => theme.primary1};
-  border-radius: 12px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   width: fit-content;
 `;
 

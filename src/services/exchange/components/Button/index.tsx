@@ -20,7 +20,6 @@ const Base = styled(RebassButton)<{
   font-family: "Inter var", sans-serif;
   font-size: 16px;
   text-align: center;
-  border-radius: 0.375rem;
   outline: none;
   border: 1px solid transparent;
   color: white;
@@ -42,6 +41,7 @@ const Base = styled(RebassButton)<{
 `;
 
 export const ButtonPrimary = styled(Base)`
+  border-radius: ${({ theme }) => theme.borderRadius};
   background-color: ${({ theme }) => theme.primary1};
   color: white;
   &:focus {
@@ -67,6 +67,7 @@ export const ButtonPrimary = styled(Base)`
 `;
 
 export const ButtonLight = styled(Base)`
+  border-radius: ${({ theme }) => theme.borderRadius};
   background-color: ${({ theme }) => theme.primary5};
   color: ${({ theme }) => theme.primaryText1};
   font-size: 16px;
@@ -95,6 +96,7 @@ export const ButtonLight = styled(Base)`
 `;
 
 export const ButtonGray = styled(Base)`
+  border-radius: ${({ theme }) => theme.borderRadius};
   background-color: ${({ theme }) => theme.bg3};
   color: ${({ theme }) => theme.text2};
   font-size: 16px;
@@ -113,10 +115,11 @@ export const ButtonGray = styled(Base)`
 `;
 
 export const ButtonSecondary = styled(Base)`
+  border-radius: ${({ theme }) => theme.borderRadius};
   background-color: ${({ theme }) => theme.primary5};
   color: ${({ theme }) => theme.primaryText1};
   font-size: 16px;
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   padding: ${({ padding }) => (padding ? padding : "10px")};
 
   &:focus {
@@ -138,6 +141,7 @@ export const ButtonSecondary = styled(Base)`
 `;
 
 export const ButtonPink = styled(Base)`
+  border-radius: ${({ theme }) => theme.borderRadius};
   background-color: ${({ theme }) => theme.primary1};
   color: white;
 
@@ -161,6 +165,7 @@ export const ButtonPink = styled(Base)`
 
 export const ButtonOutlined = styled(Base)`
   border: 1px solid ${({ theme }) => theme.bg2};
+  border-radius: ${({ theme }) => theme.borderRadius};
   background-color: transparent;
   color: ${({ theme }) => theme.text1};
 
@@ -180,6 +185,7 @@ export const ButtonOutlined = styled(Base)`
 `;
 
 export const ButtonEmpty = styled(Base)`
+  border-radius: ${({ theme }) => theme.borderRadius};
   background-color: transparent;
   color: ${({ theme }) => theme.primary1};
   display: flex;
@@ -202,6 +208,7 @@ export const ButtonEmpty = styled(Base)`
 `;
 
 export const ButtonWhite = styled(Base)`
+  border-radius: ${({ theme }) => theme.borderRadius};
   border: 1px solid #edeef2;
   background-color: ${({ theme }) => theme.bg1};
   color: black;
@@ -223,6 +230,7 @@ export const ButtonWhite = styled(Base)`
 `;
 
 const ButtonConfirmedStyle = styled(Base)`
+  border-radius: ${({ theme }) => theme.borderRadius};
   background-color: ${({ theme }) => lighten(0.5, theme.green1)};
   color: ${({ theme }) => theme.green1};
   border: 1px solid ${({ theme }) => theme.green1};
@@ -234,6 +242,7 @@ const ButtonConfirmedStyle = styled(Base)`
 `;
 
 const ButtonErrorStyle = styled(Base)`
+  border-radius: ${({ theme }) => theme.borderRadius};
   background-color: ${({ theme }) => theme.red1};
   border: 1px solid ${({ theme }) => theme.red1};
 

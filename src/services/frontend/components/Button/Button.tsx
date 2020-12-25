@@ -16,16 +16,7 @@ interface ButtonProps {
   variant?: "default" | "secondary" | "tertiary";
 }
 
-const Button: React.FC<ButtonProps> = ({
-  children,
-  disabled,
-  href,
-  onClick,
-  size,
-  text,
-  to,
-  variant,
-}) => {
+const Button: React.FC<ButtonProps> = ({ children, disabled, href, onClick, size, text, to, variant }) => {
   //@ts-ignore
   const { color, spacing } = useContext(ThemeContext);
 
@@ -110,7 +101,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   align-items: center;
   background-color: ${(props) => props.theme.color.grey[200]};
   border: 0;
-  border-radius: 12px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   box-shadow: ${(props) => props.boxShadow};
   color: ${(props) => (!props.disabled ? props.color : `${props.color}55`)};
   cursor: pointer;

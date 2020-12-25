@@ -3,6 +3,7 @@ import { Link, Route, Redirect } from "react-router-dom";
 import WalletRoute from "../shared/WalletRoute";
 import PublicRoute from "../shared/PublicRoute";
 import SectionTabs from "../components/Tabs";
+import TitleTabs from "../components/TitleTabs";
 import ConnectPage from "../pages/Connect";
 // Dashboard
 import MobileNavigation from "../components/MobileNavigation";
@@ -42,10 +43,12 @@ import WeeklyMenuInfo from "../components/WeeklyMenu/Hero";
 import WeeklyMenus from "../components/WeeklyMenu/Menus";
 import CurrentPools from "../components/Table/PoolsWeeklyApollo";
 import PreviousPools from "../components/Table/PoolsWeeklyApollo";
+// Onsen
+import OnsenInfo from "../components/Onsen/Hero";
 // Tokens
 import TokenList from "../services/vision/components/TokenList/secondary";
 import { useAllTokenData } from "../services/vision/contexts/TokenData";
-// Pools
+// Pools / Farms
 import TablePools from "../components/Table/PoolsWeeklyApollo";
 // Pairs
 import { useAllPairData } from "../services/vision/contexts/PairData";
@@ -151,8 +154,11 @@ const DashboardRoutes = () => {
       <WalletRoute exact path="/portfolio/transactions" component={PortfolioTransactions} />
       <Route exact path="/weekly" component={MenuOfTheWeek} />
       <Route exact path="/tokens" component={Tokens} />
-      <Route exact path="/pools" component={Pools} />
-      <Route exact path="/farms" component={Pools} />
+      <Route exact path="/pools" component={Farms} />
+      <Route exact path="/farms" component={Farms} />
+      <Route exact path="/farms/special" component={FarmsSpecial} />
+      <Route exact path="/farms/permanent" component={Farms} />
+      <Route exact path="/farms/xsushi" component={Farms} />
       <Route exact path="/pairs" component={Pairs} />
       <Route exact path="/governance" component={Governance} />
       <Route exact path="/community" component={Community} />
@@ -306,30 +312,24 @@ const PortfolioBalances = () => {
   useEffect(() => {
     dispatch({ type: "update", section: "portfolio" });
   }, []);
+  const tabs = [
+    {
+      key: "balances",
+      type: "internal",
+      title: "Balances",
+      to: "/portfolio/balances",
+      selected: true,
+    },
+    {
+      key: "transactions",
+      type: "internal",
+      title: "Transactions",
+      to: "/portfolio/transactions",
+    },
+  ];
   return (
     <>
-      <div className="border-b border-gray-200 px-4 pt-4 sm:px-6 lg:px-8">
-        <div className="space-y-4 sm:flex sm:items-baseline sm:space-y-0 sm:space-x-10">
-          <h3 className="text-lg leading-6 font-medium text-gray-900">Omakase: Your Portfolio</h3>
-          <div>
-            <nav className="-mb-px flex space-x-8">
-              <Link
-                href="/portfolio/balances"
-                className="whitespace-no-wrap pb-4 px-1 border-b-2 border-gray-900 font-medium text-sm leading-5 text-gray-900 focus:outline-none focus:text-gray-900 focus:border-gray-900"
-                aria-current="page"
-              >
-                Balances
-              </Link>
-              <Link
-                to="/portfolio/transactions"
-                className="whitespace-no-wrap pb-4 px-1 border-b-2 border-transparent font-medium text-sm leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300"
-              >
-                Transactions
-              </Link>
-            </nav>
-          </div>
-        </div>
-      </div>
+      <TitleTabs title={"Omakase: Your Portfolio"} tabs={tabs} />
       <div className="min-h-full bg-gray-100 shadow-inner py-6 space-y-6 sm:p-6">
         <div className="shadow sm:rounded-md sm:overflow-hidden">
           <div className="bg-white">
@@ -346,30 +346,24 @@ const PortfolioTransactions = () => {
   useEffect(() => {
     dispatch({ type: "update", section: "portfolio" });
   }, []);
+  const tabs = [
+    {
+      key: "balances",
+      type: "internal",
+      title: "Balances",
+      to: "/portfolio/balances",
+    },
+    {
+      key: "transactions",
+      type: "internal",
+      title: "Transactions",
+      to: "/portfolio/transactions",
+      selected: true,
+    },
+  ];
   return (
     <>
-      <div className="border-b border-gray-200 px-4 pt-4 sm:px-6 lg:px-8">
-        <div className="space-y-4 sm:flex sm:items-baseline sm:space-y-0 sm:space-x-10">
-          <h3 className="text-lg leading-6 font-medium text-gray-900">Omakase: Your Portfolio</h3>
-          <div>
-            <nav className="-mb-px flex space-x-8">
-              <Link
-                to="/portfolio/balances"
-                className="whitespace-no-wrap pb-4 px-1 border-b-2 border-transparent font-medium text-sm leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300"
-              >
-                Balances
-              </Link>
-              <Link
-                href="/portfolio/transactions"
-                className="whitespace-no-wrap pb-4 px-1 border-b-2 border-gray-900 font-medium text-sm leading-5 text-gray-900 focus:outline-none focus:text-gray-900 focus:border-gray-900"
-                aria-current="page"
-              >
-                Transactions
-              </Link>
-            </nav>
-          </div>
-        </div>
-      </div>
+      <TitleTabs title={"Omakase: Your Portfolio"} tabs={tabs} />
       <div className="min-h-full bg-gray-100 shadow-inner py-6 space-y-6 sm:p-6">
         <TransactionsPage />
       </div>
@@ -440,17 +434,76 @@ const Tokens = () => {
   );
 };
 
-const Pools = () => {
+const Farms = () => {
   const { dispatch } = useContext(SectionContext);
   useEffect(() => {
-    dispatch({ type: "update", section: "pools" });
+    dispatch({ type: "update", section: "farms" });
   }, []);
+  const tabs = [
+    {
+      key: "all",
+      type: "internal",
+      title: "All",
+      to: "/farms",
+      selected: true,
+    },
+    {
+      key: "special",
+      type: "internal",
+      title: "Onsen",
+      to: "/farms/special",
+    },
+    {
+      key: "xsushi",
+      type: "internal",
+      title: "SushiBar",
+      to: "/farms/xsushi",
+    },
+  ];
   return (
     <>
-      {/* <MainSearch /> */}
+      <TitleTabs title={"Farms"} tabs={tabs} withSearch={true} />
       <div className="sushi-px-8 py-4 sushi-hidden lg:sushi-block">
         <MainSearch />
       </div>
+      <TablePools title={"Permanent Farms"} type={"main"} />
+    </>
+  );
+};
+
+const FarmsSpecial = () => {
+  const { dispatch } = useContext(SectionContext);
+  useEffect(() => {
+    dispatch({ type: "update", section: "farms-special" });
+  }, []);
+  const tabs = [
+    {
+      key: "all",
+      type: "internal",
+      title: "All",
+      to: "/farms",
+    },
+    {
+      key: "special",
+      type: "internal",
+      title: "Onsen",
+      to: "/farms/special",
+      selected: true,
+    },
+    {
+      key: "xsushi",
+      type: "internal",
+      title: "SushiBar",
+      to: "/farms/xsushi",
+    },
+  ];
+  return (
+    <>
+      <TitleTabs title={"Farms"} tabs={tabs} withSearch={true} />
+      <OnsenInfo />
+      {/* <div className="sushi-px-8 py-4 sushi-hidden lg:sushi-block">
+        <MainSearch />
+      </div> */}
       <TablePools title={"Permanent Farms"} type={"main"} />
     </>
   );

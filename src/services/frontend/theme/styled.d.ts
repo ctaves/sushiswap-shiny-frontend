@@ -7,7 +7,7 @@ import { black, green, grey, red, white } from "./colors";
 // and extend it
 declare module "styled-components" {
   export interface DefaultTheme {
-    borderRadius: number;
+    borderRadius: string;
     breakpoint: {
       mobile: number;
     };

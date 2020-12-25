@@ -31,7 +31,7 @@ const QuestionWrapper = styled.div`
   background: none;
   outline: none;
   cursor: default;
-  border-radius: 36px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   color: ${({ theme }) => theme.text2};
 
   :hover,

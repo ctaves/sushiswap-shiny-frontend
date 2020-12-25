@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 //import { isMobile } from "react-device-detect";
+import Midnight from "./components/Midnight";
 import Landing from "./services/playground/landing";
 import BoringApp from "./services/boring";
 import ClassicApp from "./services/classic";
@@ -147,6 +148,7 @@ const App = () => {
           <Web3ReactManager>
             <Switch>
               {/* Playground Routes */}
+              <Route exact path="/playground/midnight" component={Midnight} />
               <Route exact path="/playground/landing" component={Landing} />
               <Route exact path="/boring" component={BoringApp} />
               <Route exact path="/classic" component={ClassicApp} />
@@ -167,15 +169,19 @@ const App = () => {
               <Route exact path="/pools">
                 <Redirect to="/farms" />
               </Route>
-              <Route exact path="/weekly">
-                <Redirect to="/farms/weekly" />
-              </Route>
+              {/* <Route exact path="/weekly">
+                <Redirect to="/farms/special" />
+              </Route> */}
+              <Route exact path="/weekly" component={Dashboard} />
               <Route exact path="/farms" component={Dashboard} />
               <Route exact path="/farms/special" component={Dashboard} />
               <Route exact path="/onsen">
                 <Redirect to="/farms/special" />
               </Route>
               <Route exact path="/farms/permanent" component={Dashboard} />
+              <Route exact path="/sushibar">
+                <Redirect to="/farms/xsushi" />
+              </Route>
               <Route exact path="/farms/xsushi" component={Dashboard} />
               <Route exact path="/stake" component={Dashboard} />
               {/* Dashboard Routes */}
@@ -255,9 +261,10 @@ const App = () => {
 const ServicesProviders = ({ children }) => {
   return (
     <>
-      <SushiExchangeProviders>
+      <SushiFrontendProviders>
         <SushiVisionProviders>
-          <SushiFrontendProviders>
+          {/* Exchange goes last so its theme takes precedence */}
+          <SushiExchangeProviders>
             <SushiLiteProviders>
               <SushiAnalyticsProviders>
                 <ModalsProvider>
@@ -265,9 +272,9 @@ const ServicesProviders = ({ children }) => {
                 </ModalsProvider>
               </SushiAnalyticsProviders>
             </SushiLiteProviders>
-          </SushiFrontendProviders>
+          </SushiExchangeProviders>
         </SushiVisionProviders>
-      </SushiExchangeProviders>
+      </SushiFrontendProviders>
     </>
   );
 };

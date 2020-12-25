@@ -7,7 +7,7 @@ import { AutoColumn } from "../Column";
 
 export const Wrapper = styled.div`
   position: relative;
-  background-color: white;
+  background-color: ${({ theme }) => theme.bg1};
   z-index: 1;
 `;
 
@@ -124,7 +124,7 @@ const SwapCallbackErrorInnerAlertTriangle = styled.div`
   align-items: center;
   justify-content: center;
   margin-right: 12px;
-  border-radius: 12px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   min-width: 48px;
   height: 48px;
 `;
@@ -144,6 +144,6 @@ export const SwapShowAcceptChanges = styled(AutoColumn)`
   background-color: ${({ theme }) => transparentize(0.9, theme.primary1)};
   color: ${({ theme }) => theme.primary1};
   padding: 0.5rem;
-  border-radius: 12px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   margin-top: 8px;
 `;

@@ -45,7 +45,7 @@ const StyledModal = styled.div`
   padding: 0 20px;
   background: ${(props) => props.theme.color.grey[200]};
   border: 1px solid ${(props) => props.theme.color.grey[300]}ff;
-  border-radius: 12px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   box-shadow: inset 1px 1px 0px ${(props) => props.theme.color.grey[100]};
   display: flex;
   flex-direction: column;

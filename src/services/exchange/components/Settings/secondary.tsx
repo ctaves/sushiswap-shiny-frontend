@@ -46,13 +46,13 @@ const StyledMenuButton = styled.button`
   width: 100%;
   height: 100%;
   border: none;
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme.bg1};
   margin-bottom: 5px;
-  border: 1px solid #d2d6dc;
-  border-radius: 0.375rem;
+  border: 1px solid ${({ theme }) => theme.bg2};
+  border-radius: ${({ theme }) => theme.borderRadius};
   padding: 0.5rem 1rem;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  color: #374151;
+  color: ${({ theme }) => theme.primaryText1};
 
   :hover {
     cursor: pointer;
@@ -117,7 +117,7 @@ const ModalContentWrapper = styled.div`
   justify-content: center;
   padding: 2rem 0;
   background-color: ${({ theme }) => theme.bg2};
-  border-radius: 20px;
+  border-radius: ${({ theme }) => theme.borderRadius};
 `;
 
 export default function SettingsTab() {
@@ -147,18 +147,18 @@ export default function SettingsTab() {
           <AutoColumn gap="lg">
             <RowBetween style={{ padding: "0 2rem" }}>
               <div />
-              <Text fontWeight={500} fontSize={20}>
+              <Text fontWeight={500} fontSize={20} color={theme.text1}>
                 Are you sure?
               </Text>
               <StyledCloseIcon onClick={() => setShowConfirmation(false)} />
             </RowBetween>
             <Break />
             <AutoColumn gap="lg" style={{ padding: "0 2rem" }}>
-              <Text fontWeight={500} fontSize={20}>
+              <Text fontWeight={500} fontSize={20} color={theme.text1}>
                 Expert mode turns off the confirm transaction prompt and allows high slippage trades that often result
                 in bad rates and lost funds.
               </Text>
-              <Text fontWeight={600} fontSize={20}>
+              <Text fontWeight={600} fontSize={20} color={theme.text1}>
                 ONLY USE THIS MODE IF YOU KNOW WHAT YOU ARE DOING.
               </Text>
               <ButtonError
@@ -192,7 +192,7 @@ export default function SettingsTab() {
       {open && (
         <MenuFlyout>
           <AutoColumn gap="md" style={{ padding: "1rem" }}>
-            <Text fontWeight={600} fontSize={14}>
+            <Text fontWeight={600} fontSize={14} color={theme.text1}>
               Transaction Settings
             </Text>
             <TransactionSettings
@@ -201,7 +201,7 @@ export default function SettingsTab() {
               deadline={deadline}
               setDeadline={setDeadline}
             />
-            <Text fontWeight={600} fontSize={14}>
+            <Text fontWeight={600} fontSize={14} color={theme.text1}>
               Interface Settings
             </Text>
             <RowBetween>

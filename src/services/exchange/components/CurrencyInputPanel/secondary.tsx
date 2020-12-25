@@ -25,9 +25,9 @@ const CurrencySelect = styled.button<{ selected: boolean }>`
   height: 2.2rem;
   font-size: 16px;
   font-weight: 500;
-  background-color: #f4f5f7;
+  background-color: ${({ theme }) => theme.inputField};
   color: ${({ selected, theme }) => (selected ? theme.text1 : theme.text1)};
-  border-radius: 0.375rem;
+  border-radius: ${({ theme }) => theme.borderRadius};
   box-shadow: ${({ selected }) => (selected ? "none" : "none")};
   outline: none;
   cursor: pointer;
@@ -37,7 +37,8 @@ const CurrencySelect = styled.button<{ selected: boolean }>`
 
   :focus,
   :hover {
-    background-color: ${({ selected, theme }) => (selected ? darken(0.05, "#f4f5f7") : darken(0.05, "#f4f5f7"))};
+    background-color: ${({ selected, theme }) =>
+      selected ? darken(0.05, theme.inputField) : darken(0.05, theme.inputField)};
   }
 `;
 
@@ -73,15 +74,15 @@ const StyledDropDown = styled(DropDown)<{ selected: boolean }>`
 const InputPanel = styled.div<{ hideInput?: boolean }>`
   ${({ theme }) => theme.flexColumnNoWrap}
   position: relative;
-  border-radius: ${({ hideInput }) => (hideInput ? "0.35rem;" : "0.375rem;")};
-  background-color: #f4f5f7;
+  border-radius: ${({ hideInput }) => (hideInput ? "0.35rem;" : "${({ theme }) => theme.borderRadius};")};
+  background-color: ${({ theme }) => theme.inputField};
   z-index: 1;
 `;
 
 const Container = styled.div<{ hideInput: boolean }>`
-  border-radius: ${({ hideInput }) => (hideInput ? "0.35rem;" : "0.375rem;")};
-  border: 1px solid #f4f5f7;
-  background-color: #f4f5f7;
+  border-radius: ${({ hideInput }) => (hideInput ? "0.35rem;" : "${({ theme }) => theme.borderRadius};")};
+  border: 1px solid ${({ theme }) => theme.inputField};
+  background-color: ${({ theme }) => theme.inputField};
 `;
 
 const StyledTokenName = styled.span<{ active?: boolean }>`
@@ -92,9 +93,9 @@ const StyledTokenName = styled.span<{ active?: boolean }>`
 
 const StyledBalanceMax = styled.button`
   height: 28px;
-  background-color: #d2d6dc;
-  border: 1px solid #d2d6dc;
-  border-radius: 0.375rem;
+  background-color: ${({ theme }) => theme.primary4};
+  border: 1px solid ${({ theme }) => theme.primary4};
+  border-radius: ${({ theme }) => theme.borderRadius};
   font-size: 16px;
   padding-right: 10px;
   padding-left: 10px;
@@ -102,13 +103,12 @@ const StyledBalanceMax = styled.button`
   font-weight: 500;
   cursor: pointer;
   margin-right: 0.5rem;
-  color: #374151;
+  color: ${({ theme }) => theme.primaryText1};
   :hover {
-    background-color: #e5e7eb;
+    border: 1px solid ${({ theme }) => theme.primary1};
   }
   :focus {
-    color: fcd9be;
-    background-color: #e5e7eb;
+    border: 1px solid ${({ theme }) => theme.primary1};
     outline: none;
   }
 

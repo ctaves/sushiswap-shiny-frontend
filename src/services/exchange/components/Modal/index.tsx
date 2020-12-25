@@ -26,19 +26,16 @@ const StyledDialogOverlay = styled(AnimatedDialogOverlay)`
 const AnimatedDialogContent = animated(DialogContent);
 // destructure to not pass custom props to Dialog DOM element
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const StyledDialogContent = styled(
-  ({ minHeight, maxHeight, mobile, isOpen, ...rest }) => (
-    <AnimatedDialogContent {...rest} />
-  )
-).attrs({
+const StyledDialogContent = styled(({ minHeight, maxHeight, mobile, isOpen, ...rest }) => (
+  <AnimatedDialogContent {...rest} />
+)).attrs({
   "aria-label": "dialog",
 })`
   &[data-reach-dialog-content] {
     margin: 0 0 2rem 0;
     border: 1px solid ${({ theme }) => theme.bg1};
     background-color: ${({ theme }) => theme.bg1};
-    box-shadow: 0 4px 8px 0
-      ${({ theme }) => transparentize(0.95, theme.shadow1)};
+    box-shadow: 0 4px 8px 0 ${({ theme }) => transparentize(0.95, theme.shadow1)};
     padding: 0px;
     width: 50vw;
     overflow: hidden;
@@ -57,7 +54,7 @@ const StyledDialogContent = styled(
         min-height: ${minHeight}vh;
       `}
     display: flex;
-    border-radius: 0.375rem;
+    border-radius: ${({ theme }) => theme.borderRadius};
     ${({ theme }) => theme.mediaWidth.upToMedium`
       width: 65vw;
       margin: 0;
@@ -67,7 +64,7 @@ const StyledDialogContent = styled(
       ${mobile &&
         css`
           width: 100vw;
-          border-radius: 0.375rem;
+          border-radius: ${({ theme }) => theme.borderRadius};
           border-bottom-left-radius: 0;
           border-bottom-right-radius: 0;
         `}
@@ -108,10 +105,7 @@ export default function Modal({
       set({
         y: state.down ? state.movement[1] : 0,
       });
-      if (
-        state.movement[1] > 300 ||
-        (state.velocity > 3 && state.direction[1] > 0)
-      ) {
+      if (state.movement[1] > 300 || (state.velocity > 3 && state.direction[1] > 0)) {
         onDismiss();
       }
     },
@@ -122,20 +116,13 @@ export default function Modal({
       {fadeTransition.map(
         ({ item, key, props }) =>
           item && (
-            <StyledDialogOverlay
-              key={key}
-              style={props}
-              onDismiss={onDismiss}
-              initialFocusRef={initialFocusRef}
-            >
+            <StyledDialogOverlay key={key} style={props} onDismiss={onDismiss} initialFocusRef={initialFocusRef}>
               <StyledDialogContent
                 {...(isMobile
                   ? {
                       ...bind(),
                       style: {
-                        transform: y.interpolate(
-                          (y) => `translateY(${y > 0 ? y : 0}px)`
-                        ),
+                        transform: y.interpolate((y) => `translateY(${y > 0 ? y : 0}px)`),
                       },
                     }
                   : {})}
