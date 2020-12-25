@@ -6,7 +6,6 @@ import Web3 from "web3";
 import ERC20ABI from "../../services/frontend/constants/abi/ERC20.json";
 import { Sushi } from "../../services/frontend/sushi";
 import { getMasterChefContract } from "../../services/frontend/sushi/utils";
-import useSushi from "../../services/frontend/hooks/useSushi";
 import { getBalanceNumber } from "../../services/frontend/utils/formatBalance";
 
 import _ from "lodash";
@@ -463,7 +462,6 @@ const FilterDropdown = ({ isOpen, columns, setColumns }) => {
 const TablePools = ({ title, pools, columns }) => {
   // For regular pool display
   const { account, ethereum } = useWallet();
-  const sushi = useSushi();
 
   // use to update account stats on every block
   // const [block, setBlock] = useState(0);
@@ -504,6 +502,16 @@ const TablePools = ({ title, pools, columns }) => {
       const fetchAccountStats = async () => {
         const web3 = new Web3(ethereum);
         const chainId = Number(ethereum.chainId);
+        const sushi = new Sushi(ethereum, chainId, false, {
+          defaultAccount: ethereum.selectedAddress,
+          defaultConfirmations: 1,
+          autoGasMultiplier: 1.5,
+          testing: false,
+          defaultGas: "6000000",
+          defaultGasPrice: "1000000000000",
+          accounts: [],
+          ethereumNodeTimeout: 10000,
+        });
         const masterChefContract = getMasterChefContract(sushi);
         // Run in parallel
         const promises = pools.map((pool) => getAccountStat(pool, web3, account, masterChefContract));
