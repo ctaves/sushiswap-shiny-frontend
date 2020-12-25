@@ -7,9 +7,7 @@ const VolumeCard = ({ title }) => {
       <div className="sushi-flex-1 sushi-bg-white sushi-p-6 sushi-flex sushi-flex-col sushi-justify-between">
         <div className="sushi-relative sushi-pb-5 sushi-border-b sushi-border-gray-200 sushi-space-y-4 sm:sushi-pb-0">
           <div className="sushi-space-y-3 sushi-flex sushi-items-center sushi-justify-between sushi-space-y-0">
-            <h3 className="sushi-text-lg sushi-leading-6 sushi-font-medium sushi-text-gray-900">
-              {title}
-            </h3>
+            <h3 className="sushi-text-lg sushi-leading-6 sushi-font-medium sushi-text-gray-900">{title}</h3>
           </div>
           <div>
             {/* Dropdown menu on small screens */}
@@ -67,11 +65,11 @@ const VolumeCard = ({ title }) => {
               <div className="sushi-w-0 sushi-flex-1 sushi-p-4">
                 <div className="sushi-flex sushi-items-start">
                   <div className="sushi-flex-shrink-0 sushi-pt-0.5">
-                    <img
+                    {/* <img
                       className="sushi-h-10 sushi-w-10 sushi-rounded-full"
                       src="https://cdn.discordapp.com/avatars/201534195695091712/618f054e78d4469e9a0ec61e57bc26e1.png?size=256"
                       alt="Tip from ChefNomi"
-                    />
+                    /> */}
                   </div>
                   <div className="sushi-ml-3 sushi-w-0 sushi-flex-1">
                     <p className="sushi-text-sm sushi-leading-5 sushi-font-medium sushi-text-gray-900">

@@ -79,6 +79,9 @@ import { useLatestBlock } from "./services/vision/contexts/Application";
 import { isAddress } from "./services/vision/utils";
 
 //Services - Exchange Dependencies
+//import Header from "./services/exchange/components/Header";
+import Web3Status from "./services/exchange/components/Web3Status";
+import Popups from "./services/exchange/components/Popups";
 import { createWeb3ReactRoot, Web3ReactProvider } from "@web3-react/core";
 import { Provider } from "react-redux";
 import { NetworkContextName } from "./services/exchange/constants";
@@ -132,6 +135,8 @@ const App = () => {
         <>
           {/* <NoticeModal isOpen={notice.isOpen} closeModal={notice.hide} /> */}
           <Router>
+            {/* <Web3Status /> */}
+            <Popups />
             <Web3ReactManager>
               <Switch>
                 {/* Playground Routes */}

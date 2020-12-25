@@ -12,11 +12,11 @@ const Serving = ({ children }) => {
               <div className="sushi-w-0 sushi-flex-1 sushi-p-4">
                 <div className="sushi-flex sushi-items-start">
                   <div className="sushi-flex-shrink-0 sushi-pt-0.5">
-                    <img
+                    {/* <img
                       className="sushi-h-10 sushi-w-10 sushi-rounded-full"
                       src="https://cdn.discordapp.com/avatars/201534195695091712/618f054e78d4469e9a0ec61e57bc26e1.png?size=256"
                       alt="Tip from ChefNomi"
-                    />
+                    /> */}
                   </div>
                   <div className="sushi-ml-3 sushi-w-0 sushi-flex-1">
                     <p className="sushi-text-sm sushi-leading-5 sushi-font-medium sushi-text-gray-900">
