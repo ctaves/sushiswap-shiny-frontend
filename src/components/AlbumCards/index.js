@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 
+import SushiGlobalChart from "../../services/vision/components/GlobalChart/withoutAxis";
+
 import * as THREE from "./js/src/Three";
 import { rgb, randomInteger } from "./util";
 import "./styles.css";
@@ -334,8 +336,10 @@ const AlbumCards = () => {
                 <span className="icon">
                   <i className="far fa-at"></i> Liquidity
                 </span>
-                <span className="title">Some</span>
-                <span className="subtitle">Title</span>
+                {/* <span className="title">Some</span> */}
+                <span className="subtitle">
+                  <SushiGlobalChart display="liquidity" />
+                </span>
                 <span className="subtext">Some text to describe this item</span>
               </span>
             </a>
