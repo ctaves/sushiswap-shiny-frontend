@@ -174,6 +174,8 @@ const AlbumCards = () => {
             ++i;
           }
 
+          renderer.render(scene, camera);
+
           // And use the high color for the subtext.
           if (item.querySelector(".subtext") !== null) {
             item.querySelector(".subtext").style.background = `rgba(${high.x},${high.y},${high.z},0.75)`;
@@ -228,6 +230,15 @@ const AlbumCards = () => {
           // Render
           renderer.render(scene, camera);
           let t = 0;
+
+          const onResize = function() {
+            const newWidth = parseFloat(window.getComputedStyle(item).width);
+            const newHeight = parseFloat(window.getComputedStyle(item).height);
+            camera.aspect = newWidth / newHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(newWidth, newHeight);
+          };
+          window.addEventListener("resize", onResize, false);
 
           // Animate
           const animate = function() {
