@@ -42,6 +42,7 @@ import TableLP from "./Tables/LiquidityPositions";
 
 // Wallet integration
 import { useActiveWeb3React } from "../../services/exchange/hooks";
+import { Linker } from "../Linker";
 
 // Classic dependancies
 import BigNumber from "bignumber.js";
@@ -344,28 +345,13 @@ const Account = () => {
       title: "Harvestable",
       sushi: formattedNum(sumEarning, false),
       usd: formattedNum(sumEarning * priceUSD, true),
-      cta: (
-        <Link
-          to="/"
-          class="text-right font-medium text-gray-900 hover:text-gray-700 transition duration-150 ease-in-out"
-        >
-          Harvest
-        </Link>
-      ),
+      cta: <Linker title="Harvest" to="/" />,
     },
     {
       title: "Locked (2/3)",
       sushi: decimalFormatter.format(_.sumBy(farmBalances, "lockedSushi")) + " SUSHI",
       usd: currencyFormatter.format(_.sumBy(farmBalances, "lockedSushiUSD")),
-      cta: (
-        <a
-          href="https://docs.sushiswap.fi"
-          target="_blank"
-          class="text-right font-medium text-gray-900 hover:text-gray-700 transition duration-150 ease-in-out"
-        >
-          Learn more
-        </a>
-      ),
+      cta: <Linker title="Learn more" to="https://docs.sushiswap.fi" external />,
     },
     {
       title: "Unstaked",

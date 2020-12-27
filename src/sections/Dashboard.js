@@ -5,6 +5,7 @@ import PublicRoute from "../shared/PublicRoute";
 import SectionTabs from "../components/Tabs";
 import TitleTabs from "../components/TitleTabs";
 import ConnectPage from "../pages/Connect";
+import AlbumCards from "../components/AlbumCards";
 // Dashboard
 import MobileNavigation from "../components/MobileNavigation";
 import SearchHeader from "../components/MobileMenu";
@@ -146,7 +147,7 @@ const DashboardRoutes = () => {
       <Route exact path="/home" component={Overview} />
       <Route exact path="/overview" component={Overview} />
       <PublicRoute exact path="/connect" component={Connect} />
-      <Route exact path="/search" component={Search} />
+      <Route exact path="/search" component={SearchPage} />
       <WalletRoute exact path="/omakase" component={PortfolioBalances} />
       <WalletRoute exact path="/account" component={PortfolioBalances} />
       <WalletRoute exact path="/portfolio" component={PortfolioBalances} />
@@ -210,7 +211,7 @@ const Connect = () => {
   );
 };
 
-const Search = () => {
+const SearchPage = () => {
   return (
     <>
       <PageTitle title={"Browse"} />
@@ -240,69 +241,46 @@ const Overview = () => {
   }, []);
   return (
     <>
-      {/* <IntroBanner /> */}
-      {/* <PageTitle title={"👋 いらっしゃいませ「 Welcome Back 」!"} /> */}
-      <div className="sushi-px-8 py-4 sushi-hidden lg:sushi-block">
-        <MainSearch />
+      <div className="md:flex">
+        <div className="relative w-full mx-auto sm:px-6 lg:px-6">
+          <div className="grid gap-2 mx-auto lg:grid-cols-5 lg:max-w-none">
+            <div className="lg:col-span-3">
+              <div className="pt-6">
+                <GlobalStats />
+              </div>
+              <AlbumCards />
+              {/* <Flickity
+                className={"flickity-viewport-visible py-4 overflow-x-hidden outline-none"}
+                elementType={"div"}
+                options={{
+                  cellAlign: "left",
+                  imagesLoaded: true,
+                  pageDots: false,
+                  prevNextButtons: false,
+                  contain: true,
+                }}
+                disableImagesLoaded={false}
+                reloadOnUpdate // default false
+                static // default false
+              >
+                <div className="relative w-full mx-auto">
+                  <SushiGlobalChart display="liquidity" />
+                </div>
+              </Flickity> */}
+            </div>
+            <div className="pt-6 lg:col-span-2">
+              <div className="lg:sticky top-0">
+                <div className="hidden lg:block">
+                  <MainSearch />
+                </div>
+                <div className="pt-4">
+                  <CardTokenActions initialSection={"swap"} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="sushi-px-8 my-4">
-        <span className="sushi-w-full">
-          <div className="sushi-flex sushi-items-start sushi-justify-between sushi-space-x-3">
-            <GlobalStats />
-          </div>
-        </span>
-      </div>
-      <Features />
-      {/* <div className="shadow-inner bg-gray-100">
-        <h3 className="pl-10 pt-4 text-lg leading-6 font-medium text-gray-400">
-          While you're here, you can...(hint: swipe or use arrow keys)
-        </h3>
-        <Flickity
-          className={"flickity-viewport-visible py-4 overflow-x-hidden outline-none"}
-          elementType={"div"}
-          options={{
-            cellAlign: "left",
-            imagesLoaded: true,
-            pageDots: false,
-            prevNextButtons: false,
-            contain: true,
-          }}
-          disableImagesLoaded={false}
-          reloadOnUpdate // default false
-          static // default false
-        >
-          <div className="relative w-4/5 md:w-2/5 mx-auto pl-6">
-            <CardTokenActions initialSection={"swap"} currencyIdB={"ETH"} />
-          </div>
-          <div className="relative w-4/5 md:w-1/3 mx-auto pl-6">
-            <CardCurrentMenu pathToMenu={"/weekly"} />
-          </div>
-          <div className="relative w-4/5 md:w-1/3 mx-auto pl-6">
-            <CardMigrateNotice />
-          </div>
-          <div className="relative w-4/5 md:w-1/2 mx-auto pl-6">
-            <CardChart>
-              <SushiGlobalChart display="liquidity" />
-            </CardChart>
-          </div>
-          <div className="relative w-4/5 md:w-1/2 mx-auto pl-6">
-            <CardChart>
-              <SushiGlobalChart display="volume" />
-            </CardChart>
-          </div>
-          <div className="relative w-4/5 md:w-1/2 mx-auto pl-6">
-            <CardChart>
-              <UniGlobalChart display="liquidity" />
-            </CardChart>
-          </div>
-          <div className="relative w-4/5 md:w-1/2 mx-auto pl-6">
-            <CardChart>
-              <UniGlobalChart display="volume" />
-            </CardChart>
-          </div>
-        </Flickity>
-      </div> */}
-      {/* <TablePools type={"active"} title={"All active farms"} /> */}
     </>
   );
 };

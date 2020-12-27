@@ -6,7 +6,7 @@ const ChartWrapper = ({ children }) => {
     <div className="sushi-flex sushi-flex-col sushi-rounded-lg sushi-border sushi-border-gray-200 sushi-overflow-hidden">
       <div className="sushi-flex-1 sushi-bg-white sushi-p-6 sushi-flex sushi-flex-col sushi-justify-between">
         <div className="sushi-flex-1">{children}</div>
-        <div className="sushi-mt-6 sushi-flex">
+        {/* <div className="sushi-mt-6 sushi-flex">
           <div className="sushi-w-full sushi-bg-white sushi-shadow-lg sushi-rounded-lg sushi-pointer-events-auto">
             <div className="sushi-flex sushi-rounded-lg sushi-shadow-xs">
               <div className="sushi-w-0 sushi-flex-1 sushi-p-4">
@@ -38,7 +38,7 @@ const ChartWrapper = ({ children }) => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

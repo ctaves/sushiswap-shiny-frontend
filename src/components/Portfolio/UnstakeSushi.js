@@ -8,6 +8,8 @@ import WithdrawModal from "../../services/frontend/views/StakeXSushi/components/
 import useTokenBalance from "./hooks/useTokenBalance";
 import useLeave from "./hooks/useLeave";
 
+import { Button } from "../Linker";
+
 const UnstakeXSushi = () => {
   const { tokenAddress } = {
     tokenAddress: contractAddresses.xSushi[1],
@@ -24,17 +26,26 @@ const UnstakeXSushi = () => {
   const tokenName = "xSUSHI";
   const [onPresentLeave] = useModal(<WithdrawModal max={xSushiBalance} onConfirm={onLeave} tokenName={tokenName} />);
   return (
-    <button
+    <Button
       disabled={!xSushiBalance.toNumber() || pendingTx}
       onClick={async () => {
         setPendingTx(true);
         await onPresentLeave();
         setPendingTx(false);
       }}
-      class="font-medium text-orange-600 hover:text-orange-700 transition duration-150 ease-in-out"
-    >
-      {pendingTx ? "Converting..." : "Unstake"}
-    </button>
+      title={pendingTx ? "Converting..." : "Unstake"}
+    />
+    // <button
+    //   disabled={!xSushiBalance.toNumber() || pendingTx}
+    //   onClick={async () => {
+    //     setPendingTx(true);
+    //     await onPresentLeave();
+    //     setPendingTx(false);
+    //   }}
+    //   class="font-medium text-orange-600 hover:text-orange-700 transition duration-150 ease-in-out"
+    // >
+    //   {pendingTx ? "Converting..." : "Unstake"}
+    // </button>
   );
 };
 export default UnstakeXSushi;

@@ -9,6 +9,8 @@ import useEnter from "./hooks/useEnter";
 import useAllowanceStaking from "./hooks/useAllowanceStaking";
 import useApproveStaking from "./hooks/useApproveStaking";
 
+import { Button } from "../Linker";
+
 const StakeSushi = () => {
   const tokenName = "SUSHI";
   const [requestedApproval, setRequestedApproval] = useState(false);
@@ -33,21 +35,9 @@ const StakeSushi = () => {
   return (
     <>
       {!allowance.toNumber() ? (
-        <button
-          disabled={requestedApproval}
-          onClick={handleApprove}
-          class="font-medium text-orange-600 hover:text-orange-700 transition duration-150 ease-in-out"
-        >
-          Approve Staking
-        </button>
+        <Button disabled={requestedApproval} onClick={handleApprove} title={"Approve Staking"} />
       ) : (
-        <button
-          disabled={tokenBalance.eq(new BigNumber(0))}
-          onClick={onPresentDeposit}
-          class="font-medium text-orange-600 hover:text-orange-700 transition duration-150 ease-in-out"
-        >
-          Stake
-        </button>
+        <Button disabled={tokenBalance.eq(new BigNumber(0))} onClick={onPresentDeposit} title={"Stake"} />
       )}
     </>
   );
