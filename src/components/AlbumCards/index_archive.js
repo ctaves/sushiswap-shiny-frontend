@@ -8,7 +8,7 @@ const AlbumCards = () => {
   useEffect(() => {
     const config = {
       individualItem: ".album-item", // class of individual item
-      carouselWidth: 1000, // in px
+      carouselWidth: window.innerWidth, // in px
       carouselId: "#album-rotator", // carousel selector
       carouselHolderId: "#album-rotator-holder", // carousel should be <div id="carouselId"><div id="carouselHolderId">{items}</div></div>
       colors: [
@@ -142,16 +142,15 @@ const AlbumCards = () => {
         // For each of the selector elements
         document.querySelectorAll(selector).forEach(function(item) {
           // Create a renderer
-
-          const newCanvas = document.createElement("canvas");
-          newCanvas.id = `canvas-${i}`;
-          item.appendChild(newCanvas);
+          //https://stackoverflow.com/questions/58529891/webgl-shader-flickering
 
           const renderer = new THREE.WebGLRenderer({
-            powerPreference: "high-performance",
-            antialias: true,
-            alpha: true,
-            canvas: document.getElementById(`canvas-${i}`),
+            //powerPreference: "high-performance",
+            //powerPreference: "default",
+            logarithmicDepthBuffer: true,
+            //preserveDrawingBuffer: true,
+            //antialias: true,
+            //alpha: true,
           });
 
           // Get el width and height
@@ -160,10 +159,11 @@ const AlbumCards = () => {
 
           // Set sizes and set scene/camera
           renderer.setSize(elWidth, elHeight);
+          document.body.appendChild(renderer.domElement);
           renderer.setPixelRatio(window.devicePixelRatio);
 
           const scene = new THREE.Scene();
-          const camera = new THREE.PerspectiveCamera(75, elWidth / elHeight, 0.1, 1000);
+          const camera = new THREE.PerspectiveCamera(75, elWidth / elHeight, 100, 1000);
 
           // Check on colors to use
           let high = colors[0].high;
@@ -173,6 +173,8 @@ const AlbumCards = () => {
             low = colors[i].low;
             ++i;
           }
+
+          renderer.render(scene, camera);
 
           // And use the high color for the subtext.
           if (item.querySelector(".subtext") !== null) {
@@ -199,40 +201,56 @@ const AlbumCards = () => {
           scene.add(mesh);
 
           // On hover effects for each item
-          let enterTimer, exitTimer;
-          item.addEventListener("mouseenter", function(e) {
-            if (typeof exitTimer !== "undefined") {
-              clearTimeout(exitTimer);
-            }
-            enterTimer = setInterval(function() {
-              if (mesh.material.uniforms.u_height.value >= 0.5) {
-                mesh.material.uniforms.u_height.value -= 0.05;
-              } else {
-                clearTimeout(enterTimer);
-              }
-            }, 10);
-          });
-          item.addEventListener("mouseleave", function(e) {
-            if (typeof enterTimer !== "undefined") {
-              clearTimeout(enterTimer);
-            }
-            exitTimer = setInterval(function() {
-              if (mesh.material.uniforms.u_height.value < 1) {
-                mesh.material.uniforms.u_height.value += 0.05;
-              } else {
-                clearTimeout(exitTimer);
-              }
-            }, 10);
-          });
+          // let enterTimer, exitTimer;
+          // item.addEventListener("mouseenter", function(e) {
+          //   if (typeof exitTimer !== "undefined") {
+          //     clearTimeout(exitTimer);
+          //   }
+          //   enterTimer = setInterval(function() {
+          //     if (mesh.material.uniforms.u_height.value >= 0.5) {
+          //       mesh.material.uniforms.u_height.value -= 0.05;
+          //     } else {
+          //       clearTimeout(enterTimer);
+          //     }
+          //   }, 10);
+          // });
+          // item.addEventListener("mouseleave", function(e) {
+          //   if (typeof enterTimer !== "undefined") {
+          //     clearTimeout(enterTimer);
+          //   }
+          //   exitTimer = setInterval(function() {
+          //     if (mesh.material.uniforms.u_height.value < 1) {
+          //       mesh.material.uniforms.u_height.value += 0.05;
+          //     } else {
+          //       clearTimeout(exitTimer);
+          //     }
+          //   }, 10);
+          // });
 
           // Render
           renderer.render(scene, camera);
           let t = 0;
 
+          // const onResize = function() {
+          //   const newWidth = parseFloat(window.getComputedStyle(item).width);
+          //   const newHeight = parseFloat(window.getComputedStyle(item).height);
+          //   camera.aspect = newWidth / newHeight;
+          //   camera.updateProjectionMatrix();
+          //   renderer.setSize(newWidth, newHeight);
+          // };
+          // window.addEventListener("resize", onResize, false);
+
+          // function render() {
+          //   resizeCanvasToDisplaySize(gl.canvas);
+          //   gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+          //   requestAnimationFrame(render);
+          // }
+
           // Animate
           const animate = function() {
             requestAnimationFrame(animate);
             renderer.render(scene, camera);
+            item.appendChild(renderer.domElement);
             mesh.material.uniforms.u_time.value = t;
             t = t + 0.02;
           };
@@ -240,6 +258,7 @@ const AlbumCards = () => {
         });
       }
     };
+
     createWave(config.individualItem, config.colors);
 
     // Get items
@@ -250,79 +269,79 @@ const AlbumCards = () => {
       parseFloat(window.getComputedStyle(el).marginRight);
 
     // Track carousel
-    let mousedown = false;
-    let movement = false;
-    let initialPosition = 0;
-    let selectedItem;
-    let currentDelta = 0;
+    // let mousedown = false;
+    // let movement = false;
+    // let initialPosition = 0;
+    // let selectedItem;
+    // let currentDelta = 0;
 
-    document.querySelectorAll(config.carouselId).forEach(function(item) {
-      item.style.width = `${config.carouselWidth}px`;
-    });
+    // document.querySelectorAll(config.carouselId).forEach(function(item) {
+    //   item.style.width = `${config.carouselWidth}px`;
+    // });
 
-    document.querySelectorAll(config.carouselId).forEach(function(item) {
-      item.addEventListener("pointerdown", function(e) {
-        mousedown = true;
-        selectedItem = item;
-        initialPosition = e.pageX;
-        currentDelta =
-          parseFloat(item.querySelector(config.carouselHolderId).style.transform.split("translateX(")[1]) || 0;
-      });
-    });
+    // document.querySelectorAll(config.carouselId).forEach(function(item) {
+    //   item.addEventListener("pointerdown", function(e) {
+    //     mousedown = true;
+    //     selectedItem = item;
+    //     initialPosition = e.pageX;
+    //     currentDelta =
+    //       parseFloat(item.querySelector(config.carouselHolderId).style.transform.split("translateX(")[1]) || 0;
+    //   });
+    // });
 
-    const scrollCarousel = function(change, currentDelta, selectedItem) {
-      let numberThatFit = Math.floor(config.carouselWidth / elWidth);
-      let newDelta = currentDelta + change;
-      let elLength = selectedItem.querySelectorAll(config.individualItem).length - numberThatFit;
-      if (newDelta <= 0 && newDelta >= -elWidth * elLength) {
-        selectedItem.querySelector(config.carouselHolderId).style.transform = `translateX(${newDelta}px)`;
-      } else {
-        if (newDelta <= -elWidth * elLength) {
-          selectedItem.querySelector(config.carouselHolderId).style.transform = `translateX(${-elWidth * elLength}px)`;
-        } else if (newDelta >= 0) {
-          selectedItem.querySelector(config.carouselHolderId).style.transform = `translateX(0px)`;
-        }
-      }
-    };
+    // const scrollCarousel = function(change, currentDelta, selectedItem) {
+    //   let numberThatFit = Math.floor(config.carouselWidth / elWidth);
+    //   let newDelta = currentDelta + change;
+    //   let elLength = selectedItem.querySelectorAll(config.individualItem).length - numberThatFit;
+    //   if (newDelta <= 0 && newDelta >= -elWidth * elLength) {
+    //     selectedItem.querySelector(config.carouselHolderId).style.transform = `translateX(${newDelta}px)`;
+    //   } else {
+    //     if (newDelta <= -elWidth * elLength) {
+    //       selectedItem.querySelector(config.carouselHolderId).style.transform = `translateX(${-elWidth * elLength}px)`;
+    //     } else if (newDelta >= 0) {
+    //       selectedItem.querySelector(config.carouselHolderId).style.transform = `translateX(0px)`;
+    //     }
+    //   }
+    // };
 
-    document.body.addEventListener("pointermove", function(e) {
-      if (mousedown == true && typeof selectedItem !== "undefined") {
-        let change = -(initialPosition - e.pageX);
-        scrollCarousel(change, currentDelta, document.body);
-        document.querySelectorAll(`${config.carouselId} a`).forEach(function(item) {
-          item.style.pointerEvents = "none";
-        });
-        movement = true;
-      }
-    });
+    // document.body.addEventListener("pointermove", function(e) {
+    //   if (mousedown == true && typeof selectedItem !== "undefined") {
+    //     let change = -(initialPosition - e.pageX);
+    //     scrollCarousel(change, currentDelta, document.body);
+    //     document.querySelectorAll(`${config.carouselId} a`).forEach(function(item) {
+    //       item.style.pointerEvents = "none";
+    //     });
+    //     movement = true;
+    //   }
+    // });
 
-    ["pointerup", "mouseleave"].forEach(function(item) {
-      document.body.addEventListener(item, function(e) {
-        selectedItem = undefined;
-        movement = false;
-        document.querySelectorAll(`${config.carouselId} a`).forEach(function(item) {
-          item.style.pointerEvents = "all";
-        });
-      });
-    });
+    // ["pointerup", "mouseleave"].forEach(function(item) {
+    //   document.body.addEventListener(item, function(e) {
+    //     selectedItem = undefined;
+    //     movement = false;
+    //     document.querySelectorAll(`${config.carouselId} a`).forEach(function(item) {
+    //       item.style.pointerEvents = "all";
+    //     });
+    //   });
+    // });
 
-    document.querySelectorAll(config.carouselId).forEach(function(item) {
-      let trigger = 0;
-      item.addEventListener("wheel", function(e) {
-        if (trigger !== 1) {
-          ++trigger;
-        } else {
-          let change = e.deltaX * -3;
-          let currentDelta =
-            parseFloat(item.querySelector(config.carouselHolderId).style.transform.split("translateX(")[1]) || 0;
-          scrollCarousel(change, currentDelta, item);
-          trigger = 0;
-        }
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        return false;
-      });
-    });
+    // document.querySelectorAll(config.carouselId).forEach(function(item) {
+    //   let trigger = 0;
+    //   item.addEventListener("wheel", function(e) {
+    //     if (trigger !== 1) {
+    //       ++trigger;
+    //     } else {
+    //       let change = e.deltaX * -3;
+    //       let currentDelta =
+    //         parseFloat(item.querySelector(config.carouselHolderId).style.transform.split("translateX(")[1]) || 0;
+    //       scrollCarousel(change, currentDelta, item);
+    //       trigger = 0;
+    //     }
+    //     e.preventDefault();
+    //     e.stopImmediatePropagation();
+    //     return false;
+    //   });
+    // });
   }, []);
   return (
     <>
