@@ -244,29 +244,11 @@ const Overview = () => {
       <div className="md:flex">
         <div className="relative w-full mx-auto sm:px-6 lg:px-6">
           <div className="grid gap-2 mx-auto lg:grid-cols-5 lg:max-w-none">
-            <div className="lg:col-span-3">
+            <div className="lg:col-span-3 overflow-x-hidden">
               <div className="pt-6">
                 <GlobalStats />
               </div>
               <AlbumCards />
-              {/* <Flickity
-                className={"flickity-viewport-visible py-4 overflow-x-hidden outline-none"}
-                elementType={"div"}
-                options={{
-                  cellAlign: "left",
-                  imagesLoaded: true,
-                  pageDots: false,
-                  prevNextButtons: false,
-                  contain: true,
-                }}
-                disableImagesLoaded={false}
-                reloadOnUpdate // default false
-                static // default false
-              >
-                <div className="relative w-full mx-auto">
-                  <SushiGlobalChart display="liquidity" />
-                </div>
-              </Flickity> */}
             </div>
             <div className="pt-6 lg:col-span-2">
               <div className="lg:sticky top-0">
