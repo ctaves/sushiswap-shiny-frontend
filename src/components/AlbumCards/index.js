@@ -146,7 +146,8 @@ const AlbumCards = () => {
 
           const renderer = new THREE.WebGLRenderer({
             //powerPreference: "high-performance",
-            powerPreference: "default",
+            //powerPreference: "default",
+            logarithmicDepthBuffer: true,
             //preserveDrawingBuffer: true,
             //antialias: true,
             //alpha: true,
