@@ -163,7 +163,7 @@ const AlbumCards = () => {
           renderer.setPixelRatio(window.devicePixelRatio);
 
           const scene = new THREE.Scene();
-          const camera = new THREE.PerspectiveCamera(75, elWidth / elHeight, 0.1, 1000);
+          const camera = new THREE.PerspectiveCamera(75, elWidth / elHeight, 100, 1000);
 
           // Check on colors to use
           let high = colors[0].high;
