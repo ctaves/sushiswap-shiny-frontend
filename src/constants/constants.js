@@ -669,13 +669,13 @@ export const supportedPools = [
     tokenAddresses: {
       1: "0x8ab7404063ec4dbcfd4598215992dc3f8ec853d7",
     },
-    name: "Onsen Mid",
+    name: "Onsen Low",
     symbol: "AKRO-ETH SLP",
     tokenSymbol: "AKRO",
     icon: "♨️",
     uniswapPair: "AKRO/ETH",
     lpToken: "0x364248b2f1f57C5402d244b2D469A35B4C0e9dAB",
-    allocPoint: "100",
+    allocPoint: "20",
   },
   {
     pid: 63,
