@@ -199,31 +199,31 @@ const AlbumCards = () => {
           scene.add(mesh);
 
           // On hover effects for each item
-          let enterTimer, exitTimer;
-          item.addEventListener("mouseenter", function(e) {
-            if (typeof exitTimer !== "undefined") {
-              clearTimeout(exitTimer);
-            }
-            enterTimer = setInterval(function() {
-              if (mesh.material.uniforms.u_height.value >= 0.5) {
-                mesh.material.uniforms.u_height.value -= 0.05;
-              } else {
-                clearTimeout(enterTimer);
-              }
-            }, 10);
-          });
-          item.addEventListener("mouseleave", function(e) {
-            if (typeof enterTimer !== "undefined") {
-              clearTimeout(enterTimer);
-            }
-            exitTimer = setInterval(function() {
-              if (mesh.material.uniforms.u_height.value < 1) {
-                mesh.material.uniforms.u_height.value += 0.05;
-              } else {
-                clearTimeout(exitTimer);
-              }
-            }, 10);
-          });
+          // let enterTimer, exitTimer;
+          // item.addEventListener("mouseenter", function(e) {
+          //   if (typeof exitTimer !== "undefined") {
+          //     clearTimeout(exitTimer);
+          //   }
+          //   enterTimer = setInterval(function() {
+          //     if (mesh.material.uniforms.u_height.value >= 0.5) {
+          //       mesh.material.uniforms.u_height.value -= 0.05;
+          //     } else {
+          //       clearTimeout(enterTimer);
+          //     }
+          //   }, 10);
+          // });
+          // item.addEventListener("mouseleave", function(e) {
+          //   if (typeof enterTimer !== "undefined") {
+          //     clearTimeout(enterTimer);
+          //   }
+          //   exitTimer = setInterval(function() {
+          //     if (mesh.material.uniforms.u_height.value < 1) {
+          //       mesh.material.uniforms.u_height.value += 0.05;
+          //     } else {
+          //       clearTimeout(exitTimer);
+          //     }
+          //   }, 10);
+          // });
 
           // Render
           renderer.render(scene, camera);
