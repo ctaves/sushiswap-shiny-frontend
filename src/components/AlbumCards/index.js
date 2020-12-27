@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 import * as THREE from "./js/src/Three";
-import { rgb, loader, randomInteger } from "./util";
+import { rgb, randomInteger } from "./util";
 import "./styles.css";
 
 const AlbumCards = () => {
@@ -144,7 +144,7 @@ const AlbumCards = () => {
           // Create a renderer
           const renderer = new THREE.WebGLRenderer({
             powerPreference: "high-performance",
-            antialias: true,
+            //antialias: true,
             alpha: true,
           });
 
