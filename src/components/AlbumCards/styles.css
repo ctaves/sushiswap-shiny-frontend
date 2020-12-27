@@ -9,12 +9,17 @@
 
 .album-cards #album-rotator {
   /* width: 1000px; */
+  position: absolute;
+  overflow: hidden;
   width: 100% !important;
+  height: 100% !important;
+
+  /* width: 100% !important;
   float: left;
   white-space: nowrap;
   overflow: hidden;
   position: relative;
-  word-break: keep-all;
+  word-break: keep-all; */
   /* padding: 2rem 0; */
 }
 .album-cards #album-rotator-holder {
