@@ -41,14 +41,19 @@
   /* background: linear-gradient(-90deg, #161231 5%, transparent 40%); */
 }
 .album-cards .album-item {
+  position: absolute;
+  overflow: hidden;
+  width: 100% !important;
+  height: 100% !important;
+
   word-break: keep-all;
   background: black;
   /* box-shadow: 0 2px 30px rgba(0, 0, 0, 0.5); */
-  position: relative;
-  width: 250px;
+  /* position: relative; */
+  /* width: 250px; */
   -webkit-user-drag: none;
   user-drag: none;
-  height: 300px;
+  /* height: 300px; */
   user-select: none;
   border-radius: 10px;
   white-space: nowrap;
