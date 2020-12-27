@@ -142,10 +142,14 @@ const AlbumCards = () => {
         // For each of the selector elements
         document.querySelectorAll(selector).forEach(function(item) {
           // Create a renderer
+          //https://stackoverflow.com/questions/58529891/webgl-shader-flickering
+
           const renderer = new THREE.WebGLRenderer({
-            powerPreference: "high-performance",
-            //antialias: true,
-            alpha: true,
+            //powerPreference: "high-performance",
+            powerPreference: "default",
+            preserveDrawingBuffer: true,
+            antialias: true,
+            //alpha: true,
           });
 
           // Get el width and height
