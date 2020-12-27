@@ -4,7 +4,7 @@ import { timeframeOptions } from "../../constants";
 import { useGlobalChartData, useGlobalData } from "../../contexts/GlobalData";
 import { useMedia } from "react-use";
 import DropdownSelect from "../DropdownSelect";
-import TradingViewChart, { CHART_TYPES } from "../TradingviewChart";
+import TradingViewChart, { CHART_TYPES } from "../TradingviewChart/withoutAxis";
 import { RowFixed } from "../Row";
 //import { OptionButton } from "../ButtonStyled";
 import { getTimeframe } from "../../utils";
@@ -76,19 +76,21 @@ const GlobalChart = ({ display }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, [isClient, width]); // Empty array ensures that effect is only run on mount and unmount
 
+  console.log("totalLiquidityUSD:", totalLiquidityUSD);
+
   return chartDataFiltered ? (
     <>
       {/* {below800 && (
         <DropdownSelect options={CHART_VIEW} active={chartView} setActive={setChartView} color={"#705240"} />
       )} */}
 
-      {chartDataFiltered && chartView === CHART_VIEW.LIQUIDITY && (
+      {chartDataFiltered && chartView === CHART_VIEW.LIQUIDITY && totalLiquidityUSD && (
         <ResponsiveContainer aspect={60 / 28} ref={ref}>
           <TradingViewChart
             data={dailyData}
             base={totalLiquidityUSD}
             baseChange={liquidityChangeUSD}
-            title="Sushiswap Liquidity"
+            title=""
             field="totalLiquidityUSD"
             width={width}
             type={CHART_TYPES.AREA}

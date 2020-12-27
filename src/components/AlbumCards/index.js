@@ -333,18 +333,18 @@ const AlbumCards = () => {
           <div id="album-rotator-holder" className="py-4">
             <a className="album-item" href="#">
               <span className="album-details">
-                <span className="icon">
+                <span className="icon mt-4 mx-4">
                   <i className="far fa-at"></i> Liquidity
                 </span>
                 {/* <span className="title">Some</span> */}
                 <span className="subtitle">
                   <SushiGlobalChart display="liquidity" />
                 </span>
-                <span className="subtext">Some text to describe this item</span>
+                {/* <span className="subtext">Some text to describe this item</span> */}
               </span>
             </a>
             <a className="album-item" href="#">
-              <span className="album-details">
+              <span className="album-details p-4">
                 <span className="icon">
                   <i className="far fa-at"></i> Volume
                 </span>
@@ -354,21 +354,21 @@ const AlbumCards = () => {
               </span>
             </a>
             <a className="album-item" href="#">
-              <span className="album-details">
+              <span className="album-details p-4">
                 <span className="title">Finally</span>
                 <span className="subtitle">We Go</span>
                 <span className="subtext">Some text to describe this item</span>
               </span>
             </a>
             <a className="album-item" href="#">
-              <span className="album-details">
+              <span className="album-details p-4">
                 <span className="title">And</span>
                 <span className="subtitle">One More</span>
                 <span className="subtext">Some text to describe this item</span>
               </span>
             </a>
             <a className="album-item mr-4" href="#">
-              <span className="album-details">
+              <span className="album-details p-4">
                 <span className="title">And</span>
                 <span className="subtitle">Finally..</span>
                 <span className="subtext">Some text to describe this item</span>

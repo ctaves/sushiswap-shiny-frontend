@@ -64,7 +64,7 @@
   left: 0;
   width: 100%;
   text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
-  padding: 1rem;
+  /* padding: 1rem; */
   white-space: initial;
   float: left;
   box-sizing: border-box;
