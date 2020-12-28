@@ -328,7 +328,7 @@ const AlbumCards = () => {
   }, []);
   return (
     <>
-      <div className="album-cards">
+      <div className="album-cards relative">
         <div id="album-rotator">
           <div id="album-rotator-holder" className="py-4">
             <a className="album-item" href="#">
@@ -357,16 +357,22 @@ const AlbumCards = () => {
             </a>
             <a className="album-item" href="#">
               <span className="album-details p-4">
-                <span className="title">Finally</span>
-                <span className="subtitle">We Go</span>
-                <span className="subtext">Some text to describe this item</span>
+                <span className="icon">
+                  <i className="far fa-at"></i> Coming Soon
+                </span>
+                <span className="title">Bentobox</span>
+                {/* <span className="subtitle">Some Text </span> */}
+                <span className="subtext">Lending on SushiSwap</span>
               </span>
             </a>
             <a className="album-item" href="#">
               <span className="album-details p-4">
-                <span className="title">And</span>
-                <span className="subtitle">One More</span>
-                <span className="subtext">Some text to describe this item</span>
+                <span className="icon">
+                  <i className="far fa-at"></i> New
+                </span>
+                <span className="title">Onsen</span>
+                {/* <span className="subtitle">Some Text</span> */}
+                <span className="subtext">New Rewards, New Farms</span>
               </span>
             </a>
             <a className="album-item mr-4" href="#">

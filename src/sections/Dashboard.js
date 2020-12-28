@@ -7,6 +7,7 @@ import TitleTabs from "../components/TitleTabs";
 import ConnectPage from "../pages/Connect";
 import AlbumCards from "../components/AlbumCards";
 // Dashboard
+import FeaturedItem from "../components/FeaturedItem";
 import MobileNavigation from "../components/MobileNavigation";
 import SearchHeader from "../components/MobileMenu";
 import Sidebar from "../components/Sidebar/Layout";
@@ -128,7 +129,7 @@ export const DashboardContainer = ({ children }) => {
         <div className="sushi-flex sushi-flex-col sushi-w-0 sushi-flex-1 sushi-overflow-hidden">
           {/* <SearchHeader changeMenu={mobileMenu.change} isOpen={mobileMenu.isOpen} /> */}
           <main
-            className="lg:mt-4 lg:mr-4 lg:p-4 lg:bg-gray-200 lg:rounded-lg sushi-flex-1 sushi-relative sushi-z-0 sushi-overflow-y-auto focus:sushi-outline-none"
+            className="overflow-x-hidden lg:mt-4 lg:mr-4 lg:p-4 lg:bg-gray-200 lg:rounded-lg sushi-flex-1 sushi-relative sushi-z-0 sushi-overflow-y-auto focus:sushi-outline-none"
             tabIndex={0}
           >
             <div className="bg-white lg:rounded-lg mb-16 sm:mb-0">{children}</div>
@@ -243,16 +244,21 @@ const Overview = () => {
     <>
       <div className="md:flex">
         <div className="relative w-full mx-auto sm:px-6 lg:px-6">
-          <div className="grid gap-2 mx-auto lg:grid-cols-5 lg:max-w-none">
-            <div className="lg:col-span-3 overflow-x-hidden">
-              <div className="pt-6">
+          <div className="grid gap-0 mx-auto lg:grid-cols-5 lg:max-w-none">
+            <div className="lg:col-span-3 overflow-x-hidden lg:overflow-visible">
+              <div className="sm:mt-2 lg:mt-6 py-2 pl-2 bg-gray-100 sm:rounded-md lg:rounded-r-none">
                 <GlobalStats />
               </div>
-              <AlbumCards />
+              <div className="ml-4 sm:m-0 h-80">
+                <AlbumCards />
+              </div>
+              <div className="mr-4">
+                <FeaturedItem />
+              </div>
             </div>
             <div className="pt-6 lg:col-span-2">
               <div className="lg:sticky top-0">
-                <div className="hidden lg:block">
+                <div className="hidden lg:block bg-gray-100">
                   <MainSearch />
                 </div>
                 <div className="pt-4">

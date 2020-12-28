@@ -20,6 +20,10 @@ const Medium = styled.span`
   font-weight: 500;
 `;
 
+const Strong = styled.span`
+  font-weight: 600;
+`;
+
 export default function GlobalStats() {
   const below1295 = useMedia("(max-width: 1295px)");
   const below1180 = useMedia("(max-width: 1180px)");
@@ -30,31 +34,27 @@ export default function GlobalStats() {
   //const [showPriceCard, setShowPriceCard] = useState(false);
 
   // SUSHI price
-  const { priceUSD, priceChangeUSD } = useTokenData(
-    "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2"
-  );
+  const { priceUSD, priceChangeUSD } = useTokenData("0x6b3595068778dd592e39a122f4f5a5cf09c90fe2");
   const price = priceUSD ? formattedNum(priceUSD, true) : "";
   const priceChange = priceChangeUSD ? formattedPercent(priceChangeUSD) : "";
 
   const { oneDayVolumeUSD, oneDayTxns, pairCount } = useGlobalData();
   const [ethPrice] = useEthPrice();
   const formattedEthPrice = ethPrice ? formattedNum(ethPrice, true) : "-";
-  const oneDayFees = oneDayVolumeUSD
-    ? formattedNum(oneDayVolumeUSD * 0.003, true)
-    : "";
+  const oneDayFees = oneDayVolumeUSD ? formattedNum(oneDayVolumeUSD * 0.003, true) : "";
 
   return (
     <Header>
       <RowBetween style={{ padding: below816 ? "0.5rem" : ".5rem" }}>
         <RowFixed>
           <TYPE.main mr={"1rem"} style={{ position: "relative" }}>
-            ETH: <Medium>{formattedEthPrice}</Medium>
+            <Strong>SUSHI:</Strong> <Medium>{price}</Medium>
           </TYPE.main>
           <TYPE.main mr={"1rem"} style={{ position: "relative" }}>
-            SUSHI: <Medium>{price}</Medium>
+            <Strong>ETH:</Strong> <Medium>{formattedEthPrice}</Medium>
           </TYPE.main>
           <TYPE.main mr={"1rem"}>
-            Transactions (24H): <Medium>{localNumber(oneDayTxns)}</Medium>
+            <Strong>TXs (24hr):</Strong> <Medium>{localNumber(oneDayTxns)}</Medium>
           </TYPE.main>
           {/* {!below400 && (
             <TYPE.main
@@ -79,12 +79,12 @@ export default function GlobalStats() {
           )} */}
           {!below1024 && (
             <TYPE.main mr={"1rem"}>
-              Pairs: <Medium>{localNumber(pairCount)}</Medium>
+              <Strong>Pairs:</Strong> <Medium>{localNumber(pairCount)}</Medium>
             </TYPE.main>
           )}
           {!below1295 && (
             <TYPE.main mr={"1rem"}>
-              Fees (24H): <Medium>{oneDayFees}</Medium>&nbsp;
+              <Strong>Fees (24hr):</Strong> <Medium>{oneDayFees}</Medium>&nbsp;
             </TYPE.main>
           )}
         </RowFixed>

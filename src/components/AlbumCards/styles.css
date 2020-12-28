@@ -9,10 +9,11 @@
 
 .album-cards #album-rotator {
   /* width: 1000px; */
+  height: 100%;
   width: 100% !important;
-  float: left;
+  /* float: left; */
   white-space: nowrap;
-  overflow: hidden;
+  /* overflow: hidden; */
   position: relative;
   word-break: keep-all;
   /* padding: 2rem 0; */

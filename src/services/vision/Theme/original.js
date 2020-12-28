@@ -224,6 +224,12 @@ export const GlobalStyle = createGlobalStyle`
   pointer-events: none;
 }
 
+@media screen and (max-width: 800px) {
+  .three-line-legend {
+    display: none !important;
+  }
+}
+
 .tv-lightweight-charts{
   width: 100% !important;
   
