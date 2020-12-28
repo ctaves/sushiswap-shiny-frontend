@@ -344,13 +344,15 @@ const AlbumCards = () => {
               </span>
             </a>
             <a className="album-item" href="#">
-              <span className="album-details p-4">
-                <span className="icon">
-                  <i className="far fa-at"></i> Volume
+              <span className="album-details">
+                <span className="icon mt-4 mx-4">
+                  <i className="far fa-at"></i> Volume (24hr)
                 </span>
-                <span className="title">Another</span>
-                <span className="subtitle">Title</span>
-                <span className="subtext">Some text to describe this item</span>
+                {/* <span className="title">Another</span> */}
+                <span className="subtitle">
+                  <SushiGlobalChart display="volume" />
+                </span>
+                {/* <span className="subtext">Some text to describe this item</span> */}
               </span>
             </a>
             <a className="album-item" href="#">

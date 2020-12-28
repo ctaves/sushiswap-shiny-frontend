@@ -21,7 +21,7 @@ const Wrapper = styled.div`
 `;
 
 // constant height for charts
-const HEIGHT = 300;
+const HEIGHT = 287; //300;
 
 const TradingViewChart = ({
   type = CHART_TYPES.BAR,
@@ -170,9 +170,9 @@ const TradingViewChart = ({
       // get the title of the chart
       function setLastBarText() {
         toolTip.innerHTML =
-          `<div style="font-size: 16px; margin: 4px 0px; color: ${textColor};">${title} ${
-            type === CHART_TYPES.BAR && !useWeekly ? "(24hr)" : ""
-          }</div>` +
+          //   `<div style="font-size: 16px; margin: 4px 0px; color: ${textColor};">${title} ${
+          //     type === CHART_TYPES.BAR && !useWeekly ? "(24hr)" : ""
+          //   }</div>` +
           `<div style="font-size: 22px; margin: 4px 0px; color:${textColor}" >` +
           formattedNum(base ?? 0, true) +
           (baseChange

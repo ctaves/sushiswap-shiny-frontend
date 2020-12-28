@@ -153,9 +153,7 @@ const TradingViewChart = ({
       series.setData(formattedData);
       var toolTip = document.createElement("div");
       toolTip.setAttribute("id", "tooltip-id" + type);
-      toolTip.className = darkMode
-        ? "three-line-legend-dark"
-        : "three-line-legend";
+      toolTip.className = darkMode ? "three-line-legend-dark" : "three-line-legend";
       ref.current.appendChild(toolTip);
       toolTip.style.display = "block";
       toolTip.style.fontWeight = "500";
@@ -165,8 +163,7 @@ const TradingViewChart = ({
 
       // format numbers
       let percentChange = baseChange?.toFixed(2);
-      let formattedPercentChange =
-        (percentChange > 0 ? "+" : "") + percentChange + "%";
+      let formattedPercentChange = (percentChange > 0 ? "+" : "") + percentChange + "%";
       let color = percentChange >= 0 ? "green" : "red";
 
       // get the title of the chart
@@ -197,20 +194,14 @@ const TradingViewChart = ({
           setLastBarText();
         } else {
           let dateStr = useWeekly
-            ? dayjs(
-                param.time.year + "-" + param.time.month + "-" + param.time.day
-              )
+            ? dayjs(param.time.year + "-" + param.time.month + "-" + param.time.day)
                 .startOf("week")
                 .format("MMMM D, YYYY") +
               "-" +
-              dayjs(
-                param.time.year + "-" + param.time.month + "-" + param.time.day
-              )
+              dayjs(param.time.year + "-" + param.time.month + "-" + param.time.day)
                 .endOf("week")
                 .format("MMMM D, YYYY")
-            : dayjs(
-                param.time.year + "-" + param.time.month + "-" + param.time.day
-              ).format("MMMM D, YYYY");
+            : dayjs(param.time.year + "-" + param.time.month + "-" + param.time.day).format("MMMM D, YYYY");
           var price = param.seriesPrices.get(series);
 
           toolTip.innerHTML =

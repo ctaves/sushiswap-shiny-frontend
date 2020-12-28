@@ -97,13 +97,13 @@ const GlobalChart = ({ display }) => {
           />
         </ResponsiveContainer>
       )}
-      {chartDataFiltered && chartView === CHART_VIEW.VOLUME && (
+      {chartDataFiltered && chartView === CHART_VIEW.VOLUME && (oneWeekVolume || oneDayVolumeUSD) && (
         <ResponsiveContainer aspect={60 / 28}>
           <TradingViewChart
             data={chartDataFiltered}
             base={volumeWindow === VOLUME_WINDOW.WEEKLY ? oneWeekVolume : oneDayVolumeUSD}
             baseChange={volumeWindow === VOLUME_WINDOW.WEEKLY ? weeklyVolumeChange : volumeChangeUSD}
-            title={volumeWindow === VOLUME_WINDOW.WEEKLY ? "Sushiswap Volume (7d)" : "Sushiswap Volume"}
+            title="" //{volumeWindow === VOLUME_WINDOW.WEEKLY ? "Sushiswap Volume (7d)" : "Sushiswap Volume"}
             field={volumeWindow === VOLUME_WINDOW.WEEKLY ? "weeklyVolumeUSD" : "dailyVolumeUSD"}
             width={width}
             type={CHART_TYPES.BAR}
