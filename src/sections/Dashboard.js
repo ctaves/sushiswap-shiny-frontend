@@ -245,7 +245,7 @@ const Overview = () => {
       <div className="md:flex">
         <div className="relative w-full mx-auto sm:px-6 lg:px-6">
           <div className="grid gap-0 mx-auto lg:grid-cols-5 lg:max-w-none">
-            <div className="lg:col-span-3 overflow-x-hidden lg:overflow-visible">
+            <div className="pb-8 lg:pb-20 lg:col-span-3 overflow-x-hidden lg:overflow-visible">
               <div className="sm:mt-2 lg:mt-6 py-2 pl-2 bg-gray-100 sm:rounded-md lg:rounded-r-none">
                 <GlobalStats />
               </div>
