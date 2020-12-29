@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useRef, createContext, useContext, useReducer } from "react";
+import React, { useState, useEffect, useRef, createContext, useContext, useReducer, Suspense } from "react";
 import { Link, Route, Redirect } from "react-router-dom";
 import WalletRoute from "../shared/WalletRoute";
 import PublicRoute from "../shared/PublicRoute";
 import SectionTabs from "../components/Tabs";
 import TitleTabs from "../components/TitleTabs";
 import ConnectPage from "../pages/Connect";
-import AlbumCards from "../components/AlbumCards";
+// import AlbumCards from "../components/AlbumCards";
 // Dashboard
 import FeaturedItem from "../components/FeaturedItem";
 import MobileNavigation from "../components/MobileNavigation";
@@ -75,6 +75,16 @@ import BentoBox from "../pages/BentoBox";
 import BentoBoxLogo from "../assets/img/bentobox.png";
 
 import sushiData from "@sushiswap/sushi-data";
+
+const AlbumCards = React.lazy(() => import("../components/AlbumCards"));
+
+const LazyComponent = ({ component }) => {
+  return (
+    <>
+      <Suspense fallback={<div>Loading...</div>}>{component}</Suspense>
+    </>
+  );
+};
 
 const SectionContext = createContext();
 const sectionReducer = (state, action) => {
@@ -250,7 +260,7 @@ const Overview = () => {
                 <GlobalStats />
               </div>
               <div className="ml-4 sm:m-0 h-80">
-                <AlbumCards />
+                <LazyComponent component={<AlbumCards />} />
               </div>
               <div className="mr-4">
                 <FeaturedItem />

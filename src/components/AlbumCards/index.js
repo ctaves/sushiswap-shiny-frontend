@@ -78,7 +78,7 @@ const AlbumCard = ({ color, icon, title, subtitle, subtext }) => {
 
   useEffect(() => {
     if (ref.current) {
-      console.log("color:", color);
+      //console.log("color:", color);
       // const newCanvas = document.createElement("canvas");
       // newCanvas.id = `canvas-${i}`;
       // ref.current.appendChild(newCanvas);
