@@ -125,6 +125,12 @@ const TradingViewChart = ({
             labelVisible: false,
           },
         },
+        handleScroll: {
+          mouseWheel: false,
+          pressedMouseMove: false,
+          horzTouchDrag: false,
+          vertTouchDrag: false,
+        },
         localization: {
           priceFormatter: (val) => formattedNum(val, true),
         },

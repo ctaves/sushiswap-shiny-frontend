@@ -33,7 +33,7 @@ const PopularLists = () => {
     <>
       <div className="pt-2 pl-4 sm:pt-6 pb-1 flex justify-between">
         <h3 className="text-lg leading-6 font-medium text-gray-900">Popular Lists</h3>
-        <a href="#" class="text-blue-600 whitespace-nowrap px-1 font-medium text-sm" aria-current="page">
+        <a href="#" className="text-blue-600 whitespace-nowrap px-1 font-medium text-sm" aria-current="page">
           View More
         </a>
         {/* <p className="mt-1 max-w-2xl text-sm leading-5 text-gray-500">Personal details and application.</p> */}
@@ -102,7 +102,7 @@ const Articles = () => {
     <>
       <div className="pt-4 pb-4 pl-4 flex justify-between border-b border-gray-200">
         <h3 className="text-lg leading-6 font-medium text-gray-900">New in SushiSwap</h3>
-        <a href="#" class="text-blue-600 whitespace-nowrap px-1 font-medium text-sm" aria-current="page">
+        <a href="#" className="text-blue-600 whitespace-nowrap px-1 font-medium text-sm" aria-current="page">
           View Forum
         </a>
         {/* <p className="mt-1 max-w-2xl text-sm leading-5 text-gray-500">Personal details and application.</p> */}
@@ -152,7 +152,7 @@ const TopMovers = () => {
             <h3 className="text-lg leading-6 font-medium text-gray-900">Top Movers</h3>
             <p className="text-sm font-medium text-gray-400">Tokens making moves today</p>
           </div>
-          <a href="#" class="text-blue-600 whitespace-nowrap px-1 font-medium text-sm" aria-current="page">
+          <a href="#" className="text-blue-600 whitespace-nowrap px-1 font-medium text-sm" aria-current="page">
             View all tokens
           </a>
           {/* <p className="mt-1 max-w-2xl text-sm leading-5 text-gray-500">Personal details and application.</p> */}
@@ -202,7 +202,7 @@ const TopEarners = () => {
             <h3 className="text-lg leading-6 font-medium text-gray-900">Top Earners</h3>
             <p className="text-sm font-medium text-gray-400">Farms with the highest volume to liquidity ratios</p>
           </div>
-          <a href="#" class="text-blue-600 whitespace-nowrap px-1 font-medium text-sm" aria-current="page">
+          <a href="#" className="text-blue-600 whitespace-nowrap px-1 font-medium text-sm" aria-current="page">
             View all farms
           </a>
           {/* <p className="mt-1 max-w-2xl text-sm leading-5 text-gray-500">Personal details and application.</p> */}
