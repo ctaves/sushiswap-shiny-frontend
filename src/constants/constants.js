@@ -211,6 +211,11 @@ export const menus = {
   }, []),
 };
 
+// For tokens that suffer a protocol exploit
+export const TOKEN_WARNINGS = [
+  "0x5d8d9f5b96f4438195be9b99eee6118ed4304286", // COVER
+];
+
 export const supportedPools = [
   // Permament Menu
   {

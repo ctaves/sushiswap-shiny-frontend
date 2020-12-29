@@ -17,6 +17,8 @@ import PairChart from "../services/vision/components/PairChart";
 import TxnList from "../services/vision/components/TxnList/secondary";
 //import Loader from "../services/vision/components/LocalLoader";
 import CoinLoader from "../components/CoinLoader";
+import { Warning } from "../components/Warning";
+import { TOKEN_WARNINGS } from "../constants/constants";
 
 const Token = ({ pairAddress, history }) => {
   const mobileMenu = useMenu();
@@ -86,8 +88,16 @@ const Token = ({ pairAddress, history }) => {
   //console.log("TXNCHANGE", oneDayTxns, txnChangeFormatted);
   console.log(transactions);
 
+  const [showWarning, setShowWarning] = useState(false);
+  useEffect(() => {
+    if (TOKEN_WARNINGS.includes(token0?.id) || TOKEN_WARNINGS.includes(token1?.id)) {
+      setShowWarning(true);
+    }
+  }, [token0?.id, token1?.id]);
+
   return (
     <>
+      {showWarning && <Warning />}
       {token0 && token1 ? (
         <>
           <PageTitleBreadcrumb

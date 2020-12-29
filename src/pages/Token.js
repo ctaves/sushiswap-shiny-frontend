@@ -11,6 +11,8 @@ import { useColor } from "../services/vision/hooks";
 import TxnList from "../services/vision/components/TxnList/secondary";
 import CoinLoader from "../components/CoinLoader";
 //import Loader from "../services/vision/components/LocalLoader";
+import { Warning } from "../components/Warning";
+import { TOKEN_WARNINGS } from "../constants/constants";
 
 const Token = ({ address, history }) => {
   const {
@@ -54,9 +56,17 @@ const Token = ({ address, history }) => {
   const txnChangeFormatted = formattedPercent(txnChange);
   const txns = oneDayTxns ? localNumber(oneDayTxns) : oneDayTxns === 0 ? 0 : "-";
 
+  const [showWarning, setShowWarning] = useState(false);
+  useEffect(() => {
+    if (TOKEN_WARNINGS.includes(id)) {
+      setShowWarning(true);
+    }
+  }, [id]);
+
   return (
     <>
       {/* Page title & actions */}
+      {showWarning && <Warning />}
       <PageTitleBreadcrumb type={"token"} name={name} price={price} priceChange={priceChange} symbol={symbol} id={id} />
       <MarketWidgets
         type={"token"}
