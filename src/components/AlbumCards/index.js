@@ -16,10 +16,22 @@ const config = {
   colors: [
     // Define colors for each ref.current. If more ref.currents than colors, then first color will be used as default
     // Format { low: rgb(), high: rgb() for each color }
-    { low: rgb(0, 114, 255), high: rgb(48, 0, 255) },
-    { low: rgb(236, 166, 15), high: rgb(233, 104, 0) },
-    { low: rgb(43, 75, 235), high: rgb(213, 51, 248) },
-    { low: rgb(175, 49, 49), high: rgb(123, 16, 16) },
+    // { low: rgb(38, 176, 230), high: rgb(0, 128, 230) }, // light blue
+    // { low: rgb(249, 82, 160), high: rgb(255, 13, 133) }, // pink
+    // { low: rgb(32, 33, 36), high: rgb(0, 0, 0) }, //black
+    // { low: rgb(43, 75, 235), high: rgb(213, 51, 248) }, // purple
+
+    // // original
+    // { low: rgb(0, 114, 255), high: rgb(48, 0, 255) }, //blue
+    // { low: rgb(236, 166, 15), high: rgb(233, 104, 0) }, // yellow
+    // { low: rgb(175, 49, 49), high: rgb(123, 16, 16) }, // red
+    // { low: rgb(43, 75, 235), high: rgb(213, 51, 248) }, // purple
+
+    // Maki
+    { low: rgb(38, 176, 230), high: rgb(0, 128, 230) }, // light blue
+    { low: rgb(236, 166, 15), high: rgb(233, 104, 0) }, // yellow
+    { low: rgb(32, 33, 36), high: rgb(0, 0, 0) }, //black
+    { low: rgb(43, 75, 235), high: rgb(213, 51, 248) }, // purple
   ],
 };
 
@@ -36,13 +48,13 @@ const cards = [
   },
   {
     icon: "New",
-    color: config.colors[3],
+    color: config.colors[2],
     title: "Onsen",
     subtext: "New Rewards, New Farms",
   },
   {
     icon: "Coming Soon",
-    color: config.colors[2],
+    color: config.colors[3],
     title: "BentoBox",
     subtext: "Lending on SushiSwap",
   },
@@ -78,7 +90,7 @@ const AlbumCard = ({ color, icon, title, subtitle, subtext }) => {
 
   useEffect(() => {
     if (ref.current) {
-      //console.log("color:", color);
+      console.log("color:", color);
       // const newCanvas = document.createElement("canvas");
       // newCanvas.id = `canvas-${i}`;
       // ref.current.appendChild(newCanvas);

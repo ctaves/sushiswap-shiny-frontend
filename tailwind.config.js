@@ -16,6 +16,10 @@ module.exports = {
         primary: "var(--color-text-primary)",
         secondary: "var(--color-text-secondary)",
       },
+      colors: {
+        "blue-brand": "#27B0E6",
+        "blue-brand-dark": "#2397c4",
+      },
     },
   },
   variants: {},

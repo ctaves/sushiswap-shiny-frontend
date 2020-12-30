@@ -1,4 +1,47 @@
 import React from "react";
+import RocketIcon from "../../assets/icons/rocket.png";
+import OnsenIllustration from "../../assets/illustrations/onsen.jpg";
+import CoverWarningLogo from "../../assets/logos/cover-warning.jpg";
+import MidnightTrading from "../../assets/img/midnight-trading.jpg";
+
+import TopMovers from "./TopMovers";
+
+const popularLists = [
+  { title: "Onsen", image: OnsenIllustration },
+  { title: "Daily Movers", image: RocketIcon },
+  {
+    title: "Stablecoins",
+    image:
+      "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
+  },
+  {
+    title: "Yearn Fam",
+    image:
+      "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x0bc529c00C6401aEF6D220BE8C6Ea1667F6Ad93e/logo.png",
+  },
+];
+
+const articles = [
+  {
+    title: "COVER-ETH liquidity paused",
+    description:
+      "Repudiandae sint consequuntur vel. Amet ut nobis explicabo numquam expedita quia omnis voluptatem. Minusquidem ipsam quia iusto.",
+    image: CoverWarningLogo,
+  },
+  {
+    title: "Onsen liquidity incentives program",
+    image: OnsenIllustration,
+    description:
+      "Repudiandae sint consequuntur vel. Amet ut nobis explicabo numquam expedita quia omnis voluptatem. Minusquidem ipsam quia iusto.",
+    list: "",
+  },
+  {
+    title: "Experimental: Midnight Trading Interface",
+    description:
+      "Repudiandae sint consequuntur vel. Amet ut nobis explicabo numquam expedita quia omnis voluptatem. Minusquidem ipsam quia iusto.",
+    image: MidnightTrading,
+  },
+];
 
 const FeaturedItems = () => {
   return (
@@ -12,21 +55,6 @@ const FeaturedItems = () => {
     </>
   );
 };
-
-const popularLists = [
-  { title: "Onsen", image: "" },
-  { title: "Daily Movers", image: "" },
-  {
-    title: "Stablecoins",
-    image:
-      "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
-  },
-  {
-    title: "Yearn Fam",
-    image:
-      "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x0bc529c00C6401aEF6D220BE8C6Ea1667F6Ad93e/logo.png",
-  },
-];
 
 const PopularLists = () => {
   return (
@@ -74,29 +102,6 @@ const List = ({ title, image }) => {
   );
 };
 
-const articles = [
-  {
-    title: "COVER-ETH liquidity paused",
-    image: "",
-    description:
-      "Repudiandae sint consequuntur vel. Amet ut nobis explicabo numquam expedita quia omnis voluptatem. Minusquidem ipsam quia iusto.",
-    list: "",
-  },
-  {
-    title: "Onsen liquidity incentives program",
-    image: "",
-    description:
-      "Repudiandae sint consequuntur vel. Amet ut nobis explicabo numquam expedita quia omnis voluptatem. Minusquidem ipsam quia iusto.",
-    list: "",
-  },
-  {
-    title: "Experimental: Midnight Trading Interface",
-    description:
-      "Repudiandae sint consequuntur vel. Amet ut nobis explicabo numquam expedita quia omnis voluptatem. Minusquidem ipsam quia iusto.",
-    image: "",
-  },
-];
-
 const Articles = () => {
   return (
     <>
@@ -127,7 +132,8 @@ const Article = ({ title, description, image, token, list }) => {
           <p className="mt-1">{description}</p>
         </div>
         <div className="ml-4 flex-shrink-0">
-          <svg
+          {image && <img src={image} className="h-16 w-16 rounded" />}
+          {/* <svg
             className="h-16 w-16 border border-gray-300 bg-white text-gray-300"
             preserveAspectRatio="none"
             stroke="currentColor"
@@ -136,57 +142,7 @@ const Article = ({ title, description, image, token, list }) => {
             aria-hidden="true"
           >
             <path vectorEffect="non-scaling-stroke" strokeWidth={1} d="M0 0l200 200M0 200L200 0" />
-          </svg>
-        </div>
-      </div>
-    </>
-  );
-};
-
-const TopMovers = () => {
-  return (
-    <>
-      <div className="py-6 border-b border-gray-100">
-        <div className="pl-4 flex justify-between">
-          <div>
-            <h3 className="text-lg leading-6 font-medium text-gray-900">Top Movers</h3>
-            <p className="text-sm font-medium text-gray-400">Tokens making moves today</p>
-          </div>
-          <a href="#" className="text-blue-600 whitespace-nowrap px-1 font-medium text-sm" aria-current="page">
-            View all tokens
-          </a>
-          {/* <p className="mt-1 max-w-2xl text-sm leading-5 text-gray-500">Personal details and application.</p> */}
-        </div>
-        <div className="pl-4 pt-4 grid grid-cols-4 gap-x-2">
-          {[1, 2, 3, 4].map((token) => {
-            return (
-              <>
-                <TokenCard
-                // symbol={token.symbol}
-                // name={token.name}
-                // priceUSD={token.priceUSD}
-                // priceChangeUSD={token.priceChangeUSD}
-                />
-              </>
-            );
-          })}
-        </div>
-      </div>
-    </>
-  );
-};
-
-const TokenCard = ({ symbol, name, priceUSD, priceChangeUSD }) => {
-  return (
-    <>
-      <div className="h-40 flex flex-col justify-between border border-gray-300 hover:bg-gray-100 rounded-md p-4">
-        <div>
-          <div className="text-sm font-semibold uppercase">BTC</div>
-          <div className="text-sm">Bitcoin</div>
-        </div>
-        <div>
-          <div className="text-lg font-semibold text-green-400">$9.07</div>
-          <div className="text-sm text-green-400">+10.00%</div>
+          </svg> */}
         </div>
       </div>
     </>

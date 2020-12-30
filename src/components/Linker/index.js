@@ -8,14 +8,14 @@ export const Linker = ({ to, title, external, color }) => {
         <a
           href={to}
           target="_blank"
-          class="text-right font-medium text-gray-900 hover:text-gray-700 transition duration-150 ease-in-out"
+          class="text-right font-medium text-blue-brand hover:text-blue-brand-dark transition duration-150 ease-in-out"
         >
           {title}
         </a>
       ) : (
         <Link
           to={to}
-          class="text-right font-medium text-gray-900 hover:text-gray-700 transition duration-150 ease-in-out"
+          class="text-right font-medium text-blue-brand hover:text-blue-brand-dark transition duration-150 ease-in-out"
         >
           {title}
         </Link>
@@ -30,7 +30,7 @@ export const Button = ({ title, disabled, onClick, color }) => {
       <button
         disabled={disabled}
         onClick={onClick}
-        class="text-right font-medium text-gray-900 hover:text-gray-700 transition duration-150 ease-in-out"
+        class="text-right font-medium text-blue-brand hover:text-blue-brand-dark transition duration-150 ease-in-out"
       >
         {title}
       </button>

@@ -35,26 +35,33 @@ export default function GlobalStats() {
 
   // SUSHI price
   const { priceUSD, priceChangeUSD } = useTokenData("0x6b3595068778dd592e39a122f4f5a5cf09c90fe2");
-  const price = priceUSD ? formattedNum(priceUSD, true) : "";
+  const price = priceUSD ? formattedNum(priceUSD, true) : "-";
   const priceChange = priceChangeUSD ? formattedPercent(priceChangeUSD) : "";
 
   const { oneDayVolumeUSD, oneDayTxns, pairCount } = useGlobalData();
-  const [ethPrice] = useEthPrice();
+  const [ethPrice, ethPriceOld] = useEthPrice();
   const formattedEthPrice = ethPrice ? formattedNum(ethPrice, true) : "-";
-  const oneDayFees = oneDayVolumeUSD ? formattedNum(oneDayVolumeUSD * 0.003, true) : "";
+  const ethPriceChange = ethPriceOld ? formattedPercent((ethPrice / ethPriceOld - 1) * 100) : "";
+  const oneDayFees = oneDayVolumeUSD ? formattedNum(oneDayVolumeUSD * 0.003, true) : "-";
 
   return (
     <Header>
       <RowBetween style={{ padding: below816 ? "0.5rem" : ".5rem" }}>
         <RowFixed>
           <TYPE.main mr={"1rem"} style={{ position: "relative" }}>
-            <Strong>SUSHI:</Strong> <Medium>{price}</Medium>
+            <Strong>SUSHI:</Strong>{" "}
+            <Medium>
+              {price} {priceChange}
+            </Medium>
           </TYPE.main>
           <TYPE.main mr={"1rem"} style={{ position: "relative" }}>
-            <Strong>ETH:</Strong> <Medium>{formattedEthPrice}</Medium>
+            <Strong>ETH:</Strong>{" "}
+            <Medium>
+              {formattedEthPrice} {ethPriceChange}
+            </Medium>
           </TYPE.main>
           <TYPE.main mr={"1rem"}>
-            <Strong>TXs (24hr):</Strong> <Medium>{localNumber(oneDayTxns)}</Medium>
+            <Strong>Transactions (24hr):</Strong> <Medium>{localNumber(oneDayTxns)}</Medium>
           </TYPE.main>
           {/* {!below400 && (
             <TYPE.main

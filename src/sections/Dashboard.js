@@ -254,14 +254,14 @@ const Overview = () => {
     <>
       <div className="md:flex">
         <div className="relative w-full mx-auto sm:px-6 lg:px-6">
+          <div className="sm:mt-2 lg:mt-6 py-2 pl-2 bg-gray-100 sm:rounded-md">
+            <GlobalStats />
+          </div>
+          <div className="ml-4 sm:m-0 h-80">
+            <LazyComponent component={<AlbumCards />} />
+          </div>
           <div className="grid gap-0 mx-auto lg:grid-cols-5 lg:max-w-none">
-            <div className="pb-8 lg:pb-20 lg:col-span-3 overflow-x-hidden lg:overflow-visible">
-              <div className="sm:mt-2 lg:mt-6 py-2 pl-2 bg-gray-100 sm:rounded-md lg:rounded-r-none">
-                <GlobalStats />
-              </div>
-              <div className="ml-4 sm:m-0 h-80">
-                <LazyComponent component={<AlbumCards />} />
-              </div>
+            <div className="pt-4 pb-8 lg:pb-20 lg:col-span-3 overflow-x-hidden lg:overflow-visible">
               <div className="mr-4">
                 <FeaturedItem />
               </div>
@@ -282,6 +282,45 @@ const Overview = () => {
     </>
   );
 };
+
+// Previous Layout
+// const Overview = () => {
+//   const { dispatch } = useContext(SectionContext);
+//   useEffect(() => {
+//     dispatch({ type: "update", section: "home" });
+//   }, []);
+//   return (
+//     <>
+//       <div className="md:flex">
+//         <div className="relative w-full mx-auto sm:px-6 lg:px-6">
+//           <div className="grid gap-0 mx-auto lg:grid-cols-5 lg:max-w-none">
+//             <div className="pb-8 lg:pb-20 lg:col-span-3 overflow-x-hidden lg:overflow-visible">
+//               <div className="sm:mt-2 lg:mt-6 py-2 pl-2 bg-gray-100 sm:rounded-md lg:rounded-r-none">
+//                 <GlobalStats />
+//               </div>
+//               <div className="ml-4 sm:m-0 h-80">
+//                 <LazyComponent component={<AlbumCards />} />
+//               </div>
+//               <div className="mr-4">
+//                 <FeaturedItem />
+//               </div>
+//             </div>
+//             <div className="pt-6 lg:col-span-2">
+//               <div className="lg:sticky top-0">
+//                 <div className="hidden lg:block bg-gray-100">
+//                   <MainSearch />
+//                 </div>
+//                 <div className="pt-4">
+//                   <CardTokenActions initialSection={"swap"} />
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </>
+//   );
+// };
 
 const PortfolioBalances = () => {
   const { dispatch } = useContext(SectionContext);
