@@ -1321,7 +1321,7 @@ export const supportedPools = [
     symbol: "FRONT-USDT SLP",
     tokenSymbol: "FRONT",
     icon: "♨️",
-    uniswapPair: "FRONT/ETH",
+    uniswapPair: "FRONT/USDT",
     lpToken: "0x98c2f9d752e044dc2e1f1743bf0b76a7096eceb2",
     allocPoint: "10",
   },
