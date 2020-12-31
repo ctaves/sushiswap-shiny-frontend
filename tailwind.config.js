@@ -17,8 +17,10 @@ module.exports = {
         secondary: "var(--color-text-secondary)",
       },
       colors: {
-        "blue-brand": "#27B0E6",
-        "blue-brand-dark": "#2397c4",
+        "blue-brand": "#0090a6", //"#27B0E6",
+        "blue-brand-dark": "#067587", //"#s2397c4",
+        "green-finance": "#04c806",
+        "red-finance": "#ff5001",
       },
     },
   },

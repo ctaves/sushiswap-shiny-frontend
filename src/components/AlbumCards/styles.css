@@ -84,6 +84,13 @@
   font-weight: 100;
   line-height: 1.25rem;
 }
+.album-cards .subtitle-chart {
+  font-weight: 100;
+  line-height: 1.25rem;
+  position: relative;
+  top: 38px;
+}
+
 .album-cards .subtext {
   font-size: 1.1167rem;
   position: absolute;
@@ -100,8 +107,17 @@
   font-size: 1rem;
   line-height: 1rem;
   display: block;
-  padding: 0 0 0.5rem 0;
+  /* padding: 0 0 0.5rem 0; */
 }
+.album-cards .icon-chart {
+  font-size: 1rem;
+  line-height: 1rem;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 107px;
+}
+
 .album-cards canvas {
   position: absolute;
   top: 0;

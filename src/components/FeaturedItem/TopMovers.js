@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
+import { Linker } from "../Linker";
 import { useAllTokenData } from "../../services/vision/contexts/TokenData";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
@@ -62,14 +63,12 @@ function TokenList({ tokens, itemMax = 10 }) {
   return (
     <>
       <div className="pt-6 border-b border-gray-100">
-        <div className="pl-4 flex justify-between">
+        <div className="px-4 flex justify-between">
           <div>
             <h3 className="text-lg leading-6 font-medium text-gray-900">Top Movers</h3>
             <p className="text-sm font-medium text-gray-400">Tokens making moves today</p>
           </div>
-          <a href="#" className="text-blue-600 whitespace-nowrap px-1 font-medium text-sm" aria-current="page">
-            View all tokens
-          </a>
+          <Linker to="/tokens">View all tokens</Linker>
           {/* <p className="mt-1 max-w-2xl text-sm leading-5 text-gray-500">Personal details and application.</p> */}
         </div>
         <div className="pl-4 pt-4 pb-8 flex overflow-x-scroll">
@@ -97,14 +96,14 @@ const TokenCard = ({ id, symbol, name, priceUSD, priceChangeUSD }) => {
   return (
     <>
       <Link to={"/token/" + id}>
-        <div className="w-32 h-40 mr-4 flex flex-col justify-between border border-gray-300 hover:bg-gray-100 rounded-md p-4">
+        <div className="w-32 h-44 mr-4 flex flex-col justify-between border border-gray-300 hover:bg-gray-100 rounded-md p-4">
           <div>
             <div className="text-sm font-semibold uppercase">{symbol}</div>
             <div className="text-sm">{name}</div>
           </div>
           <div>
-            <div className="text-lg font-semibold text-green-400">{priceUSD}</div>
-            <div className="text-sm text-green-400">{priceChangeUSD}</div>
+            <div className="text-2xl font-semibold text-green-finance">{priceUSD}</div>
+            <div className="text-sm text-green-finance">{priceChangeUSD}</div>
           </div>
         </div>
       </Link>

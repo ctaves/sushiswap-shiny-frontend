@@ -6,17 +6,14 @@ import utc from "dayjs/plugin/utc";
 import { Box, Flex, Text } from "rebass";
 import styled from "styled-components";
 
-//import { CustomLink } from "../Link";
+import { CustomLink } from "../Link";
 import { Divider } from "../../components";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { formattedNum, formattedPercent } from "../../utils";
-//import DoubleTokenLogo from "../DoubleLogo";
-//import FormattedName from "../FormattedName";
+import DoubleTokenLogo from "../DoubleLogo";
+import FormattedName from "../FormattedName";
 import QuestionHelper from "../QuestionHelper";
 import { TYPE } from "../../Theme";
-
-import { isAddress } from "../../utils/index.js";
-import logoNotFound from "../../../../assets/img/logoNotFound.png";
 
 dayjs.extend(utc);
 
@@ -119,8 +116,8 @@ const FIELD_TO_VALUE = {
 };
 
 function PairList({ pairs, color, disbaleLinks, maxItems = 10 }) {
-  // const below600 = useMedia("(max-width: 600px)");
-  // const below740 = useMedia("(max-width: 740px)");
+  const below600 = useMedia("(max-width: 600px)");
+  const below740 = useMedia("(max-width: 740px)");
   const below1080 = useMedia("(max-width: 1080px)");
 
   // pagination
@@ -154,84 +151,25 @@ function PairList({ pairs, color, disbaleLinks, maxItems = 10 }) {
       const liquidity = formattedNum(pairData.reserveUSD, true);
       const volume = formattedNum(pairData.oneDayVolumeUSD, true);
       const apy = formattedPercent((pairData.oneDayVolumeUSD * 0.003 * 365 * 100) / pairData.reserveUSD);
-      //console.log("PAIRDATA:", pairData);
+
       return (
         <DashGrid style={{ height: "48px" }} disbaleLinks={disbaleLinks} focus={true}>
           <DataText area="name" fontWeight="500">
-            <td
-              className="text-sm whitespace-no-wrap"
-              style={{
-                position: "sticky",
-                width: "14rem",
-                minWidth: "14rem",
-                maxWidth: "14rem",
-                left: "0px",
-                // boxShadow: "10px 0 5px -2px #f3f3f3",
-                // borderColor: "transparent",
-              }}
-            >
-              <div className="flex items-center">
-                <div className="flex items-center">
-                  <img
-                    className="relative z-30 inline-block h-6 w-6 rounded-full text-white shadow-solid"
-                    src={`https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${isAddress(
-                      pairData.token0.id
-                    )}/logo.png`}
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = logoNotFound;
-                    }}
-                    alt={pairData.token0.symbol + " Logo"}
-                  />
-                  <img
-                    className="relative z-20 -ml-1 inline-block h-6 w-6 rounded-full text-white shadow-solid"
-                    src={`https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${isAddress(
-                      pairData.token1.id
-                    )}/logo.png`}
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = logoNotFound;
-                    }}
-                    alt={pairData.token1.symbol + " Logo"}
-                  />
-                </div>
-                <div className="ml-4">
-                  <div className="flex items-center">
-                    <Link
-                      to={"/pair/" + pairAddress}
-                      className="flex items-center text-sm font-medium leading-5 text-gray-900 hover:underline"
-                    >
-                      {pairData.token0.symbol + "-" + pairData.token1.symbol}
-                      <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 ml-1">
-                        <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />{" "}
-                        <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-                      </svg>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </td>
-            {/* {!below600 && (
-              <div style={{ marginRight: "20px", width: "10px" }}>{index}</div>
-            )}
+            {/* {!below600 && <div style={{ marginRight: "20px", width: "10px" }}>{index}</div>} */}
             <DoubleTokenLogo
-              size={below600 ? 16 : 20}
+              size={below600 ? 25 : 30}
               a0={pairData.token0.id}
               a1={pairData.token1.id}
               margin={!below740}
             />
-            <CustomLink
-              style={{ marginLeft: "20px", whiteSpace: "nowrap" }}
-              to={"/pair/" + pairAddress}
-              color={color}
-            >
+            <CustomLink style={{ marginLeft: "20px", whiteSpace: "nowrap" }} to={"/pair/" + pairAddress} color={color}>
               <FormattedName
                 text={pairData.token0.symbol + "-" + pairData.token1.symbol}
                 maxCharacters={below600 ? 8 : 16}
                 adjustSize={true}
                 link={true}
               />
-            </CustomLink> */}
+            </CustomLink>
           </DataText>
           <DataText area="liq">{liquidity}</DataText>
           <DataText area="vol">{volume}</DataText>

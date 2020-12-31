@@ -411,7 +411,7 @@ export function formattedPercent(percent, useBrackets = false) {
 
   if (percent < 0.0001 && percent > 0) {
     return (
-      <Text as="span" fontWeight={500} color="green">
+      <Text as="span" fontWeight={500} color="#04c806">
         {"< 0.0001%"}
       </Text>
     );
@@ -419,7 +419,7 @@ export function formattedPercent(percent, useBrackets = false) {
 
   if (percent < 0 && percent > -0.0001) {
     return (
-      <Text as="span" fontWeight={500} color="red">
+      <Text as="span" fontWeight={500} color="#ff5001">
         {"< 0.0001%"}
       </Text>
     );
@@ -431,12 +431,53 @@ export function formattedPercent(percent, useBrackets = false) {
   }
   if (fixedPercent > 0) {
     if (fixedPercent > 100) {
-      return <Text as="span" fontWeight={500} color="green">{`+${percent?.toFixed(0).toLocaleString()}%`}</Text>;
+      return <Text as="span" fontWeight={500} color="#04c806">{`+${percent?.toFixed(0).toLocaleString()}%`}</Text>;
     } else {
-      return <Text as="span" fontWeight={500} color="green">{`+${fixedPercent}%`}</Text>;
+      return <Text as="span" fontWeight={500} color="#04c806">{`+${fixedPercent}%`}</Text>;
     }
   } else {
-    return <Text as="span" fontWeight={500} color="red">{`${fixedPercent}%`}</Text>;
+    return <Text as="span" fontWeight={500} color="#ff5001">{`${fixedPercent}%`}</Text>;
+  }
+}
+
+export function formattedPercentArrow(percent, useBrackets = false) {
+  percent = parseFloat(percent);
+  if (!percent || percent === 0) {
+    return (
+      <Text as="span" fontWeight={500}>
+        0%
+      </Text>
+    );
+  }
+
+  if (percent < 0.0001 && percent > 0) {
+    return (
+      <Text as="span" fontWeight={500} color="#04c806">
+        {"< 0.0001%"}
+      </Text>
+    );
+  }
+
+  if (percent < 0 && percent > -0.0001) {
+    return (
+      <Text as="span" fontWeight={500} color="#ff5001">
+        {"< 0.0001%"}
+      </Text>
+    );
+  }
+
+  let fixedPercent = percent.toFixed(2);
+  if (fixedPercent === "0.00") {
+    return "0%";
+  }
+  if (fixedPercent > 0) {
+    if (fixedPercent > 100) {
+      return <Text as="span" fontWeight={500} color="#04c806">{`▲ ${percent?.toFixed(0).toLocaleString()}%`}</Text>;
+    } else {
+      return <Text as="span" fontWeight={500} color="#04c806">{`▲ ${fixedPercent}%`}</Text>;
+    }
+  } else {
+    return <Text as="span" fontWeight={500} color="#ff5001">{`▼ ${fixedPercent}%`}</Text>;
   }
 }
 

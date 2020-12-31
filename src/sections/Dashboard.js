@@ -262,11 +262,11 @@ const Overview = () => {
           </div>
           <div className="grid gap-0 mx-auto lg:grid-cols-5 lg:max-w-none">
             <div className="pt-4 pb-8 lg:pb-20 lg:col-span-3 overflow-x-hidden lg:overflow-visible">
-              <div className="mr-4">
+              <div className="lg:mr-4">
                 <FeaturedItem />
               </div>
             </div>
-            <div className="pt-6 lg:col-span-2">
+            <div className="hidden pt-6 lg:block lg:col-span-2">
               <div className="lg:sticky top-0">
                 <div className="hidden lg:block bg-gray-100">
                   <MainSearch />
@@ -534,13 +534,13 @@ const Pairs = () => {
   return (
     <>
       {/* <MainSearch /> */}
-      <div className="sushi-px-8 py-4 sushi-hidden lg:sushi-block">
+      <div className="sushi-px-4 py-4 sushi-hidden lg:sushi-block">
         <MainSearch />
       </div>
-      <h2 className="sushi-max-w-6xl sushi-mx-auto sushi-mt-8 sushi-px-4 sushi-text-lg sushi-leading-6 sushi-font-medium sushi-text-cool-gray-900 sm:sushi-px-6 lg:sushi-px-8">
+      {/* <h2 className="sushi-max-w-6xl sushi-mx-auto sushi-mt-8 sushi-px-4 sushi-text-lg sushi-leading-6 sushi-font-medium sushi-text-cool-gray-900 sm:sushi-px-6 lg:sushi-px-8">
         Trading pairs on Sushiswap
-      </h2>
-      <div className="sushi-mt-4 sushi-inline-block sushi-min-w-full sushi-overflow-hidden sushi-align-middle sushi-px-6">
+      </h2> */}
+      <div className="my-4 sushi-inline-block sushi-min-w-full sushi-overflow-hidden sushi-align-middle">
         <div
           style={{
             position: "relative",

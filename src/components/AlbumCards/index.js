@@ -40,11 +40,13 @@ const cards = [
     icon: "Liquidity",
     color: config.colors[0],
     subtitle: <SushiGlobalChart display="liquidity" />,
+    type: "chart",
   },
   {
     icon: "Volume",
     color: config.colors[1],
     subtitle: <SushiGlobalChart display="volume" />,
+    type: "chart",
   },
   {
     icon: "New",
@@ -69,6 +71,8 @@ const AlbumCards = () => {
             {cards.map((card) => {
               return (
                 <AlbumCard
+                  key={"AlbumCard-" + card.icon}
+                  type={card.type}
                   color={card.color}
                   icon={card.icon}
                   title={card.title}
@@ -84,7 +88,7 @@ const AlbumCards = () => {
   );
 };
 
-const AlbumCard = ({ color, icon, title, subtitle, subtext }) => {
+const AlbumCard = ({ color, icon, title, subtitle, subtext, type }) => {
   const ref = useRef(null);
   const requestRef = useRef();
 
@@ -128,6 +132,9 @@ const AlbumCard = ({ color, icon, title, subtitle, subtext }) => {
       // And use the high color for the subtext.
       if (ref.current.querySelector(".subtext") !== null) {
         ref.current.querySelector(".subtext").style.background = `rgba(${high.x},${high.y},${high.z},0.75)`;
+      }
+      if (ref.current.querySelector(".icon-chart") !== null) {
+        ref.current.querySelector(".icon-chart").style.background = `rgba(${high.x},${high.y},${high.z},0.50)`;
       }
 
       // Create a plane, and pass that through to our shaders
@@ -323,13 +330,13 @@ const AlbumCard = ({ color, icon, title, subtitle, subtext }) => {
       <a className="album-item" href="#" ref={ref}>
         <span className="album-details">
           {icon && (
-            <span className="icon mt-4 mx-4">
+            <span className={type === "chart" ? "icon-chart pt-4 px-4" : "icon pt-4 px-4"}>
               <i className="far fa-at"></i>
               {icon}
             </span>
           )}
           {title && <span className="title mx-4">{title}</span>}
-          {subtitle && <span className="subtitle">{subtitle} </span>}
+          {subtitle && <span className={type === "chart" ? "subtitle-chart" : "subtitle"}>{subtitle} </span>}
           {subtext && <span className="subtext">{subtext}</span>}
         </span>
       </a>

@@ -5,9 +5,9 @@ import { useMedia } from "react-use";
 import { useGlobalData, useEthPrice } from "../../contexts/GlobalData";
 import { formattedNum, formattedPercent, localNumber } from "../../utils";
 
-import { useTokenData } from "../../..//vision/contexts/TokenData";
-
-import UniPrice from "../UniPrice";
+import { useTokenData } from "../../../vision/contexts/TokenData";
+import SushiLogo from "../../../../assets/img/logo.png";
+//import UniPrice from "../UniPrice";
 import { TYPE } from "../../Theme";
 
 const Header = styled.div`
@@ -41,28 +41,33 @@ export default function GlobalStats() {
   const { oneDayVolumeUSD, oneDayTxns, pairCount } = useGlobalData();
   const [ethPrice, ethPriceOld] = useEthPrice();
   const formattedEthPrice = ethPrice ? formattedNum(ethPrice, true) : "-";
-  const ethPriceChange = ethPriceOld ? formattedPercent((ethPrice / ethPriceOld - 1) * 100) : "";
+  const ethPriceChange =
+    ethPriceOld && ethPrice / ethPriceOld != 1 ? formattedPercent((ethPrice / ethPriceOld - 1) * 100) : "";
   const oneDayFees = oneDayVolumeUSD ? formattedNum(oneDayVolumeUSD * 0.003, true) : "-";
 
   return (
     <Header>
       <RowBetween style={{ padding: below816 ? "0.5rem" : ".5rem" }}>
         <RowFixed>
+          {!below400 ? "" : <img className="h-6 w-6 mr-2" src={SushiLogo} />}
           <TYPE.main mr={"1rem"} style={{ position: "relative" }}>
             <Strong>SUSHI:</Strong>{" "}
             <Medium>
-              {price} {priceChange}
+              {price} {!below816 ? priceChange : ""}
             </Medium>
           </TYPE.main>
           <TYPE.main mr={"1rem"} style={{ position: "relative" }}>
             <Strong>ETH:</Strong>{" "}
             <Medium>
-              {formattedEthPrice} {ethPriceChange}
+              {formattedEthPrice} {!below816 ? ethPriceChange : ""}
             </Medium>
           </TYPE.main>
-          <TYPE.main mr={"1rem"}>
-            <Strong>Transactions (24hr):</Strong> <Medium>{localNumber(oneDayTxns)}</Medium>
-          </TYPE.main>
+          {!below400 && (
+            <TYPE.main mr={"1rem"}>
+              <Strong>{!below1024 ? "Transactions (24hr):" : "TXs (24hr):"}</Strong>{" "}
+              <Medium>{oneDayTxns > 0 ? localNumber(oneDayTxns) : "-"}</Medium>
+            </TYPE.main>
+          )}
           {/* {!below400 && (
             <TYPE.main
               mr={"1rem"}
@@ -86,7 +91,7 @@ export default function GlobalStats() {
           )} */}
           {!below1024 && (
             <TYPE.main mr={"1rem"}>
-              <Strong>Pairs:</Strong> <Medium>{localNumber(pairCount)}</Medium>
+              <Strong>Pairs:</Strong> <Medium>{pairCount > 0 ? localNumber(pairCount) : "-"}</Medium>
             </TYPE.main>
           )}
           {!below1295 && (
