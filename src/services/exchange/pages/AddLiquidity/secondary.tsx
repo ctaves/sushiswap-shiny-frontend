@@ -301,11 +301,12 @@ export default function AddLiquidity({ currencyIdA, currencyIdB }) {
     (currencyA: Currency) => {
       const newCurrencyIdA = currencyId(currencyA);
       console.log("CURRENCY A:", currencyA, newCurrencyIdA, currencyIdB);
+      // if newA === currentB
       if (newCurrencyIdA === currencyIdB) {
         setTokens({ tokenA: currencyIdB, tokenB: newCurrencyIdA });
         //history.push(`/add/${currencyIdB}/${currencyIdA}`);
       } else {
-        setTokens({ tokenA: newCurrencyIdA, tokenB: currencyIdB });
+        setTokens({ tokenA: newCurrencyIdA, tokenB: tokens?.tokenB ? tokens?.tokenB : currencyIdB });
         //history.push(`/add/${newCurrencyIdA}/${currencyIdB}`);
       }
     },
