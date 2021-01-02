@@ -3,7 +3,7 @@ import useMigrateState, { MigrateMode, MigrateState } from "../../services/lite/
 import { EthersContext } from "../../services/lite/context/EthersContext";
 import { formatBalance } from "../../services/lite/utils";
 import DoubleToken from "../DoubleToken";
-import Loading from "../Loading";
+import { Loading } from "../Loading";
 
 const Migrate = () => {
   const { ethereum } = useContext(EthersContext);

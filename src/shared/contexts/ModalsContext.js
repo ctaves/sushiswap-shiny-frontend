@@ -34,7 +34,7 @@ const Modals = ({ children }) => {
       {isOpen && (
         <>
           <div className="fixed z-10 inset-0 overflow-y-auto">
-            <div className="flex block pb-16 md:pt-4 md:px-4 md:pb-20 items-end md:items-center justify-center min-h-screen text-center">
+            <div className="flex block pb-16 pt-14 md:pt-4 md:px-4 md:pb-20 items-end md:items-center justify-center min-h-screen text-center">
               <Transition
                 show={isOpen}
                 enter="ease-out duration-300"

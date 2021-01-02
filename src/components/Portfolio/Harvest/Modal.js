@@ -28,7 +28,7 @@ const HarvestModal = ({ onDismiss }) => {
         <div className="items-start">
           <div className="text-center sm:text-left">
             <h3 className="pb-2 text-lg leading-6 font-medium text-gray-900" id="modal-headline">
-              Harvestable Positions
+              Harvest Rewards
             </h3>
             <Harvest />
           </div>

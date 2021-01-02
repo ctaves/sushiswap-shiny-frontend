@@ -1,6 +1,7 @@
 import React from "react";
+import Loader from "../../services/exchange/components/Loader";
 
-const Loading = () => {
+export const Loading = () => {
   return (
     <>
       <div className="mt-4 mx-auto justify-center">
@@ -18,6 +19,28 @@ const Loading = () => {
           />
         </svg>
       </div>
+    </>
+  );
+};
+
+export const Chevron = ({ loading }) => {
+  return (
+    <>
+      <span className="ml-2">
+        {loading && loading === true ? (
+          <Loader />
+        ) : (
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        )}
+      </span>
     </>
   );
 };

@@ -91,7 +91,7 @@ const SearchIconLarge = styled(SearchIcon)`
   position: absolute;
   right: 10px;
   pointer-events: none;
-  color: ${({ theme }) => theme.text3};
+  color: ${({ theme }) => theme.text1};
 `;
 
 const CloseIcon = styled(X)`
@@ -100,7 +100,7 @@ const CloseIcon = styled(X)`
   margin-right: 0.5rem;
   position: absolute;
   right: 10px;
-  color: ${({ theme }) => theme.text3};
+  color: ${({ theme }) => theme.text1};
   :hover {
     cursor: pointer;
   }

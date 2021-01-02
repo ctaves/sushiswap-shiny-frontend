@@ -76,12 +76,13 @@ import BentoBoxLogo from "../assets/img/bentobox.png";
 
 import sushiData from "@sushiswap/sushi-data";
 
+import AlbumCardsLoading from "../components/AlbumCards/Loading";
 const AlbumCards = React.lazy(() => import("../components/AlbumCards"));
 
-const LazyComponent = ({ component }) => {
+const LazyComponent = ({ component, fallback }) => {
   return (
     <>
-      <Suspense fallback={<div>Loading...</div>}>{component}</Suspense>
+      <Suspense fallback={fallback}>{component}</Suspense>
     </>
   );
 };
@@ -258,7 +259,7 @@ const Overview = () => {
             <GlobalStats />
           </div>
           <div className="ml-4 sm:m-0 h-80">
-            <LazyComponent component={<AlbumCards />} />
+            <LazyComponent component={<AlbumCards />} fallback={<AlbumCardsLoading />} />
           </div>
           <div className="grid gap-0 mx-auto lg:grid-cols-5 lg:max-w-none">
             <div className="pt-4 pb-8 lg:pb-20 lg:col-span-3 overflow-x-hidden lg:overflow-visible">

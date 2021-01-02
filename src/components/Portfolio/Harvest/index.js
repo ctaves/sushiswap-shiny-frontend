@@ -3,12 +3,14 @@ import { useActiveWeb3React } from "../../../services/exchange/hooks";
 import { getEarnedWithProps, getMasterChefContract, getFarms } from "../../../services/frontend/sushi/utils";
 import useSushi from "../../../services/frontend/hooks/useSushi";
 import useBlock from "../hooks/useBlock";
+import useReward from "../hooks/useReward";
 
 import { client } from "../../../apollo/client";
 import { SUSHI_PAIRS } from "../../../apollo/queries";
 
 import CoinLoader from "../../CoinLoader";
 import DoubleToken from "../../DoubleToken";
+import { Chevron } from "../../Loading";
 import { formattedNum } from "../../../services/vision/utils";
 
 //import sushiData from "@sushiswap/sushi-data";
@@ -90,6 +92,9 @@ const Harvest = () => {
 };
 
 const LPTokenItem = ({ balance, selected, onSelectToken }) => {
+  const { account } = useActiveWeb3React();
+  const [pendingTx, setPendingTx] = useState(false);
+  const { onReward } = useReward(balance.pid);
   // console.log("TOKEN:", token, token.balance.toNumber(), selected);
   // const balance = formatBalance(token.balance, token.decimals, 6);
   // const onClick = useCallback(() => {
@@ -98,8 +103,13 @@ const LPTokenItem = ({ balance, selected, onSelectToken }) => {
   return (
     <>
       <li
-        selected={selected}
-        //onClick={onClick}
+        // selected={selected}
+        disabled={!balance.pending || pendingTx}
+        onClick={async () => {
+          setPendingTx(true);
+          await onReward();
+          setPendingTx(false);
+        }}
         role="radio"
         className="group relative rounded-md shadow-sm cursor-pointer focus:outline-none focus:shadow-outline-blue"
       >
@@ -117,6 +127,7 @@ const LPTokenItem = ({ balance, selected, onSelectToken }) => {
                 <p className="text-base text-gray-800 truncate ml-auto">
                   {formattedNum(balance.pending, false, false)} SUSHI
                 </p>
+                <Chevron loading={pendingTx} />
               </div>
             </a>
           </div>
