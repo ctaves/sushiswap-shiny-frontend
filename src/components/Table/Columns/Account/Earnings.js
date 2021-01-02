@@ -1,5 +1,6 @@
 import React, { useMemo, useState, useEffect } from "react";
-import { useWallet } from "use-wallet";
+import { useActiveWeb3React } from "../../../services/exchange/hooks";
+
 import useFarm from "../../../services/frontend/hooks/useFarm";
 import { getContract } from "../../../services/frontend/utils/erc20";
 import { getBalanceNumber } from "../../../services/frontend/utils/formatBalance";
@@ -17,7 +18,9 @@ const ColumnEarnings = ({ farmId, poolStats, setPoolStats }) => {
     name: "",
     icon: "",
   };
-  const { account, ethereum } = useWallet();
+  const { account } = useActiveWeb3React();
+  const { ethereum } = window;
+
   const lpContract = useMemo(() => {
     return getContract(ethereum, lpTokenAddress);
   }, [ethereum, lpTokenAddress]);

@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useCallback } from "react";
 import { useHistory } from "react-router-dom";
-import { useWallet } from "use-wallet";
+import { useActiveWeb3React } from "../../../services/exchange/hooks";
 
 import BigNumber from "bignumber.js";
 import useFarm from "../../../services/frontend/hooks/useFarm";
@@ -25,7 +25,8 @@ const ColumnActions = ({ farmId, pool }) => {
     name: "",
     icon: "",
   };
-  const { ethereum, account } = useWallet();
+  const { account } = useActiveWeb3React();
+  const { ethereum } = window;
   const lpContract = useMemo(() => {
     return getContract(ethereum, lpTokenAddress);
   }, [ethereum, lpTokenAddress]);

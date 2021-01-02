@@ -1,5 +1,4 @@
 import React, { useState, useMemo } from "react";
-import { useWallet } from "use-wallet";
 import { contractAddresses } from "../../../services/frontend/sushi/lib/constants";
 import { getContract } from "../../../services/frontend/utils/erc20";
 import useTokenBalance from "../../../services/frontend/hooks/useTokenBalance";
@@ -11,7 +10,7 @@ const UnstakeXSushi = () => {
   const { tokenAddress } = {
     tokenAddress: contractAddresses.xSushi[1],
   };
-  const { ethereum } = useWallet();
+  const { ethereum } = window;
   const lpContract = useMemo(() => {
     debugger;
     return getContract(ethereum, tokenAddress);

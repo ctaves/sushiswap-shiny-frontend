@@ -2,14 +2,19 @@ import React from "react";
 //import "../assets/css/loading.css";
 import SushiAnimation from "../assets/animations/intro.svg";
 
-const CoinLoader = ({ small }) => {
+const CoinLoader = ({ size }) => {
+  const key = String(size);
   return (
     <>
-      {small && small == true ? (
-        <img className="h-40 w-40 block mx-auto" src={SushiAnimation} />
-      ) : (
-        <img className="h-52 w-52 block mx-auto" src={SushiAnimation} />
-      )}
+      {
+        {
+          xs: <img className="h-20 w-20 block mx-auto" src={SushiAnimation} />,
+          sm: <img className="h-40 w-40 block mx-auto" src={SushiAnimation} />,
+          md: <img className="h-44 w-44 block mx-auto" src={SushiAnimation} />,
+          lg: <img className="h-52 w-52 block mx-auto" src={SushiAnimation} />,
+          undefined: <img className="h-52 w-52 block mx-auto" src={SushiAnimation} />,
+        }[key]
+      }
     </>
   );
 };

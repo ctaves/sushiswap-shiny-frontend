@@ -142,7 +142,7 @@ export const DashboardContainer = ({ children }) => {
             className="overflow-x-hidden lg:mt-4 lg:mr-4 lg:p-4 lg:bg-gray-200 lg:rounded-lg sushi-flex-1 sushi-relative sushi-z-0 sushi-overflow-y-auto focus:sushi-outline-none"
             tabIndex={0}
           >
-            <div className="bg-white lg:rounded-lg mb-16 sm:mb-0">{children}</div>
+            <div className="bg-white 2xl:px-20 lg:rounded-lg mb-16 sm:mb-0">{children}</div>
           </main>
         </div>
         <MobileNavigation changeMenu={mobileMenu.change} isOpen={mobileMenu.isOpen} />
@@ -266,7 +266,7 @@ const Overview = () => {
                 <FeaturedItem />
               </div>
             </div>
-            <div className="hidden pt-6 lg:block lg:col-span-2">
+            <div className="hidden pt-6 2xl:px-16 lg:block lg:col-span-2">
               <div className="lg:sticky top-0">
                 <div className="hidden lg:block bg-gray-100">
                   <MainSearch />

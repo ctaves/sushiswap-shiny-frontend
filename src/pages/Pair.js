@@ -187,7 +187,7 @@ const Token = ({ pairAddress, history }) => {
           </div>
         </div>
       ) : (
-        <CoinLoader small={true} />
+        <CoinLoader size={"sm"} />
       )}
     </>
   );

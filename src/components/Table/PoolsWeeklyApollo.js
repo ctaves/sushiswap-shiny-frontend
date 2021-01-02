@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef, useContext } from "react";
 import { Link } from "react-router-dom";
-import { useWallet } from "use-wallet";
+import { useActiveWeb3React } from "../../services/exchange/hooks";
+
 import BigNumber from "bignumber.js";
 import Web3 from "web3";
 import ERC20ABI from "../../services/frontend/constants/abi/ERC20.json";
@@ -199,7 +200,7 @@ const PoolsQuery = ({ setAPY, type }) => {
 };
 
 const TableAccount = ({ children }) => {
-  const { account } = useWallet();
+  const { account } = useActiveWeb3React();
   return (
     <>
       {!account ? (
@@ -357,7 +358,7 @@ const Search = ({ search, term }) => {
 };
 
 const FilterDropdown = ({ isOpen, columns, setColumns }) => {
-  const { account } = useWallet();
+  const { account } = useActiveWeb3React();
 
   const handleCheckboxChange = (name) => (e) => {
     let newColumns = [...columns];
@@ -461,7 +462,8 @@ const FilterDropdown = ({ isOpen, columns, setColumns }) => {
 
 const TablePools = ({ title, pools, columns }) => {
   // For regular pool display
-  const { account, ethereum } = useWallet();
+  const { account } = useActiveWeb3React();
+  const { ethereum } = window;
 
   // use to update account stats on every block
   // const [block, setBlock] = useState(0);

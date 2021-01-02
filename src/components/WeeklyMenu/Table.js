@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { useHistory, Link } from "react-router-dom";
-import { useWallet } from "use-wallet";
+import { useActiveWeb3React } from "../../services/exchange/hooks";
+
 // For actions
 import BigNumber from "bignumber.js";
 import useAllStakedValue from "../../services/frontend/hooks/useAllStakedValue";
@@ -36,7 +37,7 @@ import logoNotFound from "../../assets/img/logoNotFound.png";
 import { getPoolData } from "./PoolsWeeklyApolloQuery";
 
 const PoolsWeekly = ({ showWallets }) => {
-  const { account } = useWallet();
+  const { account } = useActiveWeb3React();
   const [highestAPY, setAPY] = useState();
   return (
     <>
@@ -155,7 +156,7 @@ const sum = (items, prop) => {
 
 const Pools = ({ title, pools, showWallets }) => {
   // For regular pool display
-  const { account } = useWallet();
+  const { account } = useActiveWeb3React();
   const total = pools ? sum(pools, "balanceUSD") : undefined;
   //console.log("TOTAL:", total);
 
@@ -576,7 +577,7 @@ const StakeWrapper = ({ farmId, pool }) => {
     window.scrollTo(0, 0);
   }, []);
 
-  const { ethereum } = useWallet();
+  const { ethereum } = window;
   const lpContract = useMemo(() => {
     return getContract(ethereum, lpTokenAddress);
   }, [ethereum, lpTokenAddress]);
@@ -623,7 +624,7 @@ const Stake = ({ pool, lpContract, pid, tokenName, lpTokenAddress }) => {
   const earnings = useEarnings(pid);
   const [pendingTx, setPendingTx] = useState(false);
   const { onReward } = useReward(pid);
-  const { account } = useWallet();
+  const { account } = useActiveWeb3React();
   return (
     <>
       <td className="sushi-pl-4 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">

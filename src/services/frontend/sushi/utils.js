@@ -65,6 +65,16 @@ export const getEarned = async (masterChefContract, pid, account) => {
   return masterChefContract.methods.pendingSushi(pid, account).call();
 };
 
+export const getEarnedWithProps = async (masterChefContract, farm, account) => {
+  const pending = await masterChefContract.methods.pendingSushi(farm.pid, account).call();
+  return {
+    ...farm,
+    pending: BigNumber(pending)
+      .div(new BigNumber(10).pow(18))
+      .toNumber(),
+  };
+};
+
 export const getTotalLPWethValue = async (masterChefContract, wethContract, lpContract, tokenContract, pid) => {
   // Get balance of the token address
   const tokenAmountWholeLP = await tokenContract.methods.balanceOf(lpContract.options.address).call();

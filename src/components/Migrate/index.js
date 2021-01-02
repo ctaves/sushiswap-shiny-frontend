@@ -1,8 +1,9 @@
 import React, { useContext, useCallback } from "react";
 import useMigrateState, { MigrateMode, MigrateState } from "../../services/lite/hooks/useMigrateState";
 import { EthersContext } from "../../services/lite/context/EthersContext";
-import DoubleToken from "../DoubleToken";
 import { formatBalance } from "../../services/lite/utils";
+import DoubleToken from "../DoubleToken";
+import Loading from "../Loading";
 
 const Migrate = () => {
   const { ethereum } = useContext(EthersContext);
@@ -92,7 +93,7 @@ const LPTokenItem = ({ token, selected, onSelectToken }) => {
         role="radio"
         className="group relative rounded-lg shadow-sm cursor-pointer focus:outline-none focus:shadow-outline-blue"
       >
-        <div className="rounded-lg border border-gray-300 bg-white px-6 py-4 hover:border-gray-400 group-focus:border-blue-300 sm:flex sm:justify-between sm:space-x-4">
+        <div className="rounded-lg border border-gray-300 bg-white px-4 py-4 hover:border-gray-400 group-focus:border-blue-300 sm:flex sm:justify-between sm:space-x-4">
           <div className="flex flex-shrink-0 -space-x-1">
             <DoubleToken tokenA={token.tokenA.address} tokenB={token.tokenB.address} />
           </div>
@@ -149,28 +150,6 @@ const LPTokenItem = ({ token, selected, onSelectToken }) => {
 //     </div>
 //   );
 // };
-
-const Loading = () => {
-  return (
-    <>
-      <div className="mt-4 mx-auto justify-center">
-        <svg
-          className="animate-spin -ml-1 mr-3 h-10 w-10 text-gray-600"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-        >
-          <circle className="opacity-25" cx={12} cy={12} r={10} stroke="currentColor" strokeWidth={4} />
-          <path
-            className="opacity-75"
-            fill="currentColor"
-            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-          />
-        </svg>
-      </div>
-    </>
-  );
-};
 
 const EmptyList = ({ text }) => {
   return <div className="text-center mx-auto justify-center">{text}</div>;

@@ -6,7 +6,7 @@ const MobileNavigation = ({ selected, changeMenu, isOpen }) => {
   return (
     <>
       {/* Tablet and Mobile */}
-      <section className="lg:hidden block fixed inset-x-0 bottom-0 z-10 bg-white shadow pb-4">
+      <section className="z-20 lg:hidden block fixed inset-x-0 bottom-0 bg-white shadow pb-4">
         {/* <section className="block fixed inset-x-0 bottom-0 z-10 bg-purple-900 shadow"> */}
         <div className={isOpen ? "block lg:hidden" : "hidden lg:hidden"}>
           <nav className="px-3 py-4 overflow-scroll">
@@ -50,7 +50,7 @@ const MobileNavigation = ({ selected, changeMenu, isOpen }) => {
             <span className="tab tab-home block text-xs text-gray-900">Farm</span>
           </Link>
           <Link
-            to="/search"
+            to="/"
             className="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1"
           >
             <svg
@@ -89,7 +89,37 @@ const MobileNavigation = ({ selected, changeMenu, isOpen }) => {
             </svg>
             <span className="tab tab-whishlist block text-xs text-gray-900">Portfolio</span>
           </Link>
-          <button
+          <Link
+            to="/menu"
+            className="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1"
+          >
+            <svg
+              className={!isOpen ? "inline-block mb-1 w-6 h-6 text-gray-900" : "hidden h-6 w-6"}
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <svg
+              className={isOpen ? "inline-block mb-1 w-6 h-6 text-gray-900" : "hidden h-6 w-6"}
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <span className="tab tab-account block text-xs text-gray-900">More</span>
+          </Link>
+          {/* <button
             onClick={() => {
               changeMenu();
             }}
@@ -120,7 +150,7 @@ const MobileNavigation = ({ selected, changeMenu, isOpen }) => {
               />
             </svg>
             <span className="tab tab-account block text-xs text-gray-900">More</span>
-          </button>
+          </button> */}
         </div>
       </section>
     </>

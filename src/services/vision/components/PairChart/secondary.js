@@ -188,7 +188,7 @@ const PairChart = ({ address, color, base0, base1 }) => {
             />
           </ResponsiveContainer>
         ) : (
-          <LocalLoader small={true} />
+          <LocalLoader size={"sm"} />
         ))}
 
       {chartFilter === CHART_VIEW.RATE0 &&

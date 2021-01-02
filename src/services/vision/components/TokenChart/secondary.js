@@ -284,7 +284,7 @@ const TokenChart = ({ address, color, base }) => {
             <CandleStickChart data={priceData} width={width} base={base} />
           </ResponsiveContainer>
         ) : (
-          <LocalLoader small={true} />
+          <LocalLoader size={"sm"} />
         ))}
 
       {chartFilter === CHART_VIEW.VOLUME && (

@@ -430,7 +430,7 @@ function TxnList({ transactions, symbol0Override, symbol1Override, color }) {
       <Divider />
       <List p={0}>
         {!filteredList ? (
-          <LocalLoader small={true} />
+          <LocalLoader size={"sm"} />
         ) : filteredList.length === 0 ? (
           <EmptyCard>No recent transactions found.</EmptyCard>
         ) : (

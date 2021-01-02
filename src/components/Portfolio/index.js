@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
 // Analytics
 import {
@@ -42,7 +42,7 @@ import TableLP from "./Tables/LiquidityPositions";
 
 // Wallet integration
 import { useActiveWeb3React } from "../../services/exchange/hooks";
-import { Linker } from "../Linker";
+import { Linker, Button } from "../Linker";
 
 // Classic dependancies
 import BigNumber from "bignumber.js";
@@ -66,6 +66,10 @@ import { client } from "../../services/vision/apollo/client";
 import { USER_POSITIONS, USER_HISTORY } from "../../services/vision/apollo/queries";
 import { getLPReturnsOnPair } from "../../services/vision/utils/returns";
 import { FEE_WARNING_TOKENS } from "../../services/vision/constants";
+
+// modals
+import HarvestModal from "./Harvest/Modal";
+import useModal from "../../shared/hooks/useModal";
 
 import _ from "lodash";
 
@@ -326,6 +330,9 @@ const Account = () => {
   console.log("FARM BALANCES:", farmBalances);
   console.log("FARM VALUE: ", _.sumBy(farmBalances, "valueUSD"));
 
+  // initialize Harvest modal
+  const [onPresentHarvest] = useModal(<HarvestModal />, null, null);
+
   const totalSushiBalance =
     Number(sumEarning) +
     Number(_.sumBy(farmBalances, "lockedSushi")) +
@@ -345,7 +352,7 @@ const Account = () => {
       title: "Harvestable",
       sushi: formattedNum(sumEarning, false),
       usd: formattedNum(sumEarning * priceUSD, true),
-      cta: <Linker title="Harvest" to="/" />,
+      cta: <Button title="Harvest" onClick={onPresentHarvest} />,
     },
     {
       title: "Locked (2/3)",

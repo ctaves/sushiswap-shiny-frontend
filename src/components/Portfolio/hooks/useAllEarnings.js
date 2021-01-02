@@ -16,6 +16,7 @@ const useAllEarnings = () => {
     const balances = await Promise.all(farms.map(({ pid }) => getEarned(masterChefContract, pid, account)));
     setBalance(balances);
   }, [account, masterChefContract, sushi]);
+
   useEffect(() => {
     if (account && masterChefContract && sushi) {
       fetchAllBalances();

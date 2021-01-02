@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useWallet } from "use-wallet";
+import { useActiveWeb3React } from "../../../services/exchange/hooks";
+
 import useReward from "../../../services/frontend/hooks/useReward";
 import Value from "../../Cards/Balance/Value";
 
 const ColumnEarnings = ({ pool }) => {
-  const { account } = useWallet();
+  const { account } = useActiveWeb3React();
   const [pendingTx, setPendingTx] = useState(false);
   const { onReward } = useReward(pool.pid);
 

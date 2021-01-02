@@ -2,7 +2,7 @@ import BigNumber from "bignumber.js";
 import React, { useEffect, useState, useCallback, useMemo } from "react";
 import ExpandButton from "../../Buttons/ExpandButton";
 import useSushi from "../../../services/frontend/hooks/useSushi";
-import { useWallet } from "use-wallet";
+import { useActiveWeb3React } from "../../../services/exchange/hooks";
 import { getContract } from "../../../services/frontend/utils/erc20";
 import { contractAddresses } from "../../../services/frontend/sushi/lib/constants";
 import { getXSushiSupply, getTotalSushiStakedInBar } from "../../../services/frontend/sushi/utils";
@@ -18,7 +18,7 @@ import useAllStakedValue from "../../../services/frontend/hooks/useAllStakedValu
 import useFarms from "../../../services/frontend/hooks/useFarms";
 
 const Layout = () => {
-  const { account } = useWallet();
+  const { account } = useActiveWeb3React();
   return <>{account ? <Balances /> : <Loading />}</>;
 };
 

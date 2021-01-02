@@ -251,7 +251,7 @@ const App = () => {
       </>
       {/* ) : (
         <BackgroundStars>
-          <CoinLoader />
+          <CoinLoader size={"lg"}/>
         </BackgroundStars>
       )} */}
     </>

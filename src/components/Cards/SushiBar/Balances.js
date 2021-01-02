@@ -3,7 +3,8 @@ import React, { useEffect, useState, useCallback, useMemo } from "react";
 import { Link } from "react-router-dom";
 import ExpandButton from "../../Buttons/ExpandButton";
 import useSushi from "../../../services/frontend/hooks/useSushi";
-import { useWallet } from "use-wallet";
+import { useActiveWeb3React } from "../../../services/exchange/hooks";
+
 import { getContract } from "../../../services/frontend/utils/erc20";
 import { contractAddresses } from "../../../services/frontend/sushi/lib/constants";
 import { getXSushiSupply, getTotalSushiStakedInBar } from "../../../services/frontend/sushi/utils";
@@ -29,7 +30,7 @@ import xSushiLogo from "../../../assets/img/logo-xsushi-background.png";
 //import SushiBelt from "../Balance/SushiBelt";
 
 const Layout = () => {
-  const { account } = useWallet();
+  const { account } = useActiveWeb3React();
   return <>{account ? <Balances /> : <ConnectWallet />}</>;
 };
 
@@ -76,7 +77,8 @@ const Balances = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const { account, ethereum } = useWallet();
+  const { account } = useActiveWeb3React();
+  const { ethereum } = window;
   const { tokenAddress } = {
     tokenAddress: contractAddresses.xSushi[1],
   };

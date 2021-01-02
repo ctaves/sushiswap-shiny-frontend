@@ -7,7 +7,7 @@ import StakeSushi from "./StakeSushi";
 import UnstakeSushi from "./UnstakeSushi";
 import ExpandButton from "../../Buttons/ExpandButton";
 //Summary Statistics
-import { useWallet } from "use-wallet";
+import { useActiveWeb3React } from "../../../services/exchange/hooks";
 import useTokenBalance from "../../../services/frontend/hooks/useTokenBalance";
 import useSushi from "../../../services/frontend/hooks/useSushi";
 import { getSushiAddress, getSushiSupply } from "../../../services/frontend/sushi/utils";
@@ -22,7 +22,7 @@ const BalanceCard = () => {
   const [totalSupply, setTotalSupply] = useState();
   const sushi = useSushi();
   const sushiBalance = useTokenBalance(getSushiAddress(sushi));
-  const { account } = useWallet();
+  const { account } = useActiveWeb3React();
   useEffect(() => {
     async function fetchTotalSupply() {
       const supply = await getSushiSupply(sushi);

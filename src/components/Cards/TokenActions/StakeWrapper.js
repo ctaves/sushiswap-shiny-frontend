@@ -1,19 +1,10 @@
 import React, { useCallback, useState, useEffect, useMemo } from "react";
 import useFarm from "../../../services/frontend/hooks/useFarm";
-import { useWallet } from "use-wallet";
 import { getContract } from "../../../services/frontend/utils/erc20";
 import Stake from "./Stake";
 
 const StakeWrapper = ({ farmId, apy, setSelected }) => {
-  const {
-    pid,
-    lpToken,
-    lpTokenAddress,
-    tokenAddress,
-    earnToken,
-    name,
-    icon,
-  } = useFarm(farmId) || {
+  const { pid, lpToken, lpTokenAddress, tokenAddress, earnToken, name, icon } = useFarm(farmId) || {
     pid: 0,
     lpToken: "",
     lpTokenAddress: "",
@@ -27,7 +18,8 @@ const StakeWrapper = ({ farmId, apy, setSelected }) => {
     window.scrollTo(0, 0);
   }, []);
 
-  const { ethereum } = useWallet();
+  //const { ethereum } = useWallet();
+  const { ethereum } = window;
   const lpContract = useMemo(() => {
     return getContract(ethereum, lpTokenAddress);
   }, [ethereum, lpTokenAddress]);
@@ -39,13 +31,7 @@ const StakeWrapper = ({ farmId, apy, setSelected }) => {
   //console.log("EARNED:", farmId, earnToken);
 
   return (
-    <Stake
-      lpContract={lpContract}
-      pid={pid}
-      tokenName={lpToken.toUpperCase()}
-      apy={apy}
-      setSelected={setSelected}
-    />
+    <Stake lpContract={lpContract} pid={pid} tokenName={lpToken.toUpperCase()} apy={apy} setSelected={setSelected} />
   );
 };
 

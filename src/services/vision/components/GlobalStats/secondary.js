@@ -28,7 +28,7 @@ export default function GlobalStats() {
   const below1295 = useMedia("(max-width: 1295px)");
   const below1180 = useMedia("(max-width: 1180px)");
   const below1024 = useMedia("(max-width: 1024px)");
-  const below400 = useMedia("(max-width: 400px)");
+  const below500 = useMedia("(max-width: 500px)");
   const below816 = useMedia("(max-width: 816px)");
 
   //const [showPriceCard, setShowPriceCard] = useState(false);
@@ -49,7 +49,7 @@ export default function GlobalStats() {
     <Header>
       <RowBetween style={{ padding: below816 ? "0.5rem" : ".5rem" }}>
         <RowFixed>
-          {!below400 ? "" : <img className="h-6 w-6 mr-2" src={SushiLogo} />}
+          {!below500 ? "" : <img className="h-6 w-6 mr-2" src={SushiLogo} />}
           <TYPE.main mr={"1rem"} style={{ position: "relative" }}>
             <Strong>SUSHI:</Strong>{" "}
             <Medium>
@@ -62,13 +62,13 @@ export default function GlobalStats() {
               {formattedEthPrice} {!below816 ? ethPriceChange : ""}
             </Medium>
           </TYPE.main>
-          {!below400 && (
+          {!below500 && (
             <TYPE.main mr={"1rem"}>
               <Strong>{!below1024 ? "Transactions (24hr):" : "TXs (24hr):"}</Strong>{" "}
               <Medium>{oneDayTxns > 0 ? localNumber(oneDayTxns) : "-"}</Medium>
             </TYPE.main>
           )}
-          {/* {!below400 && (
+          {/* {!below500 && (
             <TYPE.main
               mr={"1rem"}
                 onMouseEnter={() => {

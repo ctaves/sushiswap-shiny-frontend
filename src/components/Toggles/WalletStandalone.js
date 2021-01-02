@@ -1,10 +1,11 @@
 import React from "react";
-import { useWallet } from "use-wallet";
+import { useActiveWeb3React } from "../../services/exchange/hooks";
+
 import WalletsModal from "../Modals/Wallets";
 import useModal from "../../shared/hooks/useModal";
 
 const Toggle = () => {
-  const { account } = useWallet();
+  const { account } = useActiveWeb3React();
   const [onPresentWallets] = useModal(<WalletsModal />, null, null);
   return (
     <>

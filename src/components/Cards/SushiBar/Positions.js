@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import useSushi from "../../../services/frontend/hooks/useSushi";
-import { useWallet } from "use-wallet";
+import { useActiveWeb3React } from "../../../services/exchange/hooks";
 import { getContract } from "../../../services/frontend/utils/erc20";
 import { contractAddresses } from "../../../services/frontend/sushi/lib/constants";
 import { getXSushiSupply, getTotalSushiStakedInBar } from "../../../services/frontend/sushi/utils";
@@ -41,7 +41,7 @@ import useModal from "../../../shared/hooks/useModal";
 //import { useActiveWeb3React } from "../../../services/exchange/hooks";
 
 const Layout = () => {
-  const { account } = useWallet();
+  const { account } = useActiveWeb3React();
   return <>{account ? <Account account={account} /> : <ConnectWallet />}</>;
 };
 
@@ -160,7 +160,7 @@ const Account = ({ account }) => {
   console.log("POSITIONS", positions);
   const transactions = useUserTransactions(account);
 
-  const { ethereum } = useWallet();
+  const { ethereum } = window;
   const [mergedPositions, setMergedPositions] = useState();
 
   useEffect(() => {

@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { useWallet } from "use-wallet";
+import { useActiveWeb3React } from "../../../services/exchange/hooks";
 //import {getBalanceNumber} from '../../../utils/formatBalance'
 import { getContract } from "../../../services/frontend/utils/erc20";
 import { contractAddresses } from "../../../services/frontend/sushi/lib/constants";
@@ -9,7 +9,8 @@ import WithdrawModal from "../../../services/frontend/views/StakeXSushi/componen
 import useLeave from "../../../services/frontend/hooks/useLeave";
 
 const StakeSushi = () => {
-  const { account, ethereum } = useWallet();
+  const { account } = useActiveWeb3React();
+  const { ethereum } = window;
   const { tokenAddress } = {
     tokenAddress: contractAddresses.xSushi[1],
   };

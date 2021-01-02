@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useWallet } from "use-wallet";
+import { useActiveWeb3React } from "../../../../services/exchange/hooks";
 import useReward from "../../../../services/frontend/hooks/useReward";
 import Value from "../../../Cards/Balance/Value";
 
 import { useTokenData } from "../../../../services/vision/contexts/TokenData";
 
 const Earnings = ({ position }) => {
-  const { account } = useWallet();
+  const { account } = useActiveWeb3React();
   const { priceUSD } = useTokenData("0x6b3595068778dd592e39a122f4f5a5cf09c90fe2");
   const [pendingTx, setPendingTx] = useState(false);
   const { onReward } = useReward(position.pid);

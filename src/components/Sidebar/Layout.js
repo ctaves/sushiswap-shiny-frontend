@@ -32,9 +32,10 @@ const Sidebar = ({ selected }) => {
             </a> */}
           </p>
         </div>
+        <AccountDropdown />
         {/* Sidebar component, swap this element with another sidebar if you like */}
         <div className="sushi-h-0 sushi-flex-1 sushi-flex sushi-flex-col sushi-overflow-y-auto">
-          <AccountDropdown />
+          {/* <AccountDropdown /> */}
           {/* Sidebar Search */}
           {/* <SidebarSearch /> */}
           {/* Navigation */}

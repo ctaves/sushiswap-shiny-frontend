@@ -2,7 +2,6 @@ import BigNumber from "bignumber.js";
 import React, { useEffect, useState, useCallback, useMemo } from "react";
 import ExpandButton from "../../Buttons/ExpandButton";
 import useSushi from "../../../services/frontend/hooks/useSushi";
-import { useWallet } from "use-wallet";
 import { getContract } from "../../../services/frontend/utils/erc20";
 import { contractAddresses } from "../../../services/frontend/sushi/lib/constants";
 import { getXSushiSupply, getTotalSushiStakedInBar } from "../../../services/frontend/sushi/utils";
@@ -22,7 +21,8 @@ const Balances = ({ title, showWallets }) => {
   const [totalSupply, setTotalSupply] = useState();
   const [totalStaked, setTotalStaked] = useState();
   const sushi = useSushi();
-  const { ethereum } = useWallet();
+  //const { ethereum } = useWallet();
+  const { ethereum } = window;
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

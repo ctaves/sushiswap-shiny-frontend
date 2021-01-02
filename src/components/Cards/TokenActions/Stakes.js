@@ -5,7 +5,7 @@ import StakeWrapper from "./StakeWrapper";
 //import { getFarms } from "../../../services/frontend/sushi/utils";
 import useAllStakedValue from "../../../services/frontend/hooks/useAllStakedValue";
 import useFarms from "../../../services/frontend/hooks/useFarms";
-import { useWallet } from "use-wallet";
+import { useActiveWeb3React } from "../../../services/exchange/hooks";
 import BigNumber from "bignumber.js";
 
 import WalletsModal from "../../Modals/Wallets";
@@ -13,7 +13,7 @@ import useModal from "../../../shared/hooks/useModal";
 
 const APYWrapper = ({ symbol, setSelected }) => {
   const [farms] = useFarms();
-  const { account } = useWallet();
+  const { account } = useActiveWeb3React();
   const stakedValue = useAllStakedValue();
   const sushiIndex = farms.findIndex(({ tokenSymbol }) => tokenSymbol === "SUSHI");
   const sushiPrice =
