@@ -69,6 +69,7 @@ import { FEE_WARNING_TOKENS } from "../../services/vision/constants";
 
 // modals
 import HarvestModal from "./Harvest/Modal";
+import LockedModal from "./Modals/Locked";
 import useModal from "../../shared/hooks/useModal";
 
 import _ from "lodash";
@@ -330,9 +331,6 @@ const Account = () => {
   //console.log("FARM BALANCES:", farmBalances);
   //console.log("FARM VALUE: ", _.sumBy(farmBalances, "valueUSD"));
 
-  // initialize Harvest modal
-  const [onPresentHarvest] = useModal(<HarvestModal />, null, null);
-
   const totalSushiBalance =
     Number(sumEarning) +
     Number(_.sumBy(farmBalances, "lockedSushi")) +
@@ -347,6 +345,10 @@ const Account = () => {
   //   staked: Number(barStaked),
   // });
 
+  // initialize modals
+  const [onPresentHarvest] = useModal(<HarvestModal />, null, null, null);
+  const [onPresentLocked] = useModal(<LockedModal />, null, null, null);
+
   const balances = [
     {
       title: "Harvestable",
@@ -358,7 +360,7 @@ const Account = () => {
       title: "Locked (2/3)",
       sushi: decimalFormatter.format(_.sumBy(farmBalances, "lockedSushi")) + " SUSHI",
       usd: currencyFormatter.format(_.sumBy(farmBalances, "lockedSushiUSD")),
-      cta: <Linker title="Learn more" to="https://docs.sushiswap.fi" external />,
+      cta: <Button title="Learn more" onClick={onPresentLocked} />, //<Linker title="Learn more" to="https://docs.sushiswap.fi" external />,
     },
     {
       title: "Unstaked",

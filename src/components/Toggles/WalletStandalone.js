@@ -6,7 +6,7 @@ import useModal from "../../shared/hooks/useModal";
 
 const Toggle = () => {
   const { account } = useActiveWeb3React();
-  const [onPresentWallets] = useModal(<WalletsModal />, null, null);
+  const [onPresentWallets] = useModal(<WalletsModal />, null, null, null);
   return (
     <>
       <div className="sushi-flex sushi-items-center">

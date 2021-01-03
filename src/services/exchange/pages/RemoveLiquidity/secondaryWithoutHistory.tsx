@@ -7,7 +7,7 @@ import { ArrowDown, Plus } from "react-feather";
 import ReactGA from "react-ga";
 //import { RouteComponentProps } from "react-router";
 //import { RouteComponentProps, useHistory } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+//import { useHistory } from "react-router-dom";
 import { Text } from "rebass";
 import { ThemeContext } from "styled-components";
 import { ButtonPrimary, ButtonLight, ButtonError, ButtonConfirmed } from "../../components/Button/secondary";
@@ -45,7 +45,9 @@ import { useUserDeadline, useUserSlippageTolerance } from "../../state/user/hook
 import { BigNumber } from "@ethersproject/bignumber";
 
 export default function RemoveLiquidity({ currencyIdA, currencyIdB }) {
-  const history = useHistory();
+  // if modal reaching for context outside of router need to pass history,
+  // if component on page then just use useHistory;
+
   const [currencyA, currencyB] = [useCurrency(currencyIdA) ?? undefined, useCurrency(currencyIdB) ?? undefined];
   const { account, chainId, library } = useActiveWeb3React();
   const [tokenA, tokenB] = useMemo(() => [wrappedCurrency(currencyA, chainId), wrappedCurrency(currencyB, chainId)], [
@@ -433,23 +435,25 @@ export default function RemoveLiquidity({ currencyIdA, currencyIdB }) {
 
   const handleSelectCurrencyA = useCallback(
     (currency: Currency) => {
-      if (currencyIdB && currencyId(currency) === currencyIdB) {
-        history.push(`/remove/${currencyId(currency)}/${currencyIdA}`);
-      } else {
-        history.push(`/remove/${currencyId(currency)}/${currencyIdB}`);
-      }
+      //   if (currencyIdB && currencyId(currency) === currencyIdB) {
+      //     history.push(`/remove/${currencyId(currency)}/${currencyIdA}`);
+      //   } else {
+      //     history.push(`/remove/${currencyId(currency)}/${currencyIdB}`);
+      //   }
     },
-    [currencyIdA, currencyIdB, history]
+    //[currencyIdA, currencyIdB, history]
+    [currencyIdA, currencyIdB]
   );
   const handleSelectCurrencyB = useCallback(
     (currency: Currency) => {
-      if (currencyIdA && currencyId(currency) === currencyIdA) {
-        history.push(`/remove/${currencyIdB}/${currencyId(currency)}`);
-      } else {
-        history.push(`/remove/${currencyIdA}/${currencyId(currency)}`);
-      }
+      //   if (currencyIdA && currencyId(currency) === currencyIdA) {
+      //     history.push(`/remove/${currencyIdB}/${currencyId(currency)}`);
+      //   } else {
+      //     history.push(`/remove/${currencyIdA}/${currencyId(currency)}`);
+      //   }
     },
-    [currencyIdA, currencyIdB, history]
+    //[currencyIdA, currencyIdB, history]
+    [currencyIdA, currencyIdB]
   );
 
   const handleDismissConfirmation = useCallback(() => {
@@ -470,7 +474,7 @@ export default function RemoveLiquidity({ currencyIdA, currencyIdB }) {
   return (
     <>
       <Wrapper>
-        <TransactionConfirmationModal
+        {/* <TransactionConfirmationModal
           isOpen={showConfirm}
           onDismiss={handleDismissConfirmation}
           attemptingTxn={attemptingTxn}
@@ -484,7 +488,7 @@ export default function RemoveLiquidity({ currencyIdA, currencyIdB }) {
             />
           )}
           pendingText={pendingText}
-        />
+        /> */}
         <AutoColumn gap="md">
           <LightCard>
             <AutoColumn gap="20px">
@@ -554,7 +558,7 @@ export default function RemoveLiquidity({ currencyIdA, currencyIdB }) {
                       </Text>
                     </RowFixed>
                   </RowBetween>
-                  {chainId && (oneCurrencyIsWETH || oneCurrencyIsETH) ? (
+                  {/* {chainId && (oneCurrencyIsWETH || oneCurrencyIsETH) ? (
                     <RowBetween style={{ justifyContent: "flex-end" }}>
                       {oneCurrencyIsETH ? (
                         <StyledInternalLink
@@ -574,7 +578,7 @@ export default function RemoveLiquidity({ currencyIdA, currencyIdB }) {
                         </StyledInternalLink>
                       ) : null}
                     </RowBetween>
-                  ) : null}
+                  ) : null} */}
                 </AutoColumn>
               </LightCard>
             </>

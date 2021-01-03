@@ -11,7 +11,7 @@ import StakeIcon from "../../assets/icons/xsushi.svg";
 // import CompareIcon from "../../assets/icons/comparison.png";
 
 const MenuItems = ({ selected }) => {
-  const [onPresentWechat] = useModal(<WechatModal />, null, null);
+  const [onPresentWechat] = useModal(<WechatModal />, null, null, null);
   return (
     <>
       <div className="space-y-1">

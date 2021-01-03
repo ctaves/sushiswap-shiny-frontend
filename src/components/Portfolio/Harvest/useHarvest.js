@@ -4,7 +4,7 @@ import { useActiveWeb3React } from "../../../services/exchange/hooks";
 import { harvest, getMasterChefContract } from "../../../services/frontend/sushi/utils";
 import { useTransactionAdder } from "../../../services/exchange/state/transactions/hooks";
 
-const useHarvest = (pid) => {
+const useHarvest = (pid, name) => {
   const { account } = useActiveWeb3React();
   const sushi = useSushi();
   const masterChefContract = getMasterChefContract(sushi);
@@ -19,7 +19,7 @@ const useHarvest = (pid) => {
         return addTransaction(
           { hash: tx },
           {
-            summary: "Harvest Rewards",
+            summary: "Harvest Rewards " + name,
           }
         );
         // addTransaction(tx, {

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Linker, Button } from "../../Linker";
 import { isAddress } from "../../../services/vision/utils/index.js";
 import { formattedNum } from "../../../services/vision/utils";
 import { currencyFormatter, decimalFormatter } from "../../../services/analytics/core";
@@ -17,12 +18,7 @@ const Table = ({ positions, farmBalanceUSD }) => {
             <div className="-ml-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-no-wrap">
               <div className="ml-4 mt-4">
                 <h3 className="text-lg leading-6 font-medium text-gray-900">Farms</h3>
-                <Link
-                  to="/farms"
-                  class="font-medium text-orange-600 hover:text-orange-500 transition duration-150 ease-in-out"
-                >
-                  View all farms
-                </Link>
+                <Linker to="/farms">View all farms</Linker>
               </div>
               <div className="ml-4 mt-4 flex-shrink-0">
                 <h3 className="text-lg text-right leading-6 font-medium text-gray-900">{farmBalanceUSD}</h3>
@@ -126,31 +122,16 @@ const Card = ({ position }) => {
               </div>
             </div>
           </div>
-          <div className="mt-3 rounded-md bg-gray-100">
-            <div className="p-2">
+          <div className="mt-4 rounded-md bg-gray-50">
+            <div className="p-2 flex flex justify-around">
               <div>
-                <button
-                  type="button"
-                  className="w-full inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
-                >
-                  Harvest
-                </button>
+                <Button title={"Harvest"} />
               </div>
-              <div className="mt-2">
-                <button
-                  type="button"
-                  className="w-full inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
-                >
-                  Stake
-                </button>
+              <div>
+                <Button title={"Stake"} />
               </div>
-              <div className="mt-2">
-                <button
-                  type="button"
-                  className="w-full inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
-                >
-                  Unstake
-                </button>
+              <div>
+                <Button title={"Unstake"} />
               </div>
             </div>
           </div>
@@ -252,28 +233,13 @@ const TableRow = ({ position }) => {
         </td>
         <td className="table-cell px-6 py-3 whitespace-no-wrap text-sm leading-5 text-gray-500 text-right">
           <div>
-            <Link
-              to={"/remove/"}
-              class="font-medium text-orange-600 hover:text-orange-500 transition duration-150 ease-in-out"
-            >
-              Harvest
-            </Link>
+            <Button title={"Harvest"} />
           </div>
           <div>
-            <Link
-              to={"/remove/"}
-              class="font-medium text-orange-600 hover:text-orange-500 transition duration-150 ease-in-out"
-            >
-              Stake
-            </Link>
+            <Button title={"Stake"} />
           </div>
           <div>
-            <Link
-              to={"/remove/"}
-              class="font-medium text-orange-600 hover:text-orange-500 transition duration-150 ease-in-out"
-            >
-              Unstake
-            </Link>
+            <Button title={"Unstake"} />
           </div>
         </td>
         {/* <td className="table-cell px-6 py-3 whitespace-no-wrap text-sm leading-5 text-gray-900 text-right">

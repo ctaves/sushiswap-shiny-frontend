@@ -4,7 +4,7 @@ import ShareModal from "../Modals/Share";
 import useModal from "../../shared/hooks/useModal";
 
 const PageTitle = ({ logo, title, noBorder }) => {
-  const [onPresentShare] = useModal(<ShareModal />, null, null);
+  const [onPresentShare] = useModal(<ShareModal />, null, null, null);
   return (
     <>
       {/* <div

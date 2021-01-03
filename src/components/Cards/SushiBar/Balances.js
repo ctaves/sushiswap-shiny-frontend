@@ -35,7 +35,7 @@ const Layout = () => {
 };
 
 const ConnectWallet = () => {
-  const [onPresentWallets] = useModal(<WalletsModal />, null, null);
+  const [onPresentWallets] = useModal(<WalletsModal />, null, null, null);
   const { priceUSD } = useTokenData("0x6b3595068778dd592e39a122f4f5a5cf09c90fe2");
   const price = priceUSD ? formattedNum(priceUSD, true) : "";
   return (

@@ -1,8 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { isAddress } from "../../../services/vision/utils/index.js";
-import { formattedNum } from "../../../services/vision/utils";
+import { useHistory } from "react-router-dom";
+import { Linker, Button } from "../../Linker";
+import { isAddress, formattedNum } from "../../../services/vision/utils";
 import logoNotFound from "../../../assets/img/logoNotFound.png";
+
+import AddLiquidityModal from "../Modals/AddLiquidity";
+import RemoveLiquidityModal from "../Modals/RemoveLiquidity";
+import useModal from "../../../shared/hooks/useModal";
 
 const Table = ({ positions, ethPrice, LPBalanceUSD }) => {
   return (
@@ -14,12 +18,7 @@ const Table = ({ positions, ethPrice, LPBalanceUSD }) => {
             <div className="-ml-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-no-wrap">
               <div className="ml-4 mt-4">
                 <h3 className="text-lg leading-6 font-medium text-gray-900">Liquidity Positions</h3>
-                <Link
-                  to="/pairs"
-                  class="font-medium text-orange-600 hover:text-orange-500 transition duration-150 ease-in-out"
-                >
-                  View all pairs
-                </Link>
+                <Linker to="/pairs">View all pairs</Linker>
               </div>
               <div className="ml-4 mt-4 flex-shrink-0">
                 <h3 className="text-lg text-right leading-6 font-medium text-gray-900">{LPBalanceUSD}</h3>
@@ -29,25 +28,23 @@ const Table = ({ positions, ethPrice, LPBalanceUSD }) => {
           {/* Main content */}
           <main className="flex-1 relative z-0 overflow-y-auto focus:outline-none" tabIndex={0}>
             <div className="block">
-              <div className="align-middle inline-block min-w-full">
-                <div className="align-middle inline-block min-w-full">
-                  <table className="hidden sm:table min-w-full table-fixed">
-                    <TableHead />
-                    <tbody className="bg-white divide-y divide-gray-100">
-                      {positions &&
-                        positions.map((position) => {
-                          return <TableRow position={position} ethPrice={ethPrice} />;
-                        })}
-                    </tbody>
-                  </table>
-                  <div className="block sm:hidden">
-                    <ul className="divide-y divide-gray-200 overflow-hidden shadow sm:hidden">
-                      {positions &&
-                        positions.map((position) => {
-                          return <Card position={position} ethPrice={ethPrice} />;
-                        })}
-                    </ul>
-                  </div>
+              <div className="align-middle inline-block min-w-full border-b border-gray-200">
+                <table className="hidden sm:table min-w-full table-fixed">
+                  <TableHead />
+                  <tbody className="bg-white divide-y divide-gray-100">
+                    {positions &&
+                      positions.map((position) => {
+                        return <TableRow position={position} ethPrice={ethPrice} />;
+                      })}
+                  </tbody>
+                </table>
+                <div className="block sm:hidden">
+                  <ul className="divide-y divide-gray-200 overflow-hidden shadow sm:hidden">
+                    {positions &&
+                      positions.map((position) => {
+                        return <Card position={position} ethPrice={ethPrice} />;
+                      })}
+                  </ul>
                 </div>
               </div>
             </div>
@@ -59,8 +56,23 @@ const Table = ({ positions, ethPrice, LPBalanceUSD }) => {
 };
 
 const Card = ({ position, ethPrice }) => {
+  const history = useHistory();
   const poolOwnership = position.liquidityTokenBalance / position.pair.totalSupply;
   const valueUSD = poolOwnership * position.pair.reserveUSD;
+  //console.log("POSITION:", position);
+  const [onAddLiquidity] = useModal(
+    <AddLiquidityModal />,
+    null,
+    { token0: position.pair.token0.id, token1: position.pair.token1.id },
+    null
+  );
+  const [onRemoveLiquidity] = useModal(
+    <RemoveLiquidityModal />,
+    null,
+    { token0: position.pair.token0.id, token1: position.pair.token1.id },
+    null
+  );
+
   return (
     <>
       <li>
@@ -91,9 +103,9 @@ const Card = ({ position, ethPrice }) => {
               </div>
               <div className="text-left text-cool-gray-500 text-sm truncate">
                 <div>
-                  <Link to={"/pair/" + position.pair.id} className="truncate hover:text-gray-600">
+                  <Linker to={"/pair/" + position.pair.id}>
                     <span>{position.pair.token0.symbol + "-" + position.pair.token1.symbol}</span>
-                  </Link>
+                  </Linker>
                 </div>
                 <div className="mt-2">
                   <div className="text-gray-900">{formattedNum(valueUSD, true, true)}</div>
@@ -130,20 +142,10 @@ const Card = ({ position, ethPrice }) => {
               </div>
             </div>
           </div>
-          <div className="mt-3 rounded-md bg-gray-100">
-            <div className="p-2 flex">
-              <button
-                type="button"
-                className="w-full mr-1 inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
-              >
-                Add
-              </button>
-              <button
-                type="button"
-                className="w-full ml-1 inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
-              >
-                Remove
-              </button>
+          <div className="mt-3 rounded-md bg-gray-50">
+            <div className="p-2 flex justify-around">
+              <Button title="Add" onClick={onAddLiquidity} />
+              <Button title="Remove" onClick={onRemoveLiquidity} />
             </div>
           </div>
         </a>
@@ -174,9 +176,22 @@ const TableHead = () => {
 };
 
 const TableRow = ({ position, ethPrice }) => {
+  const history = useHistory();
   const poolOwnership = position.liquidityTokenBalance / position.pair.totalSupply;
   const valueUSD = poolOwnership * position.pair.reserveUSD;
   //console.log("POSITION:", position);
+  const [onAddLiquidity] = useModal(
+    <AddLiquidityModal />,
+    null,
+    { token0: position.pair.token0.id, token1: position.pair.token1.id },
+    null
+  );
+  const [onRemoveLiquidity] = useModal(
+    <RemoveLiquidityModal />,
+    null,
+    { token0: position.pair.token0.id, token1: position.pair.token1.id },
+    null
+  );
   return (
     <>
       <tr>
@@ -206,9 +221,9 @@ const TableRow = ({ position, ethPrice }) => {
             </div>
             <div className="flex items-center space-x-3 lg:pl-2">
               {/* <div className="flex-shrink-0 w-2.5 h-2.5 rounded-full bg-pink-600" /> */}
-              <Link to={"/pair/" + position.pair.id} className="truncate hover:text-gray-600">
+              <Linker to={"/pair/" + position.pair.id}>
                 <span>{position.pair.token0.symbol + "-" + position.pair.token1.symbol}</span>
-              </Link>
+              </Linker>
             </div>
           </div>
         </td>
@@ -246,20 +261,10 @@ const TableRow = ({ position, ethPrice }) => {
         </td>
         <td className="table-cell px-6 py-3 whitespace-no-wrap text-sm leading-5 text-gray-500 text-right">
           <div>
-            <Link
-              to={"/remove/"}
-              class="font-medium text-orange-600 hover:text-orange-500 transition duration-150 ease-in-out"
-            >
-              Add
-            </Link>
+            <Button title="Add" onClick={onAddLiquidity} />
           </div>
           <div>
-            <Link
-              to={"/remove/"}
-              class="font-medium text-orange-600 hover:text-orange-500 transition duration-150 ease-in-out"
-            >
-              Remove
-            </Link>
+            <Button title="Remove" onClick={onRemoveLiquidity} />
           </div>
         </td>
         {/* <td className="pr-6">

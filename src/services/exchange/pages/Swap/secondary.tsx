@@ -52,7 +52,7 @@ import useModal from "../../../../shared/hooks/useModal";
 
 export default function Swap({ outputCurrency }) {
   // @ts-ignore
-  // const [onPresentWallets] = useModal(<WalletsModal />, null, null);
+  // const [onPresentWallets] = useModal(<WalletsModal />, null, null, null);
   const loadedUrlParams = useDefaultsFromURLSearch(outputCurrency);
 
   // const formattedOutputCurrency = isAddress(outputCurrency);

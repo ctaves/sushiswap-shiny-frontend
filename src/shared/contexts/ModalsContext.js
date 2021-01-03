@@ -1,6 +1,5 @@
 import React, { createContext, useCallback, useState } from "react";
 import Transition from "../../components/Transition";
-import styled from "styled-components";
 export const Context = createContext({
   onPresent: () => {},
   onDismiss: () => {},
@@ -9,8 +8,12 @@ const Modals = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [content, setContent] = useState();
   const [modalKey, setModalKey] = useState();
+  const [history, setHistory] = useState();
+  const [data, setData] = useState();
   const handlePresent = useCallback(
-    (modalContent, key) => {
+    (modalContent, key, data, history) => {
+      setData(data);
+      setHistory(history);
       setModalKey(key);
       setContent(modalContent);
       setIsOpen(true);
@@ -24,6 +27,8 @@ const Modals = ({ children }) => {
   return (
     <Context.Provider
       value={{
+        history,
+        data,
         content,
         isOpen,
         onPresent: handlePresent,
@@ -60,6 +65,8 @@ const Modals = ({ children }) => {
                 {React.isValidElement(content) &&
                   React.cloneElement(content, {
                     onDismiss: handleDismiss,
+                    history: history,
+                    data: data,
                   })}
               </Transition>
             </div>
@@ -69,23 +76,5 @@ const Modals = ({ children }) => {
     </Context.Provider>
   );
 };
-const StyledModalWrapper = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-`;
-const StyledModalBackdrop = styled.div`
-  background-color: ${(props) => props.theme.color.grey[600]}aa;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-`;
+
 export default Modals;

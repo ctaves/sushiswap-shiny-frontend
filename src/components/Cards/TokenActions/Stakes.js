@@ -41,7 +41,7 @@ const APYWrapper = ({ symbol, setSelected }) => {
   return <Stakes rows={rows} symbol={symbol} account={account} setSelected={setSelected} />;
 };
 const Stakes = ({ symbol, rows, account, setSelected, showWallets }) => {
-  const [onPresentWallets] = useModal(<WalletsModal />, null, null);
+  const [onPresentWallets] = useModal(<WalletsModal />, null, null, null);
   // const sushi = useSushi();
   // const farms = getFarms(sushi);
   // const { account } = useWallet();

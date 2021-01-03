@@ -46,7 +46,7 @@ const Layout = () => {
 };
 
 const ConnectWallet = () => {
-  const [onPresentWallets] = useModal(<WalletsModal />, null, null);
+  const [onPresentWallets] = useModal(<WalletsModal />, null, null, null);
   return (
     <>
       <div className="flex overflow-hidden bg-white">

@@ -32,7 +32,7 @@ const BalanceCard = () => {
       fetchTotalSupply();
     }
   }, [sushi, setTotalSupply]);
-  const [onPresentWallets] = useModal(<WalletsModal />, null, null);
+  const [onPresentWallets] = useModal(<WalletsModal />, null, null, null);
   return (
     <div className="sushi-flex sushi-flex-col sushi-rounded-lg sushi-border sushi-border-gray-200 sushi-overflow-hidden">
       <div className="sushi-flex-1 sushi-bg-white sushi-p-6 sushi-flex sushi-flex-col sushi-justify-between">
