@@ -103,7 +103,7 @@ SLP Address on mainnet for reference
 // const ethereum = await axios.get("https://etherchain.org/api/basic_stats");
 // console.log("ETH:", ethereum);
 export const ethBlockTime = 13.314272573969033;
-export const sushiRewardsPerBlock = 70;
+export const sushiRewardsPerBlock = 60;
 export const votingURL = "https://forum.sushiswapclassic.org/t/pool-rotation-menu-of-the-week-week-46/1154";
 
 const menuSetup = {
@@ -1018,7 +1018,7 @@ export const supportedPools = [
     icon: "♨️",
     uniswapPair: "FNX/ETH",
     lpToken: "0xaa500101c73065f755ba9b902d643705ef2523e3",
-    allocPoint: "20",
+    allocPoint: "10",
   },
   {
     pid: 92,
@@ -1355,7 +1355,7 @@ export const supportedPools = [
     icon: "♨️",
     uniswapPair: "ALPA/ETH",
     lpToken: "0xca658217ce94dfb2156a49a8fad0ff752cac39c2",
-    allocPoint: "10",
+    allocPoint: "0",
   },
 
   // Previous Menus of the Week
