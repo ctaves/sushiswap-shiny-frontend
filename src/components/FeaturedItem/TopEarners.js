@@ -113,25 +113,23 @@ function PairList({ pairs, itemMax = 10 }) {
 const PairCard = ({ id, token0, token1, apy }) => {
   const below600 = useMedia("(max-width: 600px)");
   return (
-    <>
-      <Link to={"/pair/" + id}>
-        <div className="w-32 h-44 mr-4 flex flex-col justify-between border border-gray-300 hover:bg-gray-100 rounded-md p-4">
-          <div>
-            <div className="text-sm font-semibold">
-              <FormattedName
-                text={token0.symbol + "-" + token1.symbol}
-                maxCharacters={below600 ? 8 : 16}
-                adjustSize={true}
-              />
-            </div>
-          </div>
-          <div>
-            <div className="text-2xl font-semibold text-green-finance">{apy}</div>
-            {/* <div className="text-sm text-green-finance">APY</div> */}
+    <Link to={"/pair/" + id}>
+      <div className="w-32 h-44 mr-4 flex flex-col justify-between border border-gray-300 hover:bg-gray-100 rounded-md p-4">
+        <div>
+          <div className="text-sm font-semibold">
+            <FormattedName
+              text={token0.symbol + "-" + token1.symbol}
+              maxCharacters={below600 ? 8 : 16}
+              adjustSize={true}
+            />
           </div>
         </div>
-      </Link>
-    </>
+        <div>
+          <div className="text-2xl font-semibold text-green-finance">{apy}</div>
+          {/* <div className="text-sm text-green-finance">APY</div> */}
+        </div>
+      </div>
+    </Link>
   );
 };
 

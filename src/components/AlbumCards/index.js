@@ -222,13 +222,14 @@ const AlbumCard = ({ color, icon, title, subtitle, subtext, type }) => {
         document.body.removeEventListener("mouseleave", () => {});
         document.body.removeEventListener("mouseenter", () => {});
         window.cancelAnimationFrame(requestRef.current);
-        scene = null;
-        camera = null;
         renderer.forceContextLoss();
         //renderer.context = null;
-        renderer.domElement = null;
         renderer.renderLists.dispose();
         renderer.dispose();
+
+        scene = null;
+        camera = null;
+        renderer.domElement = null;
         renderer = null;
       };
     }

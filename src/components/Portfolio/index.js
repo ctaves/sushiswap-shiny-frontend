@@ -98,7 +98,7 @@ const Account = () => {
             fetchPolicy: "cache-first",
           });
 
-          console.log("LP SNAPSHOT:", result.data.liquidityPositionSnapshots);
+          //console.log("LP SNAPSHOT:", result.data.liquidityPositionSnapshots);
 
           allResults = allResults.concat(result.data.liquidityPositionSnapshots);
           if (result.data.liquidityPositionSnapshots.length < 1000) {
@@ -149,8 +149,8 @@ const Account = () => {
     fetchData(account);
   }, [account, snapshots]);
 
-  console.log("POSITIONS:", positions);
-  console.log("SNAPSHOTS:", snapshots);
+  //console.log("POSITIONS:", positions);
+  //console.log("SNAPSHOTS:", snapshots);
 
   // Get Sushi Price in USD
   const { priceUSD } = useTokenData("0x6b3595068778dd592e39a122f4f5a5cf09c90fe2");
@@ -210,7 +210,7 @@ const Account = () => {
     },
   });
 
-  console.log("token:", token);
+  //console.log("token:", token);
   const { data: { pairs } = {} } = useQuery(pairsQuery);
 
   // Sushi Price
@@ -221,8 +221,8 @@ const Account = () => {
   const barPending =
     (xSushi * parseFloat(barData?.user?.bar?.sushiStaked)) / parseFloat(barData?.user?.bar?.totalSupply);
 
-  console.log("barPending:", barPending, xSushi, barData?.user?.bar?.sushiStaked, barData?.user?.bar?.totalSupply);
-  console.log("sushiPrice:", sushiPrice, token, parseFloat(token?.derivedETH), parseFloat(bundles?.[0].ethPrice));
+  //console.log("barPending:", barPending, xSushi, barData?.user?.bar?.sushiStaked, barData?.user?.bar?.totalSupply);
+  //console.log("sushiPrice:", sushiPrice, token, parseFloat(token?.derivedETH), parseFloat(bundles?.[0].ethPrice));
   const xSushiTransfered =
     barData?.user?.xSushiIn > barData?.user?.xSushiOut
       ? parseFloat(barData?.user?.xSushiIn) - parseFloat(barData?.user?.xSushiOut)
@@ -277,8 +277,8 @@ const Account = () => {
   const barRoiDailySushi = ((barPending + barRoiSushi - barStaked) / blockDifference) * 6440;
   const investments = farmingStaked + barPendingUSD + farmingPending;
 
-  console.log("ACCOUNTS:", account, id);
-  console.log("INVESTMENTS:", investments, farmingStaked, barPendingUSD, farmingPending);
+  //console.log("ACCOUNTS:", account, id);
+  //console.log("INVESTMENTS:", investments, farmingStaked, barPendingUSD, farmingPending);
 
   let farmBalances = [];
 
@@ -297,8 +297,8 @@ const Account = () => {
     const sushiLocked = (parseFloat(user.sushiHarvestedSinceLockup) + pendingSushi - sushiAtLockup) * 2;
     const sushiLockedUSD = sushiLocked * sushiPrice;
 
-    console.log("USER:", user);
-    console.log("PAIR:", pair);
+    //console.log("USER:", user);
+    //console.log("PAIR:", pair);
 
     farmBalances.push({
       name: pair?.token0.symbol + "-" + pair?.token1.symbol,
@@ -327,8 +327,8 @@ const Account = () => {
     });
   });
 
-  console.log("FARM BALANCES:", farmBalances);
-  console.log("FARM VALUE: ", _.sumBy(farmBalances, "valueUSD"));
+  //console.log("FARM BALANCES:", farmBalances);
+  //console.log("FARM VALUE: ", _.sumBy(farmBalances, "valueUSD"));
 
   // initialize Harvest modal
   const [onPresentHarvest] = useModal(<HarvestModal />, null, null);
@@ -339,13 +339,13 @@ const Account = () => {
     Number(getBalanceNumber(totalNotStaked)) +
     Number(barStaked);
 
-  console.log("BALANCES:", {
-    totalSushiBalance: totalSushiBalance,
-    sumEarning: sumEarning,
-    lockedSushi: _.sumBy(farmBalances, "lockedSushi"),
-    notStaked: getBalanceNumber(totalNotStaked),
-    staked: Number(barStaked),
-  });
+  // console.log("BALANCES:", {
+  //   totalSushiBalance: totalSushiBalance,
+  //   sumEarning: sumEarning,
+  //   lockedSushi: _.sumBy(farmBalances, "lockedSushi"),
+  //   notStaked: getBalanceNumber(totalNotStaked),
+  //   staked: Number(barStaked),
+  // });
 
   const balances = [
     {
@@ -375,13 +375,13 @@ const Account = () => {
     },
   ];
 
-  console.log("formatted:", totalSushiBalance, formattedNum(totalSushiBalance), formattedNum(totalSushiBalance, true));
-  console.log(
-    "formatted:",
-    totalSushiBalance * sushiPrice,
-    formattedNum(totalSushiBalance * sushiPrice),
-    formattedNum(totalSushiBalance * sushiPrice, true)
-  );
+  // console.log("formatted:", totalSushiBalance, formattedNum(totalSushiBalance), formattedNum(totalSushiBalance, true));
+  // console.log(
+  //   "formatted:",
+  //   totalSushiBalance * sushiPrice,
+  //   formattedNum(totalSushiBalance * sushiPrice),
+  //   formattedNum(totalSushiBalance * sushiPrice, true)
+  // );
 
   let LPBalance = 0;
   positions?.forEach((position) => {

@@ -3,7 +3,7 @@ import { useActiveWeb3React } from "../../../services/exchange/hooks";
 import { getEarnedWithProps, getMasterChefContract, getFarms } from "../../../services/frontend/sushi/utils";
 import useSushi from "../../../services/frontend/hooks/useSushi";
 import useBlock from "../hooks/useBlock";
-import useReward from "../hooks/useReward";
+import useReward from "./useHarvest"; //"../hooks/useReward";
 
 import { client } from "../../../apollo/client";
 import { SUSHI_PAIRS } from "../../../apollo/queries";
@@ -105,10 +105,15 @@ const LPTokenItem = ({ balance, selected, onSelectToken }) => {
       <li
         // selected={selected}
         disabled={!balance.pending || pendingTx}
-        onClick={async () => {
-          setPendingTx(true);
-          await onReward();
-          setPendingTx(false);
+        onClick={async (e) => {
+          if (!pendingTx) {
+            setPendingTx(true);
+            //console.log("pendingTX:", pendingTx);
+            await onReward();
+            setPendingTx(false);
+          } else {
+            e.preventDefault();
+          }
         }}
         role="radio"
         className="group relative rounded-md shadow-sm cursor-pointer focus:outline-none focus:shadow-outline-blue"
