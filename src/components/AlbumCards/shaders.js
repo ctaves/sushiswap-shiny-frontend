@@ -79,6 +79,7 @@ uniform float u_time;
 
 varying float vDistortion;
 varying float xDistortion;
+varying vec2 vUv;
 
 void main() {
     vec3 highColor = rgb(u_highColor.r, u_highColor.g, u_highColor.b);

@@ -37,24 +37,28 @@ const config = {
 
 const cards = [
   {
+    key: "liquidity",
     icon: "Liquidity",
     color: config.colors[0],
     subtitle: <SushiGlobalChart display="liquidity" />,
     type: "chart",
   },
   {
+    key: "volume",
     icon: "Volume",
     color: config.colors[1],
     subtitle: <SushiGlobalChart display="volume" />,
     type: "chart",
   },
   {
+    key: "onsen",
     icon: "New",
     color: config.colors[2],
     title: "Onsen",
     subtext: "New Rewards, New Farms",
   },
   {
+    key: "bentbox",
     icon: "Coming Soon",
     color: config.colors[3],
     title: "BentoBox",
@@ -71,7 +75,7 @@ const AlbumCards = () => {
             {cards.map((card) => {
               return (
                 <AlbumCard
-                  key={"AlbumCard-" + card.icon}
+                  key={"albumcard_" + card.key}
                   type={card.type}
                   color={card.color}
                   icon={card.icon}
@@ -88,7 +92,7 @@ const AlbumCards = () => {
   );
 };
 
-const AlbumCard = ({ color, icon, title, subtitle, subtext, type }) => {
+const AlbumCard = ({ key, color, icon, title, subtitle, subtext, type }) => {
   const ref = useRef(null);
   const requestRef = useRef();
 
@@ -221,7 +225,11 @@ const AlbumCard = ({ color, icon, title, subtitle, subtext, type }) => {
         // remove listeners
         document.body.removeEventListener("mouseleave", () => {});
         document.body.removeEventListener("mouseenter", () => {});
+
         window.cancelAnimationFrame(requestRef.current);
+        ref.current.removeChild(renderer.domElement);
+
+        //renderer.context.getExtension("WEBGL_lose_context").loseContext();
         renderer.forceContextLoss();
         //renderer.context = null;
         renderer.renderLists.dispose();
@@ -233,7 +241,7 @@ const AlbumCard = ({ color, icon, title, subtitle, subtext, type }) => {
         renderer = null;
       };
     }
-  }, []);
+  }, [ref]);
 
   useEffect(() => {
     // Get items
@@ -324,7 +332,7 @@ const AlbumCard = ({ color, icon, title, subtitle, subtext, type }) => {
       document.body.removeEventListener("pointermove", () => {});
       document.body.removeEventListener("wheel", () => {});
     };
-  });
+  }, [ref]);
 
   return (
     <>
