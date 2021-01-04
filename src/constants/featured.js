@@ -1,7 +1,12 @@
+import RocketIcon from "../assets/icons/rocket.png";
+import OnsenIllustration from "../assets/illustrations/onsen.jpg";
+
 export const featured = [
   {
+    // id:
     title: "Onsen",
     path: "/onsen",
+    image: OnsenIllustration,
     pairs: [],
     tokens: [],
   },
@@ -9,11 +14,14 @@ export const featured = [
     id: "daily-movers",
     title: "Daily Movers",
     path: "/lists/daily-movers",
+    image: RocketIcon,
   },
   {
     id: "stablecoins",
     title: "Stablecoins",
     path: "/lists/stablecoins",
+    image:
+      "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
     pairs: [],
     tokens: [
       "0x368b3a58b5f49392e5c9e4c998cb0bb966752e51", //MIC
@@ -30,13 +38,14 @@ export const featured = [
     id: "yearn-fam",
     title: "Yearn Fam",
     path: "/lists/yearn-fam",
+    image:
+      "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x0bc529c00C6401aEF6D220BE8C6Ea1667F6Ad93e/logo.png",
     pairs: [],
     tokens: [
-      "", //YFI
-      "", //SUSHI
-      "", //HEGIC
-      "", //PICKLE
-      "", //CREAM
+      "0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e", //YFI
+      "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2", //SUSHI
+      "0x429881672b9ae42b8eba0e26cd9c73711b891ca5", //PICKLE
+      "0x2ba592f78db6436527729929aaf6c908497cb200", //CREAM
     ],
   },
 ];

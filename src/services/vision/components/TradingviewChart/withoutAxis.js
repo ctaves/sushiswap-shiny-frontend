@@ -181,9 +181,10 @@ const TradingViewChart = ({
           //   }</div>` +
           `<div style="font-size: 22px; margin: 4px 0px; color:${textColor}" >` +
           formattedNum(base ?? 0, true) +
-          // (baseChange
-          //   ? `<span style="margin-left: 10px; font-size: 16px; color: ${color};">${formattedPercentChange}</span>`
-          //   : "") +
+          (baseChange
+            ? //? `<span style="margin-left: 10px; font-size: 16px; color: ${color};">${formattedPercentChange}</span>`
+              `<span style="margin-left: 10px; font-size: 16px; color: rgba(255, 255, 255, 0.750);">${formattedPercentChange}</span>`
+            : "") +
           "</div>";
       }
       setLastBarText();
