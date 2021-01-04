@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Linker } from "../Linker";
 
 import TopMovers from "./TopMovers";
@@ -167,11 +168,13 @@ const Article = ({ title, description, image, token, list }) => {
           </div>
         </div>
         {tokenData && Object.keys(tokenData).length > 0 && (
-          <div className="flex mt-4">
-            <div className="font-semibold mr-2">{tokenData?.symbol}</div>
-            {/* <div> {formattedNum(tokenData.priceUSD, true)}</div> */}
-            <div> {formattedPercentArrow(tokenData?.priceChangeUSD)}</div>
-          </div>
+          <Link to={"/token/" + tokenData.id}>
+            <div className="flex mt-4">
+              <div className="font-semibold mr-2">{tokenData?.symbol}</div>
+              {/* <div> {formattedNum(tokenData.priceUSD, true)}</div> */}
+              <div> {formattedPercentArrow(tokenData?.priceChangeUSD)}</div>
+            </div>
+          </Link>
         )}
       </div>
     </>

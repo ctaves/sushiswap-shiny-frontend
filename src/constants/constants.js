@@ -103,7 +103,7 @@ SLP Address on mainnet for reference
 // const ethereum = await axios.get("https://etherchain.org/api/basic_stats");
 // console.log("ETH:", ethereum);
 export const ethBlockTime = 13.314272573969033;
-export const sushiRewardsPerBlock = 70;
+export const sushiRewardsPerBlock = 60;
 export const votingURL = "https://forum.sushiswapclassic.org/t/pool-rotation-menu-of-the-week-week-46/1154";
 
 const menuSetup = {
@@ -154,6 +154,7 @@ const menuSetup = {
     93,
     94,
     97,
+    100,
   ],
   upcoming: [],
   previous: [
@@ -209,6 +210,11 @@ export const menus = {
     return a;
   }, []),
 };
+
+// For tokens that suffer a protocol exploit
+export const TOKEN_WARNINGS = [
+  "0x5d8d9f5b96f4438195be9b99eee6118ed4304286", // COVER
+];
 
 export const supportedPools = [
   // Permament Menu
@@ -669,13 +675,13 @@ export const supportedPools = [
     tokenAddresses: {
       1: "0x8ab7404063ec4dbcfd4598215992dc3f8ec853d7",
     },
-    name: "Onsen Mid",
+    name: "Onsen Low",
     symbol: "AKRO-ETH SLP",
     tokenSymbol: "AKRO",
     icon: "♨️",
     uniswapPair: "AKRO/ETH",
     lpToken: "0x364248b2f1f57C5402d244b2D469A35B4C0e9dAB",
-    allocPoint: "100",
+    allocPoint: "20",
   },
   {
     pid: 63,
@@ -691,6 +697,22 @@ export const supportedPools = [
     icon: "♨️",
     uniswapPair: "ESD/ETH",
     lpToken: "0xdff71165a646be71fcfbaa6206342faa503aed5d",
+    allocPoint: "100",
+  },
+  {
+    pid: 100,
+    lpAddresses: {
+      1: "0x201e6a9e75df132a8598720433af35fe8d73e94d",
+    },
+    tokenAddresses: {
+      1: "0xa117000000f279d81a1d3cc75430faa017fa5a2e",
+    },
+    name: "Onsen Mid",
+    symbol: "ANT-ETH SLP",
+    tokenSymbol: "ANT",
+    icon: "♨️",
+    uniswapPair: "ANT/ETH",
+    lpToken: "0x201e6a9e75df132a8598720433af35fe8d73e94d",
     allocPoint: "100",
   },
   // {
@@ -996,7 +1018,7 @@ export const supportedPools = [
     icon: "♨️",
     uniswapPair: "FNX/ETH",
     lpToken: "0xaa500101c73065f755ba9b902d643705ef2523e3",
-    allocPoint: "20",
+    allocPoint: "10",
   },
   {
     pid: 92,
@@ -1299,7 +1321,7 @@ export const supportedPools = [
     symbol: "FRONT-USDT SLP",
     tokenSymbol: "FRONT",
     icon: "♨️",
-    uniswapPair: "FRONT/ETH",
+    uniswapPair: "FRONT/USDT",
     lpToken: "0x98c2f9d752e044dc2e1f1743bf0b76a7096eceb2",
     allocPoint: "10",
   },
@@ -1333,7 +1355,7 @@ export const supportedPools = [
     icon: "♨️",
     uniswapPair: "ALPA/ETH",
     lpToken: "0xca658217ce94dfb2156a49a8fad0ff752cac39c2",
-    allocPoint: "10",
+    allocPoint: "0",
   },
 
   // Previous Menus of the Week
