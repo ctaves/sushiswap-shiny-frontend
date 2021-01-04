@@ -12,7 +12,8 @@ export const blocklytics = new ApolloClient({
 
 export const client = new ApolloClient({
   link: new HttpLink({
-    uri: "https://api.thegraph.com/subgraphs/name/zippoxer/sushiswap-subgraph-fork",
+    uri: "https://api.thegraph.com/subgraphs/name/jiro-ono/sushiswap-v1-exchange",
+    //uri: "https://api.thegraph.com/subgraphs/name/zippoxer/sushiswap-subgraph-fork",
     //uri: 'https://api.thegraph.com/subgraphs/id/QmePtiMXjoFp5YiJeraZhp6YsBQNpLKCKQ4q8DFUjrSk5C'
   }),
   cache: new InMemoryCache(),

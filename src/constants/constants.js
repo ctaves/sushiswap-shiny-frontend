@@ -1305,7 +1305,7 @@ export const supportedPools = [
     symbol: "DDX-USDC SLP",
     tokenSymbol: "DDX",
     icon: "♨️",
-    uniswapPair: "DDX/ETH",
+    uniswapPair: "DDX/USDC",
     lpToken: "0xc2b0f2a7f736d3b908bdde8608177c8fc28c1690",
     allocPoint: "10",
   },
