@@ -68,7 +68,7 @@ const Token = ({ address, history }) => {
             <div className="lg:col-span-3">
               <TokenPageTitle name={name} price={price} priceChange={priceChange} symbol={symbol} id={id} />
               <div className="py-2 px-4">
-                <TokenChart address={address} color={"#fa7815"} base={priceUSD} />
+                <TokenChart address={address} color={priceChange < 0 ? "#ff5001" : "#04c806"} base={priceUSD} />
               </div>
               <Details
                 liquidity={liquidity}
@@ -173,7 +173,12 @@ const TokenPageTitle = ({ name, price, priceChange, symbol, id }) => {
                   src={`https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/${isAddress(
                     id
                   )}/logo.png`}
-                  alt={name + " Logo"}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = logoNotFound;
+                    e.preventDefault();
+                  }}
+                  alt=""
                 />
               </div>
               {name}

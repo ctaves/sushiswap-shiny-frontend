@@ -121,7 +121,7 @@ const Token = ({ pairAddress, history }) => {
               <div className="py-2 px-4">
                 <PairChart
                   address={pairAddress}
-                  color={"#1ac760"}
+                  color={liquidityChange < 0 ? "#ff5001" : "#04c806"}
                   base0={reserve1 / reserve0}
                   base1={reserve0 / reserve1}
                 />
@@ -242,8 +242,9 @@ const PairPageTitle = ({ name, price, price2, priceChange, symbol, symbol2, id, 
                   onError={(e) => {
                     e.target.onerror = null;
                     e.target.src = logoNotFound;
+                    e.preventDefault();
                   }}
-                  alt={symbol + " Logo"}
+                  alt=""
                 />
                 <img
                   className="relative z-20 -ml-4 inline-block rounded-full text-white shadow-solid"
@@ -253,8 +254,9 @@ const PairPageTitle = ({ name, price, price2, priceChange, symbol, symbol2, id, 
                   onError={(e) => {
                     e.target.onerror = null;
                     e.target.src = logoNotFound;
+                    e.preventDefault();
                   }}
-                  alt={symbol2 + " Logo"}
+                  alt=""
                 />
               </div>
               {name}
@@ -343,10 +345,11 @@ const Details = ({
                         onError={(e) => {
                           e.target.onerror = null;
                           e.target.src = logoNotFound;
+                          e.preventDefault();
                         }}
                         className="mr-2"
                         style={{ width: "1.125rem", height: "1.125rem" }}
-                        alt={formattedSymbol0 + " Logo"}
+                        alt=""
                       />
                       <span className="ml-2 flex-1 w-0 truncate">
                         {token0 && token1
@@ -376,10 +379,11 @@ const Details = ({
                         onError={(e) => {
                           e.target.onerror = null;
                           e.target.src = logoNotFound;
+                          e.preventDefault();
                         }}
                         className="mr-2"
                         style={{ width: "1.125rem", height: "1.125rem" }}
-                        alt={formattedSymbol0 + " Logo"}
+                        alt=""
                       />
                       <span className="ml-2 flex-1 w-0 truncate">
                         {token0 && token1
@@ -417,10 +421,11 @@ const Details = ({
                         onError={(e) => {
                           e.target.onerror = null;
                           e.target.src = logoNotFound;
+                          e.preventDefault();
                         }}
                         className="mr-2"
                         style={{ width: "1.125rem", height: "1.125rem" }}
-                        alt={formattedSymbol0 + " Logo"}
+                        alt=""
                       />
                       <span className="ml-2 flex-1 w-0 truncate">
                         {reserve0} {formattedSymbol0} ({reserve0USD})
@@ -447,10 +452,11 @@ const Details = ({
                         onError={(e) => {
                           e.target.onerror = null;
                           e.target.src = logoNotFound;
+                          e.preventDefault();
                         }}
                         className="mr-2"
                         style={{ width: "1.125rem", height: "1.125rem" }}
-                        alt={formattedSymbol1 + " Logo"}
+                        alt=""
                       />
                       <span className="ml-2 flex-1 w-0 truncate">
                         {reserve1} {formattedSymbol1} ({reserve1USD})
