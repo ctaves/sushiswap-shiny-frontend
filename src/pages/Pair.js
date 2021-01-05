@@ -183,7 +183,7 @@ const Token = ({ pairAddress, history }) => {
               whiteSpace: "nowrap",
             }}
           >
-            <TxnList transactions={transactions} color={"#d03801"} />
+            <TxnList transactions={transactions} color={"#0090a6"} />
           </div>
         </div>
       ) : (
@@ -361,7 +361,7 @@ const Details = ({
                         onClick={() => {
                           history.push("/token/" + token0.id);
                         }}
-                        className="font-medium text-orange-600 hover:text-orange-700 transition duration-150 ease-in-out"
+                        className="font-medium text-blue-brand hover:text-blue-brand-dark transition duration-150 ease-in-out"
                       >
                         View Token
                       </button>
@@ -394,7 +394,7 @@ const Details = ({
                         onClick={() => {
                           history.push("/token/" + token1.id);
                         }}
-                        className="font-medium text-orange-600 hover:text-orange-700 transition duration-150 ease-in-out"
+                        className="font-medium text-blue-brand hover:text-blue-brand-dark transition duration-150 ease-in-out"
                       >
                         View Token
                       </button>
@@ -431,7 +431,7 @@ const Details = ({
                         onClick={() => {
                           history.push("/token/" + token0.id);
                         }}
-                        className="font-medium text-orange-600 hover:text-orange-700 transition duration-150 ease-in-out"
+                        className="font-medium text-blue-brand hover:text-blue-brand-dark transition duration-150 ease-in-out"
                       >
                         View Token
                       </button>
@@ -461,7 +461,7 @@ const Details = ({
                         onClick={() => {
                           history.push("/token/" + token1.id);
                         }}
-                        className="font-medium text-orange-600 hover:text-orange-700 transition duration-150 ease-in-out"
+                        className="font-medium text-blue-brand hover:text-blue-brand-dark transition duration-150 ease-in-out"
                       >
                         View Token
                       </button>

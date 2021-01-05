@@ -3,7 +3,7 @@ import OnsenIllustration from "../assets/illustrations/onsen.jpg";
 
 export const featured = [
   {
-    // id:
+    id: "onsen",
     title: "Onsen",
     path: "/onsen",
     image: OnsenIllustration,
@@ -19,6 +19,8 @@ export const featured = [
   {
     id: "stablecoins",
     title: "Stablecoins",
+    description:
+      "Stablecoins are back with a new twist - algorithmic stablecoins. Browse stablecoins in our new list. Add liquidity to MIS-USDT only on SushiSwap.",
     path: "/lists/stablecoins",
     image:
       "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",

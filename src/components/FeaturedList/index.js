@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Linker } from "../Linker";
 import { featured } from "../../constants/featured";
 
@@ -16,7 +17,7 @@ const FeaturedList = () => {
             {featured.map((token) => {
               return (
                 <>
-                  <List title={token.title} image={token.image} />
+                  <List key={"featured-" + token.id} title={token.title} image={token.image} path={token.path} />
                 </>
               );
             })}
@@ -27,11 +28,11 @@ const FeaturedList = () => {
   );
 };
 
-const List = ({ title, image }) => {
+const List = ({ title, image, path }) => {
   return (
     <>
       <span className="hover:bg-gray-100 float-left border border-gray-200 rounded-full py-1 pl-1 pr-3 mr-2 mb-2">
-        <a href="#" className="flex-shrink-0 group block">
+        <Link to={path} className="flex-shrink-0 group block">
           <div className="flex items-center">
             <div>
               <img className="inline-block h-9 w-9 rounded-full" src={image} alt="" />
@@ -40,7 +41,7 @@ const List = ({ title, image }) => {
               <p className="text-sm leading-5 font-medium text-gray-700 group-hover:text-gray-900">{title}</p>
             </div>
           </div>
-        </a>
+        </Link>
       </span>
     </>
   );

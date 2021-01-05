@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, createContext, useContext, useReducer, Suspense } from "react";
-import { Link, Route, Redirect } from "react-router-dom";
+import { Link, Route, Redirect, useParams } from "react-router-dom";
 import WalletRoute from "../shared/WalletRoute";
 import PublicRoute from "../shared/PublicRoute";
 import SectionTabs from "../components/Tabs";
@@ -48,6 +48,7 @@ import PreviousPools from "../components/Table/PoolsWeeklyApollo";
 // Onsen
 import OnsenInfo from "../components/Onsen/Hero";
 // Tokens
+import FeaturedList from "../components/FeaturedList";
 import TokenList from "../services/vision/components/TokenList/secondary";
 import { useAllTokenData } from "../services/vision/contexts/TokenData";
 // Pools / Farms
@@ -75,6 +76,8 @@ import BentoBox from "../pages/BentoBox";
 import BentoBoxLogo from "../assets/img/bentobox.png";
 
 import sushiData from "@sushiswap/sushi-data";
+
+import { featured } from "../constants/featured";
 
 import AlbumCardsLoading from "../components/AlbumCards/Loading";
 const AlbumCards = React.lazy(() => import("../components/AlbumCards"));
@@ -166,6 +169,7 @@ const DashboardRoutes = () => {
       <WalletRoute exact path="/portfolio/balances" component={PortfolioBalances} />
       <WalletRoute exact path="/portfolio/transactions" component={PortfolioTransactions} />
       <Route exact path="/weekly" component={MenuOfTheWeek} />
+      <Route exact path="/lists/:listId" component={FeaturedListPage} />
       <Route exact path="/tokens" component={Tokens} />
       <Route exact path="/pools" component={Farms} />
       <Route exact path="/farms" component={Farms} />
@@ -280,6 +284,60 @@ const Overview = () => {
           </div>
         </div>
       </div>
+    </>
+  );
+};
+
+const FeaturedListPage = () => {
+  // find defined featured tokens
+  const params = useParams();
+  const list = featured.filter((item) => {
+    return item.id === params.listId;
+  });
+  const featuredTokens = list?.[0]?.tokens;
+  // find all tokens
+  const allTokens = useAllTokenData();
+  // filter tokens
+  const filteredTokens = Object.keys(allTokens)
+    .filter((key) => {
+      return featuredTokens.includes(key);
+    })
+    .map((key) => allTokens[key]);
+
+  return (
+    <>
+      {/* <MainSearch /> */}
+      <div className="sushi-px-4 py-4 sushi-hidden lg:sushi-block">
+        <MainSearch />
+      </div>
+      <h2 className="sushi-max-w-6xl sushi-mx-auto sushi-mt-4 sushi-px-4 text-xl sushi-leading-6 font-semibold sushi-text-cool-gray-900">
+        {list?.[0]?.title}
+      </h2>
+      <p className="sushi-max-w-6xl sushi-mx-auto mt-1 sushi-px-4 text-sm sushi-leading-6 font-medium text-gray-600">
+        {list?.[0]?.tokens.length} items
+      </p>
+      <p className="sushi-max-w-6xl sushi-mx-auto mt-4 sushi-px-4 text-base sushi-leading-6 font-medium text-gray-800">
+        {list?.[0]?.description}
+      </p>
+      <div className="mt-12 sushi-inline-block sushi-min-w-full sushi-overflow-hidden sushi-align-middle">
+        <div
+          style={{
+            position: "relative",
+            overflow: "auto",
+            whiteSpace: "nowrap",
+          }}
+        >
+          <TokenList tokens={filteredTokens} itemMax={50} />
+        </div>
+      </div>
+      {/* <p className="sushi-max-w-6xl sushi-mx-auto mt-1 pb-10 sushi-px-4 text-sm leading-5 font-medium text-gray-500">
+        This list is generated using data sourced from one or more third party data providers and/or from SushiSwap.
+        This list is provided for informational purposes only and is not investment advice or a recommendation to buy,
+        hold, or sell any token. SushiSwap Lists are not personalized recommendations and the tokens listed may not be
+        suitable for you. You should not buy or sell any token on a SushiSwap List without first determining it is
+        appropriate for your portfolio or investment strategy. All investments involve risks, including the loss of
+        principal.
+      </p> */}
     </>
   );
 };
@@ -435,6 +493,7 @@ const Tokens = () => {
       {/* <h2 className="sushi-max-w-6xl sushi-mx-auto sushi-mt-4 sushi-px-4 sushi-text-lg sushi-leading-6 sushi-font-medium sushi-text-cool-gray-900 sm:sushi-px-6 lg:sushi-px-8">
         Tokens on SushiSwap
       </h2> */}
+      <FeaturedList />
       <div className="sushi-mt-4 sushi-inline-block sushi-min-w-full sushi-overflow-hidden sushi-align-middle">
         <div
           style={{

@@ -1,16 +1,17 @@
 import React from "react";
-import SearchHeader from "../components/MobileMenu";
+//import SearchHeader from "../components/MobileMenu";
 import Sidebar from "../components/Sidebar/Layout";
 import CardTokenActions from "../components/Cards/TokenActions/Standalone";
-import Background from "../assets/illustrations/02a.png";
+//import Background from "../assets/illustrations/02a.png";
+import Background from "../assets/illustrations/swap_background_1d.svg";
 import MobileNavigation from "../components/MobileNavigation";
+
+//import Snowfall from "../components/Snowfall";
 
 // import WalletsModal from "../components/Modals/Wallets";
 // import ShareModal from "../components/Modals/Share";
 // import useModal from "../shared/hooks/useModal";
 import useMenu from "../shared/hooks/useMenu";
-
-import "../assets/css/snow.css";
 
 const Swap = () => {
   const mobileMenu = useMenu();
@@ -46,7 +47,7 @@ const Swap = () => {
               backgroundSize: "cover",
             }}
           >
-            <Snowfall />
+            {/* <Snowfall /> */}
             <div className="z-10 max-w-lg mx-auto md:p-10 lg:mx-0 lg:px-12 md:py-6 pb-16">
               <CardTokenActions initialSection={"swap"} currencyIdB={"ETH"} />
             </div>
@@ -54,213 +55,6 @@ const Swap = () => {
         </div>
         <MobileNavigation changeMenu={mobileMenu.change} isOpen={mobileMenu.isOpen} />
       </div>
-    </>
-  );
-};
-
-const Snowfall = () => {
-  return (
-    <>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
-      <div className="snow"></div>
     </>
   );
 };

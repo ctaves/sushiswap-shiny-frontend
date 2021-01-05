@@ -162,7 +162,7 @@ const App = () => {
               <Route exact path="/portfolio/balances" component={Dashboard} />
               <Route exact path="/portfolio/transactions" component={Dashboard} />
               <Route exact path="/portfolio" component={Dashboard} />
-
+              <Route exact path="/lists/:listId" component={Dashboard} />
               {/* Farm Routes */}
               {/* <Route exact path="/weekly" component={Dashboard} /> */}
               {/* <Route exact path="/pools" component={Dashboard} /> */}

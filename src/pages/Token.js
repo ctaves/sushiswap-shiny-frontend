@@ -108,7 +108,7 @@ const Token = ({ address, history }) => {
               whiteSpace: "nowrap",
             }}
           >
-            <TxnList transactions={transactions} color={"#d03801"} />
+            <TxnList transactions={transactions} color={"#0090a6"} />
           </div>
         </div>
       ) : (
