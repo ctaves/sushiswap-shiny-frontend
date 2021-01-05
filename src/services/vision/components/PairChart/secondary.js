@@ -30,6 +30,8 @@ const OptionsRow = styled.div`
   width: 100%;
   margin-top: 10px;
   border-bottom: 1px solid #e5e7eb;
+  overflow-x: scroll;
+  white-space: nowrap;
 `;
 
 const CHART_VIEW = {
@@ -262,7 +264,67 @@ const PairChart = ({ address, color, base0, base1 }) => {
           </BarChart>
         </ResponsiveContainer>
       )}
-      {below600 ? (
+      <OptionsRow>
+        <AutoRow gap="6px" style={{ flexWrap: "nowrap" }}>
+          <OptionButton
+            active={chartFilter === CHART_VIEW.LIQUIDITY}
+            onClick={() => {
+              setTimeWindow(timeframeOptions.ALL_TIME);
+              setChartFilter(CHART_VIEW.LIQUIDITY);
+            }}
+          >
+            Liquidity
+          </OptionButton>
+          <OptionButton
+            active={chartFilter === CHART_VIEW.VOLUME}
+            onClick={() => {
+              setTimeWindow(timeframeOptions.ALL_TIME);
+              setChartFilter(CHART_VIEW.VOLUME);
+            }}
+          >
+            Volume
+          </OptionButton>
+          <OptionButton
+            active={chartFilter === CHART_VIEW.RATE0}
+            onClick={() => {
+              setTimeWindow(timeframeOptions.WEEK);
+              setChartFilter(CHART_VIEW.RATE0);
+            }}
+          >
+            {pairData.token0 ? formattedSymbol1 + "/" + formattedSymbol0 : "-"}
+          </OptionButton>
+          <OptionButton
+            active={chartFilter === CHART_VIEW.RATE1}
+            onClick={() => {
+              setTimeWindow(timeframeOptions.WEEK);
+              setChartFilter(CHART_VIEW.RATE1);
+            }}
+          >
+            {pairData.token0 ? formattedSymbol0 + "/" + formattedSymbol1 : "-"}
+          </OptionButton>
+        </AutoRow>
+        <AutoRow justify="flex-end" gap="6px">
+          <OptionButton
+            active={timeWindow === timeframeOptions.WEEK}
+            onClick={() => setTimeWindow(timeframeOptions.WEEK)}
+          >
+            1W
+          </OptionButton>
+          <OptionButton
+            active={timeWindow === timeframeOptions.MONTH}
+            onClick={() => setTimeWindow(timeframeOptions.MONTH)}
+          >
+            1M
+          </OptionButton>
+          <OptionButton
+            active={timeWindow === timeframeOptions.ALL_TIME}
+            onClick={() => setTimeWindow(timeframeOptions.ALL_TIME)}
+          >
+            All
+          </OptionButton>
+        </AutoRow>
+      </OptionsRow>
+      {/* {below600 ? (
         <RowBetween mb={40}>
           <DropdownSelect options={CHART_VIEW} active={chartFilter} setActive={setChartFilter} color={color} />
           <DropdownSelect options={timeframeOptions} active={timeWindow} setActive={setTimeWindow} color={color} />
@@ -328,7 +390,7 @@ const PairChart = ({ address, color, base0, base1 }) => {
             </OptionButton>
           </AutoRow>
         </OptionsRow>
-      )}
+      )} */}
     </ChartWrapper>
   );
 };

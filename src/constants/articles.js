@@ -5,11 +5,25 @@ import MidnightTrading from "../assets/img/midnight-trading.jpg";
 
 export const articles = [
   {
+    title: "Ethereum hits $1000",
+    description:
+      "High volatility means higher volume which means more fees for our liquidity providers. Check out pairs to provide liquidity to today!",
+    image: StablecoinList,
+    token: "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2", // WETH
+  },
+  {
     title: "Introducing the Stablecoin List",
     description:
       "Stablecoins are back with a new twist - algorithmic stablecoins. Browse stablecoins in our new list. Add liquidity to MIS-USDT only on SushiSwap.",
     image: StablecoinList,
     token: "0x368b3a58b5f49392e5c9e4c998cb0bb966752e51", // MIC
+  },
+  {
+    title: "Introducing the New BTC List",
+    description:
+      "Bitcoin's all the rage, but what about wrapped Bitcoin alternatives? Check out the new kids on the block on our new list. Thanks to deep WBTC liquidity, WBTC routing has been added for swaps giving you the lowest slippage on BTC based pairs anywhere!",
+    image: StablecoinList,
+    token: "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599", // WBTC
   },
   {
     title: "Warning: COVER Verified Exploit",
