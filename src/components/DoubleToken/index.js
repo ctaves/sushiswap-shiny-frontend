@@ -7,7 +7,7 @@ const DoubleToken = ({ tokenA, tokenB }) => {
     <>
       <img
         className="relative z-30 inline-block h-6 w-6 rounded-full text-white shadow-solid"
-        src={`https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${isAddress(
+        src={`https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/${isAddress(
           tokenA
         )}/logo.png`}
         onError={(e) => {
@@ -18,7 +18,7 @@ const DoubleToken = ({ tokenA, tokenB }) => {
       />
       <img
         className="relative z-20 -ml-1 inline-block h-6 w-6 rounded-full text-white shadow-solid"
-        src={`https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${isAddress(
+        src={`https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/${isAddress(
           tokenB
         )}/logo.png`}
         onError={(e) => {

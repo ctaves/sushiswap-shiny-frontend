@@ -67,7 +67,7 @@ const Card = ({ position }) => {
               <div className="flex flex-shrink-0 -space-x-1">
                 <img
                   className="relative z-30 inline-block h-6 w-6 rounded-full text-white shadow-solid"
-                  src={`https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${isAddress(
+                  src={`https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/${isAddress(
                     position.token0Address
                   )}/logo.png`}
                   onError={(e) => {
@@ -77,7 +77,7 @@ const Card = ({ position }) => {
                 />
                 <img
                   className="relative z-20 -ml-1 inline-block h-6 w-6 rounded-full text-white shadow-solid"
-                  src={`https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${isAddress(
+                  src={`https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/${isAddress(
                     position.token1Address
                   )}/logo.png`}
                   onError={(e) => {
@@ -174,7 +174,7 @@ const TableRow = ({ position }) => {
             <div className="flex flex-shrink-0 -space-x-1">
               <img
                 className="relative z-30 inline-block h-6 w-6 rounded-full text-white shadow-solid"
-                src={`https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${isAddress(
+                src={`https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/${isAddress(
                   position.token0Address
                 )}/logo.png`}
                 onError={(e) => {
@@ -184,7 +184,7 @@ const TableRow = ({ position }) => {
               />
               <img
                 className="relative z-20 -ml-1 inline-block h-6 w-6 rounded-full text-white shadow-solid"
-                src={`https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${isAddress(
+                src={`https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/${isAddress(
                   position.token1Address
                 )}/logo.png`}
                 onError={(e) => {

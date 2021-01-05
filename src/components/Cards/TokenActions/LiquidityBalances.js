@@ -114,7 +114,7 @@ const LiquidityBalances = () => {
                   <div className="flex flex-shrink-0 -space-x-1">
                     <img
                       className="relative z-30 inline-block h-6 w-6 rounded-full text-white shadow-solid"
-                      src={`https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${isAddress(
+                      src={`https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/${isAddress(
                         position.pair.token0.id
                       )}/logo.png`}
                       onError={(e) => {
@@ -124,7 +124,7 @@ const LiquidityBalances = () => {
                     />
                     <img
                       className="relative z-20 -ml-1 inline-block h-6 w-6 rounded-full text-white shadow-solid"
-                      src={`https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${isAddress(
+                      src={`https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/${isAddress(
                         position.pair.token1.id
                       )}/logo.png`}
                       onError={(e) => {

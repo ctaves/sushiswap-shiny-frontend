@@ -13,17 +13,10 @@ export default function TokenIcon({ id, ...rest }) {
   const classes = useStyles();
   const src = useMemo(
     () =>
-      `https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${toChecksumAddress(
+      `https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/${toChecksumAddress(
         id
       )}/logo.png`,
     [id]
   );
-  return (
-    <Avatar
-      classes={{ root: classes.root }}
-      imgProps={{ loading: "lazy" }}
-      src={src}
-      {...rest}
-    />
-  );
+  return <Avatar classes={{ root: classes.root }} imgProps={{ loading: "lazy" }} src={src} {...rest} />;
 }

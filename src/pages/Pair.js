@@ -236,7 +236,7 @@ const PairPageTitle = ({ name, price, price2, priceChange, symbol, symbol2, id, 
               <div className="mr-8 flex items-center flex-shrink-0 w-10 h-10 text-2xl">
                 <img
                   className="relative z-30 inline-block rounded-full text-white shadow-solid"
-                  src={`https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${isAddress(
+                  src={`https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/${isAddress(
                     id
                   )}/logo.png`}
                   onError={(e) => {
@@ -247,7 +247,7 @@ const PairPageTitle = ({ name, price, price2, priceChange, symbol, symbol2, id, 
                 />
                 <img
                   className="relative z-20 -ml-4 inline-block rounded-full text-white shadow-solid"
-                  src={`https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${isAddress(
+                  src={`https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/${isAddress(
                     id2
                   )}/logo.png`}
                   onError={(e) => {
@@ -337,7 +337,7 @@ const Details = ({
                   <li className="pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5">
                     <div className="w-0 flex-1 flex items-center">
                       <img
-                        src={`https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${isAddress(
+                        src={`https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/${isAddress(
                           token0.id
                         )}/logo.png`}
                         onError={(e) => {
@@ -370,7 +370,7 @@ const Details = ({
                   <li className="border-t border-gray-200 pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5">
                     <div className="w-0 flex-1 flex items-center">
                       <img
-                        src={`https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${isAddress(
+                        src={`https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/${isAddress(
                           token1.id
                         )}/logo.png`}
                         onError={(e) => {
@@ -411,7 +411,7 @@ const Details = ({
                     <div className="w-0 flex-1 flex items-center">
                       {/* Heroicon name: paper-clip */}
                       <img
-                        src={`https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${isAddress(
+                        src={`https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/${isAddress(
                           token0.id
                         )}/logo.png`}
                         onError={(e) => {
@@ -441,7 +441,7 @@ const Details = ({
                     <div className="w-0 flex-1 flex items-center">
                       {/* Heroicon name: paper-clip */}
                       <img
-                        src={`https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${isAddress(
+                        src={`https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/${isAddress(
                           token1.id
                         )}/logo.png`}
                         onError={(e) => {

@@ -170,7 +170,7 @@ const TokenPageTitle = ({ name, price, priceChange, symbol, id }) => {
               >
                 <img
                   class="rounded-full text-white shadow-solid"
-                  src={`https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${isAddress(
+                  src={`https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/${isAddress(
                     id
                   )}/logo.png`}
                   alt={name + " Logo"}

@@ -23,7 +23,7 @@ export const featured = [
       "Stablecoins are back with a new twist - algorithmic stablecoins. Browse stablecoins in our new list. Add liquidity to MIS-USDT only on SushiSwap.",
     path: "/lists/stablecoins",
     image:
-      "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
+      "https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
     pairs: [],
     tokens: [
       "0x368b3a58b5f49392e5c9e4c998cb0bb966752e51", //MIC
@@ -41,7 +41,7 @@ export const featured = [
     title: "Yearn Fam",
     path: "/lists/yearn-fam",
     image:
-      "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x0bc529c00C6401aEF6D220BE8C6Ea1667F6Ad93e/logo.png",
+      "https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/0x0bc529c00C6401aEF6D220BE8C6Ea1667F6Ad93e/logo.png",
     pairs: [],
     tokens: [
       "0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e", //YFI

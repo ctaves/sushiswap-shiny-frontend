@@ -9,7 +9,7 @@ import copy from "copy-to-clipboard";
 export function useColor(tokenAddress, token) {
   const [color, setColor] = useState("#2172E5");
   if (tokenAddress) {
-    const path = `https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${isAddress(
+    const path = `https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/${isAddress(
       tokenAddress
     )}/logo.png`;
     if (path) {
@@ -62,12 +62,7 @@ export const useOutsideClick = (ref, ref2, callback) => {
   const handleClick = (e) => {
     if (ref.current && ref.current && !ref2.current) {
       callback(true);
-    } else if (
-      ref.current &&
-      !ref.current.contains(e.target) &&
-      ref2.current &&
-      !ref2.current.contains(e.target)
-    ) {
+    } else if (ref.current && !ref.current.contains(e.target) && ref2.current && !ref2.current.contains(e.target)) {
       callback(true);
     } else {
       callback(false);
@@ -81,10 +76,7 @@ export const useOutsideClick = (ref, ref2, callback) => {
   });
 };
 
-export default function useInterval(
-  callback: () => void,
-  delay: null | number
-) {
+export default function useInterval(callback: () => void, delay: null | number) {
   const savedCallback = useRef<() => void>();
 
   // Remember the latest callback.
