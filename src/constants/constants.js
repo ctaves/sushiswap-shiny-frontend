@@ -197,7 +197,7 @@ const menuSetup = {
     //59,
     60,
   ],
-  main: [12, 58, 25, 1, 2, 21, 0, 11, 3, 8, 37, 4, 6, 7, 9, 18, 44, 13, 17],
+  main: [12, 58, 25, 1, 2, 21, 0, 11, 3, 8, 37, 4, 6, 7, 9, 18, 44, 13, 17, 101],
 };
 
 export const menus = {
@@ -601,6 +601,22 @@ export const supportedPools = [
     uniswapPair: "yUSD/ETH",
     lpToken: "0x382c4a5147Fd4090F7BE3A9Ff398F95638F5D39E",
     allocPoint: "200",
+  },
+  {
+    pid: 101,
+    lpAddresses: {
+      1: "0x66ae32178640813f3c32a9929520bfe4fef5d167",
+    },
+    tokenAddresses: {
+      1: "0x4688a8b1f292fdab17e9a90c8bc379dc1dbd8713",
+    },
+    name: "COVER Shield",
+    symbol: "COVER-ETH SLP",
+    tokenSymbol: "COVER",
+    icon: "🛡️",
+    uniswapPair: "COVER/ETH",
+    lpToken: "0x66ae32178640813f3c32a9929520bfe4fef5d167",
+    allocPoint: "100",
   },
   // Onsen Mids
   {
