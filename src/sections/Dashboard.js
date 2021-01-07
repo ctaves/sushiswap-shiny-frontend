@@ -403,7 +403,7 @@ const PortfolioBalances = () => {
   ];
   return (
     <>
-      <TitleTabs title={"Omakase: Your Portfolio"} tabs={tabs} />
+      <TitleTabs title={"Omakase: Your Portfolio"} tabs={tabs} withSearch />
       <div className="min-h-full bg-gray-100 shadow-inner py-6 space-y-6 sm:p-6">
         <div className="shadow sm:rounded-md sm:overflow-hidden">
           <div className="bg-white">
@@ -437,7 +437,7 @@ const PortfolioTransactions = () => {
   ];
   return (
     <>
-      <TitleTabs title={"Omakase: Your Portfolio"} tabs={tabs} />
+      <TitleTabs title={"Omakase: Your Portfolio"} tabs={tabs} withSearch />
       <div className="min-h-full bg-gray-100 shadow-inner py-6 space-y-6 sm:p-6">
         <TransactionsPage />
       </div>
@@ -537,7 +537,7 @@ const Farms = () => {
   ];
   return (
     <>
-      <TitleTabs title={"Farms"} tabs={tabs} withSearch={true} />
+      <TitleTabs title={"Farms"} tabs={tabs} withSearch />
       <div className="sushi-px-8 py-4 sushi-hidden lg:sushi-block">
         <MainSearch />
       </div>
@@ -574,7 +574,7 @@ const FarmsSpecial = () => {
   ];
   return (
     <>
-      <TitleTabs title={"Farms"} tabs={tabs} withSearch={true} />
+      <TitleTabs title={"Farms"} tabs={tabs} withSearch />
       <OnsenInfo />
       {/* <div className="sushi-px-8 py-4 sushi-hidden lg:sushi-block">
         <MainSearch />

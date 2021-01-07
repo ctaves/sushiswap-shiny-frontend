@@ -19,7 +19,7 @@ const OnsenInfo = ({ scrollToMenu }) => {
             <div className="lg:self-center">
               <h2 className="text-3xl leading-9 font-extrabold text-gray-900 sm:text-3xl sm:leading-10">
                 <span className="block">温泉へようこそ</span>
-                <span className="block">Onsen: Toasty Bonuses</span>
+                {/* <span className="block">Onsen: Toasty Bonuses</span> */}
               </h2>
               <p className="mt-4 text-base leading-6 text-gray-900">
                 Onsen is a rotational rewards system. The amplified rewards incentivize new liquidity providers and
@@ -33,13 +33,13 @@ const OnsenInfo = ({ scrollToMenu }) => {
               </button> */}
             </div>
           </div>
-          <div className="relative pb-3/5 -mt-6 md:pb-1/2">
-            {/* <img
+          {/* <div className="relative pb-3/5 -mt-6 md:pb-1/2">
+            <img
               className="absolute inset-0 w-full h-full transform translate-x-6 translate-y-6 rounded-md object-cover object-left-top sm:translate-x-16 lg:translate-y-20"
               src={OnsenMonkey}
               alt=""
-            /> */}
-          </div>
+            />
+          </div> */}
         </div>
       </div>
     </>
