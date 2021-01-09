@@ -1,52 +1,19 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-//import { isMobile } from "react-device-detect";
-import Midnight from "./components/Midnight";
-import Landing from "./services/playground/landing";
-import BoringApp from "./services/boring";
-import ClassicApp from "./services/classic";
-import BackgroundStars from "./components/BackgroundStars";
-import CoinLoader from "./components/CoinLoader";
-import BentoBox from "./pages/BentoBox";
+
 import Dashboard from "./sections/Dashboard";
-//import Home from "./pages/Home";
-//import Tokens from "./pages/Tokens";
-import Token from "./pages/Token";
-//import Pairs from "./pages/Pairs";
-import Pair from "./pages/Pair";
-//import Pools from "./pages/Pools";
-//import Accounts from "./pages/Accounts";
-//import Governance from "./pages/Governance";
-//import Grants from "./pages/Grants";
-//import Faqs from "./pages/Faqs";
-//import About from "./pages/About";
-//import OmakaseBar from "./pages/OmakaseBar";
-import Wallet from "./pages/Wallet";
-//import WeeklyMenu from "./pages/WeeklyMenu";
-// Widgets
-import WidgetAbout from "./components/Cards/About";
-import WidgetBalance from "./components/Cards/Balance/Layout";
-import WidgetResources from "./components/Cards/Resources/Layout";
-import WidgetSocialMedia from "./components/Cards/SocialMedia/Layout";
-import WidgetSummary from "./components/Cards/Summary";
-import WidgetGovernanceActions from "./components/Cards/Governance/Actions/Layout";
-import WidgetGovernanceElection from "./components/Cards/Governance/Multisig/Layout";
-import WidgetWeeklyPrevious from "./components/Table/PoolsWeeklyApollo";
-import WidgetWeeklyCurrent from "./components/Table/PoolsWeeklyApollo";
-// Design Proposals
-// import ProposalLanding from "./playground/Landing";
-// import SushiswapSDK from "./components/Table/Queries/PoolsBoringCrypto";
+import ModalsProvider from "./shared/contexts/ModalsContext";
 
-// import WidgetSwap from "./services/exchange/pages/Swap";
-// import WidgetPool from "./services/exchange/pages/Pool";
+//Services - Shared Dependencies
+import { ThemeProvider } from "styled-components";
 
-// V1 Dependenices
-// import { UseWalletProvider } from "use-wallet";
-// import FarmsProvider from "./sushiswap/contexts/Farms";
-// import ModalsProvider from "./sushiswap/contexts/Modals";
-// import TransactionProvider from "./sushiswap/contexts/Transactions";
-// import SushiProvider from "./sushiswap/contexts/SushiProvider";
-// import theme from "./sushiswap/theme";
+// Services - Classic Dependencies
+import { UseWalletProvider } from "use-wallet";
+import FarmsProvider from "./services/frontend/contexts/Farms";
+import ServicesModalsProvider from "./services/frontend/contexts/Modals";
+import TransactionProvider from "./services/frontend/contexts/Transactions";
+import SushiProvider from "./services/frontend/contexts/SushiProvider";
+import theme from "./services/frontend/theme";
 
 // Services -  Analytics Dependencies
 import { ApolloProvider as SushiAnalyticsApolloProvider } from "@apollo/client";
@@ -56,17 +23,6 @@ import { useApollo } from "./services/analytics/core";
 // Services - Sushi View Dependencies
 import AnalyticsGlobalDataContextProvider from "./services/view/contexts/globalData";
 import AnalyticsApplicationContextProvider from "./services/view/contexts/application";
-
-//Services - Shared Dependencies
-import { ThemeProvider } from "styled-components";
-
-//Services - Frontend Dependencies
-import { UseWalletProvider } from "use-wallet";
-import FarmsProvider from "./services/frontend/contexts/Farms";
-import ServicesModalsProvider from "./services/frontend/contexts/Modals";
-import TransactionProvider from "./services/frontend/contexts/Transactions";
-import SushiProvider from "./services/frontend/contexts/SushiProvider";
-import theme from "./services/frontend/theme";
 
 //Services - Vision Dependencies
 import VisionThemeProvider from "./services/vision/Theme";
@@ -80,13 +36,10 @@ import PairDataContextProvider, { Updater as PairDataContextUpdater } from "./se
 import ApplicationContextProvider from "./services/vision/contexts/Application";
 import UserContextProvider from "./services/vision/contexts/User";
 import { ApolloProvider } from "react-apollo";
-import LocalLoader from "./services/vision/components/LocalLoader";
 import { useGlobalData, useGlobalChartData } from "./services/vision/contexts/GlobalData";
 import { useLatestBlock } from "./services/vision/contexts/Application";
-import { isAddress } from "./services/vision/utils";
 
 //Services - Exchange Dependencies
-import Header from "./services/exchange/components/Header";
 import Web3Status from "./services/exchange/components/Web3Status";
 import Popups from "./services/exchange/components/Popups";
 import { createWeb3ReactRoot, Web3ReactProvider } from "@web3-react/core";
@@ -109,13 +62,13 @@ import {
   RedirectOldAddLiquidityPathStructure,
   RedirectToAddLiquidity,
 } from "./services/exchange/pages/AddLiquidity/redirects-secondary";
-import MigrateV1 from "./services/exchange/pages/MigrateV1";
-import MigrateV1Exchange from "./services/exchange/pages/MigrateV1/MigrateV1Exchange";
-import RemoveV1Exchange from "./services/exchange/pages/MigrateV1/RemoveV1Exchange";
-import Pool from "./services/exchange/pages/Pool";
+//import MigrateV1 from "./services/exchange/pages/MigrateV1";
+//import MigrateV1Exchange from "./services/exchange/pages/MigrateV1/MigrateV1Exchange";
+//import RemoveV1Exchange from "./services/exchange/pages/MigrateV1/RemoveV1Exchange";
+//import Pool from "./services/exchange/pages/Pool";
 import PoolFinder from "./services/exchange/pages/PoolFinder";
 import RemoveLiquidity from "./services/exchange/pages/RemoveLiquidity";
-import { RedirectOldRemoveLiquidityPathStructure } from "./services/exchange/pages/RemoveLiquidity/redirects";
+//import { RedirectOldRemoveLiquidityPathStructure } from "./services/exchange/pages/RemoveLiquidity/redirects";
 import { RedirectPathToSwapOnly, RedirectToSwap } from "./services/exchange/pages/Swap/redirects";
 import SwapWrapper from "./pages/Swap";
 import PoolWrapper from "./pages/Pool";
@@ -123,137 +76,71 @@ import PoolWrapper from "./pages/Pool";
 // Services - Lite Dependancies
 import { ContextProvider as LiteProvider } from "./services/lite/context";
 
-import ModalsProvider from "./shared/contexts/ModalsContext";
-// import NoticeModal from "./components/Modals/NoticeStandalone";
-// import useModalOpen from "./shared/hooks/useModalOpen";
-
 const App = () => {
-  const globalData = useGlobalData();
-  const globalChartData = useGlobalChartData();
-  const latestBlock = useLatestBlock();
-  // const notice = useModalOpen();
+  //const globalData = useGlobalData();
+  //const globalChartData = useGlobalChartData();
+  //const latestBlock = useLatestBlock();
   return (
     <>
-      {/* {latestBlock &&
-      globalData &&
-      Object.keys(globalData).length > 0 &&
-      globalChartData &&
-      Object.keys(globalChartData).length > 0 ? ( */}
-      <>
-        {/* <NoticeModal isOpen={notice.isOpen} closeModal={notice.hide} /> */}
-        <Router>
-          {/* <Header /> */}
-          <Web3Status />
-          <Popups />
-          <Web3ReactManager>
-            <Switch>
-              {/* Playground Routes */}
-              <Route exact path="/playground/midnight" component={Midnight} />
-              <Route exact path="/playground/landing" component={Landing} />
-              <Route exact path="/boring" component={BoringApp} />
-              <Route exact path="/classic" component={ClassicApp} />
-              <Route exact path="/wallet" component={Wallet} />
-              <Route exact path="/widget/bentobox" component={BentoBox} />
-              {/* Account Routes */}
-              <Route exact path="/connect" component={Dashboard} />
-              <Route exact path="/search" component={Dashboard} />
-              <Route exact path="/omakase" component={Dashboard} />
-              <Route exact path="/account" component={Dashboard} />
-              <Route exact path="/portfolio/balances" component={Dashboard} />
-              <Route exact path="/portfolio/transactions" component={Dashboard} />
-              <Route exact path="/portfolio" component={Dashboard} />
-              <Route exact path="/lists/:listId" component={Dashboard} />
-              {/* Farm Routes */}
-              {/* <Route exact path="/weekly" component={Dashboard} /> */}
-              {/* <Route exact path="/pools" component={Dashboard} /> */}
-              <Route exact path="/pools">
-                <Redirect to="/farms" />
-              </Route>
-              {/* <Route exact path="/weekly">
-                <Redirect to="/farms/special" />
-              </Route> */}
-              <Route exact path="/weekly" component={Dashboard} />
-              <Route exact path="/farms" component={Dashboard} />
-              <Route exact path="/farms/special" component={Dashboard} />
-              <Route exact path="/onsen">
-                <Redirect to="/farms/special" />
-              </Route>
-              <Route exact path="/farms/permanent" component={Dashboard} />
-              <Route exact path="/sushibar">
-                <Redirect to="/farms/xsushi" />
-              </Route>
-              <Route exact path="/farms/xsushi" component={Dashboard} />
-              <Route exact path="/stake" component={Dashboard} />
-              {/* Dashboard Routes */}
-              <Route exact path="/" component={Dashboard} />
-              <Route exact path="/home" component={Dashboard} />
-              <Route exact path="/tokens" component={Dashboard} />
-              <Route exact path="/pairs" component={Dashboard} />
-              <Route exact path="/pair/:pairId" component={Dashboard} />
-              <Route exact path="/governance" component={Dashboard} />
-              <Route exact path="/community" component={Dashboard} />
-              <Route exact path="/about" component={Dashboard} />
-              <Route exact path="/faq" component={Dashboard} />
-              <Route exact path="/faqs" component={Dashboard} />
-              <Route exacts strict path="/token/:tokenAddress" component={Dashboard} />
-              <Route exacts strict path="/pair/:pairAddress" component={Dashboard} />
-              {/* <Route exact path="/bentobox" component={Dashboard} /> */}
-              {/* <Route
-                  exacts
-                  strict
-                  path="/token/:tokenAddress"
-                  render={({ match }) => {
-                    if (isAddress(match.params.tokenAddress.toLowerCase())) {
-                      return <Token address={match.params.tokenAddress.toLowerCase()} />;
-                    } else {
-                      return <Redirect to="/home" />;
-                    }
-                  }}
-                />
-                <Route
-                  exacts
-                  strict
-                  path="/pair/:pairAddress"
-                  render={({ match }) => {
-                    if (isAddress(match.params.pairAddress.toLowerCase())) {
-                      return <Pair pairAddress={match.params.pairAddress.toLowerCase()} />;
-                    } else {
-                      return <Redirect to="/home" />;
-                    }
-                  }}
-                /> */}
-              <Route exact path="/widgets/social-media" component={WidgetSocialMedia} />
-              <Route exact path="/widgets/resources" component={WidgetResources} />
-              <Route exact path="/widgets/summary" component={WidgetSummary} />
-              <Route exact path="/widgets/balance" component={WidgetBalance} />
-              <Route exact path="/widgets/governance/actions" component={WidgetGovernanceActions} />
-              <Route exact path="/widgets/governance/election" component={WidgetGovernanceElection} />
-              <Route exact path="/widgets/about" component={WidgetAbout} />
-              <Route exact path="/widgets/weekly/previous" component={WidgetWeeklyPrevious} />
-              <Route exact path="/widgets/weekly/current" component={WidgetWeeklyCurrent} />
-              {/* Exchange Routes */}
-              <Route exact strict path="/swap" component={SwapWrapper} />
-              <Route exact strict path="/swap/:outputCurrency" component={RedirectToSwap} />
-              <Route exact strict path="/send" component={RedirectPathToSwapOnly} />
-              <Route exact strict path="/find" component={PoolFinder} />
-              <Route exact strict path="/pool" component={PoolWrapper} />
-              <Route exact strict path="/create" component={RedirectToAddLiquidity} />
-              <Route exact path="/add" component={AddLiquidity} />
-              <Route exact path="/add/:currencyIdA" component={RedirectOldAddLiquidityPathStructure} />
-              <Route exact path="/add/:currencyIdA/:currencyIdB" component={RedirectDuplicateTokenIds} />
-              <Route exact strict path="/remove/:currencyIdA/:currencyIdB" component={RemoveLiquidity} />
-              <Redirect to="/home" />
-              {/* 404 or Redirect */}
-              <Redirect to="/home" />
-            </Switch>
-          </Web3ReactManager>
-        </Router>
-      </>
-      {/* ) : (
-        <BackgroundStars>
-          <CoinLoader size={"lg"}/>
-        </BackgroundStars>
-      )} */}
+      <Router>
+        <Web3Status />
+        <Popups />
+        <Web3ReactManager>
+          <Switch>
+            {/* Account Routes */}
+            <Route exact path="/connect" component={Dashboard} />
+            <Route exact path="/search" component={Dashboard} />
+            <Route exact path="/omakase" component={Dashboard} />
+            <Route exact path="/account" component={Dashboard} />
+            <Route exact path="/portfolio/balances" component={Dashboard} />
+            <Route exact path="/portfolio/transactions" component={Dashboard} />
+            <Route exact path="/portfolio" component={Dashboard} />
+            <Route exact path="/lists/:listId" component={Dashboard} />
+            {/* Farm Routes */}
+            <Route exact path="/pools">
+              <Redirect to="/farms" />
+            </Route>
+            <Route exact path="/weekly">
+              <Redirect to="/farms/special" />
+            </Route>
+            <Route exact path="/farms" component={Dashboard} />
+            <Route exact path="/farms/all" component={Dashboard} />
+            <Route exact path="/farms/special" component={Dashboard} />
+            <Route exact path="/onsen" component={Dashboard} />
+            <Route exact path="/farms/permanent" component={Dashboard} />
+            <Route exact path="/sushibar" component={Dashboard} />
+            <Route exact path="/farms/xsushi" component={Dashboard} />
+            <Route exact path="/farms/previous" component={Dashboard} />
+            {/* Dashboard Routes */}
+            <Route exact path="/" component={Dashboard} />
+            <Route exact path="/home" component={Dashboard} />
+            <Route exact path="/tokens" component={Dashboard} />
+            <Route exact path="/pairs" component={Dashboard} />
+            <Route exact path="/pair/:pairId" component={Dashboard} />
+            <Route exact path="/governance" component={Dashboard} />
+            <Route exact path="/community" component={Dashboard} />
+            <Route exact path="/about" component={Dashboard} />
+            <Route exact path="/faq" component={Dashboard} />
+            <Route exact path="/faqs" component={Dashboard} />
+            <Route exacts strict path="/token/:tokenAddress" component={Dashboard} />
+            <Route exacts strict path="/pair/:pairAddress" component={Dashboard} />
+            {/* Exchange Routes */}
+            <Route exact strict path="/swap" component={SwapWrapper} />
+            <Route exact strict path="/swap/:outputCurrency" component={RedirectToSwap} />
+            <Route exact strict path="/send" component={RedirectPathToSwapOnly} />
+            <Route exact strict path="/find" component={PoolFinder} />
+            <Route exact strict path="/pool" component={PoolWrapper} />
+            <Route exact strict path="/create" component={RedirectToAddLiquidity} />
+            <Route exact path="/add" component={AddLiquidity} />
+            <Route exact path="/add/:currencyIdA" component={RedirectOldAddLiquidityPathStructure} />
+            <Route exact path="/add/:currencyIdA/:currencyIdB" component={RedirectDuplicateTokenIds} />
+            <Route exact strict path="/remove/:currencyIdA/:currencyIdB" component={RemoveLiquidity} />
+            <Redirect to="/home" />
+            {/* 404 or Redirect */}
+            <Redirect to="/home" />
+          </Switch>
+        </Web3ReactManager>
+      </Router>
     </>
   );
 };

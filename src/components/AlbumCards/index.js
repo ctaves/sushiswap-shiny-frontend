@@ -6,7 +6,7 @@ import { rgb, randomInteger, sceneTraverse } from "./util";
 import { noise, fragment, vertex } from "./shaders";
 import "./styles.css";
 
-import SushiGlobalChart from "../../services/vision/components/GlobalChart/withoutAxis";
+//import SushiGlobalChart from "../../services/vision/components/GlobalChart/withoutAxis";
 
 const config = {
   individualItem: ".album-item", // class of individual ref.current
@@ -37,28 +37,28 @@ const config = {
 
 const cards = [
   {
-    key: "liquidity",
+    id: "liquidity",
     icon: "Liquidity",
     color: config.colors[0],
-    subtitle: <SushiGlobalChart display="liquidity" />,
+    //subtitle: <SushiGlobalChart display="liquidity" />,
     type: "chart",
   },
   {
-    key: "volume",
+    id: "volume",
     icon: "Volume",
     color: config.colors[1],
-    subtitle: <SushiGlobalChart display="volume" />,
+    //subtitle: <SushiGlobalChart display="volume" />,
     type: "chart",
   },
   {
-    key: "onsen",
+    id: "onsen",
     icon: "New",
     color: config.colors[2],
     title: "Onsen",
     subtext: "New Rewards, New Farms",
   },
   {
-    key: "bentbox",
+    id: "bentbox",
     icon: "Coming Soon",
     color: config.colors[3],
     title: "BentoBox",
@@ -75,7 +75,7 @@ const AlbumCards = () => {
             {cards.map((card) => {
               return (
                 <AlbumCard
-                  key={"albumcard_" + card.key}
+                  key={card.id}
                   type={card.type}
                   color={card.color}
                   icon={card.icon}
@@ -92,13 +92,13 @@ const AlbumCards = () => {
   );
 };
 
-const AlbumCard = ({ key, color, icon, title, subtitle, subtext, type }) => {
+const AlbumCard = ({ color, icon, title, subtitle, subtext, type }) => {
   const ref = useRef(null);
   const requestRef = useRef();
 
   useEffect(() => {
     if (ref.current) {
-      console.log("color:", color);
+      //console.log("color:", color);
       // const newCanvas = document.createElement("canvas");
       // newCanvas.id = `canvas-${i}`;
       // ref.current.appendChild(newCanvas);
@@ -222,12 +222,17 @@ const AlbumCard = ({ key, color, icon, title, subtitle, subtext, type }) => {
             }
           }
         });
+        //
         // remove listeners
         document.body.removeEventListener("mouseleave", () => {});
         document.body.removeEventListener("mouseenter", () => {});
 
         window.cancelAnimationFrame(requestRef.current);
         ref.current.removeChild(renderer.domElement);
+
+        geometry.dispose();
+        material.dispose();
+        scene.dispose();
 
         //renderer.context.getExtension("WEBGL_lose_context").loseContext();
         renderer.forceContextLoss();

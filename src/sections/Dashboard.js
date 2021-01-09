@@ -4,7 +4,7 @@ import WalletRoute from "../shared/WalletRoute";
 import PublicRoute from "../shared/PublicRoute";
 import SectionTabs from "../components/Tabs";
 import TitleTabs from "../components/TitleTabs";
-import ConnectPage from "../pages/Connect";
+import Connect from "../pages/Connect";
 // import AlbumCards from "../components/AlbumCards";
 // Dashboard
 import FeaturedItem from "../components/FeaturedItem";
@@ -32,14 +32,6 @@ import IntroBanner from "../components/Banners/Full";
 // Portfolio
 import PortfolioPage from "../components/Portfolio";
 import TransactionsPage from "../components/Portfolio/Transactions";
-import CardSummary from "../components/Cards/Summary";
-import CardBalance from "../components/Cards/Balance/Layout";
-import CardResources from "../components/Cards/Resources/Layout";
-import CardSocialMedia from "../components/Cards/SocialMedia/Layout";
-import CardBalances from "../components/Cards/SushiBar/Balances";
-import CardPositions from "../components/Cards/SushiBar/Positions";
-import CardKitchen from "../components/Cards/SushiBar/Kitchen";
-import CardServing from "../components/Cards/SushiBar/Serving";
 // Menu of the Week
 import WeeklyMenuInfo from "../components/WeeklyMenu/Hero";
 import WeeklyMenus from "../components/WeeklyMenu/Menus";
@@ -64,19 +56,15 @@ import Token from "../pages/Token";
 // About
 import CardAbout from "../components/Cards/About";
 // Community
-import CommunityPage from "../components/Community";
+import Community from "../components/Community";
 // Faq
-import TableFAQ from "../components/Table/FAQ";
+//import TableFAQ from "../components/Table/FAQ";
 // Governance
 import CardTimelock from "../components/Cards/Governance/Timelock/Layout";
 import CardGovernanceMultisig from "../components/Cards/Governance/Multisig/Layout";
 //import CardGovernanceActions from "../components/Cards/Governance/Actions/Layout";
-// BentoBox
-import BentoBox from "../pages/BentoBox";
-import BentoBoxLogo from "../assets/img/bentobox.png";
 
 import sushiData from "@sushiswap/sushi-data";
-
 import { featured } from "../constants/featured";
 
 import AlbumCardsLoading from "../components/AlbumCards/Loading";
@@ -90,38 +78,12 @@ const LazyComponent = ({ component, fallback }) => {
   );
 };
 
-const SectionContext = createContext();
-const sectionReducer = (state, action) => {
-  switch (action.type) {
-    case "update": {
-      return { ...state, section: action.section };
-    }
-    default: {
-      throw new Error(`Unhandled action type: ${action.type}`);
-    }
-  }
-};
-const SectionProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(sectionReducer, { section: "" });
-  const value = { state, dispatch };
-  return <SectionContext.Provider value={value}>{children}</SectionContext.Provider>;
-};
-const useSectionState = () => {
-  const context = useContext(SectionContext);
-  if (context === undefined) {
-    throw new Error("useSectionState must be used within a SectionProvider");
-  }
-  return context;
-};
-
 const Dashboard = () => {
   return (
     <>
-      <SectionProvider>
-        <DashboardContainer>
-          <DashboardRoutes />
-        </DashboardContainer>
-      </SectionProvider>
+      <DashboardContainer>
+        <DashboardRoutes />
+      </DashboardContainer>
     </>
   );
 };
@@ -134,14 +96,11 @@ export const DashboardContainer = ({ children }) => {
     });
   }, []);
   const mobileMenu = useMenu();
-  //const { state } = useSectionState();
-
   return (
     <>
       <div className="sushi-h-screen sushi-flex sushi-overflow-hidden sushi-bg-white">
         <Sidebar />
         <div className="sushi-flex sushi-flex-col sushi-w-0 sushi-flex-1 sushi-overflow-hidden">
-          {/* <SearchHeader changeMenu={mobileMenu.change} isOpen={mobileMenu.isOpen} /> */}
           <main
             className="overflow-x-hidden lg:mt-4 lg:mr-4 lg:p-4 lg:bg-gray-200 lg:rounded-lg sushi-flex-1 sushi-relative sushi-z-0 sushi-overflow-y-auto focus:sushi-outline-none"
             tabIndex={0}
@@ -158,71 +117,19 @@ export const DashboardContainer = ({ children }) => {
 const DashboardRoutes = () => {
   return (
     <>
-      <Route exact path="/" component={Overview} />
-      <Route exact path="/home" component={Overview} />
-      <Route exact path="/overview" component={Overview} />
-      <PublicRoute exact path="/connect" component={Connect} />
+      {/* Additional */}
+      <PublicRoute exact path="/connect" component={ConnectPage} />
       <Route exact path="/search" component={SearchPage} />
-      <WalletRoute exact path="/omakase" component={PortfolioBalances} />
-      <WalletRoute exact path="/account" component={PortfolioBalances} />
-      <WalletRoute exact path="/portfolio" component={PortfolioBalances} />
-      <WalletRoute exact path="/portfolio/balances" component={PortfolioBalances} />
-      <WalletRoute exact path="/portfolio/transactions" component={PortfolioTransactions} />
-      <Route exact path="/weekly" component={MenuOfTheWeek} />
-      <Route exact path="/lists/:listId" component={FeaturedListPage} />
-      <Route exact path="/tokens" component={Tokens} />
-      <Route exact path="/pools" component={Farms} />
-      <Route exact path="/farms" component={Farms} />
-      <Route exact path="/farms/special" component={FarmsSpecial} />
-      <Route exact path="/farms/permanent" component={Farms} />
-      <Route exact path="/farms/xsushi" component={Farms} />
-      <Route exact path="/pairs" component={Pairs} />
-      <Route exact path="/governance" component={Governance} />
-      <Route exact path="/community" component={Community} />
-      <Route exact path="/about" component={About} />
-      <Route exact path="/faqs" component={Faqs} />
-      <Route exact path="/bentobox" component={BentoBoxWrapper} />
-      <Route
-        exacts
-        strict
-        path="/token/:tokenAddress"
-        render={({ match }) => {
-          if (isAddress(match.params.tokenAddress.toLowerCase())) {
-            return <Token address={match.params.tokenAddress.toLowerCase()} />;
-          } else {
-            return <Redirect to="/home" />;
-          }
-        }}
-      />
-      <Route
-        exacts
-        strict
-        path="/pair/:pairAddress"
-        render={({ match }) => {
-          if (isAddress(match.params.pairAddress.toLowerCase())) {
-            return <Pair pairAddress={match.params.pairAddress.toLowerCase()} />;
-          } else {
-            return <Redirect to="/home" />;
-          }
-        }}
-      />
-    </>
-  );
-};
-
-const BentoBoxWrapper = () => {
-  return (
-    <>
-      {/* <PageTitle title={"Bentobox Lending"} logo={BentoBoxLogo} /> */}
-      <BentoBox />
-    </>
-  );
-};
-
-const Connect = () => {
-  return (
-    <>
-      <ConnectPage />
+      {/* Overview */}
+      <Route exact path="/" component={OverviewPage} />
+      <Route exact path="/home" component={OverviewPage} />
+      <Route exact path="/overview" component={OverviewPage} />
+      {/* Portfolio */}
+      <WalletRoute exact path="/omakase" component={PortfolioBalancesPage} />
+      <WalletRoute exact path="/account" component={PortfolioBalancesPage} />
+      <WalletRoute exact path="/portfolio" component={PortfolioBalancesPage} />
+      <WalletRoute exact path="/portfolio/balances" component={PortfolioBalancesPage} />
+      <WalletRoute exact path="/portfolio/transactions" component={PortfolioTransactionsPage} />
     </>
   );
 };
@@ -237,27 +144,19 @@ const SearchPage = () => {
     </>
   );
 };
-
-const Community = () => {
+const ConnectPage = () => {
   return (
     <>
-      <PageTitle title={"A community full of chefs"} />
-      <div className="py-4 px-4 lg:sushi-block">
-        <MainSearch />
-        <CommunityPage />
-      </div>
+      <Connect />
     </>
   );
 };
 
-const Overview = () => {
-  const { dispatch } = useContext(SectionContext);
-  useEffect(() => {
-    dispatch({ type: "update", section: "home" });
-  }, []);
+const OverviewPage = () => {
   return (
     <>
-      <div className="md:flex">
+      <LazyComponent component={<AlbumCards />} fallback={<AlbumCardsLoading />} />
+      {/* <div className="md:flex">
         <div className="relative w-full mx-auto sm:px-6 lg:px-6">
           <div className="sm:mt-2 lg:mt-6 py-2 pl-2 bg-gray-100 sm:rounded-md">
             <GlobalStats />
@@ -283,7 +182,131 @@ const Overview = () => {
             </div>
           </div>
         </div>
+      </div> */}
+    </>
+  );
+};
+
+const PortfolioTabs = [
+  {
+    key: "balances",
+    type: "internal",
+    title: "Balances",
+    to: "/portfolio/balances",
+  },
+  {
+    key: "transactions",
+    type: "internal",
+    title: "Transactions",
+    to: "/portfolio/transactions",
+  },
+];
+const PortfolioBalancesPage = () => {
+  return (
+    <>
+      <TitleTabs title={"Omakase: Your Portfolio"} tabs={PortfolioTabs} selected={"balances"} withSearch />
+      <div className="min-h-full bg-gray-100 shadow-inner py-6 space-y-6 sm:p-6">
+        <div className="shadow sm:rounded-md sm:overflow-hidden">
+          <div className="bg-white">
+            <PortfolioPage />
+          </div>
+        </div>
       </div>
+    </>
+  );
+};
+const PortfolioTransactionsPage = () => {
+  return (
+    <>
+      <TitleTabs title={"Omakase: Your Portfolio"} tabs={PortfolioTabs} selected={"transactions"} withSearch />
+      <div className="min-h-full bg-gray-100 shadow-inner py-6 space-y-6 sm:p-6">
+        <TransactionsPage />
+      </div>
+    </>
+  );
+};
+
+const FarmTabs = [
+  {
+    key: "all",
+    type: "internal",
+    title: "All",
+    to: "/farms",
+  },
+  {
+    key: "permanent",
+    type: "internal",
+    title: "Permanent",
+    to: "/farms/permanent",
+  },
+  {
+    key: "special",
+    type: "internal",
+    title: "Onsen",
+    to: "/farms/special",
+  },
+  {
+    key: "xsushi",
+    type: "internal",
+    title: "SushiBar",
+    to: "/farms/xsushi",
+  },
+  {
+    key: "previous",
+    type: "internal",
+    title: "Previous",
+    to: "/farms/previous",
+  },
+];
+
+const FarmsAllPage = () => {
+  return (
+    <>
+      <TitleTabs title={"Farms"} tabs={FarmTabs} selected={"all"} withSearch />
+      <div className="sushi-px-8 py-4 sushi-hidden lg:sushi-block">
+        <MainSearch />
+      </div>
+      <TablePools title={"All Active Farms"} type={"main"} />
+    </>
+  );
+};
+
+const FarmsPermanentPage = () => {
+  return (
+    <>
+      <TitleTabs title={"Farms"} tabs={FarmTabs} selected={"permanent"} withSearch />
+      <div className="sushi-px-8 py-4 sushi-hidden lg:sushi-block">
+        <MainSearch />
+      </div>
+      <TablePools title={"All Active Farms"} type={"main"} />
+    </>
+  );
+};
+
+const FarmsSpecialPage = () => {
+  return (
+    <>
+      <TitleTabs title={"Farms"} tabs={FarmTabs} selected={"special"} withSearch />
+      <OnsenInfo />
+      <TablePools title={"Special Farms"} type={"main"} />
+    </>
+  );
+};
+
+const FarmsXSushiPage = () => {
+  return (
+    <>
+      <TitleTabs title={"Farms"} tabs={FarmTabs} selected={"xsushi"} withSearch />
+    </>
+  );
+};
+
+const FarmsPreviousPage = () => {
+  return (
+    <>
+      <TitleTabs title={"Farms"} tabs={FarmTabs} selected={"previous"} withSearch />
+      <OnsenInfo />
+      <TablePools title={"Previous Farms"} type={"main"} />
     </>
   );
 };
@@ -342,114 +365,7 @@ const FeaturedListPage = () => {
   );
 };
 
-// Previous Layout
-// const Overview = () => {
-//   const { dispatch } = useContext(SectionContext);
-//   useEffect(() => {
-//     dispatch({ type: "update", section: "home" });
-//   }, []);
-//   return (
-//     <>
-//       <div className="md:flex">
-//         <div className="relative w-full mx-auto sm:px-6 lg:px-6">
-//           <div className="grid gap-0 mx-auto lg:grid-cols-5 lg:max-w-none">
-//             <div className="pb-8 lg:pb-20 lg:col-span-3 overflow-x-hidden lg:overflow-visible">
-//               <div className="sm:mt-2 lg:mt-6 py-2 pl-2 bg-gray-100 sm:rounded-md lg:rounded-r-none">
-//                 <GlobalStats />
-//               </div>
-//               <div className="ml-4 sm:m-0 h-80">
-//                 <LazyComponent component={<AlbumCards />} />
-//               </div>
-//               <div className="mr-4">
-//                 <FeaturedItem />
-//               </div>
-//             </div>
-//             <div className="pt-6 lg:col-span-2">
-//               <div className="lg:sticky top-0">
-//                 <div className="hidden lg:block bg-gray-100">
-//                   <MainSearch />
-//                 </div>
-//                 <div className="pt-4">
-//                   <CardTokenActions initialSection={"swap"} />
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
-
-const PortfolioBalances = () => {
-  const { dispatch } = useContext(SectionContext);
-  useEffect(() => {
-    dispatch({ type: "update", section: "portfolio" });
-  }, []);
-  const tabs = [
-    {
-      key: "balances",
-      type: "internal",
-      title: "Balances",
-      to: "/portfolio/balances",
-      selected: true,
-    },
-    {
-      key: "transactions",
-      type: "internal",
-      title: "Transactions",
-      to: "/portfolio/transactions",
-    },
-  ];
-  return (
-    <>
-      <TitleTabs title={"Omakase: Your Portfolio"} tabs={tabs} withSearch />
-      <div className="min-h-full bg-gray-100 shadow-inner py-6 space-y-6 sm:p-6">
-        <div className="shadow sm:rounded-md sm:overflow-hidden">
-          <div className="bg-white">
-            <PortfolioPage />
-          </div>
-        </div>
-      </div>
-    </>
-  );
-};
-
-const PortfolioTransactions = () => {
-  const { dispatch } = useContext(SectionContext);
-  useEffect(() => {
-    dispatch({ type: "update", section: "portfolio" });
-  }, []);
-  const tabs = [
-    {
-      key: "balances",
-      type: "internal",
-      title: "Balances",
-      to: "/portfolio/balances",
-    },
-    {
-      key: "transactions",
-      type: "internal",
-      title: "Transactions",
-      to: "/portfolio/transactions",
-      selected: true,
-    },
-  ];
-  return (
-    <>
-      <TitleTabs title={"Omakase: Your Portfolio"} tabs={tabs} withSearch />
-      <div className="min-h-full bg-gray-100 shadow-inner py-6 space-y-6 sm:p-6">
-        <TransactionsPage />
-      </div>
-    </>
-  );
-};
-
 const MenuOfTheWeek = () => {
-  const { dispatch } = useContext(SectionContext);
-  useEffect(() => {
-    dispatch({ type: "update", section: "weekly" });
-  }, []);
   const menuRef = useRef(null);
   const currentRef = useRef(null);
   const previousRef = useRef(null);
@@ -477,22 +393,13 @@ const MenuOfTheWeek = () => {
   );
 };
 
-const Tokens = () => {
-  const { dispatch } = useContext(SectionContext);
-  useEffect(() => {
-    dispatch({ type: "update", section: "tokens" });
-  }, []);
-
+const TokensPage = () => {
   const allTokens = useAllTokenData();
   return (
     <>
-      {/* <MainSearch /> */}
       <div className="sushi-px-4 py-4 sushi-hidden lg:sushi-block">
         <MainSearch />
       </div>
-      {/* <h2 className="sushi-max-w-6xl sushi-mx-auto sushi-mt-4 sushi-px-4 sushi-text-lg sushi-leading-6 sushi-font-medium sushi-text-cool-gray-900 sm:sushi-px-6 lg:sushi-px-8">
-        Tokens on SushiSwap
-      </h2> */}
       <FeaturedList />
       <div className="sushi-mt-4 sushi-inline-block sushi-min-w-full sushi-overflow-hidden sushi-align-middle">
         <div
@@ -509,97 +416,13 @@ const Tokens = () => {
   );
 };
 
-const Farms = () => {
-  const { dispatch } = useContext(SectionContext);
-  useEffect(() => {
-    dispatch({ type: "update", section: "farms" });
-  }, []);
-  const tabs = [
-    {
-      key: "all",
-      type: "internal",
-      title: "All",
-      to: "/farms",
-      selected: true,
-    },
-    {
-      key: "special",
-      type: "internal",
-      title: "Onsen",
-      to: "/farms/special",
-    },
-    {
-      key: "xsushi",
-      type: "internal",
-      title: "SushiBar",
-      to: "/farms/xsushi",
-    },
-  ];
-  return (
-    <>
-      <TitleTabs title={"Farms"} tabs={tabs} withSearch />
-      <div className="sushi-px-8 py-4 sushi-hidden lg:sushi-block">
-        <MainSearch />
-      </div>
-      <TablePools title={"Permanent Farms"} type={"main"} />
-    </>
-  );
-};
-
-const FarmsSpecial = () => {
-  const { dispatch } = useContext(SectionContext);
-  useEffect(() => {
-    dispatch({ type: "update", section: "farms-special" });
-  }, []);
-  const tabs = [
-    {
-      key: "all",
-      type: "internal",
-      title: "All",
-      to: "/farms",
-    },
-    {
-      key: "special",
-      type: "internal",
-      title: "Onsen",
-      to: "/farms/special",
-      selected: true,
-    },
-    {
-      key: "xsushi",
-      type: "internal",
-      title: "SushiBar",
-      to: "/farms/xsushi",
-    },
-  ];
-  return (
-    <>
-      <TitleTabs title={"Farms"} tabs={tabs} withSearch />
-      <OnsenInfo />
-      {/* <div className="sushi-px-8 py-4 sushi-hidden lg:sushi-block">
-        <MainSearch />
-      </div> */}
-      <TablePools title={"Permanent Farms"} type={"main"} />
-    </>
-  );
-};
-
-const Pairs = () => {
-  const { dispatch } = useContext(SectionContext);
-  useEffect(() => {
-    dispatch({ type: "update", section: "pairs" });
-  }, []);
-
+const PairsPage = () => {
   const allPairs = useAllPairData();
   return (
     <>
-      {/* <MainSearch /> */}
       <div className="sushi-px-4 py-4 sushi-hidden lg:sushi-block">
         <MainSearch />
       </div>
-      {/* <h2 className="sushi-max-w-6xl sushi-mx-auto sushi-mt-8 sushi-px-4 sushi-text-lg sushi-leading-6 sushi-font-medium sushi-text-cool-gray-900 sm:sushi-px-6 lg:sushi-px-8">
-        Trading pairs on Sushiswap
-      </h2> */}
       <div className="my-4 sushi-inline-block sushi-min-w-full sushi-overflow-hidden sushi-align-middle">
         <div
           style={{
@@ -615,11 +438,17 @@ const Pairs = () => {
   );
 };
 
-const Governance = () => {
-  const { dispatch } = useContext(SectionContext);
+const AboutPage = () => {
+  return (
+    <>
+      <CardAbout />
+    </>
+  );
+};
+
+const GovernancePage = () => {
   const [timelocks, setTimelocks] = useState();
   useEffect(() => {
-    dispatch({ type: "update", section: "governance" });
     const fetchData = async () => {
       const timelocks = await sushiData.timelock.txs().then((results) => {
         return results;
@@ -633,29 +462,20 @@ const Governance = () => {
       <PageTitle title={"Governance"} />
       <CardSection>
         <CardTimelock timelocks={timelocks && timelocks} />
-        {/* <CardGovernanceActions /> */}
         <CardGovernanceMultisig />
       </CardSection>
     </>
   );
 };
 
-const About = () => {
-  const { dispatch } = useContext(SectionContext);
-  useEffect(() => {
-    dispatch({ type: "update", section: "about" });
-  }, []);
+const CommunityPage = () => {
   return (
     <>
-      <CardAbout />
-    </>
-  );
-};
-
-const Faqs = () => {
-  return (
-    <>
-      <TableFAQ title={"Top Liquidity Positions"} />
+      <PageTitle title={"A community full of chefs"} />
+      <div className="py-4 px-4 lg:sushi-block">
+        <MainSearch />
+        <Community />
+      </div>
     </>
   );
 };

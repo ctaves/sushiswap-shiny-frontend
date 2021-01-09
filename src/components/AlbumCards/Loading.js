@@ -6,8 +6,8 @@ const AlbumCards = () => {
   return (
     <>
       <div className="album-cards relative">
-        <div id="album-rotator">
-          <div id="album-rotator-holder" className="py-4">
+        <div className="album-rotator">
+          <div className="album-rotator-holder py-4">
             {[1, 2, 3, 4, 5].map((card) => {
               return <AlbumCard />;
             })}

@@ -7,6 +7,18 @@
   padding: 4rem;
 } */
 
+.album-cards .album-rotator {
+  /* width: 1000px; */
+  height: 100%;
+  width: 100% !important;
+  /* float: left; */
+  white-space: nowrap;
+  /* overflow: hidden; */
+  position: relative;
+  word-break: keep-all;
+  /* padding: 2rem 0; */
+}
+
 .album-cards #album-rotator {
   /* width: 1000px; */
   height: 100%;
@@ -18,6 +30,15 @@
   word-break: keep-all;
   /* padding: 2rem 0; */
 }
+
+.album-cards .album-rotator-holder {
+  position: relative;
+  user-select: none;
+  will-change: transform;
+  /* transition: all 0.01s ease-out; */
+  /* transition: all 0.01s linear; */
+}
+
 .album-cards #album-rotator-holder {
   position: relative;
   user-select: none;
