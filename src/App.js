@@ -76,6 +76,8 @@ import PoolWrapper from "./pages/Pool";
 // Services - Lite Dependancies
 import { ContextProvider as LiteProvider } from "./services/lite/context";
 
+import Farms from "./components/Farms";
+
 const App = () => {
   //const globalData = useGlobalData();
   //const globalChartData = useGlobalChartData();
@@ -88,6 +90,7 @@ const App = () => {
         <Web3ReactManager>
           <Switch>
             {/* Account Routes */}
+            <Route exact path="/farm-test" component={Farms} />
             <Route exact path="/connect" component={Dashboard} />
             <Route exact path="/search" component={Dashboard} />
             <Route exact path="/omakase" component={Dashboard} />

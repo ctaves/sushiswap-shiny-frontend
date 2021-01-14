@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import ReactDOM from "react-dom";
 
 // import * as THREE from "three";
 import { WebGLRenderer, Scene, PerspectiveCamera, PlaneGeometry, ShaderMaterial, Vector2, Mesh } from "three";
@@ -6,67 +7,63 @@ import { rgb, randomInteger, sceneTraverse } from "./util";
 import { noise, fragment, vertex } from "./shaders";
 import "./styles.css";
 
-//import SushiGlobalChart from "../../services/vision/components/GlobalChart/withoutAxis";
-
-const config = {
-  individualItem: ".album-item", // class of individual ref.current
-  carouselWidth: 1000, // in px
-  carouselId: "#album-rotator", // carousel selector
-  carouselHolderId: "#album-rotator-holder", // carousel should be <div id="carouselId"><div id="carouselHolderId">{ref.currents}</div></div>
-  colors: [
-    // Define colors for each ref.current. If more ref.currents than colors, then first color will be used as default
-    // Format { low: rgb(), high: rgb() for each color }
-    // { low: rgb(38, 176, 230), high: rgb(0, 128, 230) }, // light blue
-    // { low: rgb(249, 82, 160), high: rgb(255, 13, 133) }, // pink
-    // { low: rgb(32, 33, 36), high: rgb(0, 0, 0) }, //black
-    // { low: rgb(43, 75, 235), high: rgb(213, 51, 248) }, // purple
-
-    // // original
-    // { low: rgb(0, 114, 255), high: rgb(48, 0, 255) }, //blue
-    // { low: rgb(236, 166, 15), high: rgb(233, 104, 0) }, // yellow
-    // { low: rgb(175, 49, 49), high: rgb(123, 16, 16) }, // red
-    // { low: rgb(43, 75, 235), high: rgb(213, 51, 248) }, // purple
-
-    // Maki
-    { low: rgb(38, 176, 230), high: rgb(0, 128, 230) }, // light blue
-    { low: rgb(236, 166, 15), high: rgb(233, 104, 0) }, // yellow
-    { low: rgb(32, 33, 36), high: rgb(0, 0, 0) }, //black
-    { low: rgb(43, 75, 235), high: rgb(213, 51, 248) }, // purple
-  ],
-};
-
-const cards = [
-  {
-    id: "liquidity",
-    icon: "Liquidity",
-    color: config.colors[0],
-    //subtitle: <SushiGlobalChart display="liquidity" />,
-    type: "chart",
-  },
-  {
-    id: "volume",
-    icon: "Volume",
-    color: config.colors[1],
-    //subtitle: <SushiGlobalChart display="volume" />,
-    type: "chart",
-  },
-  {
-    id: "onsen",
-    icon: "New",
-    color: config.colors[2],
-    title: "Onsen",
-    subtext: "New Rewards, New Farms",
-  },
-  {
-    id: "bentbox",
-    icon: "Coming Soon",
-    color: config.colors[3],
-    title: "BentoBox",
-    subtext: "Lending on SushiSwap",
-  },
-];
+import SushiGlobalChart from "../../services/vision/components/GlobalChart/withoutAxis";
 
 const AlbumCards = () => {
+  const config = {
+    colors: [
+      // Define colors for each ref.current. If more ref.currents than colors, then first color will be used as default
+      // Format { low: rgb(), high: rgb() for each color }
+      // { low: rgb(38, 176, 230), high: rgb(0, 128, 230) }, // light blue
+      // { low: rgb(249, 82, 160), high: rgb(255, 13, 133) }, // pink
+      // { low: rgb(32, 33, 36), high: rgb(0, 0, 0) }, //black
+      // { low: rgb(43, 75, 235), high: rgb(213, 51, 248) }, // purple
+
+      // // original
+      // { low: rgb(0, 114, 255), high: rgb(48, 0, 255) }, //blue
+      // { low: rgb(236, 166, 15), high: rgb(233, 104, 0) }, // yellow
+      // { low: rgb(175, 49, 49), high: rgb(123, 16, 16) }, // red
+      // { low: rgb(43, 75, 235), high: rgb(213, 51, 248) }, // purple
+
+      // Maki
+      { low: rgb(38, 176, 230), high: rgb(0, 128, 230) }, // light blue
+      { low: rgb(236, 166, 15), high: rgb(233, 104, 0) }, // yellow
+      { low: rgb(32, 33, 36), high: rgb(0, 0, 0) }, //black
+      { low: rgb(43, 75, 235), high: rgb(213, 51, 248) }, // purple
+    ],
+  };
+
+  const cards = [
+    {
+      id: "liquidity",
+      icon: "Liquidity",
+      color: config.colors[0],
+      subtitle: <SushiGlobalChart display="liquidity" />,
+      type: "chart",
+    },
+    {
+      id: "volume",
+      icon: "Volume",
+      color: config.colors[1],
+      subtitle: <SushiGlobalChart display="volume" />,
+      type: "chart",
+    },
+    {
+      id: "onsen",
+      icon: "New",
+      color: config.colors[2],
+      title: "Onsen",
+      subtext: "New Rewards, New Farms",
+    },
+    {
+      id: "bentbox",
+      icon: "Coming Soon",
+      color: config.colors[3],
+      title: "BentoBox",
+      subtext: "Lending on SushiSwap",
+    },
+  ];
+
   return (
     <>
       <div className="album-cards relative">
@@ -74,15 +71,18 @@ const AlbumCards = () => {
           <div id="album-rotator-holder" className="py-4">
             {cards.map((card) => {
               return (
-                <AlbumCard
-                  key={card.id}
-                  type={card.type}
-                  color={card.color}
-                  icon={card.icon}
-                  title={card.title}
-                  subtitle={card.subtitle}
-                  subtext={card.subtext}
-                />
+                <>
+                  <AlbumCard
+                    key={card.id}
+                    id={card.id}
+                    type={card.type}
+                    color={card.color}
+                    icon={card.icon}
+                    title={card.title}
+                    subtitle={card.subtitle}
+                    subtext={card.subtext}
+                  />
+                </>
               );
             })}
           </div>
@@ -92,9 +92,17 @@ const AlbumCards = () => {
   );
 };
 
-const AlbumCard = ({ color, icon, title, subtitle, subtext, type }) => {
+const AlbumCard = ({ id, color, icon, title, subtitle, subtext, type }) => {
+  const config = {
+    individualItem: ".album-item", // class of individual ref.current
+    carouselWidth: 1000, // in px
+    carouselId: "#album-rotator", // carousel selector
+    carouselHolderId: "#album-rotator-holder", // carousel should be <div id="carouselId"><div id="carouselHolderId">{ref.currents}</div></div>
+  };
+
   const ref = useRef(null);
   const requestRef = useRef();
+  const [mount, setMount] = useState(true);
 
   useEffect(() => {
     if (ref.current) {
@@ -202,6 +210,10 @@ const AlbumCard = ({ color, icon, title, subtitle, subtext, type }) => {
       };
       animate();
 
+      // if (type === "chart") {
+      //   ReactDOM.unmountComponentAtNode(document.getElementById("chart_" + id));
+      // }
+
       return () => {
         // unmount:
         // dispose geometries and materials in scene
@@ -244,104 +256,105 @@ const AlbumCard = ({ color, icon, title, subtitle, subtext, type }) => {
         camera = null;
         renderer.domElement = null;
         renderer = null;
+        ref.current = null;
       };
     }
   }, [ref]);
 
-  useEffect(() => {
-    // Get items
-    const el = document.querySelector(config.individualItem);
-    const elWidth =
-      parseFloat(window.getComputedStyle(el).width) +
-      parseFloat(window.getComputedStyle(el).marginLeft) +
-      parseFloat(window.getComputedStyle(el).marginRight);
+  // useEffect(() => {
+  //   // Get items
+  //   const el = document.querySelector(config.individualItem);
+  //   const elWidth =
+  //     parseFloat(window.getComputedStyle(el).width) +
+  //     parseFloat(window.getComputedStyle(el).marginLeft) +
+  //     parseFloat(window.getComputedStyle(el).marginRight);
 
-    // Track carousel
-    let mousedown = false;
-    let movement = false;
-    let initialPosition = 0;
-    let selectedItem;
-    let currentDelta = 0;
+  //   // Track carousel
+  //   let mousedown = false;
+  //   let movement = false;
+  //   let initialPosition = 0;
+  //   let selectedItem;
+  //   let currentDelta = 0;
 
-    document.querySelectorAll(config.carouselId).forEach(function(item) {
-      item.style.width = `${config.carouselWidth}px`;
-    });
+  //   document.querySelectorAll(config.carouselId).forEach(function(item) {
+  //     item.style.width = `${config.carouselWidth}px`;
+  //   });
 
-    document.querySelectorAll(config.carouselId).forEach(function(item) {
-      item.addEventListener("pointerdown", function(e) {
-        mousedown = true;
-        selectedItem = item;
-        initialPosition = e.pageX;
-        currentDelta =
-          parseFloat(item.querySelector(config.carouselHolderId).style.transform.split("translateX(")[1]) || 0;
-      });
-    });
+  //   document.querySelectorAll(config.carouselId).forEach(function(item) {
+  //     item.addEventListener("pointerdown", function(e) {
+  //       mousedown = true;
+  //       selectedItem = item;
+  //       initialPosition = e.pageX;
+  //       currentDelta =
+  //         parseFloat(item.querySelector(config.carouselHolderId).style.transform.split("translateX(")[1]) || 0;
+  //     });
+  //   });
 
-    const scrollCarousel = function(change, currentDelta, selectedItem) {
-      let numberThatFit = Math.floor(config.carouselWidth / elWidth);
-      let newDelta = currentDelta + change;
-      let elLength = selectedItem.querySelectorAll(config.individualItem).length - numberThatFit;
-      if (newDelta <= 0 && newDelta >= -elWidth * elLength) {
-        selectedItem.querySelector(config.carouselHolderId).style.transform = `translateX(${newDelta}px)`;
-      } else {
-        if (newDelta <= -elWidth * elLength) {
-          selectedItem.querySelector(config.carouselHolderId).style.transform = `translateX(${-elWidth * elLength}px)`;
-        } else if (newDelta >= 0) {
-          selectedItem.querySelector(config.carouselHolderId).style.transform = `translateX(0px)`;
-        }
-      }
-    };
+  //   const scrollCarousel = function(change, currentDelta, selectedItem) {
+  //     let numberThatFit = Math.floor(config.carouselWidth / elWidth);
+  //     let newDelta = currentDelta + change;
+  //     let elLength = selectedItem.querySelectorAll(config.individualItem).length - numberThatFit;
+  //     if (newDelta <= 0 && newDelta >= -elWidth * elLength) {
+  //       selectedItem.querySelector(config.carouselHolderId).style.transform = `translateX(${newDelta}px)`;
+  //     } else {
+  //       if (newDelta <= -elWidth * elLength) {
+  //         selectedItem.querySelector(config.carouselHolderId).style.transform = `translateX(${-elWidth * elLength}px)`;
+  //       } else if (newDelta >= 0) {
+  //         selectedItem.querySelector(config.carouselHolderId).style.transform = `translateX(0px)`;
+  //       }
+  //     }
+  //   };
 
-    document.body.addEventListener("pointermove", function(e) {
-      if (mousedown == true && typeof selectedItem !== "undefined") {
-        let change = -(initialPosition - e.pageX);
-        scrollCarousel(change, currentDelta, document.body);
-        document.querySelectorAll(`${config.carouselId} a`).forEach(function(item) {
-          item.style.pointerEvents = "none";
-        });
-        movement = true;
-      }
-    });
+  //   document.body.addEventListener("pointermove", function(e) {
+  //     if (mousedown == true && typeof selectedItem !== "undefined") {
+  //       let change = -(initialPosition - e.pageX);
+  //       scrollCarousel(change, currentDelta, document.body);
+  //       document.querySelectorAll(`${config.carouselId} a`).forEach(function(item) {
+  //         item.style.pointerEvents = "none";
+  //       });
+  //       movement = true;
+  //     }
+  //   });
 
-    ["pointerup", "mouseleave"].forEach(function(item) {
-      document.body.addEventListener(item, function(e) {
-        selectedItem = undefined;
-        movement = false;
-        document.querySelectorAll(`${config.carouselId} a`).forEach(function(item) {
-          item.style.pointerEvents = "all";
-        });
-      });
-    });
+  //   ["pointerup", "mouseleave"].forEach(function(item) {
+  //     document.body.addEventListener(item, function(e) {
+  //       selectedItem = undefined;
+  //       movement = false;
+  //       document.querySelectorAll(`${config.carouselId} a`).forEach(function(item) {
+  //         item.style.pointerEvents = "all";
+  //       });
+  //     });
+  //   });
 
-    document.querySelectorAll(config.carouselId).forEach(function(item) {
-      let trigger = 0;
-      item.addEventListener("wheel", function(e) {
-        if (trigger !== 1) {
-          ++trigger;
-        } else {
-          let change = e.deltaX * -3;
-          let currentDelta =
-            parseFloat(item.querySelector(config.carouselHolderId).style.transform.split("translateX(")[1]) || 0;
-          scrollCarousel(change, currentDelta, item);
-          trigger = 0;
-        }
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        return false;
-      });
-    });
+  //   document.querySelectorAll(config.carouselId).forEach(function(item) {
+  //     let trigger = 0;
+  //     item.addEventListener("wheel", function(e) {
+  //       if (trigger !== 1) {
+  //         ++trigger;
+  //       } else {
+  //         let change = e.deltaX * -3;
+  //         let currentDelta =
+  //           parseFloat(item.querySelector(config.carouselHolderId).style.transform.split("translateX(")[1]) || 0;
+  //         scrollCarousel(change, currentDelta, item);
+  //         trigger = 0;
+  //       }
+  //       e.preventDefault();
+  //       e.stopImmediatePropagation();
+  //       return false;
+  //     });
+  //   });
 
-    return () => {
-      document.body.removeEventListener("pointerdown", () => {});
-      document.body.removeEventListener("pointerup", () => {});
-      document.body.removeEventListener("pointermove", () => {});
-      document.body.removeEventListener("wheel", () => {});
-    };
-  }, [ref]);
+  //   return () => {
+  //     document.body.removeEventListener("pointerdown", () => {});
+  //     document.body.removeEventListener("pointerup", () => {});
+  //     document.body.removeEventListener("pointermove", () => {});
+  //     document.body.removeEventListener("wheel", () => {});
+  //   };
+  // }, [ref]);
 
   return (
     <>
-      <a className="album-item" href="#" ref={ref}>
+      <div className="album-item" ref={ref}>
         <span className="album-details">
           {icon && (
             <span className={type === "chart" ? "icon-chart pt-4 px-4" : "icon pt-4 px-4"}>
@@ -350,10 +363,14 @@ const AlbumCard = ({ color, icon, title, subtitle, subtext, type }) => {
             </span>
           )}
           {title && <span className="title mx-4">{title}</span>}
-          {subtitle && <span className={type === "chart" ? "subtitle-chart" : "subtitle"}>{subtitle} </span>}
+          {subtitle && (
+            <span className={type === "chart" ? "subtitle-chart" : "subtitle"} id={"chart_" + id}>
+              {mount ? subtitle : null}
+            </span>
+          )}
           {subtext && <span className="subtext">{subtext}</span>}
         </span>
-      </a>
+      </div>
     </>
   );
 };

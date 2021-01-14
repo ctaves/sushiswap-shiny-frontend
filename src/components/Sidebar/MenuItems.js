@@ -329,7 +329,7 @@ const MenuItems = ({ selected }) => {
             target="_blank"
             className="group flex items-center px-3 py-1 text-sm leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition ease-in-out duration-150"
           >
-            <span className="w-2.5 h-2.5 mr-4 bg-gray-300 rounded-md" />
+            <span className="w-2.5 h-2.5 mr-4 bg-brand-1 rounded-md" />
             <span className="truncate">Docs</span>
           </a>
           <a
@@ -337,7 +337,7 @@ const MenuItems = ({ selected }) => {
             target="_blank"
             className="group flex items-center px-3 py-1 text-sm leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition ease-in-out duration-150"
           >
-            <span className="w-2.5 h-2.5 mr-4 bg-orange-300 rounded-md" />
+            <span className="w-2.5 h-2.5 mr-4 bg-brand-2 rounded-md" />
             <span className="truncate">SushiSwap Lite</span>
           </a>
           <a
@@ -345,7 +345,7 @@ const MenuItems = ({ selected }) => {
             target="_blank"
             className="group flex items-center px-3 py-1 text-sm leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition ease-in-out duration-150"
           >
-            <span className="w-2.5 h-2.5 mr-4 bg-orange-400 rounded-md" />
+            <span className="w-2.5 h-2.5 mr-4 bg-brand-3 rounded-md" />
             <span className="truncate">SushiSwap Classic</span>
           </a>
           <a
@@ -353,7 +353,7 @@ const MenuItems = ({ selected }) => {
             target="_blank"
             className="group flex items-center px-3 py-1 text-sm leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition ease-in-out duration-150"
           >
-            <span className="w-2.5 h-2.5 mr-4 bg-orange-400 rounded-md" />
+            <span className="w-2.5 h-2.5 mr-4 bg-brand-4 rounded-md" />
             <span className="truncate">SushiSwap Analytics</span>
           </a>
           <a
@@ -361,7 +361,7 @@ const MenuItems = ({ selected }) => {
             target="_blank"
             className="group flex items-center px-3 py-1 text-sm leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition ease-in-out duration-150"
           >
-            <span className="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-md" />
+            <span className="w-2.5 h-2.5 mr-4 bg-brand-5 rounded-md" />
             <span className="truncate">Discord</span>
           </a>
           <a
@@ -369,14 +369,14 @@ const MenuItems = ({ selected }) => {
             target="_blank"
             className="group flex items-center px-3 py-1 text-sm leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition ease-in-out duration-150"
           >
-            <span className="w-2.5 h-2.5 mr-4 bg-teal-400 rounded-md" />
+            <span className="w-2.5 h-2.5 mr-4 bg-brand-6 rounded-md" />
             <span className="truncate">Twitter</span>
           </a>
           <button
             onClick={onPresentWechat}
             className="w-full group flex items-center px-3 py-1 text-sm leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition ease-in-out duration-150"
           >
-            <span className="w-2.5 h-2.5 mr-4 bg-green-400 rounded-md" />
+            <span className="w-2.5 h-2.5 mr-4 bg-brand-7 rounded-md" />
             <span className="truncate">Wechat</span>
           </button>
           {/* <a

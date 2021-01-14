@@ -39,54 +39,6 @@ import ColumnActions from "./Columns/Actions";
 
 import "../../assets/css/freeze-panes.css";
 // type options: "active", "main", "current", "previous"
-const Layout = ({ title, type }) => {
-  const [highestAPY, setAPY] = useState();
-  return (
-    <>
-      {/* <Title highestAPY={highestAPY} title={title} /> */}
-      <PoolsQuery setAPY={setAPY} type={type} />
-    </>
-  );
-};
-
-const Title = ({ highestAPY, title }) => {
-  return (
-    <>
-      <div className="sushi-px-4 lg:sushi-flex lg:sushi-items-center lg:sushi-justify-between">
-        <div className="sushi-flex-1 sushi-min-w-0">
-          <h2 className="sushi-max-w-6xl sushi-mt-8 sushi-px-4 sushi-text-lg sushi-leading-6 sushi-font-medium sushi-text-cool-gray-900 sushi-">
-            {title ? title : "Current Menu"}
-            {highestAPY ? (
-              <>
-                <span className="sushi-ml-3 sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-0.5 sushi-rounded-md sushi-text-sm sushi-font-medium sushi-leading-5 bg-gray-900 text-white">
-                  Up to {formatNumber(highestAPY, 0)}% APR
-                </span>
-                <span className="sushi-mr-3"> ✨</span>
-                <a href="https://docs.sushiswap.fi/faq#vesting" target="_blank">
-                  <span className="mt-2 sushi-inline-flex sushi-items-center sushi-px-2 sushi-py-0.5 sushi-rounded-md sushi-text-sm sushi-font-medium sushi-leading-5 sushi-bg-gray-100 sushi-text-gray-800">
-                    <svg
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      class="sushi-w-4 sushi-h-4 sushi-mr-1 sushi-question-mark-circle"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                    Note: 2/3 Reward Vesting in Effect
-                  </span>
-                </a>
-              </>
-            ) : null}
-          </h2>
-          {/* <Toggle widgetPath={"/widgets/weekly/current"} dashboardPath={"/weekly"} /> */}
-        </div>
-      </div>
-    </>
-  );
-};
 
 const initialColumns = [
   {
@@ -132,6 +84,20 @@ const initialColumns = [
     component: <ColumnEarnings />,
   },
 ];
+
+const Farms = ({ type }) => {
+  return <></>;
+};
+
+const Layout = ({ title, type }) => {
+  const [highestAPY, setAPY] = useState();
+  return (
+    <>
+      {/* <Title highestAPY={highestAPY} title={title} /> */}
+      <PoolsQuery setAPY={setAPY} type={type} />
+    </>
+  );
+};
 
 const PoolsQuery = ({ setAPY, type }) => {
   const [columns, setColumns] = useState(initialColumns);
@@ -484,7 +450,6 @@ const TablePools = ({ title, pools, columns }) => {
   useEffect(() => {
     if (pools && account) {
       const getAccountStat = async (pool, web3, account, masterChefContract) => {
-        //console.log("pool_:", pool);
         const lpContract = new web3.eth.Contract(ERC20ABI.abi, pool.id);
         const tokenBalance = getBalanceNumber(new BigNumber(await lpContract.methods.balanceOf(account).call()));
         const stakedBalance = getBalanceNumber(

@@ -250,6 +250,12 @@ const TradingViewChart = ({
     }
   }, [chartCreated, width]);
 
+  // dismount
+  // useEffect(() => {
+  //   console.log("chart::", chartCreated);
+  //   return () => ref.current.destroy();
+  // }, [ref, chartCreated]);
+
   return (
     <Wrapper>
       <div ref={ref} id={"test-id" + type} />

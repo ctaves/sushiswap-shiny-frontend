@@ -68,8 +68,7 @@ export const EthersContextProvider = ({ children }) => {
   const [tokens, setTokens] = useState<TokenWithValue[]>([]);
   const [customTokens, setCustomTokens] = useState<Token[]>([]);
   const [loadingTokens, setLoadingTokens] = useState(true);
-
-  console.log("eth_context:", ethereum);
+  //console.log("eth_context:", ethereum);
 
   useEffect(() => {
     // Kovan

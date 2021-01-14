@@ -38,10 +38,7 @@ export default function PoolTable({ pools, ...rest }) {
               const name = `${row.liquidityPair?.token0?.symbol}-${row.liquidityPair?.token1?.symbol}`;
               return (
                 <Box display="flex" alignItems="center">
-                  <PairIcon
-                    base={row.liquidityPair?.token0?.id}
-                    quote={row.liquidityPair?.token1?.id}
-                  />
+                  <PairIcon base={row.liquidityPair?.token0?.id} quote={row.liquidityPair?.token1?.id} />
                   <Link href={`/pools/${row.id}`} variant="body2" noWrap>
                     {name}
                   </Link>
@@ -64,22 +61,15 @@ export default function PoolTable({ pools, ...rest }) {
           {
             key: "rewardPerThousand",
             label: "Reward per $1000",
-            render: (row) =>
-              `${Number(row.rewardPerThousand * 24 * 1000).toFixed(
-                2
-              )} SUSHI per day`,
+            render: (row) => `${Number(row.rewardPerThousand * 24 * 1000).toFixed(2)} SUSHI per day`,
           },
           {
             key: "roi",
             label: "Yearly / Monthly / Daily ROI",
             render: (row) => (
               <Typography variant="subtitle2" noWrap>
-                <Percent
-                  percent={Number(row.roiPerYear * 3 * 100).toFixed(2)}
-                  display="inline"
-                />{" "}
-                / {Number(row.roiPerMonth * 3 * 100).toFixed(2)}% /{" "}
-                {Number(row.roiPerDay * 3 * 100).toFixed(2)}%
+                <Percent percent={Number(row.roiPerYear * 3 * 100).toFixed(2)} display="inline" /> /{" "}
+                {Number(row.roiPerMonth * 3 * 100).toFixed(2)}% / {Number(row.roiPerDay * 3 * 100).toFixed(2)}%
               </Typography>
             ),
           },
@@ -89,13 +79,9 @@ export default function PoolTable({ pools, ...rest }) {
             label: "Base Reserve",
             render: (row) => (
               <Box display="flex">
-                <TokenIcon
-                  id={row.liquidityPair?.token0?.id}
-                  className={classes.small}
-                />
+                <TokenIcon id={row.liquidityPair?.token0?.id} className={classes.small} />
                 <Typography variant="subtitle2" noWrap>
-                  {formatDecimal(row.liquidityPair?.reserve0)}{" "}
-                  {row.liquidityPair?.token0?.symbol}
+                  {formatDecimal(row.liquidityPair?.reserve0)} {row.liquidityPair?.token0?.symbol}
                 </Typography>
               </Box>
             ),
@@ -105,13 +91,9 @@ export default function PoolTable({ pools, ...rest }) {
             label: "Quote Reserve",
             render: (row) => (
               <Box display="flex">
-                <TokenIcon
-                  id={row.liquidityPair?.token1?.id}
-                  className={classes.small}
-                />
+                <TokenIcon id={row.liquidityPair?.token1?.id} className={classes.small} />
                 <Typography variant="subtitle2" noWrap>
-                  {formatDecimal(row.liquidityPair?.reserve1)}{" "}
-                  {row.liquidityPair?.token1?.symbol}
+                  {formatDecimal(row.liquidityPair?.reserve1)} {row.liquidityPair?.token1?.symbol}
                 </Typography>
               </Box>
             ),

@@ -130,6 +130,48 @@ const DashboardRoutes = () => {
       <WalletRoute exact path="/portfolio" component={PortfolioBalancesPage} />
       <WalletRoute exact path="/portfolio/balances" component={PortfolioBalancesPage} />
       <WalletRoute exact path="/portfolio/transactions" component={PortfolioTransactionsPage} />
+      {/* <Route exact path="/weekly" component={MenuOfTheWeek} /> */}
+      <Route exact path="/lists/:listId" component={FeaturedListPage} />
+      {/* Farms */}
+      <Route exact path="/farms" component={FarmsAllPage} />
+      <Route exact path="/farms/all" component={FarmsAllPage} />
+      <Route exact path="/farms/permanent" component={FarmsPermanentPage} />
+      <Route exact path="/farms/special" component={FarmsSpecialPage} />
+      <Route exact path="/onsen" component={FarmsSpecialPage} />
+      <Route exact path="/farms/xsushi" component={FarmsXSushiPage} />
+      <Route exact path="/sushibar" component={FarmsXSushiPage} />
+      <Route exact path="/farms/previous" component={FarmsPreviousPage} />
+      {/* Tokens */}
+      <Route exact path="/tokens" component={TokensPage} />
+      <Route exact path="/pairs" component={PairsPage} />
+      <Route
+        exacts
+        strict
+        path="/token/:tokenAddress"
+        render={({ match }) => {
+          if (isAddress(match.params.tokenAddress.toLowerCase())) {
+            return <Token address={match.params.tokenAddress.toLowerCase()} />;
+          } else {
+            return <Redirect to="/home" />;
+          }
+        }}
+      />
+      <Route
+        exacts
+        strict
+        path="/pair/:pairAddress"
+        render={({ match }) => {
+          if (isAddress(match.params.pairAddress.toLowerCase())) {
+            return <Pair pairAddress={match.params.pairAddress.toLowerCase()} />;
+          } else {
+            return <Redirect to="/home" />;
+          }
+        }}
+      />
+      {/* Community */}
+      <Route exact path="/governance" component={GovernancePage} />
+      <Route exact path="/community" component={CommunityPage} />
+      <Route exact path="/about" component={AboutPage} />
     </>
   );
 };
@@ -155,8 +197,7 @@ const ConnectPage = () => {
 const OverviewPage = () => {
   return (
     <>
-      <LazyComponent component={<AlbumCards />} fallback={<AlbumCardsLoading />} />
-      {/* <div className="md:flex">
+      <div className="md:flex" id={"overview-page"}>
         <div className="relative w-full mx-auto sm:px-6 lg:px-6">
           <div className="sm:mt-2 lg:mt-6 py-2 pl-2 bg-gray-100 sm:rounded-md">
             <GlobalStats />
@@ -182,7 +223,7 @@ const OverviewPage = () => {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
     </>
   );
 };

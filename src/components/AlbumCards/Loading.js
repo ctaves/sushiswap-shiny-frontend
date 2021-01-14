@@ -9,7 +9,7 @@ const AlbumCards = () => {
         <div className="album-rotator">
           <div className="album-rotator-holder py-4">
             {[1, 2, 3, 4, 5].map((card) => {
-              return <AlbumCard />;
+              return <AlbumCard key={"album_loading_" + card} />;
             })}
           </div>
         </div>

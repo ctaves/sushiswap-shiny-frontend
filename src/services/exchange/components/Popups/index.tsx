@@ -45,8 +45,7 @@ const FixedPopupColumn = styled(AutoColumn)`
 export default function Popups() {
   // get all popups
   const activePopups = useActivePopups();
-
-  console.log("ACTIVE POPUPS:", activePopups);
+  //console.log("ACTIVE POPUPS:", activePopups);
 
   return (
     <>

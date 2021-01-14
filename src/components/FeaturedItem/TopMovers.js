@@ -97,8 +97,8 @@ const TokenCard = ({ id, symbol, name, priceUSD, priceChangeUSD }) => {
     <Link to={"/token/" + id}>
       <div className="w-32 h-44 mr-4 flex flex-col justify-between border border-gray-300 hover:bg-gray-100 rounded-md p-4">
         <div>
-          <div className="text-sm font-semibold uppercase">{symbol}</div>
-          <div className="text-sm">{name}</div>
+          <div className="text-sm font-semibold uppercase overflow-hidden">{symbol}</div>
+          <div className="text-sm overflow-hidden">{name}</div>
         </div>
         <div>
           <div className="text-2xl font-semibold text-green-finance">{priceUSD}</div>

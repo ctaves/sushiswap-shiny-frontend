@@ -76,7 +76,7 @@ const GlobalChart = ({ display }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, [isClient, width]); // Empty array ensures that effect is only run on mount and unmount
 
-  console.log("totalLiquidityUSD:", totalLiquidityUSD);
+  //console.log("totalLiquidityUSD:", totalLiquidityUSD);
 
   return chartDataFiltered ? (
     <>
