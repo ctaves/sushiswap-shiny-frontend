@@ -40,7 +40,7 @@ const FilterDropdown = ({ isOpen, columns, setColumns }) => {
                           defaultChecked={column.selected}
                           onChange={handleCheckboxChange(column.name)}
                           type="checkbox"
-                          className="form-checkbox h-4 w-4 border-gray-300 text-orange-600 focus:shadow-outline-orange focus:border-orange-300 transition duration-150 ease-in-out"
+                          className="form-checkbox h-4 w-4 border-gray-300 text-blue-brand focus:shadow-outline-blue focus:border-blue-brand transition duration-150 ease-in-out"
                         />
                         <span className="ml-2">{column.name}</span>
                       </label>
@@ -55,7 +55,7 @@ const FilterDropdown = ({ isOpen, columns, setColumns }) => {
                           defaultChecked={column.selected}
                           onChange={handleCheckboxChange(column.name)}
                           type="checkbox"
-                          className="form-checkbox h-4 w-4 border-gray-300 text-orange-600 focus:shadow-outline-orange focus:border-orange-300 transition duration-150 ease-in-out"
+                          className="form-checkbox h-4 w-4 border-gray-300 text-blue-brand focus:shadow-outline-blue focus:border-blue-brand transition duration-150 ease-in-out"
                         />
                         <span className="ml-2">{column.name}</span>
                       </label>

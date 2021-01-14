@@ -2,7 +2,7 @@ import React from "react";
 
 import { formattedNum } from "../../../services/vision/utils";
 
-const ColumnBalance = ({ farm }) => {
+const ColumnBalanceSLP = ({ farm }) => {
   //console.log("POOL:", farm);
   //console.log(farm.tokenBalance, farm.stakedBalance);
   return (
@@ -20,4 +20,4 @@ const ColumnBalance = ({ farm }) => {
   );
 };
 
-export default ColumnBalance;
+export default ColumnBalanceSLP;
