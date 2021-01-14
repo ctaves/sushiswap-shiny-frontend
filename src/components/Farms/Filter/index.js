@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import Search from "./Search";
-import FilterDropdown from "./FilterDropdown";
+import FilterDropdown from "./Dropdown";
 import useOutsideClick from "../../../shared/hooks/useOutsideClick";
 
 const TableFilter = ({ search, term, columns, setColumns }) => {
@@ -14,7 +14,7 @@ const TableFilter = ({ search, term, columns, setColumns }) => {
       <div className="border-t border-gray-200 px-4 pt-4 pb-3">
         <div>
           <div className="flex-auto flex items-center justify-between">
-            <div className="group leading-6 flex items-center">
+            <div className="group w-2/5 leading-6 flex items-center">
               <Search search={search} term={term} />
               <div className="relative inline-block text-left">
                 <div>

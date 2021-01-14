@@ -44,7 +44,8 @@ import FeaturedList from "../components/FeaturedList";
 import TokenList from "../services/vision/components/TokenList/secondary";
 import { useAllTokenData } from "../services/vision/contexts/TokenData";
 // Pools / Farms
-import TablePools from "../components/Table/PoolsWeeklyApollo";
+// import TablePools from "../components/Table/PoolsWeeklyApollo";
+import TableFarms from "../components/Farms";
 // Pairs
 import { useAllPairData } from "../services/vision/contexts/PairData";
 import PairList from "../services/vision/components/PairList/secondary";
@@ -331,7 +332,7 @@ const FarmsAllPage = () => {
       <div className="sushi-px-8 py-4 sushi-hidden lg:sushi-block">
         <MainSearch />
       </div>
-      <TablePools title={"All Active Farms"} type={"main"} />
+      <TableFarms title={"All Active Farms"} type={"main"} />
     </>
   );
 };
@@ -343,7 +344,7 @@ const FarmsPermanentPage = () => {
       <div className="sushi-px-8 py-4 sushi-hidden lg:sushi-block">
         <MainSearch />
       </div>
-      <TablePools title={"All Active Farms"} type={"main"} />
+      <TableFarms title={"All Active Farms"} type={"main"} />
     </>
   );
 };
@@ -353,7 +354,7 @@ const FarmsSpecialPage = () => {
     <>
       <TitleTabs title={"Farms"} tabs={FarmTabs} selected={"special"} withSearch />
       <OnsenInfo />
-      <TablePools title={"Special Farms"} type={"main"} />
+      <TableFarms title={"Special Farms"} type={"main"} />
     </>
   );
 };
@@ -371,7 +372,7 @@ const FarmsPreviousPage = () => {
     <>
       <TitleTabs title={"Farms"} tabs={FarmTabs} selected={"previous"} withSearch />
       <OnsenInfo />
-      <TablePools title={"Previous Farms"} type={"main"} />
+      <TableFarms title={"Previous Farms"} type={"main"} />
     </>
   );
 };
@@ -426,34 +427,6 @@ const FeaturedListPage = () => {
         appropriate for your portfolio or investment strategy. All investments involve risks, including the loss of
         principal.
       </p> */}
-    </>
-  );
-};
-
-const MenuOfTheWeek = () => {
-  const menuRef = useRef(null);
-  const currentRef = useRef(null);
-  const previousRef = useRef(null);
-  const scrollToMenu = () => scrollToRef(menuRef);
-  const scrollToCurrent = () => scrollToRef(currentRef);
-  const scrollToPrevious = () => scrollToRef(previousRef);
-  const scrollToRef = (ref) => {
-    ref.current.scrollIntoView({ behavior: "smooth" });
-  };
-  return (
-    <>
-      {/* <MainSearch /> */}
-      {/* <div className="sushi-px-8 py-4 sushi-hidden lg:sushi-block"><MainSearch /></div> */}
-      <WeeklyMenuInfo scrollToMenu={scrollToMenu} />
-      <div ref={menuRef} id="menus">
-        <WeeklyMenus scrollToCurrent={scrollToCurrent} scrollToPrevious={scrollToPrevious} />
-      </div>
-      <div ref={currentRef} id="current">
-        <TablePools title={"Weekly Farms"} type={"current"} />
-      </div>
-      <div ref={previousRef} id="previous">
-        <TablePools title={"Previous Farms"} type={"previous"} />
-      </div>
     </>
   );
 };

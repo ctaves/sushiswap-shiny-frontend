@@ -8,7 +8,7 @@ import { getApollo } from "../../services/analytics/core/apollo";
 import useFuse from "../../shared/hooks/useFuse";
 import useSortableData from "../../shared/hooks/useSortableData";
 
-import TableFilter from "./Table/Filter";
+import Filter from "./Filter";
 import TableLoading from "./Table/Loading";
 import TableAccountWrapper from "./Table/AccountWrapper";
 import TableFarms from "./Table";
@@ -99,10 +99,10 @@ const Farms = () => {
       setIsLoading(true);
       try {
         const data = await getFarms(client);
-        console.log("getFarms:", data);
+        //console.log("getFarms:", data);
         setFarms(data);
       } catch (e) {
-        console.log("getFarms error:", e);
+        //console.log("getFarms error:", e);
         setIsError(true);
       }
       setIsLoading(false);
@@ -115,10 +115,10 @@ const Farms = () => {
     async function fetchData() {
       try {
         const data = await getUserFarms(String(account).toLowerCase(), farms, client);
-        console.log("getUserFarms:", data);
+        //console.log("getUserFarms:", data);
         setFarmsWithUser(data);
       } catch (e) {
-        console.log("getUserFarms error:", e);
+        //console.log("getUserFarms error:", e);
       }
     }
     if (account) {
@@ -142,13 +142,13 @@ const Farms = () => {
     }
     return sortConfig.key === name ? sortConfig.direction : undefined;
   };
-  console.log("ITEMS:", items);
+  //console.log("ITEMS:", items);
 
   return (
     <>
       {isError && (
         <>
-          <TableFilter search={search} term={term} columns={columns} setColumns={setColumns} />
+          <Filter search={search} term={term} columns={columns} setColumns={setColumns} />
           <TableAccountWrapper>
             <TableLoading />
           </TableAccountWrapper>
@@ -156,14 +156,14 @@ const Farms = () => {
       )}
       {isLoading ? (
         <>
-          <TableFilter search={search} term={term} columns={columns} setColumns={setColumns} />
+          <Filter search={search} term={term} columns={columns} setColumns={setColumns} />
           <TableAccountWrapper>
             <TableLoading />
           </TableAccountWrapper>
         </>
       ) : (
         <>
-          <TableFilter search={search} term={term} columns={columns} setColumns={setColumns} />
+          <Filter search={search} term={term} columns={columns} setColumns={setColumns} />
           <TableAccountWrapper>
             <TableFarms
               title={"Active Pools on Sushiswap"}

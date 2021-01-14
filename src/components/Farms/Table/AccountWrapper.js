@@ -9,7 +9,7 @@ const AccountWrapper = ({ children }) => {
       {!account ? (
         <div className="md:sushi-flex">
           <div className="sushi-relative sushi-w-full sushi-mx-auto">
-            <div className="sushi-grid sushi-gap-4 sushi-mx-auto sushi-grid-cols-1 md:sushi-grid-cols-3 lg:sushi-grid-cols-3 lg:sushi-max-w-none">
+            <div className="sushi-grid gap-0 sushi-mx-auto sushi-grid-cols-1 md:sushi-grid-cols-3 lg:sushi-grid-cols-3 lg:sushi-max-w-none">
               <div className="sushi-col-span-1 md:sushi-col-span-2">{children}</div>
               <div className="">
                 <UnlockWallet />

@@ -27,6 +27,7 @@ const TableFarms = ({ title, farms, columns, requestSort, getClassNamesFor }) =>
                   if (header.account === false && header.selected === true) {
                     return (
                       <Header
+                        key={header.name + "_" + index}
                         header={header}
                         index={index}
                         requestSort={requestSort}
@@ -37,6 +38,7 @@ const TableFarms = ({ title, farms, columns, requestSort, getClassNamesFor }) =>
                   if (account && header.account && header.selected === true) {
                     return (
                       <Header
+                        key={header.name + "_" + index}
                         header={header}
                         index={index}
                         requestSort={requestSort}
