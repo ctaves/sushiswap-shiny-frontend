@@ -22,7 +22,9 @@ import ColumnStaked from "./Columns/Staked";
 import ColumnEarnings from "./Columns/Earnings";
 import ColumnActions from "./Columns/ActionsStacked";
 
-const Farms = () => {
+// group: "all", "onsen", "upcoming", "previous", "active"
+
+const Farms = ({ group }) => {
   const initialColumns = [
     {
       name: "Farm",
@@ -98,7 +100,7 @@ const Farms = () => {
       setIsError(false);
       setIsLoading(true);
       try {
-        const data = await getFarms(client);
+        const data = await getFarms(client, group);
         //console.log("getFarms:", data);
         setFarms(data);
       } catch (e) {

@@ -319,7 +319,7 @@ const FarmsAllPage = () => {
   return (
     <>
       <TitleTabs title={"Farms"} tabs={FarmTabs} selected={"all"} withSearch />
-      <TableFarms title={"All Active Farms"} type={"main"} />
+      <TableFarms group={"active"} />
     </>
   );
 };
@@ -328,7 +328,7 @@ const FarmsPermanentPage = () => {
   return (
     <>
       <TitleTabs title={"Farms"} tabs={FarmTabs} selected={"permanent"} withSearch />
-      <TableFarms title={"All Active Farms"} type={"main"} />
+      <TableFarms group={"permanent"} />
     </>
   );
 };
@@ -338,7 +338,7 @@ const FarmsSpecialPage = () => {
     <>
       <TitleTabs title={"Farms"} tabs={FarmTabs} selected={"special"} withSearch />
       <OnsenInfo />
-      <TableFarms title={"Special Farms"} type={"main"} />
+      <TableFarms group={"onsen"} />
     </>
   );
 };
@@ -356,7 +356,7 @@ const FarmsPreviousPage = () => {
     <>
       <TitleTabs title={"Farms"} tabs={FarmTabs} selected={"previous"} withSearch />
       <OnsenInfo />
-      <TableFarms title={"Previous Farms"} type={"main"} />
+      <TableFarms title={"Previous Farms"} group={"previous"} />
     </>
   );
 };

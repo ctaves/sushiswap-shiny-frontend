@@ -4,10 +4,10 @@ import { poolsQuery } from "../../services/analytics/core/queries/masterchef";
 import { POOL_DENY } from "../../services/analytics/core/constants";
 import { getApollo } from "../../services/analytics/core/apollo";
 
-import { FARM_DETAILS } from "../../constants/farms";
+import { FARM_DETAILS, menus } from "../../constants/farms";
 //import sushiData from "@sushiswap/sushi-data";
 
-export async function getFarms(client = getApollo()) {
+export async function getFarms(client = getApollo(), group) {
   // const sushiPools = await sushiData.masterchef.pools();
   // console.log("sushiPools:", sushiPools);
   const {
@@ -50,13 +50,36 @@ export async function getFarms(client = getApollo()) {
   });
 
   const farms = pools
-    .filter(
-      (pool) =>
+    .filter((pool) => {
+      // group: "all", "onsen", "upcoming", "previous", "active"
+      // console.log("group:", group);
+      // if (group === "all") {
+      //   return !POOL_DENY.includes(pool.id) && pairs.find((pair) => pair?.id === pool.pair);
+      // } else if (group === "previous") {
+      //   return !POOL_DENY.includes(pool.id) && pool.allocPoint === "0" && pairs.find((pair) => pair?.id === pool.pair);
+      // } else if (group) {
+      //   return (
+      //     !POOL_DENY.includes(pool.id) &&
+      //     //pool.allocPoint !== "0" &&
+      //     pool.accSushiPerShare !== "0" &&
+      //     pairs.find((pair) => pair?.id === pool.pair) &&
+      //     menus[group].includes(Number(pool.id))
+      //   );
+      // } else {
+      //   return (
+      //     !POOL_DENY.includes(pool.id) &&
+      //     pool.allocPoint !== "0" &&
+      //     pool.accSushiPerShare !== "0" &&
+      //     pairs.find((pair) => pair?.id === pool.pair)
+      //   );
+      // }
+      return (
         !POOL_DENY.includes(pool.id) &&
         pool.allocPoint !== "0" &&
         pool.accSushiPerShare !== "0" &&
         pairs.find((pair) => pair?.id === pool.pair)
-    )
+      );
+    })
     .map((pool) => {
       // get name and icon from constants file
       const details = FARM_DETAILS.find((farm) => String(farm.pid) === String(pool.id));
