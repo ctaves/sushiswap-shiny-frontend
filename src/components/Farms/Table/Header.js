@@ -7,7 +7,7 @@ const Header = ({ header, index, requestSort, getClassNamesFor }) => {
       <th
         onClick={() => requestSort(header.sortId)}
         className={
-          "sushi-bg-white sushi-px-5 sushi-py-3 text-sm sushi-font-medium sushi-leading-4 sushi-tracking-wider sushi-text-left sushi-text-gray-900 sushi-uppercase sushi-border-b sushi-border-gray-200 " +
+          "sushi-bg-white sushi-px-5 sushi-py-3 text-sm sushi-font-medium sushi-leading-4 sushi-tracking-wider sushi-text-left sushi-text-gray-900 sushi-uppercase sushi-border-b sushi-border-t sushi-border-gray-200 " +
           (index === 0 ? "sushi-freeze-cell-header" : "")
         }
       >

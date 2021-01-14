@@ -11,10 +11,10 @@ const TableFilter = ({ search, term, columns, setColumns }) => {
   });
   return (
     <>
-      <div className="border-t border-gray-200 px-4 pt-4 pb-3">
+      <div className="px-2 py-4">
         <div>
           <div className="flex-auto flex items-center justify-between">
-            <div className="group w-2/5 leading-6 flex items-center">
+            <div className="group w-3/5 leading-6 flex items-center">
               <Search search={search} term={term} />
               <div className="relative inline-block text-left">
                 <div>
@@ -39,6 +39,14 @@ const TableFilter = ({ search, term, columns, setColumns }) => {
                   <FilterDropdown isOpen={isOpen} columns={columns} setColumns={setColumns} />
                 </div>
               </div>
+            </div>
+            <div className="mt-5 flex justify-center sm:mt-0">
+              <button className="mr-4 flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                View Cards
+              </button>
+              <button className="mr-4 flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                View List
+              </button>
             </div>
           </div>
 

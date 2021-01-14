@@ -5,7 +5,7 @@ const Loading = ({ title }) => {
     <>
       <div className="sushi-inline-block sushi-min-w-full sushi-overflow-hidden sushi-align-middle">
         <table className="sushi-min-w-full sushi-divide-y sushi-divide-gray-200">
-          <thead>
+          {/* <thead>
             <tr>
               {[...Array(3)].map(() => (
                 <th
@@ -14,7 +14,7 @@ const Loading = ({ title }) => {
                 ></th>
               ))}
             </tr>
-          </thead>
+          </thead> */}
           <tbody className="sushi-bg-white sushi-divide-y sushi-divide-gray-200">
             {[...Array(10)].map(() => (
               <tr className="sushi-bg-white" key={Math.random()}>

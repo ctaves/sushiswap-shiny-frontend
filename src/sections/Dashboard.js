@@ -102,16 +102,6 @@ export const DashboardContainer = ({ children }) => {
       <div className="sushi-h-screen sushi-flex sushi-overflow-hidden sushi-bg-white">
         <Sidebar />
         <div className="sushi-flex sushi-flex-col sushi-w-0 sushi-flex-1 sushi-overflow-hidden">
-          {/* <main
-            className="overflow-x-hidden lg:mt-4 lg:mr-4 lg:p-4 lg:bg-gray-200 rounded-b-none lg:rounded-lg sushi-flex-1 sushi-relative sushi-z-0 sushi-overflow-y-auto focus:sushi-outline-none"
-            tabIndex={0}
-            style={{
-              borderBottomRightRadius: 0,
-              borderBottomLeftRadius: 0,
-            }}
-          >
-            <div className="bg-white 2xl:px-20 lg:rounded-lg mb-16 sm:mb-0">{children}</div>
-          </main> */}
           <main
             className="overflow-x-hidden lg:mr-4 lg:p-4 bg-white rounded-b-none lg:rounded-lg sushi-flex-1 sushi-relative sushi-z-0 sushi-overflow-y-auto focus:sushi-outline-none"
             tabIndex={0}
@@ -329,9 +319,6 @@ const FarmsAllPage = () => {
   return (
     <>
       <TitleTabs title={"Farms"} tabs={FarmTabs} selected={"all"} withSearch />
-      <div className="sushi-px-8 py-4 sushi-hidden lg:sushi-block">
-        <MainSearch />
-      </div>
       <TableFarms title={"All Active Farms"} type={"main"} />
     </>
   );
@@ -341,9 +328,6 @@ const FarmsPermanentPage = () => {
   return (
     <>
       <TitleTabs title={"Farms"} tabs={FarmTabs} selected={"permanent"} withSearch />
-      <div className="sushi-px-8 py-4 sushi-hidden lg:sushi-block">
-        <MainSearch />
-      </div>
       <TableFarms title={"All Active Farms"} type={"main"} />
     </>
   );
