@@ -101,7 +101,7 @@ export const DashboardContainer = ({ children }) => {
       <div className="sushi-h-screen sushi-flex sushi-overflow-hidden sushi-bg-white">
         <Sidebar />
         <div className="sushi-flex sushi-flex-col sushi-w-0 sushi-flex-1 sushi-overflow-hidden">
-          <main
+          {/* <main
             className="overflow-x-hidden lg:mt-4 lg:mr-4 lg:p-4 lg:bg-gray-200 rounded-b-none lg:rounded-lg sushi-flex-1 sushi-relative sushi-z-0 sushi-overflow-y-auto focus:sushi-outline-none"
             tabIndex={0}
             style={{
@@ -110,6 +110,18 @@ export const DashboardContainer = ({ children }) => {
             }}
           >
             <div className="bg-white 2xl:px-20 lg:rounded-lg mb-16 sm:mb-0">{children}</div>
+          </main> */}
+          <main
+            className="overflow-x-hidden lg:mr-4 lg:p-4 bg-white rounded-b-none lg:rounded-lg sushi-flex-1 sushi-relative sushi-z-0 sushi-overflow-y-auto focus:sushi-outline-none"
+            tabIndex={0}
+            style={{
+              borderBottomRightRadius: 0,
+              borderBottomLeftRadius: 0,
+            }}
+          >
+            <div className="bg-white 2xl:px-20 lg:rounded-lg mb-16 sm:mb-0 border border-grey-300 shadow-xl">
+              {children}
+            </div>
           </main>
         </div>
         <MobileNavigation changeMenu={mobileMenu.change} isOpen={mobileMenu.isOpen} />
@@ -255,13 +267,16 @@ const PortfolioBalancesPage = () => {
   return (
     <>
       <TitleTabs title={"Omakase: Your Portfolio"} tabs={PortfolioTabs} selected={"balances"} withSearch />
-      <div className="min-h-full bg-gray-100 shadow-inner py-6 space-y-6 sm:p-6">
+      <div className="bg-white">
+        <PortfolioPage />
+      </div>
+      {/* <div className="min-h-full bg-gray-100 shadow-inner py-6 space-y-6 sm:p-6">
         <div className="shadow sm:rounded-md sm:overflow-hidden">
           <div className="bg-white">
             <PortfolioPage />
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
