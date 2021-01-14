@@ -16,47 +16,55 @@ import TableFarms from "./Table";
 import ColumnName from "./Columns/Name";
 import ColumnRewardsPer1000 from "./Columns/RewardsPer1000";
 import ColumnROI from "./Columns/ROI";
-import ColumnUnderlyingTokens from "./Columns/UnderlyingTokens";
-import ColumnBalance from "./Columns/Balance";
+import ColumnLiquidity from "./Columns/Liquidity";
+import ColumnBalanceSLP from "./Columns/BalanceSLP";
+import ColumnStaked from "./Columns/Staked";
 import ColumnEarnings from "./Columns/Earnings";
-import ColumnActions from "./Columns/Actions";
+import ColumnActions from "./Columns/ActionsStacked";
 
 const Farms = () => {
   const initialColumns = [
     {
-      name: "Pool",
+      name: "Farm",
       account: false,
-      sortId: "uniswapPair.name",
+      sortId: "symbol",
       selected: true,
       component: <ColumnName />,
     },
     {
       name: "Yield per $1,000",
       account: false,
-      sortId: "rewards.hourlyROI",
+      sortId: "roiPerYear",
       selected: true,
       component: <ColumnRewardsPer1000 />,
     },
     {
       name: "ROI",
       account: false,
-      sortId: "rewards.hourlyROI",
+      sortId: "roiPerYear",
       selected: true,
       component: <ColumnROI />,
     },
     {
-      name: "Underlying Tokens",
+      name: "Liquidity",
       account: false,
-      sortId: "balanceUSD",
+      sortId: "tvl",
       selected: true,
-      component: <ColumnUnderlyingTokens />,
+      component: <ColumnLiquidity />,
     },
+    // {
+    //   name: "Balance",
+    //   account: true,
+    //   sortId: "balance",
+    //   selected: true,
+    //   component: <ColumnBalance />,
+    // },
     {
-      name: "Balance",
+      name: "Staked",
       account: true,
-      sortId: "tokenBalance",
+      sortId: "valueUSD",
       selected: true,
-      component: <ColumnBalance />,
+      component: <ColumnStaked />,
     },
     {
       name: "Earnings",
@@ -66,16 +74,17 @@ const Farms = () => {
       component: <ColumnEarnings />,
     },
     {
-      name: "",
+      name: undefined,
       account: true,
       sortId: "",
-      selected: false,
+      selected: true,
       component: <ColumnActions />,
     },
   ];
 
   const [columns, setColumns] = useState(initialColumns);
   const [farms, setFarms] = useState();
+  const [farmsWithUser, setFarmsWithUser] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -90,6 +99,7 @@ const Farms = () => {
       setIsLoading(true);
       try {
         const data = await getFarms(client);
+        console.log("getFarms:", data);
         setFarms(data);
       } catch (e) {
         console.log("getFarms error:", e);
@@ -106,7 +116,7 @@ const Farms = () => {
       try {
         const data = await getUserFarms(String(account).toLowerCase(), farms, client);
         console.log("getUserFarms:", data);
-        setFarms(data);
+        setFarmsWithUser(data);
       } catch (e) {
         console.log("getUserFarms error:", e);
       }
@@ -114,11 +124,14 @@ const Farms = () => {
     if (account) {
       fetchData();
     }
-  }, [account]);
+  }, [account, farms]);
 
   // Table Search
-  const options = { keys: ["sushiswapId", "name", "id"] };
-  const { result, search, term, reset } = useFuse({ data: farms ? farms : [], options });
+  const options = { keys: ["symbol", "name"] };
+  const { result, search, term, reset } = useFuse({
+    data: farmsWithUser ? farmsWithUser : farms ? farms : [],
+    options,
+  });
   const flattenSearchResults = result.map((a) => (a.item ? a.item : a));
 
   // Table Sorting

@@ -3,6 +3,8 @@ import { liquidityPositionSubsetQuery, pairSubsetQuery } from "../../services/an
 import { poolsQuery } from "../../services/analytics/core/queries/masterchef";
 import { POOL_DENY } from "../../services/analytics/core/constants";
 import { getApollo } from "../../services/analytics/core/apollo";
+
+import { FARM_DETAILS } from "../../constants/farms";
 //import sushiData from "@sushiswap/sushi-data";
 
 export async function getFarms(client = getApollo()) {
@@ -56,7 +58,12 @@ export async function getFarms(client = getApollo()) {
         pairs.find((pair) => pair?.id === pool.pair)
     )
     .map((pool) => {
+      // get name and icon from constants file
+      const details = FARM_DETAILS.find((farm) => String(farm.pid) === String(pool.id));
+      // get pair details
       const pair = pairs.find((pair) => pair.id === pool.pair);
+      //console.log("details:", details, FARM_DETAILS, pool.id, pool, pair);
+
       const liquidityPosition = liquidityPositions.find((liquidityPosition) => liquidityPosition.pair.id === pair.id);
       const balance = Number(pool.balance / 1e18);
 
@@ -87,6 +94,9 @@ export async function getFarms(client = getApollo()) {
 
       return {
         ...pool,
+        name: details?.name,
+        icon: details?.icon,
+        symbol: details?.symbol,
         liquidityPair: pair,
         roiPerBlock,
         roiPerHour,

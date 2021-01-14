@@ -23,18 +23,31 @@ const TitleTabs = ({ title, tabs, selected, withSearch }) => {
               {tabs.map((tab) => {
                 return (
                   <>
-                    <Link
-                      key={tab.key}
-                      to={tab.to}
-                      className={
-                        tabs.key === selected
-                          ? "whitespace-no-wrap pb-4 px-1 border-b-2 border-gray-900 font-medium text-sm leading-5 text-gray-900 focus:outline-none focus:text-gray-900 focus:border-gray-900"
-                          : "whitespace-no-wrap pb-4 px-1 border-b-2 border-transparent font-medium text-sm leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300"
-                      }
-                      aria-current="page"
-                    >
-                      {tab.title}
-                    </Link>
+                    {tab.type === "internal" ? (
+                      <Link
+                        key={tab.key}
+                        to={tab.to}
+                        className={
+                          tab.key === selected
+                            ? "whitespace-no-wrap pb-4 px-1 border-b-2 border-gray-900 font-medium text-sm leading-5 text-gray-900 focus:outline-none focus:text-gray-900 focus:border-gray-900"
+                            : "whitespace-no-wrap pb-4 px-1 border-b-2 border-transparent font-medium text-sm leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300"
+                        }
+                        aria-current="page"
+                      >
+                        {tab.title}
+                      </Link>
+                    ) : (
+                      <a
+                        key={tab.key}
+                        href={tab.to}
+                        target="_blank"
+                        className={
+                          "whitespace-no-wrap pb-4 px-1 border-b-2 border-transparent font-medium text-sm leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300"
+                        }
+                      >
+                        {tab.title}
+                      </a>
+                    )}
                   </>
                 );
               })}

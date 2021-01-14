@@ -1,10 +1,7 @@
 import React from "react";
-import { formatNumber } from "./utils";
-
 import SushiLogo from "../../../assets/img/logo.png";
 
 const ColumnRewardsPer1000 = ({ farm }) => {
-  //console.log("POOL COLUMN:", farm);
   return (
     <>
       <td className="sushi-px-4 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
@@ -17,37 +14,15 @@ const ColumnRewardsPer1000 = ({ farm }) => {
               <img src={SushiLogo} className="inline-block h-6 w-6 mb-1" />
             </div>
             <div>
-              <div>
-                {formatNumber(farm.rewardPerThousand, 3)}
-                {/* {formatNumber(
-                  (1e3 / ((farm.balance / farm.uniswapPair.totalSupply) * farm.uniswapPair.reserveUSD)) *
-                    ((3600 / 13.115837104072398) * farm.rewards.rewardPerBlock) *
-                    24,
-                  3
-                )} */}
-              </div>
+              <div>{Number(farm.rewardPerThousand).toFixed(3)}</div>
               <div className="sushi-text-xs sushi-text-gray-500">SUSHI/day</div>
             </div>
           </div>
-          {/* {farm.rewards.multiplier && farm.rewards.multiplier > 1 ? (
-            <div
-              className="sushi-self-center sushi-mt-2 sushi-text-xs sushi-font-medium sushi-leading-4 sushi-text-gray-800 sushi-bg-gray-100 sushi-rounded-md sushi-select-none sushi-text-green-800 sushi-bg-green-100 sushi-has-tooltip"
-              data-original-title="null"
-            >
-              <div className="sushi-inline-flex sushi-items-center sushi-px-2.5 sushi-py-0.5">
-                {formatNumber(farm.rewards.multiplier, 2)}x Reward
-              </div>
+          <div className="w-full sushi-self-center sushi-mt-2 sushi-text-xs sushi-font-medium sushi-leading-4 sushi-text-gray-800 sushi-bg-gray-100 sushi-rounded-md sushi-select-none sushi-has-tooltip">
+            <div className="sushi-inline-flex sushi-items-center sushi-px-2.5 sushi-py-0.5">
+              {farm.allocPoint} allocPoint
             </div>
-          ) : farm.rewards.multiplier && farm.rewards.multiplier !== 1 ? (
-            <div
-              className="sushi-self-center sushi-mt-2 sushi-text-xs sushi-font-medium sushi-leading-4 sushi-text-gray-800 sushi-bg-gray-100 sushi-rounded-md sushi-select-none sushi-has-tooltip"
-              data-original-title="null"
-            >
-              <div className="sushi-inline-flex sushi-items-center sushi-px-2.5 sushi-py-0.5">
-                {formatNumber(farm.rewards.multiplier, 2)}x Reward
-              </div>
-            </div>
-          ) : null} */}
+          </div>
         </div>
       </td>
     </>

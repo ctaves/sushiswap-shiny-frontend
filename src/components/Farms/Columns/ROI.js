@@ -1,29 +1,22 @@
 import React from "react";
-import { formatNumber } from "./utils";
 
 const ColumnROI = ({ farm }) => {
   return (
     <>
-      <td className="space-y-1 sushi-px-4 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-        <div className="sushi-flex sushi-items-center sushi-text-xs font-medium sushi-text-gray-900">
-          <span>{formatNumber(farm.roiPerYear, 2)}%</span>
-          <span className="sushi-pl-1 sushi-text-xs sushi-leading-3">yearly</span>
+      <td className="space-y-0.5 sushi-px-4 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
+        <div className="mb-2 sushi-flex sushi-items-center sushi-text-sm font-medium sushi-text-gray-900">
+          <span>{Number(farm.roiPerYear * 100).toFixed(2)}%</span>
+          <span className="sushi-pl-1 sushi-text-sm sushi-leading-3">(1y)</span>
         </div>
         <div className="sushi-flex sushi-items-center sushi-text-xs sushi-text-gray-500">
-          <span>{formatNumber(farm.roiPerMonth, 2)}%</span>
-          <span className="sushi-pl-1 sushi-text-xs sushi-leading-3 sushi-text-gray-500">monthly</span>
+          <span>{Number(farm.roiPerMonth * 100).toFixed(2)}%</span>
+          <span className="sushi-pl-1 sushi-text-xs sushi-leading-3 sushi-text-gray-500">(1m)</span>
         </div>
         <div className="sushi-flex sushi-items-center sushi-text-xs sushi-text-gray-500">
-          <span>{formatNumber(farm.roiPerDay, 2)}%</span>
-          <span className="sushi-pl-1 sushi-text-xs sushi-leading-3">daily</span>
+          <span>{Number(farm.roiPerDay * 100).toFixed(2)}%</span>
+          <span className="sushi-pl-1 sushi-text-xs sushi-leading-3">(1d)</span>
         </div>
       </td>
-      {/* <td className="sushi-px-4 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-  {formatNumber(farm.balance, 3)}
-  <div className="sushi-text-sm sushi-leading-5 sushi-text-gray-500">
-    {farm.sushiswapId}
-  </div>
-</td> */}
     </>
   );
 };

@@ -32,7 +32,7 @@ const FilterDropdown = ({ isOpen, columns, setColumns }) => {
           >
             <div className="py-1">
               {columns.map((column) => {
-                if (column.account === false) {
+                if (column.account === false && column.name) {
                   return (
                     <div className="block px-4 py-2">
                       <label className="inline-flex items-center">
@@ -47,7 +47,7 @@ const FilterDropdown = ({ isOpen, columns, setColumns }) => {
                     </div>
                   );
                 }
-                if (account && column.account) {
+                if (account && column.account && column.name) {
                   return (
                     <div className="block px-4 py-2">
                       <label className="inline-flex items-center">

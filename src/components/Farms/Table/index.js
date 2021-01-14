@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import NoResults from "./NoResults";
-//import ColumnActions from "../Columns/Actions";
+//import ColumnActions from "../Columns/ActionsStacked";
 //import { getUserFarms } from "../getUserFarms";
 import { useActiveWeb3React } from "../../../services/exchange/hooks";
 //import { getApollo } from "../../../services/analytics/core/apollo";
@@ -62,7 +62,7 @@ const TableFarms = ({ title, farms, columns, requestSort, getClassNamesFor }) =>
                         })}
                         {/* {account ? (
                           <>
-                            <ColumnActions farmId={farm.sushiswapId} farm={farm} />
+                            <ColumnActions farmId={farm.id} farm={farm} />
                           </>
                         ) : null} */}
                       </tr>

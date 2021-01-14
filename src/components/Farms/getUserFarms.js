@@ -9,6 +9,8 @@ import { Sushi } from "../../services/frontend/sushi";
 import { getMasterChefContract } from "../../services/frontend/sushi/utils";
 import { getBalanceNumber } from "../../services/frontend/utils/formatBalance";
 
+import { FARM_DETAILS } from "../../constants/farms";
+
 export async function getUserFarms(id, farms, client = getApollo()) {
   const { ethereum } = window;
 
@@ -65,10 +67,28 @@ export async function getUserFarms(id, farms, client = getApollo()) {
     console.log("userFarms:", userFarms);
 
     const farmsWithBalanceDetails = farms.map((farm) => {
-      console.log("farm:", farm);
+      // get name and icon
+      const details = FARM_DETAILS.find((farmDetail) => String(farmDetail.pid) === farm.id);
+      // get additional balance details
       const userFarm = userFarms.find((userFarm) => userFarm.pool.pair === farm.pair);
+
+      // derive additional details
+      const slp = Number(userFarm?.amount / 1e18);
+      const share = userFarm?.amount / userFarm?.pool.balance;
+      const token0 = farm?.liquidityPair?.reserve0 * share;
+      const token1 = farm?.liquidityPair?.reserve1 * share;
+      const valueUSD = farm?.liquidityPair?.reserveUSD * share;
+      //const pendingSushi = ((userFarm.amount * userFarm.pool.accSushiPerShare) / 1e12 - userFarm.rewardDebt) / 1e18;
+      //console.log("farm_user:", farm, data.users, slp, share, token0, token1, valueUSD);
       return {
         ...farm,
+        name: details?.name,
+        icon: details?.icon,
+        symbol: details?.symbol,
+        token0Balance: token0,
+        token1Balance: token1,
+        slp: slp,
+        valueUSD: valueUSD ? valueUSD : 0,
         earnings: userFarm?.earnings,
         entryUSD: userFarm?.entryUSD,
         exitUSD: userFarm?.exitUSD,

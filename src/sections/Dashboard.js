@@ -102,8 +102,12 @@ export const DashboardContainer = ({ children }) => {
         <Sidebar />
         <div className="sushi-flex sushi-flex-col sushi-w-0 sushi-flex-1 sushi-overflow-hidden">
           <main
-            className="overflow-x-hidden lg:mt-4 lg:mr-4 lg:p-4 lg:bg-gray-200 lg:rounded-lg sushi-flex-1 sushi-relative sushi-z-0 sushi-overflow-y-auto focus:sushi-outline-none"
+            className="overflow-x-hidden lg:mt-4 lg:mr-4 lg:p-4 lg:bg-gray-200 rounded-b-none lg:rounded-lg sushi-flex-1 sushi-relative sushi-z-0 sushi-overflow-y-auto focus:sushi-outline-none"
             tabIndex={0}
+            style={{
+              borderBottomRightRadius: 0,
+              borderBottomLeftRadius: 0,
+            }}
           >
             <div className="bg-white 2xl:px-20 lg:rounded-lg mb-16 sm:mb-0">{children}</div>
           </main>
@@ -169,9 +173,14 @@ const DashboardRoutes = () => {
         }}
       />
       {/* Community */}
-      <Route exact path="/governance" component={GovernancePage} />
+      <Route exact path="/governance" component={GovernanceTimelockPage} />
+      <Route exact path="/governance/timelock" component={GovernanceTimelockPage} />
+      <Route exact path="/governance/treasury" component={GovernanceTreasuryPage} />
       <Route exact path="/community" component={CommunityPage} />
       <Route exact path="/about" component={AboutPage} />
+      <Route exact path="/about/overview" component={AboutPage} />
+      <Route exact path="/about/team" component={AboutTeamPage} />
+      <Route exact path="/about/faq" component={AboutFaqPage} />
     </>
   );
 };
@@ -479,19 +488,80 @@ const PairsPage = () => {
   );
 };
 
+const AboutTabs = [
+  {
+    key: "overview",
+    type: "internal",
+    title: "Overview",
+    to: "/about/overview",
+  },
+  {
+    key: "team",
+    type: "internal",
+    title: "Team",
+    to: "/about/team",
+  },
+  {
+    key: "faq",
+    type: "internal",
+    title: "FAQ",
+    to: "/about/faq",
+  },
+];
+
 const AboutPage = () => {
   return (
     <>
+      <TitleTabs title={"About"} tabs={AboutTabs} selected={"overview"} withSearch />
       <CardAbout />
     </>
   );
 };
 
-const GovernancePage = () => {
+const AboutTeamPage = () => {
+  return (
+    <>
+      <TitleTabs title={"About"} tabs={AboutTabs} selected={"team"} withSearch />
+      <CardAbout />
+    </>
+  );
+};
+
+const AboutFaqPage = () => {
+  return (
+    <>
+      <TitleTabs title={"About"} tabs={AboutTabs} selected={"faq"} withSearch />
+      <CardAbout />
+    </>
+  );
+};
+
+const GovernanceTabs = [
+  {
+    key: "timelock",
+    type: "internal",
+    title: "Timelock",
+    to: "/governance/timelock",
+  },
+  {
+    key: "forum",
+    type: "external",
+    title: "Forum",
+    to: "https://forum.sushiswapclassic.org",
+  },
+  {
+    key: "treasury",
+    type: "internal",
+    title: "Treasury",
+    to: "/governance/treasury",
+  },
+];
+
+const GovernanceTimelockPage = () => {
   const [timelocks, setTimelocks] = useState();
   useEffect(() => {
     const fetchData = async () => {
-      const timelocks = await sushiData.timelock.txs().then((results) => {
+      const timelocks = await sushiData.timelock.allTxs().then((results) => {
         return results;
       });
       setTimelocks(timelocks);
@@ -500,11 +570,17 @@ const GovernancePage = () => {
   }, []);
   return (
     <>
-      <PageTitle title={"Governance"} />
-      <CardSection>
-        <CardTimelock timelocks={timelocks && timelocks} />
-        <CardGovernanceMultisig />
-      </CardSection>
+      <TitleTabs title={"Governance"} tabs={GovernanceTabs} selected={"timelock"} withSearch />
+      <CardTimelock timelocks={timelocks && timelocks} />
+    </>
+  );
+};
+
+const GovernanceTreasuryPage = () => {
+  return (
+    <>
+      <TitleTabs title={"Governance"} tabs={GovernanceTabs} selected={"treasury"} withSearch />
+      <CardGovernanceMultisig />
     </>
   );
 };

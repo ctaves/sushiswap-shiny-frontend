@@ -5,7 +5,8 @@
   min-width: 8.5rem;
   max-width: 8.5rem;
   left: 0px;
-  box-shadow: 10px 0 5px -2px #f3f3f3;
+  overflow-x: hidden;
+  /* box-shadow: 10px 0 5px -2px #f3f3f3; */
 }
 
 .sushi-freeze-cell {
@@ -15,7 +16,8 @@
   min-width: 8.5rem;
   max-width: 8.5rem;
   left: 0px;
-  box-shadow: 10px 0 5px -2px #f3f3f3;
+  overflow-x: hidden;
+  /* box-shadow: 10px 0 5px -2px #f3f3f3; */
 }
 
 @media (min-width: 640px) {

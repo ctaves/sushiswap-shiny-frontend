@@ -121,8 +121,13 @@ const App = () => {
             <Route exact path="/pairs" component={Dashboard} />
             <Route exact path="/pair/:pairId" component={Dashboard} />
             <Route exact path="/governance" component={Dashboard} />
+            <Route exact path="/governance/timelock" component={Dashboard} />
+            <Route exact path="/governance/treasury" component={Dashboard} />
             <Route exact path="/community" component={Dashboard} />
             <Route exact path="/about" component={Dashboard} />
+            <Route exact path="/about/overview" component={Dashboard} />
+            <Route exact path="/about/team" component={Dashboard} />
+            <Route exact path="/about/faq" component={Dashboard} />
             <Route exact path="/faq" component={Dashboard} />
             <Route exact path="/faqs" component={Dashboard} />
             <Route exacts strict path="/token/:tokenAddress" component={Dashboard} />
