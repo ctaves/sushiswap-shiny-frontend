@@ -120,7 +120,7 @@ export default function TokenWarningModal({
             <StyledWarningIcon />
             <TYPE.main color={"red2"}>
               Token imported{" "}
-              <span role="img" ariaLabel="cross-hands">
+              <span role="img" aria-label="cross-hands">
                 🙅
               </span>
             </TYPE.main>

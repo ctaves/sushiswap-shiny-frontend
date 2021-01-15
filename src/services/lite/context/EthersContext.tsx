@@ -129,7 +129,7 @@ export const EthersContextProvider = ({ children }) => {
         const list = await fetchTokens(address, customTokens);
         const weth = list.find((t) => isWETH(t));
         if (list?.length > 0 && weth && provider) {
-          const wethPriceUSD = Fraction.parse(String(await sushiData.weth.price()));
+          const wethPriceUSD = Fraction.parse(String(await sushiData.exchange.ethPrice()));
           setTokens(
             await Promise.all(
               list.map(async (token) => await fetchTokenWithValue(token, weth, wethPriceUSD, getPair, provider))
