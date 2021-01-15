@@ -52,6 +52,10 @@ const TableFarms = ({ title, farms, columns, requestSort, getClassNamesFor }) =>
             <tbody className="sushi-bg-white sushi-divide-y sushi-divide-grays-200">
               {farms && farms.length > 0
                 ? farms.map((farm) => {
+                    // Temporary measure until subgraph is updated
+                    if (farm?.liquidityPair?.token0?.symbol === "yyDAI+yUSDC+yUSDT+yTUSD") {
+                      farm.liquidityPair.token0.symbol = "yUSD";
+                    }
                     return (
                       <tr>
                         {columns.map((column) => {
