@@ -9,8 +9,8 @@ const FeaturedItems = () => {
   return (
     <>
       <div className="bg-white sm:rounded-lg">
-        <FeaturedList />
-        <Articles />
+        <FeaturedList key={"featuredList"} />
+        <Articles key={"articles"} />
         <TopMovers />
         <TopEarners />
       </div>

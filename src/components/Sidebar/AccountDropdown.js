@@ -26,8 +26,7 @@ const AccountDropdown = () => {
     <div className="sushi-px-3 sushi-mt-2 sushi-relative sushi-inline-block sushi">
       {/* Dropdown menu toggle, controlling the show/hide state of dropdown menu. */}
       <div>
-        <button
-          type="button"
+        <div
           className="border border-gray-300 sushi-group sushi-w-full sushi-rounded-md sushi-shadow-md sushi-text-sm sushi-leading-5 sushi-font-medium sushi-text-gray-700 hover:sushi-text-gray-500 focus:sushi-outline-none active:sushi-text-gray-800 sushi-transition sushi-ease-in-out sushi-duration-150"
           id="options-menu"
           aria-haspopup="true"
@@ -43,7 +42,7 @@ const AccountDropdown = () => {
               <Web3StatusInner />
             </AccountElement>
           </div>
-        </button>
+        </div>
       </div>
     </div>
   );

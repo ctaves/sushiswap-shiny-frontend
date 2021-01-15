@@ -26,11 +26,11 @@ const FIELD_TO_VALUE = {
   [SORT_FIELD.FEES]: "oneDayVolumeUSD",
 };
 
-const TopMovers = () => {
+const TopEarners = () => {
   const allPairs = useAllPairData();
   return (
     <>
-      <PairList pairs={allPairs} />
+      <PairList pairs={allPairs} key={"pairList"} />
     </>
   );
 };
@@ -133,4 +133,4 @@ const PairCard = ({ id, token0, token1, apy }) => {
   );
 };
 
-export default TopMovers;
+export default TopEarners;

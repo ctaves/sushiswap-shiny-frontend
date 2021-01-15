@@ -22,7 +22,7 @@ const TopMovers = () => {
   const allTokens = useAllTokenData();
   return (
     <>
-      <TokenList tokens={allTokens} />
+      <TokenList tokens={allTokens} key={"topMovers"} />
     </>
   );
 };

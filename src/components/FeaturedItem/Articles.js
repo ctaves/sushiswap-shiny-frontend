@@ -22,6 +22,7 @@ const Articles = () => {
         return (
           <>
             <Article
+              key={"article_" + article.title}
               title={article.title}
               description={article.description}
               image={article.image}

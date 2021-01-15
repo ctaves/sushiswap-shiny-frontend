@@ -38,6 +38,7 @@ const Tabs = ({ selected, setSelected }) => {
           {tabs.map((tab) => {
             return (
               <button
+                key={"module_" + tab.id}
                 onClick={() => {
                   setSelected(tab.id);
                 }}

@@ -71,32 +71,28 @@ const Dashboard = () => {
 };
 
 export const DashboardContainer = ({ children }) => {
-  useEffect(() => {
-    window.scrollTo({
-      behavior: "smooth",
-      top: 0,
-    });
-  }, []);
   const mobileMenu = useMenu();
   return (
     <>
-      <div className="sushi-h-screen sushi-flex sushi-overflow-hidden sushi-bg-white">
-        <Sidebar />
-        <div className="sushi-flex sushi-flex-col sushi-w-0 sushi-flex-1 sushi-overflow-hidden">
-          <main
-            className="overflow-x-hidden lg:mr-4 lg:p-4 bg-white rounded-b-none lg:rounded-lg sushi-flex-1 sushi-relative sushi-z-0 sushi-overflow-y-auto focus:sushi-outline-none"
-            tabIndex={0}
-            style={{
-              borderBottomRightRadius: 0,
-              borderBottomLeftRadius: 0,
-            }}
-          >
-            <div className="bg-white 2xl:px-20 lg:rounded-lg mb-16 sm:mb-0 border border-grey-300 shadow-xl">
-              {children}
-            </div>
-          </main>
+      <div id="scroller">
+        <div className="sushi-h-screen sushi-flex sushi-overflow-hidden sushi-bg-white">
+          <Sidebar />
+          <div className="sushi-flex sushi-flex-col sushi-w-0 sushi-flex-1 sushi-overflow-hidden">
+            <main
+              className="overflow-x-hidden lg:mr-4 lg:p-4 bg-white rounded-b-none lg:rounded-lg sushi-flex-1 sushi-relative sushi-z-0 sushi-overflow-y-auto focus:sushi-outline-none"
+              tabIndex={0}
+              style={{
+                borderBottomRightRadius: 0,
+                borderBottomLeftRadius: 0,
+              }}
+            >
+              <div className="bg-white 2xl:mx-20 lg:rounded-lg mb-16 sm:mb-0 border border-grey-300 shadow-xl">
+                {children}
+              </div>
+            </main>
+          </div>
+          <MobileNavigation changeMenu={mobileMenu.change} isOpen={mobileMenu.isOpen} />
         </div>
-        <MobileNavigation changeMenu={mobileMenu.change} isOpen={mobileMenu.isOpen} />
       </div>
     </>
   );
@@ -188,6 +184,13 @@ const ConnectPage = () => {
 };
 
 const OverviewPage = () => {
+  useEffect(() => {
+    document.getElementById("scroller").scroll(0, 0);
+    window.scrollTo({
+      behavior: "smooth",
+      top: 0,
+    });
+  }, []);
   return (
     <>
       <div className="md:flex" id={"overview-page"}>
@@ -242,13 +245,6 @@ const PortfolioBalancesPage = () => {
       <div className="bg-white">
         <PortfolioPage />
       </div>
-      {/* <div className="min-h-full bg-gray-100 shadow-inner py-6 space-y-6 sm:p-6">
-        <div className="shadow sm:rounded-md sm:overflow-hidden">
-          <div className="bg-white">
-            <PortfolioPage />
-          </div>
-        </div>
-      </div> */}
     </>
   );
 };

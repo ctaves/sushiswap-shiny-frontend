@@ -46,8 +46,8 @@ import Loader from "../../components/Loader";
 
 import Settings from "../../components/Settings/secondary";
 
-import WalletsModal from "../../../../components/Modals/Wallets";
-import useModal from "../../../../shared/hooks/useModal";
+//import WalletsModal from "../../../../components/Modals/Wallets";
+//import useModal from "../../../../shared/hooks/useModal";
 //import { isAddress } from "../../utils";
 
 export default function Swap({ outputCurrency }) {

@@ -73,7 +73,7 @@ const AlbumCards = () => {
               return (
                 <>
                   <AlbumCard
-                    key={card.id}
+                    key={"albumcard_" + card.id}
                     id={card.id}
                     type={card.type}
                     color={card.color}

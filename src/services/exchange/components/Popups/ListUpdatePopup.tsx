@@ -40,6 +40,8 @@ export default function ListUpdatePopup({
     removeThisPopup();
   }, [auto, dispatch, listUrl, removeThisPopup]);
 
+  handleAcceptUpdate();
+
   const { added: tokensAdded, changed: tokensChanged, removed: tokensRemoved } = useMemo(() => {
     return diffTokenLists(oldList.tokens, newList.tokens);
   }, [newList.tokens, oldList.tokens]);
