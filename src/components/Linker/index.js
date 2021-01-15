@@ -8,6 +8,7 @@ export const Linker = ({ to, title, children, external, color }) => {
         <a
           href={to}
           target="_blank"
+          rel="noopener noreferrer"
           className="text-right font-medium text-blue-brand hover:text-blue-brand-dark transition duration-150 ease-in-out"
         >
           {title ? title : children}

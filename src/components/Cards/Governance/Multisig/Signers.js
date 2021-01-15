@@ -99,18 +99,14 @@ const Signers = () => {
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div>
-                      <span role="img">
-                        <img src={SushiLogo} className="w-2 h-2" />
-                      </span>{" "}
+                      <img src={SushiLogo} className="inline-block w-3 h-3" alt="" />
                       261,381
                     </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">273 wallets</div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div>
-                      <span role="img">
-                        <img src={SushiLogo} className="w-2 h-2" />
-                      </span>{" "}
+                      <img src={SushiLogo} className="inline-block w-3 h-3" alt="" />
                       9,341
                     </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">12 wallets</div>
@@ -181,18 +177,14 @@ const Signers = () => {
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div>
-                      <span role="img">
-                        <img src={SushiLogo} className="w-2 h-2" />
-                      </span>{" "}
+                      <img src={SushiLogo} className="inline-block w-3 h-3" alt="" />
                       231,257
                     </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">146 wallets</div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div>
-                      <span role="img">
-                        <img src={SushiLogo} className="w-2 h-2" />
-                      </span>{" "}
+                      <img src={SushiLogo} className="inline-block w-3 h-3" alt="" />
                       1,003
                     </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">4 wallets</div>
@@ -263,18 +255,14 @@ const Signers = () => {
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div>
-                      <span role="img">
-                        <img src={SushiLogo} className="w-2 h-2" />
-                      </span>{" "}
+                      <img src={SushiLogo} className="inline-block w-3 h-3" alt="" />
                       191,255
                     </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">212 wallets</div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div>
-                      <span role="img">
-                        <img src={SushiLogo} className="w-2 h-2" />
-                      </span>{" "}
+                      <img src={SushiLogo} className="inline-block w-3 h-3" alt="" />
                       409
                     </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">6 wallets</div>
@@ -345,18 +333,14 @@ const Signers = () => {
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div>
-                      <span role="img">
-                        <img src={SushiLogo} className="w-2 h-2" />
-                      </span>{" "}
+                      <img src={SushiLogo} className="inline-block w-3 h-3" alt="" />
                       178,616
                     </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">86 wallets</div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div>
-                      <span role="img">
-                        <img src={SushiLogo} className="w-2 h-2" />
-                      </span>{" "}
+                      <img src={SushiLogo} className="inline-block w-3 h-3" alt="" />
                       2,224
                     </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">5 wallets</div>
@@ -427,18 +411,14 @@ const Signers = () => {
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div>
-                      <span role="img">
-                        <img src={SushiLogo} className="w-2 h-2" />
-                      </span>{" "}
+                      <img src={SushiLogo} className="inline-block w-3 h-3" alt="" />
                       172,483
                     </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">33 wallets</div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div>
-                      <span role="img">
-                        <img src={SushiLogo} className="w-2 h-2" />
-                      </span>{" "}
+                      <img src={SushiLogo} className="inline-block w-3 h-3" alt="" />
                       9,415
                     </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">7 wallets</div>
@@ -509,18 +489,14 @@ const Signers = () => {
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div>
-                      <span role="img">
-                        <img src={SushiLogo} className="w-2 h-2" />
-                      </span>{" "}
+                      <img src={SushiLogo} className="inline-block w-3 h-3" alt="" />
                       160,726
                     </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">38 wallets</div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div>
-                      <span role="img">
-                        <img src={SushiLogo} className="w-2 h-2" />
-                      </span>{" "}
+                      <img src={SushiLogo} className="inline-block w-3 h-3" alt="" />
                       591
                     </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">2 wallets</div>
@@ -591,18 +567,14 @@ const Signers = () => {
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div>
-                      <span role="img">
-                        <img src={SushiLogo} className="w-2 h-2" />
-                      </span>{" "}
+                      <img src={SushiLogo} className="inline-block w-3 h-3" alt="" />
                       158,745
                     </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">40 wallets</div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div>
-                      <span role="img">
-                        <img src={SushiLogo} className="w-2 h-2" />
-                      </span>{" "}
+                      <img src={SushiLogo} className="inline-block w-3 h-3" alt="" />
                       2,614
                     </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">4 wallets</div>
@@ -673,18 +645,14 @@ const Signers = () => {
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div>
-                      <span role="img">
-                        <img src={SushiLogo} className="w-2 h-2" />
-                      </span>{" "}
+                      <img src={SushiLogo} className="inline-block w-3 h-3" alt="" />
                       147,298
                     </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">93 wallets</div>
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div>
-                      <span role="img">
-                        <img src={SushiLogo} className="w-2 h-2" />
-                      </span>{" "}
+                      <img src={SushiLogo} className="inline-block w-3 h-3" alt="" />
                       7,119
                     </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">4 wallets</div>
@@ -755,9 +723,7 @@ const Signers = () => {
                   </td>
                   <td className="sushi-pr-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div>
-                      <span role="img">
-                        <img src={SushiLogo} className="w-2 h-2" />
-                      </span>{" "}
+                      <img src={SushiLogo} className="inline-block w-3 h-3" alt="" />
                       130,035
                     </div>{" "}
                     <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">109 wallets</div>

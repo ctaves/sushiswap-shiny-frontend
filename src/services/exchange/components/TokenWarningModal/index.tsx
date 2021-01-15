@@ -118,7 +118,12 @@ export default function TokenWarningModal({
         <AutoColumn gap="lg">
           <AutoRow gap="6px">
             <StyledWarningIcon />
-            <TYPE.main color={"red2"}>Token imported 🙅</TYPE.main>
+            <TYPE.main color={"red2"}>
+              Token imported{" "}
+              <span role="img" ariaLabel="cross-hands">
+                🙅
+              </span>
+            </TYPE.main>
           </AutoRow>
           <TYPE.body color={"red2"}>
             Anyone can create an ERC20 token on Ethereum with <em>any</em> name, including creating fake versions of
