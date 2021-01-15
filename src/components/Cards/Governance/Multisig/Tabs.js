@@ -25,6 +25,7 @@ const Tabs = ({ selected, setSelected }) => {
           {tabs.map((tab) => {
             return (
               <button
+                key={"multisig_" + tab.id}
                 onClick={() => {
                   setSelected(tab.id);
                 }}
