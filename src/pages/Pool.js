@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from "react";
-import SearchHeader from "../components/MobileMenu";
-import Sidebar from "../components/Sidebar/Layout";
-import CardTokenActions from "../components/Cards/TokenActions/Standalone";
-import PageTitle from "../components/PageTitles/Default";
-import Background from "../assets/illustrations/02a.png";
 
 import { DashboardContainer } from "../sections/Dashboard";
+import CardTokenActions from "../components/Cards/TokenActions/Standalone";
 
 const Pool = ({ currencyIdA, currencyIdB }) => {
   return (

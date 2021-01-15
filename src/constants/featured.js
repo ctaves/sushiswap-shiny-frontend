@@ -1,5 +1,5 @@
-import RocketIcon from "../assets/icons/rocket.png";
-import OnsenIllustration from "../assets/illustrations/onsen.jpg";
+import RocketIcon from "../assets/featured/rocket.png";
+import OnsenIllustration from "../assets/featured/onsen.jpg";
 
 export const featured = [
   {

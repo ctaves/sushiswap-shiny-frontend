@@ -25,7 +25,7 @@ import Loader from "../../../services/exchange/components/Loader";
 import { client, masterChef } from "../../../apollo/client";
 import { MASTERCHEF_POOLS, SUSHI_PAIRS, TOKEN } from "../../../apollo/queries";
 import { sushiRewardsPerBlock, ethBlockTime } from "../../../constants/constants";
-import { formatNumber } from "../../Table/Columns/utils";
+//import { formatNumber } from "../../Table/Columns/utils";
 import { useTokenData } from "../../../services/vision/contexts/TokenData";
 
 import _ from "lodash";
@@ -139,7 +139,7 @@ const Stake = ({ lpContract, pid, tokenName, apy, setSelected }) => {
       <td className="sushi-pr-4 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
         {apr || apr === 0 ? (
           <>
-            <div className="sushi-text-sm sushi-text-green-500">{formatNumber(apr * 24 * 365 * 100, 2)}%</div>
+            {/* <div className="sushi-text-sm sushi-text-green-500">{formatNumber(apr * 24 * 365 * 100, 2)}%</div> */}
             <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">per year</div>
           </>
         ) : (

@@ -1,6 +1,4 @@
 import React from "react";
-import OnsenMonkey from "../../assets/img/onsen_monkey.png";
-//import Demo from "../../assets/img/menu-week.jpg";
 
 const OnsenInfo = ({ scrollToMenu }) => {
   return (
@@ -25,21 +23,8 @@ const OnsenInfo = ({ scrollToMenu }) => {
                 Onsen is a rotational rewards system. The amplified rewards incentivize new liquidity providers and
                 reward current liquidity providers for featured pools.
               </p>
-              {/* <button
-                onClick={scrollToMenu}
-                className="mt-8 bg-white border border-2 border-gray-900 rounded-md shadow px-6 py-3 inline-flex items-center text-base leading-6 font-medium text-gray-800 hover:text-gray-900 hover:bg-gray-50 transition duration-150 ease-in-out"
-              >
-                Yes, I want more SUSHI
-              </button> */}
             </div>
           </div>
-          {/* <div className="relative pb-3/5 -mt-6 md:pb-1/2">
-            <img
-              className="absolute inset-0 w-full h-full transform translate-x-6 translate-y-6 rounded-md object-cover object-left-top sm:translate-x-16 lg:translate-y-20"
-              src={OnsenMonkey}
-              alt=""
-            />
-          </div> */}
         </div>
       </div>
     </>

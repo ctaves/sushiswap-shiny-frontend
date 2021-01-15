@@ -1,7 +1,7 @@
-import StablecoinList from "../assets/icons/stablecoin-list.jpg";
-import OnsenIllustration from "../assets/illustrations/onsen.jpg";
-import CoverWarningLogo from "../assets/logos/cover-warning.jpg";
-import MidnightTrading from "../assets/img/midnight-trading.jpg";
+import StablecoinList from "../assets/articles/stablecoin-list.jpg";
+import OnsenIllustration from "../assets/articles/onsen.jpg";
+import CoverWarningLogo from "../assets/articles/cover-warning.jpg";
+import MidnightTrading from "../assets/articles/midnight-trading.jpg";
 
 export const articles = [
   {

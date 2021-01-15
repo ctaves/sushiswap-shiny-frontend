@@ -62,7 +62,7 @@ const menuSetup = {
     22,
     53,
     63,
-    64,
+    //64,
     65,
     69,
     83,
@@ -149,10 +149,10 @@ const menuSetup = {
 };
 
 export const menus = {
-  onsen: menuSetup.current,
-  upcoming: menuSetup.upcoming,
-  previous: menuSetup.previous,
-  permanent: menuSetup.main,
+  onsen: menuSetup.onsen.sort((a, b) => a - b),
+  upcoming: menuSetup.upcoming.sort((a, b) => a - b),
+  previous: menuSetup.previous.sort((a, b) => a - b), // previous now overridden by any pool with allocPoint === 0
+  permanent: menuSetup.permanent.sort((a, b) => a - b),
   active: menuSetup.permanent.concat(menuSetup.onsen).reduce(function(a, b) {
     if (a.indexOf(b) < 0) a.push(b);
     return a;
@@ -271,6 +271,6 @@ export const FARM_DETAILS = [
   { pid: 97, name: "Onsen Gem", symbol: "ALPA-ETH SLP", icon: "HotSprings" },
   { pid: 98, name: "Onsen Low", symbol: "CRETH2-ETH SLP", icon: "HotSprings" },
   { pid: 99, name: "Onsen Low", symbol: "DUSD-ETH SLP", icon: "HotSprings" },
-  { pid: 100, name: "Onsen Mid", symbol: "ANT-ETH SLP", icon: "HotSprings" },
+  { pid: 100, name: "Onsen Mid", symbol: "ANTv2-ETH SLP", icon: "HotSprings" },
   { pid: 101, name: "COVER Shield", symbol: "COVER-ETH SLP", icon: "Shield" },
 ];

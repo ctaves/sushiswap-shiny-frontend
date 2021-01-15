@@ -2,41 +2,23 @@ import React, { useState, useEffect, useRef, createContext, useContext, useReduc
 import { Link, Route, Redirect, useParams } from "react-router-dom";
 import WalletRoute from "../shared/WalletRoute";
 import PublicRoute from "../shared/PublicRoute";
-import SectionTabs from "../components/Tabs";
 import TitleTabs from "../components/TitleTabs";
 import Connect from "../pages/Connect";
 // import AlbumCards from "../components/AlbumCards";
 // Dashboard
 import FeaturedItem from "../components/FeaturedItem";
 import MobileNavigation from "../components/MobileNavigation";
-import SearchHeader from "../components/MobileMenu";
 import Sidebar from "../components/Sidebar/Layout";
-import PageTitle from "../components/PageTitles/Default";
 //import MainSearch from "../components/Search/Desktop";
 import MainSearch from "../services/vision/components/Search/secondary";
-import Features from "../components/Features";
-import CardSection from "../components/Cards/Section";
 import useMenu from "../shared/hooks/useMenu";
 // Overview
-import CardCurrentMenu from "../components/Overview/CurrentMenu";
-import CardMigrateNotice from "../components/Overview/MigrateNotice";
-import CardMigrate from "../components/Cards/Migrate/Layout";
 import CardTokenActions from "../components/Cards/TokenActions/StandaloneWithoutRemove";
-import { CurrentMenuWrapper } from "../components/WeeklyMenu/Menus";
-import CardChart from "../components/Cards/Chart";
-import SushiGlobalChart from "../services/vision/components/GlobalChart";
-import UniGlobalChart from "../services/view/components/charts/globalChart";
 import Flickity from "react-flickity-component";
 import GlobalStats from "../services/vision/components/GlobalStats/secondary";
-import IntroBanner from "../components/Banners/Full";
 // Portfolio
 import PortfolioPage from "../components/Portfolio";
 import TransactionsPage from "../components/Portfolio/Transactions";
-// Menu of the Week
-import WeeklyMenuInfo from "../components/WeeklyMenu/Hero";
-import WeeklyMenus from "../components/WeeklyMenu/Menus";
-import CurrentPools from "../components/Table/PoolsWeeklyApollo";
-import PreviousPools from "../components/Table/PoolsWeeklyApollo";
 // Onsen
 import OnsenInfo from "../components/Onsen/Hero";
 // Tokens
@@ -44,7 +26,6 @@ import FeaturedList from "../components/FeaturedList";
 import TokenList from "../services/vision/components/TokenList/secondary";
 import { useAllTokenData } from "../services/vision/contexts/TokenData";
 // Pools / Farms
-// import TablePools from "../components/Table/PoolsWeeklyApollo";
 import TableFarms from "../components/Farms";
 // Pairs
 import { useAllPairData } from "../services/vision/contexts/PairData";
@@ -191,7 +172,7 @@ const DashboardRoutes = () => {
 const SearchPage = () => {
   return (
     <>
-      <PageTitle title={"Browse"} />
+      <TitleTabs title={"Governance"} />
       <div className="py-4 px-4 lg:sushi-block">
         <MainSearch />
       </div>
@@ -560,7 +541,7 @@ const GovernanceTreasuryPage = () => {
 const CommunityPage = () => {
   return (
     <>
-      <PageTitle title={"A community full of chefs"} />
+      <TitleTabs title={"Community"} tabs={GovernanceTabs} selected={"treasury"} withSearch />
       <div className="py-4 px-4 lg:sushi-block">
         <MainSearch />
         <Community />

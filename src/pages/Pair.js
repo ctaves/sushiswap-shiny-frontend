@@ -1,28 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { isAddress } from "../services/vision/utils";
-import logoNotFound from "../assets/img/logoNotFound.png";
 
 import Search from "../services/vision/components/Search/secondary";
-
-// import SearchHeader from "../components/MobileMenu";
-// import Sidebar from "../components/Sidebar/Layout";
-// import PageTitleBreadcrumb from "../components/PageTitles/Trading";
-// import SectionCards from "../components/Cards/Section";
 import CardTokenActions from "../components/Cards/TokenActions/Layout";
-//import MarketWidgets from "../components/Cards/MarketWidgets";
-//import PairWidgets from "../components/Cards/PairWidgets";
-//import useMenu from "../shared/hooks/useMenu";
 
-//import Panel from "../services/vision/components/Panel";
-import { formattedNum, formattedPercent } from "../services/vision/utils";
-//import { useColor } from "../services/vision/hooks";
-import { usePairData, usePairTransactions } from "../services/vision/contexts/PairData";
-import { useEthPrice } from "../services/vision/contexts/GlobalData";
 import PairChart from "../services/vision/components/PairChart/secondary";
 import TxnList from "../services/vision/components/TxnList/secondary";
-//import Loader from "../services/vision/components/LocalLoader";
+
+import { formattedNum, formattedPercent } from "../services/vision/utils";
+import { usePairData, usePairTransactions } from "../services/vision/contexts/PairData";
+import { useEthPrice } from "../services/vision/contexts/GlobalData";
+
 import CoinLoader from "../components/CoinLoader";
+import logoNotFound from "../assets/img/logoNotFound.png";
 
 const Token = ({ pairAddress, history }) => {
   //const mobileMenu = useMenu();

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Candidates from "./Candidates";
 import Signers from "./Signers";
 import Tabs from "./Tabs";
-import ExpandButton from "../../../Buttons/ExpandButton";
 
 const MultiSigCard = ({ title }) => {
   const [section, setSection] = useState("signers");
@@ -14,7 +13,6 @@ const MultiSigCard = ({ title }) => {
             <h3 className="sushi-text-lg sushi-leading-6 sushi-font-medium sushi-text-gray-900">
               Multisignature Commission
             </h3>
-            <ExpandButton widgetPath={"/widgets/governance/election"} dashboardPath={"/governance"} />
           </div>
           <Tabs selected={section} setSelected={setSection} />
         </div>

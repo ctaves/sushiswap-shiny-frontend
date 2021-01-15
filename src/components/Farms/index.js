@@ -14,6 +14,7 @@ import TableAccountWrapper from "./Table/AccountWrapper";
 import TableFarms from "./Table";
 
 import ColumnName from "./Columns/Name";
+import ColumnPID from "./Columns/PID";
 import ColumnRewardsPer1000 from "./Columns/RewardsPer1000";
 import ColumnROI from "./Columns/ROI";
 import ColumnLiquidity from "./Columns/Liquidity";
@@ -32,6 +33,13 @@ const Farms = ({ group }) => {
       sortId: "symbol",
       selected: true,
       component: <ColumnName />,
+    },
+    {
+      name: "PID",
+      account: false,
+      sortId: "id",
+      selected: false,
+      component: <ColumnPID />,
     },
     {
       name: "Yield per $1,000",
@@ -61,6 +69,7 @@ const Farms = ({ group }) => {
     //   selected: true,
     //   component: <ColumnBalance />,
     // },
+
     {
       name: "Staked",
       account: true,

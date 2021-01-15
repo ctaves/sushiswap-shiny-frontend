@@ -52,33 +52,33 @@ export async function getFarms(client = getApollo(), group) {
   const farms = pools
     .filter((pool) => {
       // group: "all", "onsen", "upcoming", "previous", "active"
-      // console.log("group:", group);
-      // if (group === "all") {
-      //   return !POOL_DENY.includes(pool.id) && pairs.find((pair) => pair?.id === pool.pair);
-      // } else if (group === "previous") {
-      //   return !POOL_DENY.includes(pool.id) && pool.allocPoint === "0" && pairs.find((pair) => pair?.id === pool.pair);
-      // } else if (group) {
-      //   return (
-      //     !POOL_DENY.includes(pool.id) &&
-      //     //pool.allocPoint !== "0" &&
-      //     pool.accSushiPerShare !== "0" &&
-      //     pairs.find((pair) => pair?.id === pool.pair) &&
-      //     menus[group].includes(Number(pool.id))
-      //   );
-      // } else {
-      //   return (
-      //     !POOL_DENY.includes(pool.id) &&
-      //     pool.allocPoint !== "0" &&
-      //     pool.accSushiPerShare !== "0" &&
-      //     pairs.find((pair) => pair?.id === pool.pair)
-      //   );
-      // }
-      return (
-        !POOL_DENY.includes(pool.id) &&
-        pool.allocPoint !== "0" &&
-        pool.accSushiPerShare !== "0" &&
-        pairs.find((pair) => pair?.id === pool.pair)
-      );
+      // console.log("group:", group, menus[group], pool.id);
+      if (group === "all") {
+        return !POOL_DENY.includes(pool.id) && pairs.find((pair) => pair?.id === pool.pair);
+      } else if (group === "previous") {
+        return !POOL_DENY.includes(pool.id) && pool.allocPoint === "0" && pairs.find((pair) => pair?.id === pool.pair);
+      } else if (group) {
+        return (
+          !POOL_DENY.includes(pool.id) &&
+          //pool.allocPoint !== "0" &&
+          pool.accSushiPerShare !== "0" &&
+          menus[group].includes(Number(pool.id)) &&
+          pairs.find((pair) => pair?.id === pool.pair)
+        );
+      } else {
+        return (
+          !POOL_DENY.includes(pool.id) &&
+          pool.allocPoint !== "0" &&
+          pool.accSushiPerShare !== "0" &&
+          pairs.find((pair) => pair?.id === pool.pair)
+        );
+      }
+      // return (
+      //   !POOL_DENY.includes(pool.id) &&
+      //   pool.allocPoint !== "0" &&
+      //   pool.accSushiPerShare !== "0" &&
+      //   pairs.find((pair) => pair?.id === pool.pair)
+      // );
     })
     .map((pool) => {
       // get name and icon from constants file

@@ -8,9 +8,6 @@ import useFarms from "../../../services/frontend/hooks/useFarms";
 import { useActiveWeb3React } from "../../../services/exchange/hooks";
 import BigNumber from "bignumber.js";
 
-import WalletsModal from "../../Modals/Wallets";
-import useModal from "../../../shared/hooks/useModal";
-
 const APYWrapper = ({ symbol, setSelected }) => {
   const [farms] = useFarms();
   const { account } = useActiveWeb3React();
@@ -41,7 +38,7 @@ const APYWrapper = ({ symbol, setSelected }) => {
   return <Stakes rows={rows} symbol={symbol} account={account} setSelected={setSelected} />;
 };
 const Stakes = ({ symbol, rows, account, setSelected, showWallets }) => {
-  const [onPresentWallets] = useModal(<WalletsModal />, null, null, null);
+  //const [onPresentWallets] = useModal(<WalletsModal />, null, null, null);
   // const sushi = useSushi();
   // const farms = getFarms(sushi);
   // const { account } = useWallet();
@@ -127,12 +124,12 @@ const Stakes = ({ symbol, rows, account, setSelected, showWallets }) => {
           </p>
           <div className="sushi-mt-12">
             <div className="sushi-rounded-md sushi-shadow">
-              <button
+              {/* <button
                 onClick={onPresentWallets}
                 className="sushi-w-full sushi-flex sushi-items-center sushi-justify-center sushi-px-5 sushi-py-3 sushi-border sushi-border-transparent sushi-text-base sushi-leading-6 sushi-font-medium sushi-rounded-md sushi-text-white sushi-bg-orange-600 hover:sushi-bg-orange-700 focus:sushi-outline-none focus:sushi-shadow-outline sushi-transition sushi-duration-150 sushi-ease-in-out"
               >
                 Connect wallet to begin
-              </button>
+              </button> */}
             </div>
           </div>
           {/* <div className="sushi-mt-4 sushi-text-sm sushi-leading-5">
