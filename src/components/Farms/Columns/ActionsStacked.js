@@ -67,6 +67,10 @@ const Actions = ({ farm }) => {
   const tokenBalance = useTokenBalance(lpContract.options.address);
   const stakedBalance = useStakedBalance(pid);
 
+  // handle harvesting rewards
+  const [pendingTx, setPendingTx] = useState(false);
+  const { onReward } = useReward(farm.id);
+
   // handle modals
   const [onPresentDeposit] = useClassicModal(
     <DepositModal max={tokenBalance} onConfirm={onStake} tokenName={tokenName} />
@@ -74,10 +78,6 @@ const Actions = ({ farm }) => {
   const [onPresentWithdraw] = useClassicModal(
     <WithdrawModal max={stakedBalance} onConfirm={onUnstake} tokenName={tokenName} />
   );
-
-  // handle harvesting rewards
-  const [pendingTx, setPendingTx] = useState(false);
-  const { onReward } = useReward(farm.id);
 
   const state = {
     needsApproval: !allowance.toNumber(),

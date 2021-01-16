@@ -8,8 +8,8 @@ import { harvest, getMasterChefContract } from "../../../services/frontend/sushi
 const useReward = (pid) => {
   const { account } = useActiveWeb3React();
   const sushi = useSushi();
-
   const masterChefContract = getMasterChefContract(sushi);
+
   const handleReward = useCallback(async () => {
     const txHash = await harvest(masterChefContract, pid, account);
     console.log(txHash);
