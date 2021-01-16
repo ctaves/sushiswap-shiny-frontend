@@ -3,6 +3,7 @@ import BigNumber from "bignumber.js";
 
 import { useActiveWeb3React } from "../../../services/exchange/hooks";
 import { getStaked, getMasterChefContract } from "../../../services/frontend/sushi/utils";
+
 import useSushi from "../../../services/frontend/hooks/useSushi";
 import useBlock from "./useBlock";
 

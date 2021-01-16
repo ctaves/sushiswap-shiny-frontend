@@ -120,8 +120,8 @@ export default createReducer(initialState, (builder) =>
     })
     .addCase(acceptListUpdate, (state, { payload: url }) => {
       if (!state.byUrl[url]?.pendingUpdate) {
-        console.log("accept list update called without pending update");
-        //throw new Error('accept list update called without pending update')
+        //console.log("accept list update called without pending update");
+        throw new Error("accept list update called without pending update");
       }
       state.byUrl[url] = {
         ...state.byUrl[url],

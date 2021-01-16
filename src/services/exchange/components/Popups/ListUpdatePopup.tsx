@@ -49,7 +49,7 @@ export default function ListUpdatePopup({
     [tokensChanged]
   );
 
-  handleAcceptUpdate();
+  //handleAcceptUpdate();
 
   return (
     <AutoRow>

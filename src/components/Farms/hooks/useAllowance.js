@@ -1,14 +1,16 @@
 import { useCallback, useEffect, useState } from "react";
 import BigNumber from "bignumber.js";
 
-import useSushi from "../../../services/frontend/hooks/useSushi";
 import { useActiveWeb3React } from "../../../services/exchange/hooks";
+
+import useSushi from "../../../services/frontend/hooks/useSushi";
 import { getAllowance } from "../../../services/frontend/utils/erc20";
 import { getMasterChefContract } from "../../../services/frontend/sushi/utils";
 
 const useAllowance = (lpContract) => {
   const [allowance, setAllowance] = useState(new BigNumber(0));
   const { account } = useActiveWeb3React();
+
   const sushi = useSushi();
   const masterChefContract = getMasterChefContract(sushi);
 
