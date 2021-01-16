@@ -1,5 +1,5 @@
-import React, { useRef, useEffect, useContext } from "react";
-import { CSSTransition as ReactCSSTransition } from "react-transition-group";
+import React, {useContext, useEffect, useRef} from "react";
+import {CSSTransition as ReactCSSTransition} from "react-transition-group";
 
 const TransitionContext = React.createContext({
   parent: {},
@@ -33,7 +33,7 @@ function CSSTransition({
 
   function addClasses(node, classes) {
     classes.length && node.classList.add(...classes);
-    //console.log(classes.length);
+    console.log(classes.length);
   }
 
   function removeClasses(node, classes) {
@@ -80,7 +80,13 @@ function Transition({ show, appear, ...rest }) {
   const isChild = show === undefined;
 
   if (isChild) {
-    return <CSSTransition appear={parent.appear || !parent.isInitialRender} show={parent.show} {...rest} />;
+    return (
+      <CSSTransition
+        appear={parent.appear || !parent.isInitialRender}
+        show={parent.show}
+        {...rest}
+      />
+    );
   }
 
   return (

@@ -10,6 +10,7 @@
     "@emotion/styled": "^10.0.27",
     "@ethersproject/experimental": "^5.0.1",
     "@fullhuman/postcss-purgecss": "^2.3.0",
+    "@headlessui/react": "^0.2.0",
     "@material-ui/core": "latest",
     "@material-ui/icons": "latest",
     "@material-ui/lab": "latest",

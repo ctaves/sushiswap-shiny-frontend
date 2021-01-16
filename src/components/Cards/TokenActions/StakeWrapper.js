@@ -14,6 +14,8 @@ const StakeWrapper = ({ farmId, apy, setSelected }) => {
     icon: "",
   };
 
+  //console.log("lpTokenAddress:", lpTokenAddress);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

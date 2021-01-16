@@ -314,7 +314,7 @@ const FarmsSpecialPage = () => {
   return (
     <>
       <TitleTabs title={"Farms"} tabs={FarmTabs} selected={"special"} withSearch />
-      <OnsenInfo />
+      {/* <OnsenInfo /> */}
       <TableFarms group={"onsen"} />
     </>
   );

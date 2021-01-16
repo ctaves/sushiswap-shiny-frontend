@@ -40,7 +40,7 @@ const MenuItems = ({ selected }) => {
             Overview
           </Link>
           <Link
-            to="/omakase"
+            to="/portfolio"
             className={
               selected === "omakase"
                 ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
@@ -131,7 +131,7 @@ const MenuItems = ({ selected }) => {
             Special Farms
           </Link>
           <Link
-            to="/farms"
+            to="/farms/permanent"
             className={
               selected === "pools"
                 ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
@@ -154,7 +154,7 @@ const MenuItems = ({ selected }) => {
             Permanent Farms
           </Link>
           <Link
-            to="/pools"
+            to="/farms/xsushi"
             className={
               selected === "pools"
                 ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
@@ -179,6 +179,19 @@ const MenuItems = ({ selected }) => {
             }
           >
             <svg
+              width={24}
+              height={24}
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-900 group-focus:text-gray-600 transition ease-in-out duration-150"
+            >
+              <circle cx={12} cy={12} r={7} />
+            </svg>
+            {/* <svg
               className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-900 group-focus:text-gray-600 transition ease-in-out duration-150"
               fill="none"
               viewBox="0 0 24 24"
@@ -190,7 +203,7 @@ const MenuItems = ({ selected }) => {
                 strokeWidth={2}
                 d="M10 18a8 8 0 100-16 8 8 0 000 16zM8 7a1 1 0 00-1 1v4a1 1 0 001 1h4a1 1 0 001-1V8a1 1 0 00-1-1H8z"
               />
-            </svg>
+            </svg> */}
             Tokens
           </Link>
           <Link
@@ -201,7 +214,7 @@ const MenuItems = ({ selected }) => {
                 : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:font-semibold focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
             }
           >
-            <svg
+            {/* <svg
               className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-900 group-focus:text-gray-600 transition ease-in-out duration-150"
               fill="none"
               viewBox="0 0 24 24"
@@ -213,6 +226,21 @@ const MenuItems = ({ selected }) => {
                 strokeWidth="2"
                 d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
               ></path>
+            </svg> */}
+            <svg
+              className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-900 group-focus:text-gray-600 transition ease-in-out duration-150"
+              width={24}
+              height={24}
+              fill="none"
+            >
+              <circle cx="15.334" cy={12} r={5} stroke="#15151F" strokeDasharray="2 2" />
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M10.714 6.465a5.9 5.9 0 100 11.07 7.043 7.043 0 01-1.422-1.482 4.1 4.1 0 110-8.105c.4-.562.879-1.061 1.422-1.483z"
+                fill="#A1A1A5"
+              />
+              <circle cx="15.333" cy={12} r={5} stroke="#A1A1A5" strokeWidth="1.8" />
             </svg>
             Pairs
           </Link>
