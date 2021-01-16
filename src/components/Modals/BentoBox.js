@@ -77,6 +77,7 @@ const ShareModal = ({ onDismiss }) => {
                           <a
                             href="https://twitter.com/intent/tweet?text=🍣Sushiswap%20to%2020"
                             target="_blank"
+                            rel="noopener noreferrer"
                             className="sushi-relative sushi--mr-px sushi-w-0 sushi-flex-1 sushi-inline-flex sushi-items-center sushi-justify-center sushi-py-4 sushi-text-sm sushi-leading-5 sushi-text-gray-700 sushi-font-medium sushi-border sushi-border-transparent sushi-rounded-bl-lg hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-shadow-outline-blue focus:sushi-border-blue-300 focus:sushi-z-10 sushi-transition sushi-ease-in-out sushi-duration-150"
                           >
                             <span>Share</span>

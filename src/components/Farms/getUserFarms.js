@@ -64,7 +64,7 @@ export async function getUserFarms(id, farms, client = getApollo()) {
       getAccountStat(balance, balance?.pool?.pair, balance?.pool?.id, web3, id, masterChefContract)
     );
     const userFarms = await Promise.all(promises);
-    console.log("userFarms:", userFarms);
+    //console.log("userFarms:", userFarms);
 
     const farmsWithBalanceDetails = farms.map((farm) => {
       // get name and icon
@@ -89,7 +89,7 @@ export async function getUserFarms(id, farms, client = getApollo()) {
         token1Balance: token1,
         slp: slp,
         valueUSD: valueUSD ? valueUSD : 0,
-        earnings: userFarm?.earnings,
+        earnings: userFarm?.earnings ? userFarm?.earnings : 0,
         entryUSD: userFarm?.entryUSD,
         exitUSD: userFarm?.exitUSD,
         rewardDebt: userFarm?.rewardDebt,

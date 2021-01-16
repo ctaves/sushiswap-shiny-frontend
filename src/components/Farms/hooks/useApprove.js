@@ -21,7 +21,7 @@ const useApprove = (lpContract, lpTokenName) => {
       //.approve(masterChefContract.options.address, ethers.constants.MaxUint256)
       .send({ from: account })
       .on("transactionHash", (tx) => {
-        return addTransaction({ hash: tx }, { summary: "Approve " + (lpTokenName && lpTokenName) });
+        return addTransaction({ hash: tx }, { summary: "Approve " + (lpTokenName ? lpTokenName : "") });
       })
       .catch((error) => {
         if (error.message.includes("User denied")) {

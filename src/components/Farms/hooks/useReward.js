@@ -18,7 +18,7 @@ const useReward = (pid, lpTokenName) => {
       .deposit(pid, "0")
       .send({ from: account })
       .on("transactionHash", (tx) => {
-        return addTransaction({ hash: tx }, { summary: "Harvest Rewards " + (lpTokenName && lpTokenName) });
+        return addTransaction({ hash: tx }, { summary: "Harvest Rewards " + (lpTokenName ? lpTokenName : "") });
       })
       .catch((error) => {
         if (error.message.includes("User denied")) {

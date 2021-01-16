@@ -47,7 +47,7 @@ const ShareWechatModal = ({ onDismiss }) => {
             >
               Scan to follow on Wechat
             </h3>
-            <a href="https://weixin.qq.com/r/HBzj_33EuSDGrTmY90kO" target="_blank">
+            <a href="https://weixin.qq.com/r/HBzj_33EuSDGrTmY90kO" target="_blank" rel="noopener noreferrer">
               <img className="max-w-12" src={WechatQRCode} />
             </a>
           </div>

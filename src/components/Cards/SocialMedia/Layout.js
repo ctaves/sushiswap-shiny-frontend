@@ -40,6 +40,7 @@ const SocialMediaCard = ({ title }) => {
                           <a
                             href={announcement.url}
                             target="_blank"
+                            rel="noopener noreferrer"
                             className="sushi--ml-px sushi-flex sushi-items-center sushi-justify-center sushi-w-full sushi-border sushi-border-transparent sushi-rounded-r-lg sushi-p-4 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-text-orange-600 hover:sushi-text-orange-500 focus:sushi-outline-none focus:sushi-shadow-outline-blue focus:sushi-border-blue-300 active:sushi-text-orange-700 active:sushi-bg-gray-50 sushi-transition sushi-ease-in-out sushi-duration-150"
                           >
                             {announcement.cta}
@@ -73,6 +74,7 @@ const SocialMediaCard = ({ title }) => {
                           <a
                             href={tweet.url}
                             target="_blank"
+                            rel="noopener noreferrer"
                             className="sushi--ml-px sushi-flex sushi-items-center sushi-justify-center sushi-w-full sushi-border sushi-border-transparent sushi-rounded-r-lg sushi-p-4 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-text-orange-600 hover:sushi-text-orange-500 focus:sushi-outline-none focus:sushi-shadow-outline-blue focus:sushi-border-blue-300 active:sushi-text-orange-700 active:sushi-bg-gray-50 sushi-transition sushi-ease-in-out sushi-duration-150"
                           >
                             {tweet.cta}
@@ -106,6 +108,7 @@ const SocialMediaCard = ({ title }) => {
                           <a
                             href={medium.url}
                             target="_blank"
+                            rel="noopener noreferrer"
                             className="sushi--ml-px sushi-flex sushi-items-center sushi-justify-center sushi-w-full sushi-border sushi-border-transparent sushi-rounded-r-lg sushi-p-4 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-text-orange-600 hover:sushi-text-orange-500 focus:sushi-outline-none focus:sushi-shadow-outline-blue focus:sushi-border-blue-300 active:sushi-text-orange-700 active:sushi-bg-gray-50 sushi-transition sushi-ease-in-out sushi-duration-150"
                           >
                             {medium.cta}
@@ -139,6 +142,7 @@ const SocialMediaCard = ({ title }) => {
                           <a
                             href={wechat.url}
                             target="_blank"
+                            rel="noopener noreferrer"
                             className="sushi--ml-px sushi-flex sushi-items-center sushi-justify-center sushi-w-full sushi-border sushi-border-transparent sushi-rounded-r-lg sushi-p-4 sushi-text-sm sushi-leading-5 sushi-font-medium sushi-text-orange-600 hover:sushi-text-orange-500 focus:sushi-outline-none focus:sushi-shadow-outline-blue focus:sushi-border-blue-300 active:sushi-text-orange-700 active:sushi-bg-gray-50 sushi-transition sushi-ease-in-out sushi-duration-150"
                           >
                             {wechat.cta}

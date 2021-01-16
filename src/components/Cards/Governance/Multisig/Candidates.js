@@ -47,6 +47,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/SBF_Alameda"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -58,6 +59,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/SBF_Alameda"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @SBF_Alameda
@@ -70,32 +72,21 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Contributor)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Contributor)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div>🍣 261,381</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                      273 wallets
-                    </div>
+                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">273 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 9,341</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">12 wallets</div>
+                    <div>🍣 9,341</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">12 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "96.54949392454367%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "3.450506075456319%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "96.54949392454367%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "3.450506075456319%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">96.5% Yes</div>{" "}
@@ -107,6 +98,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/Qmbjd7KKaSpAJaJBh96WbGUo4UWEnE7WVo5PxzWS1xZ6MB"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -131,6 +123,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/rleshner"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -142,6 +135,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/rleshner"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @rleshner
@@ -154,32 +148,21 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Contributor)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Contributor)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div>🍣 231,257</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                      146 wallets
-                    </div>
+                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">146 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 1,003</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">4 wallets</div>
+                    <div>🍣 1,003</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">4 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "99.56826254787933%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "0.43173745212067405%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "99.56826254787933%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "0.43173745212067405%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">99.6% Yes</div>{" "}
@@ -191,6 +174,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/Qmf6nY1iffWpX2wHySYYkAnjXiUgCY49yZbj7sR4r6fBqA"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -215,6 +199,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/0xMaki"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -226,6 +211,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/0xMaki"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @0xMaki
@@ -238,32 +224,21 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Contributor)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Contributor)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div>🍣 191,255</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                      212 wallets
-                    </div>
+                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">212 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 409</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">6 wallets</div>
+                    <div>🍣 409</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">6 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "99.78658258651613%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "0.21341741348386506%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "99.78658258651613%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "0.21341741348386506%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">99.8% Yes</div>{" "}
@@ -275,6 +250,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/Qmc7dC3c2csW937MdVrGKPYCZCub7owgVvAazcZ6k8LfXw"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -299,6 +275,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/lawmaster"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -310,6 +287,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/lawmaster"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @lawmaster
@@ -322,30 +300,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 178,616</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">86 wallets</div>
+                    <div>🍣 178,616</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">86 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 2,224</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">5 wallets</div>
+                    <div>🍣 2,224</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">5 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "98.76994194682193%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "1.2300580531780845%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "98.76994194682193%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "1.2300580531780845%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">98.8% Yes</div>{" "}
@@ -357,6 +325,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmRiomzmtMw4w6VDZ1Yy5Ybfu6JLAW73JWMfe6MJaJ2VmG"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -381,6 +350,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/cmsholdings"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -392,6 +362,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/cmsholdings"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @cmsholdings
@@ -404,30 +375,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 172,483</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">33 wallets</div>
+                    <div>🍣 172,483</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">33 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 9,415</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">7 wallets</div>
+                    <div>🍣 9,415</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">7 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "94.8238211242438%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "5.176178875756182%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "94.8238211242438%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "5.176178875756182%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">94.8% Yes</div>{" "}
@@ -439,6 +400,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmY8XvVds8FwCGENffUiDBUmGq3j6V7dvCKWDWVe4TMV5N"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -463,6 +425,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/mattysino"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -474,6 +437,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/mattysino"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @mattysino
@@ -486,30 +450,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Contributor)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Contributor)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 160,726</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">38 wallets</div>
+                    <div>🍣 160,726</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">38 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 591</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">2 wallets</div>
+                    <div>🍣 591</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">2 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "99.63357993522528%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "0.3664200647747227%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "99.63357993522528%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "0.3664200647747227%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">99.6% Yes</div>{" "}
@@ -521,6 +475,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/Qmew6unHuCZjZea7t3nhNbA1fUWw6eDgz3KKFsWqpebbt1"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -545,6 +500,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/mickhagen"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -556,6 +512,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/mickhagen"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @mickhagen
@@ -568,30 +525,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Contributor)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Contributor)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 158,745</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">40 wallets</div>
+                    <div>🍣 158,745</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">40 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 2,614</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">4 wallets</div>
+                    <div>🍣 2,614</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">4 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "98.38017786850284%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "1.6198221314971741%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "98.38017786850284%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "1.6198221314971741%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">98.4% Yes</div>{" "}
@@ -603,6 +550,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmUYW8CjcJ75XRifq2oTJZkRNaAWLo6WdVLYYcydAc3MiZ"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -627,6 +575,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/AdamScochran"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -638,6 +587,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/AdamScochran"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @AdamScochran
@@ -650,30 +600,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 147,298</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">93 wallets</div>
+                    <div>🍣 147,298</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">93 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 7,119</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">4 wallets</div>
+                    <div>🍣 7,119</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">4 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "95.3897060363569%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "4.610293963643083%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "95.3897060363569%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "4.610293963643083%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">95.4% Yes</div>{" "}
@@ -685,6 +625,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmSUJjtWXzjb37R6pDYdDHfLiS4TXWSvVDGXoMa4rTiqSo"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -709,6 +650,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/zippoxer"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -720,6 +662,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/zippoxer"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @zippoxer
@@ -732,32 +675,21 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Contributor)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Contributor)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div>🍣 130,035</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                      109 wallets
-                    </div>
+                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">109 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 19,347</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">6 wallets</div>
+                    <div>🍣 19,347</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">6 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "87.0484014476728%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "12.951598552327212%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "87.0484014476728%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "12.951598552327212%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">87.0% Yes</div>{" "}
@@ -769,6 +701,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmYeGxz3RacXSYJ5hqxXz4BZcMeYnPkoxUV8RdXiWHSgS8"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -793,6 +726,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/Quentin__M"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -804,6 +738,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/Quentin__M"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @Quentin__M
@@ -816,30 +751,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Contributor)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Contributor)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 113,013</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">60 wallets</div>
+                    <div>🍣 113,013</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">60 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 3,763</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">9 wallets</div>
+                    <div>🍣 3,763</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">9 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "96.77772727546133%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "3.2222727245386698%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "96.77772727546133%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "3.2222727245386698%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">96.8% Yes</div>{" "}
@@ -851,6 +776,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmQtkm8AHqpX8LfZrhCwQZ8UkUwZj71tsZNnUxUp1uTDB4"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -875,6 +801,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/JayHao8"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -886,6 +813,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/JayHao8"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @JayHao8
@@ -898,30 +826,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 110,819</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">25 wallets</div>
+                    <div>🍣 110,819</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">25 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 898</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">7 wallets</div>
+                    <div>🍣 898</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">7 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "99.19630463682974%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "0.8036953631702669%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "99.19630463682974%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "0.8036953631702669%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">99.2% Yes</div>{" "}
@@ -933,6 +851,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmP1QUYQY4mw1z3jdf5PKjNHduXkhWQKEFVHm9PdjkYxDH"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -957,6 +876,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/JiroOnoSushi"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -968,6 +888,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/JiroOnoSushi"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @JiroOnoSushi
@@ -980,30 +901,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Contributor)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Contributor)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 109,074</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">43 wallets</div>
+                    <div>🍣 109,074</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">43 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 2,836</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">4 wallets</div>
+                    <div>🍣 2,836</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">4 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "97.4660905184764%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "2.5339094815236085%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "97.4660905184764%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "2.5339094815236085%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">97.5% Yes</div>{" "}
@@ -1015,6 +926,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmfAGCWq7adzCr14fgZpsLFtDGL349yuNsvHzpg2bNWbpq"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -1039,6 +951,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/loomdart"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -1050,6 +963,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/loomdart"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @loomdart
@@ -1062,30 +976,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 105,606</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">39 wallets</div>
+                    <div>🍣 105,606</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">39 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 33,321</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">13 wallets</div>
+                    <div>🍣 33,321</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">13 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "76.01554110566035%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "23.984458894339653%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "76.01554110566035%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "23.984458894339653%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">76.0% Yes</div>{" "}
@@ -1097,6 +1001,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmZDNWStER8rU4nux75bkjiDmt7hs1HGmYVcAXuuaJMZWv"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -1121,6 +1026,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/boxmining"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -1132,6 +1038,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/boxmining"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @boxmining
@@ -1144,30 +1051,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 93,846</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">92 wallets</div>
+                    <div>🍣 93,846</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">92 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 32,533</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">24 wallets</div>
+                    <div>🍣 32,533</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">24 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "74.257793883626%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "25.742206116374007%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "74.257793883626%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "25.742206116374007%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">74.3% Yes</div>{" "}
@@ -1179,6 +1076,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmXxm3UWBbfHkkDw5yRZhkp8Ue5vq5qLpTGosiXc4E8zAt"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -1203,6 +1101,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/RNR_0"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -1214,6 +1113,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/RNR_0"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @RNR_0
@@ -1226,30 +1126,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 78,355</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">20 wallets</div>
+                    <div>🍣 78,355</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">20 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 28,146</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">12 wallets</div>
+                    <div>🍣 28,146</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">12 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "73.5719883293727%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "26.428011670627306%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "73.5719883293727%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "26.428011670627306%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">73.6% Yes</div>{" "}
@@ -1261,6 +1151,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmWeSTpUBAiubG5yxxyFmBtxhBHtes28DyobqhC3rUZjD8"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -1285,6 +1176,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/CL207"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -1296,6 +1188,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/CL207"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @CL207
@@ -1308,30 +1201,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 72,082</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">10 wallets</div>
+                    <div>🍣 72,082</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">10 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 3,192</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">5 wallets</div>
+                    <div>🍣 3,192</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">5 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "95.76000944853027%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "4.23999055146973%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "95.76000944853027%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "4.23999055146973%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">95.8% Yes</div>{" "}
@@ -1343,6 +1226,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmUsgMT3KUX1EWKKcbYGAKy9UUEgsLQrgrhkjajAM3s94o"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -1367,6 +1251,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/moo9000"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -1378,6 +1263,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/moo9000"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @moo9000
@@ -1390,30 +1276,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 67,081</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">21 wallets</div>
+                    <div>🍣 67,081</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">21 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 144</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">1 wallets</div>
+                    <div>🍣 144</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">1 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "99.78584769565062%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "0.2141523043493856%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "99.78584769565062%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "0.2141523043493856%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">99.8% Yes</div>{" "}
@@ -1425,6 +1301,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmbAxnchwmxFdYpwQV1tT5fbPHe33D2E56cNwacwdWgXWi"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -1449,6 +1326,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/abrkn"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -1460,6 +1338,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/abrkn"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @abrkn
@@ -1472,30 +1351,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 44,739</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">8 wallets</div>
+                    <div>🍣 44,739</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">8 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 54,040</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">9 wallets</div>
+                    <div>🍣 54,040</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">9 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "45.292146708305204%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "54.707853291694796%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "45.292146708305204%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "54.707853291694796%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">45.3% Yes</div>{" "}
@@ -1507,6 +1376,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmV7MP5SQGtrGAn3b66e2DStAVCMqr6KUHDndYUqehicBz"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -1531,6 +1401,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/PopcornKirby"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -1542,6 +1413,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/PopcornKirby"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @PopcornKirby
@@ -1554,30 +1426,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 43,175</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">6 wallets</div>
+                    <div>🍣 43,175</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">6 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 4,391</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">9 wallets</div>
+                    <div>🍣 4,391</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">9 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "90.76963664082356%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "9.230363359176447%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "90.76963664082356%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "9.230363359176447%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">90.8% Yes</div>{" "}
@@ -1589,6 +1451,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmeqW5cybiJZXBmD59xG6fYmUJGQKrMqzrFKPBuU8RZwuw"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -1613,6 +1476,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/ctrl"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -1624,6 +1488,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/ctrl"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @ctrl
@@ -1636,35 +1501,23 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Contributor)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Contributor)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 42,272</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">59 wallets</div>
+                    <div>🍣 42,272</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">59 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 0</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">0 wallets</div>
+                    <div>🍣 0</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">0 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "100%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "0%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "100%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "0%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                      <div className="sushi-float-left sushi-text-green-600">
-                        100.0% Yes
-                      </div>{" "}
+                      <div className="sushi-float-left sushi-text-green-600">100.0% Yes</div>{" "}
                       <div className="sushi-float-right sushi-text-red-600">0.0% No</div>
                     </div>
                   </td>
@@ -1673,6 +1526,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmNspea4fSffhq8WaxziKXq1g9GBLBH3Zg9TBK2ogc17fE"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -1697,6 +1551,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/cryptokenneth01"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -1708,6 +1563,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/cryptokenneth01"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @cryptokenneth01
@@ -1720,30 +1576,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 38,487</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">16 wallets</div>
+                    <div>🍣 38,487</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">16 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 60,246</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">23 wallets</div>
+                    <div>🍣 60,246</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">23 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "38.98103633174777%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "61.018963668252226%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "38.98103633174777%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "61.018963668252226%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">39.0% Yes</div>{" "}
@@ -1755,6 +1601,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmQTPSP831jaCgeC31PbuayrfxXzvRifdDrqcTepZaworS"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -1779,6 +1626,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/shmula"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -1790,6 +1638,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/shmula"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @shmula
@@ -1802,30 +1651,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Contributor)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Contributor)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 30,358</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">29 wallets</div>
+                    <div>🍣 30,358</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">29 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 1,838</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">3 wallets</div>
+                    <div>🍣 1,838</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">3 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "94.29201660927583%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "5.707983390724163%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "94.29201660927583%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "5.707983390724163%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">94.3% Yes</div>{" "}
@@ -1837,6 +1676,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmQkZ5GMasvWu7J3JjkkaGbXZ4AZ17Uae8pATRwNmTJwF5"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -1861,6 +1701,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/ichimikichiki"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -1872,6 +1713,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/ichimikichiki"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @ichimikichiki
@@ -1884,30 +1726,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 25,117</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">3 wallets</div>
+                    <div>🍣 25,117</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">3 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 2,091</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">7 wallets</div>
+                    <div>🍣 2,091</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">7 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "92.31501320781642%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "7.684986792183576%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "92.31501320781642%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "7.684986792183576%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">92.3% Yes</div>{" "}
@@ -1919,6 +1751,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmamWih1vRejYuEFQLsfpZ7jDxuW7Qv56rF9cvtEF8v7f7"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -1943,6 +1776,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/LiuJie1985"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -1954,6 +1788,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/LiuJie1985"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @LiuJie1985
@@ -1966,30 +1801,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 24,150</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">28 wallets</div>
+                    <div>🍣 24,150</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">28 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 13,363</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">19 wallets</div>
+                    <div>🍣 13,363</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">19 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "64.37685903615849%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "35.62314096384151%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "64.37685903615849%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "35.62314096384151%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">64.4% Yes</div>{" "}
@@ -2001,6 +1826,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmYxUVv4YBhJM2TepnyYgvEUjz93Rr6nqndPckMbfTKN2k"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -2025,6 +1851,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/Atonthego69"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -2036,6 +1863,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/Atonthego69"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @Atonthego69
@@ -2048,30 +1876,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 12,202</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">4 wallets</div>
+                    <div>🍣 12,202</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">4 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 790</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">6 wallets</div>
+                    <div>🍣 790</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">6 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "93.92131955752183%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "6.078680442478178%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "93.92131955752183%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "6.078680442478178%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">93.9% Yes</div>{" "}
@@ -2083,6 +1901,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmRHwYvuDqkvKqjJ3ifbsvG8uerKiwuMLnuSGA1vb1ZJTb"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -2107,6 +1926,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/JasonChoi"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -2118,6 +1938,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/JasonChoi"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @JasonChoi
@@ -2130,30 +1951,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 11,190</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">17 wallets</div>
+                    <div>🍣 11,190</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">17 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 3,353</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">7 wallets</div>
+                    <div>🍣 3,353</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">7 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "76.94422227011877%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "23.05577772988122%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "76.94422227011877%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "23.05577772988122%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">76.9% Yes</div>{" "}
@@ -2165,6 +1976,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmQKxcpmas7JJYkKk33gVb31atcnCFAQGbLGPuhaE8tZsC"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -2189,6 +2001,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/CryptoFinally"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -2200,6 +2013,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/CryptoFinally"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @CryptoFinally
@@ -2212,30 +2026,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 8,601</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">14 wallets</div>
+                    <div>🍣 8,601</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">14 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 9,600</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">27 wallets</div>
+                    <div>🍣 9,600</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">27 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "47.25436829714687%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "52.74563170285313%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "47.25436829714687%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "52.74563170285313%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">47.3% Yes</div>{" "}
@@ -2247,6 +2051,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmbedPsYBwsE6LAMCKkAj2yDpWi8YBHexxS74Tbup4Dmao"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -2271,6 +2076,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/intocryptoast"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -2282,6 +2088,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/intocryptoast"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @intocryptoast
@@ -2294,30 +2101,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Contributor)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Contributor)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 8,552</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">10 wallets</div>
+                    <div>🍣 8,552</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">10 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 2,517</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">7 wallets</div>
+                    <div>🍣 2,517</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">7 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "77.26050537076881%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "22.73949462923118%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "77.26050537076881%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "22.73949462923118%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">77.3% Yes</div>{" "}
@@ -2329,6 +2126,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmSKdd8wwBiu8TtH5asrToPvxhS1jUsHoEMH4f6AyYCFyf"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -2353,6 +2151,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/tomhschmidt"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -2364,6 +2163,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/tomhschmidt"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @tomhschmidt
@@ -2376,30 +2176,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 7,615</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">5 wallets</div>
+                    <div>🍣 7,615</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">5 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 3,463</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">6 wallets</div>
+                    <div>🍣 3,463</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">6 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "68.73854437373969%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "31.26145562626032%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "68.73854437373969%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "31.26145562626032%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">68.7% Yes</div>{" "}
@@ -2411,6 +2201,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/Qma9TdzxHrqDxRAPLiYqECDjzKtFBAauoSfiJmdRk7jbMn"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -2435,6 +2226,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/hmazawi"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -2446,6 +2238,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/hmazawi"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @hmazawi
@@ -2458,30 +2251,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Contributor)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Contributor)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 7,052</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">24 wallets</div>
+                    <div>🍣 7,052</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">24 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 1,792</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">7 wallets</div>
+                    <div>🍣 1,792</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">7 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "79.73986174802018%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "20.26013825197981%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "79.73986174802018%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "20.26013825197981%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">79.7% Yes</div>{" "}
@@ -2493,6 +2276,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/Qmbs9RTBm4WnhczHuH1VX2vRLvccDQaLNBmt23LvkomquX"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -2517,6 +2301,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/martinkrung"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -2528,6 +2313,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/martinkrung"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @martinkrung
@@ -2540,30 +2326,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Contributor)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Contributor)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 6,469</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">23 wallets</div>
+                    <div>🍣 6,469</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">23 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 736</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">4 wallets</div>
+                    <div>🍣 736</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">4 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "89.79052747755176%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "10.209472522448234%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "89.79052747755176%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "10.209472522448234%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">89.8% Yes</div>{" "}
@@ -2575,6 +2351,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmbdaWp3W3q96FUPFwDqUrCUX6khzFnHabmRZFUxJr5gqy"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -2599,6 +2376,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/BulldaxOfficial"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -2610,6 +2388,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/BulldaxOfficial"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @BulldaxOfficial
@@ -2622,30 +2401,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 2,935</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">3 wallets</div>
+                    <div>🍣 2,935</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">3 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 172</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">2 wallets</div>
+                    <div>🍣 172</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">2 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "94.45416324119137%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "5.545836758808638%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "94.45416324119137%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "5.545836758808638%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">94.5% Yes</div>{" "}
@@ -2657,6 +2426,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmQS4VVB2FCn1JkgydJ29LnAqw23cVf7aUKKSUD5HXRZki"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -2681,6 +2451,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/Hardwood_"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -2692,6 +2463,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/Hardwood_"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @Hardwood_
@@ -2704,30 +2476,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 2,603</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">12 wallets</div>
+                    <div>🍣 2,603</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">12 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 6,149</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">14 wallets</div>
+                    <div>🍣 6,149</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">14 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "29.74650309593819%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "70.2534969040618%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "29.74650309593819%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "70.2534969040618%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">29.7% Yes</div>{" "}
@@ -2739,6 +2501,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmbHuYvyvCiyKFFG4pL4VpNd1NDMJwv4RaXgs5MLTKa7MB"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -2763,6 +2526,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/oddgems"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -2774,6 +2538,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/oddgems"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @oddgems
@@ -2786,30 +2551,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 2,536</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">3 wallets</div>
+                    <div>🍣 2,536</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">3 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 6,226</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">9 wallets</div>
+                    <div>🍣 6,226</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">9 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "28.94563132684247%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "71.05436867315753%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "28.94563132684247%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "71.05436867315753%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">28.9% Yes</div>{" "}
@@ -2821,6 +2576,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmUQNT6q41BJagKeyDt3EGjwybFCcRzF2aeRNsJKsxqJPT"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -2845,6 +2601,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/danielque"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -2856,6 +2613,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/danielque"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @danielque
@@ -2868,30 +2626,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Contributor)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Contributor)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 2,335</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">15 wallets</div>
+                    <div>🍣 2,335</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">15 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 52,528</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">5 wallets</div>
+                    <div>🍣 52,528</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">5 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "4.2565410086182105%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "95.74345899138179%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "4.2565410086182105%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "95.74345899138179%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">4.3% Yes</div>{" "}
@@ -2903,6 +2651,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmRePpAS33UU8dePLVSeiA9pGsM4Lsaqc8idQKbHk8CTgN"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -2927,6 +2676,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/OmakaseBar"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -2938,6 +2688,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/OmakaseBar"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @OmakaseBar
@@ -2950,35 +2701,23 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Contributor)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Contributor)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 1,783</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">8 wallets</div>
+                    <div>🍣 1,783</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">8 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 0</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">0 wallets</div>
+                    <div>🍣 0</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">0 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "100%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "0%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "100%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "0%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                      <div className="sushi-float-left sushi-text-green-600">
-                        100.0% Yes
-                      </div>{" "}
+                      <div className="sushi-float-left sushi-text-green-600">100.0% Yes</div>{" "}
                       <div className="sushi-float-right sushi-text-red-600">0.0% No</div>
                     </div>
                   </td>
@@ -2987,6 +2726,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmWawUVS3v2KcEqrTLgaw7LAuVK7mteZ3BM5Wpd3k15erK"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -3011,6 +2751,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/AlbertoOnChain"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -3022,6 +2763,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/AlbertoOnChain"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @AlbertoOnChain
@@ -3034,30 +2776,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 1,337</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">15 wallets</div>
+                    <div>🍣 1,337</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">15 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 5,781</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">9 wallets</div>
+                    <div>🍣 5,781</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">9 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "18.788340619385906%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "81.2116593806141%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "18.788340619385906%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "81.2116593806141%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">18.8% Yes</div>{" "}
@@ -3069,6 +2801,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmV55E8dShhrkZ5X5sUqm5164bpzH31skgEJNj3LPRf4af"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -3093,6 +2826,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/superdxixi"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -3104,6 +2838,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/superdxixi"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @superdxixi
@@ -3116,30 +2851,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 1,290</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">7 wallets</div>
+                    <div>🍣 1,290</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">7 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 2,029</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">8 wallets</div>
+                    <div>🍣 2,029</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">8 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "38.86162974298265%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "61.13837025701735%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "38.86162974298265%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "61.13837025701735%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">38.9% Yes</div>{" "}
@@ -3151,6 +2876,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmdLEKs2DLwX1kxXk3nrABVbKbcyE3WzZoFGKYtTyMVMMN"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -3175,6 +2901,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/KRMA_0"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -3186,6 +2913,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/KRMA_0"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @KRMA_0
@@ -3198,30 +2926,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 1,222</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">4 wallets</div>
+                    <div>🍣 1,222</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">4 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 14,225</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">18 wallets</div>
+                    <div>🍣 14,225</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">18 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "7.912026420339652%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "92.08797357966034%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "7.912026420339652%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "92.08797357966034%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">7.9% Yes</div>{" "}
@@ -3233,6 +2951,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmcjPa8Bta9fnyvxCDwbG3TDrJNTUD4amVyTyEe7M56yDu"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -3257,6 +2976,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/OmakaseBar"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -3268,6 +2988,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/OmakaseBar"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @OmakaseBar
@@ -3280,35 +3001,23 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Contributor)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Contributor)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 1,039</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">9 wallets</div>
+                    <div>🍣 1,039</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">9 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 0</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">0 wallets</div>
+                    <div>🍣 0</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">0 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "100%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "0%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "100%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "0%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                      <div className="sushi-float-left sushi-text-green-600">
-                        100.0% Yes
-                      </div>{" "}
+                      <div className="sushi-float-left sushi-text-green-600">100.0% Yes</div>{" "}
                       <div className="sushi-float-right sushi-text-red-600">0.0% No</div>
                     </div>
                   </td>
@@ -3317,6 +3026,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmRYRwQXQZa1ppgN9f1g2p6kXVtjcJ5aa8nDPWZ2JRUWj9"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -3341,6 +3051,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/BigONEexchange"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -3352,6 +3063,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/BigONEexchange"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @BigONEexchange
@@ -3364,30 +3076,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 699</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">4 wallets</div>
+                    <div>🍣 699</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">4 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 61,114</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">22 wallets</div>
+                    <div>🍣 61,114</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">22 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "1.1303023648043082%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "98.86969763519569%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "1.1303023648043082%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "98.86969763519569%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">1.1% Yes</div>{" "}
@@ -3399,6 +3101,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmTseu54MMW6WgFYxMiMxjtUs1PM78LPg8e9YZR9EwnZ5C"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -3423,6 +3126,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/imBagsy"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -3434,6 +3138,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/imBagsy"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @imBagsy
@@ -3446,30 +3151,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 611</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">12 wallets</div>
+                    <div>🍣 611</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">12 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 29,645</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">7 wallets</div>
+                    <div>🍣 29,645</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">7 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "2.0193822278589018%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "97.9806177721411%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "2.0193822278589018%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "97.9806177721411%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">2.0% Yes</div>{" "}
@@ -3481,6 +3176,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmZE68FcABH3HEGefRRoLaTgtodgUAVhqEmfEMHn2KMu9b"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -3505,6 +3201,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/Pentosh1"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -3516,6 +3213,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/Pentosh1"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @Pentosh1
@@ -3528,30 +3226,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 268</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">8 wallets</div>
+                    <div>🍣 268</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">8 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 55,130</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">6 wallets</div>
+                    <div>🍣 55,130</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">6 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "0.4845785354798574%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "99.51542146452013%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "0.4845785354798574%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "99.51542146452013%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">0.5% Yes</div>{" "}
@@ -3563,6 +3251,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmTnB7BNmnMBUkpdGuVLNMkRtQMDxwEfS7h1soYwkERszP"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -3587,6 +3276,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/BlackDragon_io"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -3598,6 +3288,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/BlackDragon_io"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @BlackDragon_io
@@ -3610,30 +3301,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 193</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">5 wallets</div>
+                    <div>🍣 193</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">5 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 4,849</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">6 wallets</div>
+                    <div>🍣 4,849</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">6 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "3.8339727655239493%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "96.16602723447605%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "3.8339727655239493%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "96.16602723447605%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">3.8% Yes</div>{" "}
@@ -3645,6 +3326,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmNUqnKUcFTtB8mEni2v46fuJrrPzKQZbxcKjwNncNGBhh"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -3669,6 +3351,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/coinmamba"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -3680,6 +3363,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/coinmamba"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @coinmamba
@@ -3692,30 +3376,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 139</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">3 wallets</div>
+                    <div>🍣 139</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">3 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 3,164</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">6 wallets</div>
+                    <div>🍣 3,164</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">6 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "4.194546362400799%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "95.8054536375992%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "4.194546362400799%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "95.8054536375992%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">4.2% Yes</div>{" "}
@@ -3727,6 +3401,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmdcqhqxpenoGJNU2vjSB1JUf5S1ntq9b77tKmP1KfFeXS"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -3751,6 +3426,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/cherry_hotwife"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -3762,6 +3438,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/cherry_hotwife"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @cherry_hotwife
@@ -3774,30 +3451,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 89</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">2 wallets</div>
+                    <div>🍣 89</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">2 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 7,120</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">17 wallets</div>
+                    <div>🍣 7,120</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">17 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "1.2283960524373334%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "98.77160394756267%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "1.2283960524373334%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "98.77160394756267%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">1.2% Yes</div>{" "}
@@ -3809,6 +3476,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmY8fn2RMRMQDFDp9hePf9xXDvs8n7yGNc6gCekF2C4JoW"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -3833,6 +3501,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/erezbk"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -3844,6 +3513,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/erezbk"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @erezbk
@@ -3856,30 +3526,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 42</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">2 wallets</div>
+                    <div>🍣 42</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">2 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 3,060</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">5 wallets</div>
+                    <div>🍣 3,060</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">5 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "1.3472761854780766%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "98.65272381452192%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "1.3472761854780766%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "98.65272381452192%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">1.3% Yes</div>{" "}
@@ -3891,6 +3551,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmQHAQiuX3BqxkgSfhu6VpARFfGD35AutCUqkeFja8x8UU"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -3915,6 +3576,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/GainsAssociates"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -3926,6 +3588,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/GainsAssociates"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @GainsAssociates
@@ -3938,30 +3601,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 14</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">2 wallets</div>
+                    <div>🍣 14</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">2 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 3,327</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">7 wallets</div>
+                    <div>🍣 3,327</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">7 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "0.41417176196352445%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "99.58582823803648%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "0.41417176196352445%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "99.58582823803648%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">0.4% Yes</div>{" "}
@@ -3973,6 +3626,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmT89tDnpwxYZUc99n2Uoti45N8ptWX1591rEEFBd2kJDF"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -3997,6 +3651,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/TopTradersbyTV"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -4008,6 +3663,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/TopTradersbyTV"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @TopTradersbyTV
@@ -4020,30 +3676,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 0</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">0 wallets</div>
+                    <div>🍣 0</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">0 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 819</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">5 wallets</div>
+                    <div>🍣 819</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">5 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "0%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "100%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "0%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "100%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">0.0% Yes</div>{" "}
@@ -4055,6 +3701,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmTFryF1x6ktB9xXgAztW6nyMgzYDe5JYF1hXpYZ7TmkVs"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -4079,6 +3726,7 @@ const Candidates = () => {
                       <a
                         href="https://twitter.com/TheSahilsays"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -4090,6 +3738,7 @@ const Candidates = () => {
                         <a
                           href="https://twitter.com/TheSahilsays"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @TheSahilsays
@@ -4102,30 +3751,20 @@ const Candidates = () => {
                             <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                           </svg>
                         </a>{" "}
-                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">
-                          (Twitter)
-                        </div>
+                        <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">(Twitter)</div>
                       </div>
                     </div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 0</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">0 wallets</div>
+                    <div>🍣 0</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">0 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
-                    <div>🍣 3,354</div>{" "}
-                    <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">7 wallets</div>
+                    <div>🍣 3,354</div> <div className="sushi-mt-1 sushi-text-xs sushi-text-gray-500">7 wallets</div>
                   </td>
                   <td className="sushi-px-6 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
                     <div className="sushi-flex sushi-w-40 sushi-h-4 sushi-overflow-hidden sushi-bg-gray-200 sushi-rounded-lg sushi-shadow">
-                      <div
-                        className="sushi-h-full sushi-bg-green-400"
-                        style={{ width: "0%" }}
-                      />{" "}
-                      <div
-                        className="sushi-h-full sushi-bg-red-400"
-                        style={{ width: "100%" }}
-                      />
+                      <div className="sushi-h-full sushi-bg-green-400" style={{ width: "0%" }} />{" "}
+                      <div className="sushi-h-full sushi-bg-red-400" style={{ width: "100%" }} />
                     </div>{" "}
                     <div className="sushi-w-40 sushi-mt-1 sushi-text-xs sushi-text-gray-500">
                       <div className="sushi-float-left sushi-text-green-600">0.0% Yes</div>{" "}
@@ -4137,6 +3776,7 @@ const Candidates = () => {
                       <a
                         href="https://snapshot.page/#/sushi/proposal/QmfESUC9T8Wts1aLxPf5eyjHfuKMPDEs8LDUuAsbPqDbGt"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot

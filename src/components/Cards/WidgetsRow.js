@@ -22,21 +22,16 @@ const Widgets = () => {
                     <a
                       href="https://www.coingecko.com/en/coins/sushi"
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="sushi-inline-flex sushi-items-center sushi-text-2xl sushi-font-semibold sushi-leading-8 sushi-text-gray-900 hover:sushi-underline"
                     >
                       <span className="sushi-pr-1">$6.04</span>{" "}
-                      <svg
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        className="sushi-w-6 sushi-h-6 sushi-external-link"
-                      >
+                      <svg viewBox="0 0 20 20" fill="currentColor" className="sushi-w-6 sushi-h-6 sushi-external-link">
                         <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />{" "}
                         <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                       </svg>
                     </a>{" "}
-                    <div className="sushi-mt-0.5 sushi-text-xs sushi-text-gray-500">
-                      Market Cap / $262.41M
-                    </div>
+                    <div className="sushi-mt-0.5 sushi-text-xs sushi-text-gray-500">Market Cap / $262.41M</div>
                   </dd>
                 </dl>
               </div>
@@ -62,9 +57,7 @@ const Widgets = () => {
                           &nbsp;+1.4%
                         </div>
                       </div>{" "}
-                      <div className="sushi-mt-0.5 sushi-text-xs sushi-text-gray-500">
-                        74.4% of Uniswap
-                      </div>
+                      <div className="sushi-mt-0.5 sushi-text-xs sushi-text-gray-500">74.4% of Uniswap</div>
                     </div>
                   </dd>
                 </dl>
@@ -88,6 +81,7 @@ const Widgets = () => {
                       <a
                         href="https://etherscan.io/block/10750000"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center hover:sushi-underline"
                       >
                         <div className="sushi-text-2xl sushi-font-semibold sushi-leading-8 sushi-text-gray-900">

@@ -35,7 +35,8 @@ const StakeSushi = () => {
 
   return (
     <>
-      {/* <a href={"https://sushiswapclassic.org/staking"} target="_blank">
+      {/* <a href={"https://sushiswapclassic.org/staking"} target="_blank"
+rel="noopener noreferrer" >
         <button
           className="sushi-mr-4 sushi-w-16 sushi-h-24 sushi-text-3xl sushi-rounded-md sushi-shadow-md"
           style={{

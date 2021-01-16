@@ -1,6 +1,6 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import styled from 'styled-components'
+import React from "react";
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
 
 const Nav: React.FC = () => {
   return (
@@ -14,26 +14,24 @@ const Nav: React.FC = () => {
       <StyledLink exact activeClassName="active" to="/staking">
         Staking
       </StyledLink>
-      <StyledAbsoluteLink
-        href="https://exchange.sushiswapclassic.org"
-        target="_blank"
-      >
+      <StyledAbsoluteLink href="https://exchange.sushiswapclassic.org" target="_blank" rel="noopener noreferrer">
         Exchange
       </StyledAbsoluteLink>
       <StyledAbsoluteLink
         href="https://medium.com/sushiswap-org/the-sushiswap-project-8716c429cee1"
         target="_blank"
+        rel="noopener noreferrer"
       >
         About
       </StyledAbsoluteLink>
     </StyledNav>
-  )
-}
+  );
+};
 
 const StyledNav = styled.nav`
   align-items: center;
   display: flex;
-`
+`;
 
 const StyledLink = styled(NavLink)`
   color: ${(props) => props.theme.color.grey[400]};
@@ -51,7 +49,7 @@ const StyledLink = styled(NavLink)`
     padding-left: ${(props) => props.theme.spacing[2]}px;
     padding-right: ${(props) => props.theme.spacing[2]}px;
   }
-`
+`;
 
 const StyledAbsoluteLink = styled.a`
   color: ${(props) => props.theme.color.grey[400]};
@@ -69,6 +67,6 @@ const StyledAbsoluteLink = styled.a`
     padding-left: ${(props) => props.theme.spacing[2]}px;
     padding-right: ${(props) => props.theme.spacing[2]}px;
   }
-`
+`;
 
-export default Nav
+export default Nav;

@@ -11,7 +11,7 @@ const ColumnRewardsPer1000 = ({ farm }) => {
               className="sushi-p-1 sushi-mr-2 sushi-text-xl sushi-transition-colors sushi-duration-300 sushi-rounded sushi-shadow-md sushi-cursor-default hover:sushi-bg-orange-50"
               style={{ border: "solid 1px #d163ad" }}
             >
-              <img src={SushiLogo} className="inline-block h-6 w-6 mb-1" />
+              <img src={SushiLogo} className="inline-block h-6 w-6 mb-1" alt="" />
             </div>
             <div>
               <div>{Number(farm.rewardPerThousand).toFixed(3)}</div>

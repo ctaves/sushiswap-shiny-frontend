@@ -24,8 +24,13 @@ import useReward from "../hooks/useReward";
 import useClassicModal from "../../../services/frontend/hooks/useModal";
 import DepositModal from "../../../services/frontend/views/Farm/components/DepositModal";
 import WithdrawModal from "../../../services/frontend/views/Farm/components/WithdrawModal";
+import useModal from "../../../shared/hooks/useModal";
+import AddLiquidityModal from "../../Portfolio/Modals/AddLiquidity";
+import RemoveLiquidityModal from "../../Portfolio/Modals/RemoveLiquidity";
 
 const Actions = ({ farm }) => {
+  //console.log("farm:", farm);
+
   const { account } = useActiveWeb3React();
   const { ethereum } = window;
 
@@ -41,7 +46,7 @@ const Actions = ({ farm }) => {
 
   // handle allowance and approval
   const allowance = useAllowance(lpContract);
-  const { onApprove } = useApprove(lpContract);
+  const { onApprove } = useApprove(lpContract, tokenName);
 
   const [requestedApproval, setRequestedApproval] = useState(false);
   const handleApprove = useCallback(async () => {
@@ -60,8 +65,8 @@ const Actions = ({ farm }) => {
   }, [onApprove, setRequestedApproval]);
 
   // handle stake and unstake
-  const { onStake } = useStake(pid);
-  const { onUnstake } = useUnstake(pid);
+  const { onStake } = useStake(pid, tokenName);
+  const { onUnstake } = useUnstake(pid, tokenName);
 
   // SLP token balance and staked balance
   const tokenBalance = useTokenBalance(lpContract.options.address);
@@ -69,7 +74,7 @@ const Actions = ({ farm }) => {
 
   // handle harvesting rewards
   const [pendingTx, setPendingTx] = useState(false);
-  const { onReward } = useReward(farm.id);
+  const { onReward } = useReward(farm.id, tokenName);
 
   // handle modals
   const [onPresentDeposit] = useClassicModal(
@@ -77,6 +82,18 @@ const Actions = ({ farm }) => {
   );
   const [onPresentWithdraw] = useClassicModal(
     <WithdrawModal max={stakedBalance} onConfirm={onUnstake} tokenName={tokenName} />
+  );
+  const [onAddLiquidity] = useModal(
+    <AddLiquidityModal />,
+    null,
+    { token0: farm.liquidityPair.token0.id, token1: farm.liquidityPair.token1.id },
+    null
+  );
+  const [onRemoveLiquidity] = useModal(
+    <RemoveLiquidityModal />,
+    null,
+    { token0: farm.liquidityPair.token0.id, token1: farm.liquidityPair.token1.id },
+    null
   );
 
   const state = {
@@ -94,7 +111,7 @@ const Actions = ({ farm }) => {
             <Button onClick={handleApprove} title={"Approve Staking"} />
           </div>
         )}
-        {!state.needsApproval && state.harvestable && (
+        {/* {!state.needsApproval && state.harvestable && (
           <div>
             <Button
               title={"Harvest"}
@@ -106,12 +123,7 @@ const Actions = ({ farm }) => {
               }}
             />
           </div>
-        )}
-        {!state.needsApproval && !state.availableSLP && (
-          <div>
-            <Button title={"Add Liquidity"} />
-          </div>
-        )}
+        )} */}
         {!state.needsApproval && state.availableSLP && (
           <div>
             <Button title={"Stake"} onClick={onPresentDeposit} />
@@ -120,6 +132,16 @@ const Actions = ({ farm }) => {
         {!state.needsApproval && state.stakedSLP && (
           <div>
             <Button title={"Unstake"} onClick={onPresentWithdraw} />
+          </div>
+        )}
+        {!state.needsApproval && (
+          <div>
+            <Button title={"Add Liquidity"} onClick={onAddLiquidity} />
+          </div>
+        )}
+        {!state.needsApproval && state.availableSLP && (
+          <div>
+            <Button title={"Remove Liquidity"} onClick={onRemoveLiquidity} />
           </div>
         )}
       </td>

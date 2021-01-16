@@ -347,6 +347,7 @@ const MenuItems = ({ selected }) => {
           {/* <a
             href="https://sushiswapclassic.org/"
             target="_blank"
+rel="noopener noreferrer" 
             className="group flex items-center px-3 py-2 text-sm leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition ease-in-out duration-150"
           >
             <span className="w-2.5 h-2.5 mr-4 bg-orange-400 rounded-md" />
@@ -355,6 +356,7 @@ const MenuItems = ({ selected }) => {
           <a
             href="https://docs.sushiswap.fi/"
             target="_blank"
+            rel="noopener noreferrer"
             className="group flex items-center px-3 py-1 text-sm leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition ease-in-out duration-150"
           >
             <span className="w-2.5 h-2.5 mr-4 bg-brand-1 rounded-md" />
@@ -363,6 +365,7 @@ const MenuItems = ({ selected }) => {
           <a
             href="https://lite.sushiswap.fi/"
             target="_blank"
+            rel="noopener noreferrer"
             className="group flex items-center px-3 py-1 text-sm leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition ease-in-out duration-150"
           >
             <span className="w-2.5 h-2.5 mr-4 bg-brand-2 rounded-md" />
@@ -371,6 +374,7 @@ const MenuItems = ({ selected }) => {
           <a
             href="https://www.sushiswapclassic.org/"
             target="_blank"
+            rel="noopener noreferrer"
             className="group flex items-center px-3 py-1 text-sm leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition ease-in-out duration-150"
           >
             <span className="w-2.5 h-2.5 mr-4 bg-brand-3 rounded-md" />
@@ -379,6 +383,7 @@ const MenuItems = ({ selected }) => {
           <a
             href="https://www.sushiswapanalytics.com/"
             target="_blank"
+            rel="noopener noreferrer"
             className="group flex items-center px-3 py-1 text-sm leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition ease-in-out duration-150"
           >
             <span className="w-2.5 h-2.5 mr-4 bg-brand-4 rounded-md" />
@@ -387,6 +392,7 @@ const MenuItems = ({ selected }) => {
           <a
             href="https://discord.gg/NVPXN4e"
             target="_blank"
+            rel="noopener noreferrer"
             className="group flex items-center px-3 py-1 text-sm leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition ease-in-out duration-150"
           >
             <span className="w-2.5 h-2.5 mr-4 bg-brand-5 rounded-md" />
@@ -395,6 +401,7 @@ const MenuItems = ({ selected }) => {
           <a
             href="https://twitter.com/sushiswap"
             target="_blank"
+            rel="noopener noreferrer"
             className="group flex items-center px-3 py-1 text-sm leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition ease-in-out duration-150"
           >
             <span className="w-2.5 h-2.5 mr-4 bg-brand-6 rounded-md" />
@@ -410,6 +417,7 @@ const MenuItems = ({ selected }) => {
           {/* <a
             href="https://www.notion.so/Sushiswap-Shiny-Frontend-38629fec29bd41a3bbe0fa52d404c921"
             target="_blank"
+rel="noopener noreferrer" 
             className="group flex items-center px-3 py-2 text-sm leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition ease-in-out duration-150"
           >
             <span className="w-2.5 h-2.5 mr-4 bg-white rounded-md" />

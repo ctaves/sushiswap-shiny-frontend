@@ -21,6 +21,7 @@ const Timelocks = ({ timelocks }) => {
                     <a
                       href="https://help.sushidocs.com/faqs/governance"
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="text-sm font-medium text-orange-600 hover:text-orange-500 active:text-orange-700 transition ease-in-out duration-150"
                     >
                       Learn more

@@ -72,6 +72,9 @@ import HarvestModal from "./Harvest/Modal";
 import LockedModal from "./Modals/Locked";
 import useModal from "../../shared/hooks/useModal";
 
+// Loading pulse
+import { Loader } from "./Tables/Loader";
+
 import _ from "lodash";
 
 const Account = () => {
@@ -352,27 +355,28 @@ const Account = () => {
   const balances = [
     {
       title: "Harvestable",
-      sushi: formattedNum(sumEarning, false),
-      usd: formattedNum(sumEarning * priceUSD, true),
+      sushi: sumEarning ? formattedNum(sumEarning, false) : <Loader />,
+      usd: sumEarning && priceUSD ? formattedNum(sumEarning * priceUSD, true) : <Loader />,
       cta: <Button title="Harvest" onClick={onPresentHarvest} />,
     },
     {
       title: "Locked (2/3)",
-      sushi: decimalFormatter.format(_.sumBy(farmBalances, "lockedSushi")) + " SUSHI",
-      usd: currencyFormatter.format(_.sumBy(farmBalances, "lockedSushiUSD")),
+      sushi: farmBalances ? decimalFormatter.format(_.sumBy(farmBalances, "lockedSushi")) + " SUSHI" : <Loader />,
+      usd: farmBalances ? currencyFormatter.format(_.sumBy(farmBalances, "lockedSushiUSD")) : <Loader />,
       cta: <Button title="Learn more" onClick={onPresentLocked} />, //<Linker title="Learn more" to="https://docs.sushiswap.fi" external />,
     },
     {
       title: "Unstaked",
-      sushi: totalNotStaked ? `${Number(getBalanceNumber(totalNotStaked)).toFixed(4)} SUSHI` : "",
-      usd: totalNotStakedUSD,
+      sushi: totalNotStaked ? `${Number(getBalanceNumber(totalNotStaked)).toFixed(4)} SUSHI` : <Loader />,
+      usd: totalNotStakedUSD ? totalNotStakedUSD : <Loader />,
       cta: <StakeSushi />,
     },
     {
       title: "Staked",
-      sushi: `${decimalFormatter.format(barStaked)} SUSHI`,
-      xsushi: `${Number(xSushi.toFixed(2)).toLocaleString()} xSUSHI`,
-      usd: `${currencyFormatter.format(barStakedUSD)}`,
+      sushi: barStaked ? `${decimalFormatter.format(barStaked)} SUSHI` : <Loader />,
+      xsushi: xSushi ? `${Number(xSushi.toFixed(2)).toLocaleString()} xSUSHI` : <Loader />,
+      //usd: `${currencyFormatter.format(barStakedUSD)}`, // incorrect for some reason
+      usd: barStaked && priceUSD ? `${currencyFormatter.format(barStaked * priceUSD)}` : <Loader />,
       cta: <UnstakeSushi />,
     },
   ];
@@ -392,10 +396,10 @@ const Account = () => {
     LPBalance = LPBalance + valueUSD;
   });
 
-  const totalBalanceUSD = formattedNum(
-    totalSushiBalance * sushiPrice + _.sumBy(farmBalances, "valueUSD") + LPBalance,
-    true
-  );
+  // const totalBalanceUSD = formattedNum(
+  //   totalSushiBalance * sushiPrice + _.sumBy(farmBalances, "valueUSD") + LPBalance,
+  //   true
+  // );
 
   // if any position has token from fee warning list, show warning
   const [showWarning, setShowWarning] = useState(false);
@@ -414,12 +418,23 @@ const Account = () => {
 
   return (
     <>
-      <TableTotal totalBalanceUSD={totalBalanceUSD} account={account} />
+      <TableTotal
+        totalBalanceUSD={
+          totalSushiBalance && sushiPrice && farmBalances && LPBalance ? (
+            formattedNum(totalSushiBalance * sushiPrice + _.sumBy(farmBalances, "valueUSD") + LPBalance, true)
+          ) : (
+            <Loader />
+          )
+        }
+        account={account}
+      />
       <TableSushi
-        balances={balances}
-        price={currencyFormatter.format(sushiPrice)}
-        totalSushiBalance={formattedNum(totalSushiBalance)}
-        totalSushiBalanceUSD={formattedNum(totalSushiBalance * sushiPrice, true)}
+        balances={balances ? balances : <Loader />}
+        price={sushiPrice ? currencyFormatter.format(sushiPrice) : <Loader />}
+        totalSushiBalance={totalSushiBalance ? formattedNum(totalSushiBalance) : <Loader />}
+        totalSushiBalanceUSD={
+          totalSushiBalance && sushiPrice ? formattedNum(totalSushiBalance * sushiPrice, true) : <Loader />
+        }
       />
       <TableLP positions={positions} ethPrice={ethPrice} LPBalanceUSD={formattedNum(LPBalance, true)} />
       <TableFarms positions={farmBalances} farmBalanceUSD={formattedNum(_.sumBy(farmBalances, "valueUSD"), true)} />

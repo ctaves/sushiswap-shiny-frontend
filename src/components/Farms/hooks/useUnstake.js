@@ -20,7 +20,7 @@ const useUnstake = (pid, lpTokenName) => {
         .withdraw(pid, new BigNumber(amount).times(new BigNumber(10).pow(18)).toString())
         .send({ from: account })
         .on("transactionHash", (tx) => {
-          return addTransaction({ hash: tx }, { summary: "Unstake " + (lpTokenName && lpTokenName) });
+          return addTransaction({ hash: tx }, { summary: "Unstake " + (lpTokenName ? lpTokenName : "") });
         })
         .catch((error) => {
           if (error.message.includes("User denied")) {

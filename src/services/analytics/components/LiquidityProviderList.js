@@ -20,10 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function LiquidityProviderList({
-  pool,
-  title = "Liquidity Providers",
-}) {
+export default function LiquidityProviderList({ pool, title = "Liquidity Providers" }) {
   const classes = useStyles();
   const theme = useTheme();
   const pair = pool.liquidityPair;
@@ -41,10 +38,7 @@ export default function LiquidityProviderList({
               <Box display="flex" alignItems="center">
                 <AddressAvatar address={row.address} />
 
-                <Link
-                  href={`https://etherscan.io/address/${row.address}`}
-                  target="_blank"
-                >
+                <Link href={`https://etherscan.io/address/${row.address}`} target="_blank" rel="noopener noreferrer">
                   {row.address}
                 </Link>
               </Box>
@@ -54,22 +48,19 @@ export default function LiquidityProviderList({
             key: "share",
             label: "Pool Share",
             align: "right",
-            render: (row) =>
-              `${((row.amount / pool.balance) * 100).toFixed(4)}%`,
+            render: (row) => `${((row.amount / pool.balance) * 100).toFixed(4)}%`,
           },
           {
             key: "amount",
             label: "Liquidity Tokens Staked",
             align: "right",
-            render: (row) =>
-              `${decimalFormatter.format(row.amount / 1e18)} SLP`,
+            render: (row) => `${decimalFormatter.format(row.amount / 1e18)} SLP`,
           },
           {
             key: "value",
             label: "Liquidity Tokens Staked USD",
             align: "right",
-            render: (row) =>
-              currencyFormatter.format((row.amount / 1e18) * shareValueUSD),
+            render: (row) => currencyFormatter.format((row.amount / 1e18) * shareValueUSD),
           },
         ]}
         rows={pool.users}

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useActiveWeb3React } from "../../../services/exchange/hooks";
 
-import useReward from "../../../services/frontend/hooks/useReward";
+// handle harvesting
+import useReward from "../hooks/useReward";
 import Value from "../../Cards/Balance/Value";
 
 import SushiLogo from "../../../assets/img/logo.png";
@@ -25,11 +26,11 @@ const ColumnEarnings = ({ farm }) => {
                   await onReward();
                   setPendingTx(false);
                 }}
-                className="sushi-p-1 sushi-mr-2 sushi-text-xl sushi-transition-colors sushi-duration-300 sushi-rounded sushi-shadow-md sushi-cursor-default hover:sushi-bg-orange-50"
-                style={{ border: "1px solid rgb(238, 109, 72)" }}
+                className="sushi-p-1 sushi-mr-2 sushi-text-xl sushi-transition-colors sushi-duration-300 sushi-rounded sushi-shadow-md sushi-cursor-default"
+                style={{ border: "1px solid #0090a6" }}
               >
                 <span role="img">
-                  <img src={SushiLogo} className="inline-block h-6 w-6 mb-1" />
+                  <img src={SushiLogo} className="inline-block h-6 w-6 mb-1" alt="" />
                 </span>
               </button>
               <div>
@@ -40,7 +41,7 @@ const ColumnEarnings = ({ farm }) => {
               </div>
             </div>
             <div
-              className="sushi-self-center sushi-mt-2 sushi-text-xs sushi-font-medium sushi-leading-4 sushi-rounded-md sushi-select-none sushi-text-orange-800 sushi-bg-orange-100 sushi-has-tooltip"
+              className="text-blue-brand bg-blue-100 sushi-self-center mt-1 sushi-text-xs sushi-font-medium sushi-leading-4 sushi-rounded-md sushi-select-none"
               data-original-title="null"
             >
               <button
@@ -52,7 +53,7 @@ const ColumnEarnings = ({ farm }) => {
                 }}
                 className="sushi-inline-flex sushi-items-center sushi-px-2.5 sushi-py-0.5"
               >
-                Click to harvest
+                Harvest now
               </button>
             </div>
           </>
@@ -60,7 +61,14 @@ const ColumnEarnings = ({ farm }) => {
           <>
             <div className="sushi-flex sushi-items-center">
               <div className="sushi-p-1 sushi-mr-2 sushi-text-xl sushi-transition-colors sushi-duration-300 sushi-rounded sushi-shadow-md sushi-cursor-default hover:sushi-bg-orange-50">
-                🤷‍♀️
+                <span role="img">
+                  <img
+                    src={SushiLogo}
+                    className="inline-block h-6 w-6 mb-1"
+                    alt=""
+                    style={{ filter: "grayscale(1)" }}
+                  />
+                </span>
               </div>
               <div>
                 <div>
@@ -70,7 +78,7 @@ const ColumnEarnings = ({ farm }) => {
               </div>
             </div>
             <div
-              className="sushi-self-center sushi-mt-2 sushi-text-xs sushi-font-medium sushi-leading-4 sushi-text-gray-800 sushi-bg-gray-100 sushi-rounded-md sushi-select-none sushi-has-tooltip"
+              className="sushi-self-center mt-1 sushi-text-xs sushi-font-medium sushi-leading-4 sushi-text-gray-800 sushi-bg-gray-100 sushi-rounded-md sushi-select-none sushi-has-tooltip"
               data-original-title="null"
             >
               <div className="sushi-inline-flex sushi-items-center sushi-px-2.5 sushi-py-0.5">No rewards</div>

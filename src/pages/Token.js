@@ -155,6 +155,7 @@ const TokenPageTitle = ({ name, price, priceChange, symbol, id }) => {
             <a
               href={"https://etherscan.io/address/" + id}
               target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-500 hover:text-gray-700 transition duration-150 ease-in-out"
             >
               {symbol} ({id})

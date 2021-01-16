@@ -69,6 +69,7 @@ const Signers = () => {
                       <button
                         href="https://twitter.com/SBF_Alameda"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -81,6 +82,7 @@ const Signers = () => {
                         <button
                           href="https://twitter.com/SBF_Alameda"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @SBF_Alameda
@@ -126,6 +128,7 @@ const Signers = () => {
                       <button
                         href="https://snapshot.page/#/sushi/proposal/Qmbjd7KKaSpAJaJBh96WbGUo4UWEnE7WVo5PxzWS1xZ6MB"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -147,6 +150,7 @@ const Signers = () => {
                       <button
                         href="https://twitter.com/rleshner"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -159,6 +163,7 @@ const Signers = () => {
                         <button
                           href="https://twitter.com/rleshner"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @rleshner
@@ -204,6 +209,7 @@ const Signers = () => {
                       <button
                         href="https://snapshot.page/#/sushi/proposal/Qmf6nY1iffWpX2wHySYYkAnjXiUgCY49yZbj7sR4r6fBqA"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -225,6 +231,7 @@ const Signers = () => {
                       <button
                         href="https://twitter.com/0xMaki"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -237,6 +244,7 @@ const Signers = () => {
                         <button
                           href="https://twitter.com/0xMaki"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @0xMaki
@@ -282,6 +290,7 @@ const Signers = () => {
                       <button
                         href="https://snapshot.page/#/sushi/proposal/Qmc7dC3c2csW937MdVrGKPYCZCub7owgVvAazcZ6k8LfXw"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -303,6 +312,7 @@ const Signers = () => {
                       <button
                         href="https://twitter.com/lawmaster"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -315,6 +325,7 @@ const Signers = () => {
                         <button
                           href="https://twitter.com/lawmaster"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @lawmaster
@@ -360,6 +371,7 @@ const Signers = () => {
                       <button
                         href="https://snapshot.page/#/sushi/proposal/QmRiomzmtMw4w6VDZ1Yy5Ybfu6JLAW73JWMfe6MJaJ2VmG"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -381,6 +393,7 @@ const Signers = () => {
                       <button
                         href="https://twitter.com/cmsholdings"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -393,6 +406,7 @@ const Signers = () => {
                         <button
                           href="https://twitter.com/cmsholdings"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @cmsholdings
@@ -438,6 +452,7 @@ const Signers = () => {
                       <button
                         href="https://snapshot.page/#/sushi/proposal/QmY8XvVds8FwCGENffUiDBUmGq3j6V7dvCKWDWVe4TMV5N"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -459,6 +474,7 @@ const Signers = () => {
                       <button
                         href="https://twitter.com/mattysino"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -471,6 +487,7 @@ const Signers = () => {
                         <button
                           href="https://twitter.com/mattysino"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @mattysino
@@ -516,6 +533,7 @@ const Signers = () => {
                       <button
                         href="https://snapshot.page/#/sushi/proposal/Qmew6unHuCZjZea7t3nhNbA1fUWw6eDgz3KKFsWqpebbt1"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -537,6 +555,7 @@ const Signers = () => {
                       <button
                         href="https://twitter.com/mickhagen"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -549,6 +568,7 @@ const Signers = () => {
                         <button
                           href="https://twitter.com/mickhagen"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @mickhagen
@@ -594,6 +614,7 @@ const Signers = () => {
                       <button
                         href="https://snapshot.page/#/sushi/proposal/QmUYW8CjcJ75XRifq2oTJZkRNaAWLo6WdVLYYcydAc3MiZ"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -615,6 +636,7 @@ const Signers = () => {
                       <button
                         href="https://twitter.com/AdamScochran"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -627,6 +649,7 @@ const Signers = () => {
                         <button
                           href="https://twitter.com/AdamScochran"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @AdamScochran
@@ -672,6 +695,7 @@ const Signers = () => {
                       <button
                         href="https://snapshot.page/#/sushi/proposal/QmSUJjtWXzjb37R6pDYdDHfLiS4TXWSvVDGXoMa4rTiqSo"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot
@@ -693,6 +717,7 @@ const Signers = () => {
                       <button
                         href="https://twitter.com/zippoxer"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-flex sushi-items-center sushi-w-10 sushi-h-10 sushi-mr-4"
                       >
                         <img
@@ -705,6 +730,7 @@ const Signers = () => {
                         <button
                           href="https://twitter.com/zippoxer"
                           target="_blank"
+                          rel="noopener noreferrer"
                           className="sushi-flex sushi-items-center hover:sushi-underline"
                         >
                           @zippoxer
@@ -746,6 +772,7 @@ const Signers = () => {
                       <button
                         href="https://snapshot.page/#/sushi/proposal/QmYeGxz3RacXSYJ5hqxXz4BZcMeYnPkoxUV8RdXiWHSgS8"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="sushi-inline-flex sushi-items-center sushi-px-3 sushi-py-2 sushi-text-sm sushi-font-medium sushi-leading-4 sushi-text-gray-700 sushi-transition sushi-duration-150 sushi-ease-in-out sushi-bg-white sushi-border sushi-border-gray-300 sushi-rounded-md hover:sushi-text-gray-500 focus:sushi-outline-none focus:sushi-border-blue-300 focus:sushi-shadow-outline-blue active:sushi-text-gray-800 active:sushi-"
                       >
                         Snapshot

@@ -49,6 +49,7 @@ export const LimitNotice = () => {
                   <a
                     href="https://github.com/sushiswap/sushiswap-settlement/blob/master/contracts/Settlement.sol"
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="group space-x-2 inline-flex items-center font-medium text-orange-600 hover:text-orange-900 transition ease-in-out duration-150"
                   >
                     the contract
@@ -59,7 +60,7 @@ export const LimitNotice = () => {
             </div>
           </div>
         </div>
-        <a href="https://lite.sushiswap.fi/#/swap" target="_blank">
+        <a href="https://lite.sushiswap.fi/#/swap" target="_blank" rel="noopener noreferrer">
           <button className="mt-8 w-full bg-gray-900 border border-transparent rounded-md py-4 text-lg leading-5 font-semibold text-white hover:bg-gray-700 focus:outline-none focus:border-gray-700 focus:shadow-outline-orange active:bg-gray-700 transition duration-150 ease-in-out">
             Place a Limit Order
           </button>

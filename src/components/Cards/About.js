@@ -90,6 +90,7 @@ const AboutCard = ({ title }) => {
                       className="ml-3 sushi-flex sushi-items-center sushi-text-base sushi-leading-6 sushi-text-gray-500 hover:sushi-underline"
                       href={source.url}
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       {source.name}
                       <svg viewBox="0 0 20 20" fill="currentColor" className="sushi-w-4 sushi-h-4 sushi-ml-1">
@@ -107,6 +108,7 @@ const AboutCard = ({ title }) => {
             <a
               href="https://github.com/omakase-bar/sushi-starter"
               target="_blank"
+              rel="noopener noreferrer"
               className="sushi-group sushi-space-x-2 sushi-inline-flex sushi-items-center sushi-font-medium sushi-text-orange-600 hover:sushi-text-orange-900 sushi-transition sushi-ease-in-out sushi-duration-150"
             >
               here
@@ -115,6 +117,7 @@ const AboutCard = ({ title }) => {
             <a
               href="https://github.com/omakase-bar/sushiswap-frontend-build"
               target="_blank"
+              rel="noopener noreferrer"
               className="sushi-group sushi-space-x-2 sushi-inline-flex sushi-items-center sushi-font-medium sushi-text-orange-600 hover:sushi-text-orange-900 sushi-transition sushi-ease-in-out sushi-duration-150"
             >
               following

@@ -117,6 +117,7 @@ const Stakes = ({ symbol, rows, account, setSelected, showWallets }) => {
             <a
               href="https://docs.sushiswap.fi"
               target="_blank"
+              rel="noopener noreferrer"
               className="sushi-font-medium sushi-text-gray-500 sushi-underline"
             >
               Learn more about staking

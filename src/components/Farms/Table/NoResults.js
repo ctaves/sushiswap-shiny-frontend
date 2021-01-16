@@ -34,6 +34,7 @@ const NoResults = () => {
                     <a
                       href="https://forum.sushiswapclassic.org"
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="text-base leading-6 font-medium text-gray-500"
                     >
                       Vote for a menu

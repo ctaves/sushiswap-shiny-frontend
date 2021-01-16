@@ -192,6 +192,7 @@ const Balances = () => {
         <a
           href="https://docs.sushiswap.fi"
           target="_blank"
+          rel="noopener noreferrer"
           class="font-medium text-orange-600 hover:text-orange-700 transition duration-150 ease-in-out"
         >
           Learn more
