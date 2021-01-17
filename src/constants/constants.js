@@ -125,7 +125,7 @@ const menuSetup = {
     66,
     67,
     70,
-    71,
+    //71,
     99,
     73,
     75,
@@ -196,6 +196,7 @@ const menuSetup = {
     //58,
     //59,
     60,
+    71,
   ],
   main: [12, 58, 25, 1, 2, 21, 0, 11, 3, 8, 37, 4, 6, 7, 9, 18, 44, 13, 17, 101],
 };
@@ -922,7 +923,7 @@ export const supportedPools = [
     icon: "♨️",
     uniswapPair: "SFI/ETH",
     lpToken: "0x23a9292830fc80db7f563edb28d2fe6fb47f8624",
-    allocPoint: "20",
+    allocPoint: "0",
   },
   {
     pid: 99,
