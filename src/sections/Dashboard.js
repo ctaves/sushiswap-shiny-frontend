@@ -27,6 +27,7 @@ import TokenList from "../services/vision/components/TokenList/secondary";
 import { useAllTokenData } from "../services/vision/contexts/TokenData";
 // Pools / Farms
 import TableFarms from "../components/Farms";
+import SushiBar from "../components/SushiBar";
 // Pairs
 import { useAllPairData } from "../services/vision/contexts/PairData";
 import PairList from "../services/vision/components/PairList/secondary";
@@ -324,6 +325,7 @@ const FarmsXSushiPage = () => {
   return (
     <>
       <TitleTabs title={"Farms"} tabs={FarmTabs} selected={"xsushi"} withSearch />
+      <SushiBar />
     </>
   );
 };
@@ -539,7 +541,6 @@ const CommunityPage = () => {
     <>
       <TitleTabs title={"Community"} tabs={GovernanceTabs} selected={"treasury"} withSearch />
       <div className="py-4 px-4 lg:sushi-block">
-        <MainSearch />
         <Community />
       </div>
     </>
