@@ -392,7 +392,8 @@ const Account = () => {
       //sushi: barStaked ? `${decimalFormatter.format(barStaked)} SUSHI` : <Loader />,
       xsushi: xSushi ? `${Number(xSushi.toFixed(2)).toLocaleString()} xSUSHI` : <Loader />,
       //usd: `${currencyFormatter.format(barStakedUSD)}`, // incorrect for some reason
-      usd: barStaked && priceUSD ? `${currencyFormatter.format(barStaked * priceUSD)}` : <Loader />,
+      //usd: barStaked && priceUSD ? `${currencyFormatter.format(barStaked * priceUSD)}` : <Loader />,
+      usd: Number(sushiStaked) && priceUSD ? `${currencyFormatter.format(Number(sushiStaked) * priceUSD)}` : <Loader />,
       cta: <UnstakeSushi />,
     },
   ];
