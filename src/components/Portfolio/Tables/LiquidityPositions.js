@@ -166,7 +166,7 @@ const TableHead = () => {
             Balance
           </th>
           <th className="w-1/5 table-cell px-6 py-3 border-b border-gray-200 bg-white text-right text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-            Fees Earned
+            Fees
           </th>
           <th className="w-1/5 pr-6 py-3 border-b border-gray-200 bg-white text-right text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider" />
         </tr>
@@ -219,9 +219,12 @@ const TableRow = ({ position, ethPrice }) => {
                 }}
               />
             </div>
-            <div className="flex items-center space-x-3 lg:pl-2">
+            <div className="flex items-left space-x-3 lg:pl-2">
               {/* <div className="flex-shrink-0 w-2.5 h-2.5 rounded-full bg-pink-600" /> */}
-              <Linker to={"/pair/" + position.pair.id}>
+              <Linker
+                to={"/pair/" + position.pair.id}
+                className="text-left font-medium text-blue-brand hover:text-blue-brand-dark transition duration-150 ease-in-out"
+              >
                 <span>{position.pair.token0.symbol + "-" + position.pair.token1.symbol}</span>
               </Linker>
             </div>

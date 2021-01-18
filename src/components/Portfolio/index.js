@@ -53,6 +53,8 @@ import UnstakeSushi from "./UnstakeSushi";
 import useTokenBalance from "./hooks/useTokenBalance";
 import useAllEarnings from "./hooks/useAllEarnings";
 import useAllStakedValue from "./hooks/useAllStakedValue";
+import useTotalSushiStakedInBar from "./hooks/useTotalSushiStakedInBar";
+import useTotalXSushiSupply from "./hooks/useTotalXSushiSupply";
 import useFarms from "../../services/frontend/hooks/useFarms";
 
 import { contractAddresses } from "../../services/frontend/sushi/lib/constants";
@@ -162,7 +164,23 @@ const Account = () => {
   // Get users # of Sushi not staked
   const totalNotStaked = useTokenBalance(contractAddresses.sushi[1]);
   const totalNotStakedUSD = priceUSD ? formattedNum(getBalanceNumber(totalNotStaked) * priceUSD, true) : "";
-  console.log("totalNotStaked", totalNotStaked);
+  console.log("totalNotStaked:", totalNotStaked);
+
+  // Get Sushi staked, issue with analytics query:
+  const xSushiBalance = useTokenBalance(contractAddresses.xSushi[1]);
+  const totalSupply = useTotalXSushiSupply();
+  const totalStaked = useTotalSushiStakedInBar();
+  const poolShare = new BigNumber(xSushiBalance).div(new BigNumber(totalSupply));
+  const poolStaked = new BigNumber(poolShare).times(new BigNumber(totalStaked));
+  const sushiStaked = new BigNumber(poolStaked).div(new BigNumber(1000000000000000000));
+  // console.log("sushiStaked:", {
+  //   xSushiBalance: xSushiBalance,
+  //   totalSupply: totalSupply,
+  //   totalStaked: totalStaked,
+  //   poolShare: poolShare,
+  //   poolStaked: poolStaked,
+  //   sushiStaked: sushiStaked,
+  // });
 
   // Get all pending Sushi from farms
   const allEarnings = useAllEarnings();
@@ -373,7 +391,8 @@ const Account = () => {
     },
     {
       title: "Staked",
-      sushi: barStaked ? `${decimalFormatter.format(barStaked)} SUSHI` : <Loader />,
+      sushi: sushiStaked ? `${decimalFormatter.format(Number(sushiStaked))} SUSHI` : <Loader />,
+      //sushi: barStaked ? `${decimalFormatter.format(barStaked)} SUSHI` : <Loader />,
       xsushi: xSushi ? `${Number(xSushi.toFixed(2)).toLocaleString()} xSUSHI` : <Loader />,
       //usd: `${currencyFormatter.format(barStakedUSD)}`, // incorrect for some reason
       usd: barStaked && priceUSD ? `${currencyFormatter.format(barStaked * priceUSD)}` : <Loader />,

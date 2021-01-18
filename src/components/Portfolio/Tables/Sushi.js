@@ -105,10 +105,10 @@ const TableHead = () => {
             <span className="lg:pl-2">State</span>
           </th>
           <th className="w-1/5 table-cell px-6 py-3 border-b border-gray-200 bg-white text-right text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-            Balance SUSHI
+            SUSHI {/* Balance SUSHI */}
           </th>
           <th className="w-1/5 table-cell px-6 py-3 border-b border-gray-200 bg-white text-right text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-            Balance USD
+            USD {/* Balance USD */}
           </th>
           <th className="w-1/5 pr-6 py-3 border-b border-gray-200 bg-white text-right text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider" />
         </tr>

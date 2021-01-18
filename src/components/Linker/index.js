@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const Linker = ({ to, title, children, external, color }) => {
+export const Linker = ({ to, title, children, external, color, className }) => {
   return (
     <>
       {external ? (
@@ -9,14 +9,22 @@ export const Linker = ({ to, title, children, external, color }) => {
           href={to}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-right font-medium text-blue-brand hover:text-blue-brand-dark transition duration-150 ease-in-out"
+          className={
+            className
+              ? className
+              : "text-right font-medium text-blue-brand hover:text-blue-brand-dark transition duration-150 ease-in-out"
+          }
         >
           {title ? title : children}
         </a>
       ) : (
         <Link
           to={to}
-          className="text-right font-medium text-blue-brand hover:text-blue-brand-dark transition duration-150 ease-in-out"
+          className={
+            className
+              ? className
+              : "text-right font-medium text-blue-brand hover:text-blue-brand-dark transition duration-150 ease-in-out"
+          }
         >
           {title ? title : children}
         </Link>
