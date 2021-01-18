@@ -10,15 +10,6 @@ import {
   currencyFormatter,
   decimalFormatter,
   ethPriceQuery,
-  getApollo,
-  getBarUser,
-  getEthPrice,
-  getLatestBlock,
-  getPairs,
-  getPoolUser,
-  getSushiToken,
-  getToken,
-  getUser,
   latestBlockQuery,
   lockupUserQuery,
   pairSubsetQuery,
@@ -352,11 +343,17 @@ const Account = () => {
   //console.log("FARM BALANCES:", farmBalances);
   //console.log("FARM VALUE: ", _.sumBy(farmBalances, "valueUSD"));
 
+  // const totalSushiBalance =
+  //   Number(sumEarning) +
+  //   Number(_.sumBy(farmBalances, "lockedSushi")) +
+  //   Number(getBalanceNumber(totalNotStaked)) +
+  //   Number(barStaked); // issue with barStaked calculation
+
   const totalSushiBalance =
     Number(sumEarning) +
     Number(_.sumBy(farmBalances, "lockedSushi")) +
     Number(getBalanceNumber(totalNotStaked)) +
-    Number(barStaked);
+    Number(sushiStaked);
 
   // console.log("BALANCES:", {
   //   totalSushiBalance: totalSushiBalance,
@@ -391,7 +388,7 @@ const Account = () => {
     },
     {
       title: "Staked",
-      sushi: sushiStaked ? `${decimalFormatter.format(Number(sushiStaked))} SUSHI` : <Loader />,
+      sushi: Number(sushiStaked) ? `${decimalFormatter.format(Number(sushiStaked))} SUSHI` : <Loader />,
       //sushi: barStaked ? `${decimalFormatter.format(barStaked)} SUSHI` : <Loader />,
       xsushi: xSushi ? `${Number(xSushi.toFixed(2)).toLocaleString()} xSUSHI` : <Loader />,
       //usd: `${currencyFormatter.format(barStakedUSD)}`, // incorrect for some reason
@@ -457,81 +454,6 @@ const Account = () => {
       />
       <TableLP positions={positions} ethPrice={ethPrice} LPBalanceUSD={formattedNum(LPBalance, true)} />
       <TableFarms positions={farmBalances} farmBalanceUSD={formattedNum(_.sumBy(farmBalances, "valueUSD"), true)} />
-
-      {/* <div>{currencyFormatter.format(investments)}</div>
-      <div>
-        {decimalFormatter.format(barStaked)} SUSHI ({currencyFormatter.format(barStakedUSD)})
-      </div>
-      <div>{Number(xSushi.toFixed(2)).toLocaleString()} XSUSHI</div>
-      <div>
-        {Number(barPending.toFixed(2)).toLocaleString()} ({currencyFormatter.format(sushiPrice * barPending)})
-      </div>
-      <div>
-        {decimalFormatter.format(barRoiDailySushi)} ({currencyFormatter.format(barRoiDailySushi * sushiPrice)})
-      </div>
-      <div>
-        {decimalFormatter.format(barRoiDailySushi * 365)} (
-        {currencyFormatter.format(barRoiDailySushi * 365 * sushiPrice)})
-      </div>
-      <div>
-        {decimalFormatter.format(barRoiSushi)} ({currencyFormatter.format(barRoiSushi * sushiPrice)})
-      </div>
-      <div>{currencyFormatter.format(barRoiUSD)}</div>
-      <div>
-        {poolUsers?.map((user) => {
-          const pair = pairs?.find((pair) => pair?.id == user.pool.pair);
-          const slp = Number(user.amount / 1e18);
-
-          const share = user.amount / user.pool.balance;
-
-          const token0 = pair?.reserve0 * share;
-          const token1 = pair?.reserve1 * share;
-
-          const pendingSushi = ((user.amount * user.pool.accSushiPerShare) / 1e12 - user.rewardDebt) / 1e18;
-          const lockupUser = lockupData?.users.find((u) => u.pool.id === user.pool.id);
-
-          const sushiAtLockup = lockupUser
-            ? ((lockupUser.amount * lockupUser.pool.accSushiPerShare) / 1e12 - lockupUser.rewardDebt) / 1e18
-            : 0;
-
-          const sushiLocked = (parseFloat(user.sushiHarvestedSinceLockup) + pendingSushi - sushiAtLockup) * 2;
-          const sushiLockedUSD = sushiLocked * sushiPrice;
-
-          return (
-            <>
-              <div>
-                {pair?.token0.symbol}-{pair?.token1.symbol}
-              </div>
-              <div>{decimalFormatter.format(slp)} SLP</div>
-              <div>
-                {decimalFormatter.format(token0)} {pair?.token0.symbol} + {decimalFormatter.format(token1)}{" "}
-                {pair?.token1.symbol}
-              </div>
-              <div>{currencyFormatter.format(pair?.reserveUSD * share)}</div>
-              <div>
-                {decimalFormatter.format(pendingSushi)} ({currencyFormatter.format(pendingSushi * sushiPrice)})
-              </div>
-              <div>
-                {decimalFormatter.format(user.sushiHarvested)} ({currencyFormatter.format(user.sushiHarvestedUSD)})
-              </div>
-              <div>
-                {decimalFormatter.format(sushiLocked)} ({currencyFormatter.format(sushiLockedUSD)})
-              </div>
-              <div>{currencyFormatter.format(user.entryUSD)}</div>
-              <div>{currencyFormatter.format(user.exitUSD)}</div>
-              <div>
-                {currencyFormatter.format(
-                  parseFloat(pair?.reserveUSD * share) +
-                    parseFloat(user.exitUSD) +
-                    parseFloat(user.sushiHarvestedUSD) +
-                    parseFloat(pendingSushi * sushiPrice) -
-                    parseFloat(user.entryUSD)
-                )}
-              </div>
-            </>
-          );
-        })}
-      </div> */}
     </>
   );
 };
