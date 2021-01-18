@@ -2,6 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
 import Dashboard from "./sections/Dashboard";
+import Midnight from "./sections/Midnight";
+import Trader from "./sections/Trader";
+
 import ModalsProvider from "./shared/contexts/ModalsContext";
 
 //Services - Shared Dependencies
@@ -20,9 +23,9 @@ import { ApolloProvider as SushiAnalyticsApolloProvider } from "@apollo/client";
 import SushiAnalyticsCssBaseline from "@material-ui/core/CssBaseline";
 import { useApollo } from "./services/analytics/core";
 
-// Services - Sushi View Dependencies
-import AnalyticsGlobalDataContextProvider from "./services/view/contexts/globalData";
-import AnalyticsApplicationContextProvider from "./services/view/contexts/application";
+// Services - Sushi View Dependencies (Deprecated)
+// import AnalyticsGlobalDataContextProvider from "./services/view/contexts/globalData";
+// import AnalyticsApplicationContextProvider from "./services/view/contexts/application";
 
 //Services - Vision Dependencies
 import VisionThemeProvider from "./services/vision/Theme";
@@ -36,8 +39,8 @@ import PairDataContextProvider, { Updater as PairDataContextUpdater } from "./se
 import ApplicationContextProvider from "./services/vision/contexts/Application";
 import UserContextProvider from "./services/vision/contexts/User";
 import { ApolloProvider } from "react-apollo";
-import { useGlobalData, useGlobalChartData } from "./services/vision/contexts/GlobalData";
-import { useLatestBlock } from "./services/vision/contexts/Application";
+//import { useGlobalData, useGlobalChartData } from "./services/vision/contexts/GlobalData";
+//import { useLatestBlock } from "./services/vision/contexts/Application";
 
 //Services - Exchange Dependencies
 import Web3Status from "./services/exchange/components/Web3Status";
@@ -76,8 +79,6 @@ import PoolWrapper from "./pages/Pool";
 // Services - Lite Dependancies
 import { ContextProvider as LiteProvider } from "./services/lite/context";
 
-import Farms from "./components/Farms";
-
 const App = () => {
   //const globalData = useGlobalData();
   //const globalChartData = useGlobalChartData();
@@ -89,8 +90,10 @@ const App = () => {
         <Popups />
         <Web3ReactManager>
           <Switch>
+            {/* Experimental Routes */}
+            <Route exact path="/experimental/midnight" component={Midnight} />
+            <Route exact path="/experimental/trader" component={Trader} />
             {/* Account Routes */}
-            <Route exact path="/farm-test" component={Farms} />
             <Route exact path="/connect" component={Dashboard} />
             <Route exact path="/search" component={Dashboard} />
             <Route exact path="/omakase" component={Dashboard} />
@@ -206,11 +209,11 @@ const SushiFrontendProviders = ({ children }) => {
         <SushiProvider>
           <TransactionProvider>
             <FarmsProvider>
-              <AnalyticsApplicationContextProvider>
-                <AnalyticsGlobalDataContextProvider>
-                  <ServicesModalsProvider>{children}</ServicesModalsProvider>
-                </AnalyticsGlobalDataContextProvider>
-              </AnalyticsApplicationContextProvider>
+              {/* <AnalyticsApplicationContextProvider>
+                <AnalyticsGlobalDataContextProvider> */}
+              <ServicesModalsProvider>{children}</ServicesModalsProvider>
+              {/* </AnalyticsGlobalDataContextProvider>
+              </AnalyticsApplicationContextProvider> */}
             </FarmsProvider>
           </TransactionProvider>
         </SushiProvider>
