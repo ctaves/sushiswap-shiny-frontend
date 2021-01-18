@@ -106,6 +106,16 @@ const Actions = ({ farm }) => {
   return (
     <>
       <td className="table-cell px-6 py-3 whitespace-no-wrap text-sm leading-5 text-gray-500 text-right">
+        {true && (
+          <div>
+            <Button title={"Add Liquidity"} onClick={onAddLiquidity} />
+          </div>
+        )}
+        {!state.needsApproval && state.availableSLP && (
+          <div>
+            <Button title={"Remove Liquidity"} onClick={onRemoveLiquidity} />
+          </div>
+        )}
         {state.needsApproval && (
           <div>
             <Button onClick={handleApprove} title={"Approve Staking"} />
@@ -132,16 +142,6 @@ const Actions = ({ farm }) => {
         {!state.needsApproval && state.stakedSLP && (
           <div>
             <Button title={"Unstake"} onClick={onPresentWithdraw} />
-          </div>
-        )}
-        {!state.needsApproval && (
-          <div>
-            <Button title={"Add Liquidity"} onClick={onAddLiquidity} />
-          </div>
-        )}
-        {!state.needsApproval && state.availableSLP && (
-          <div>
-            <Button title={"Remove Liquidity"} onClick={onRemoveLiquidity} />
           </div>
         )}
       </td>
