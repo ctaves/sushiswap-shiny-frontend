@@ -159,6 +159,7 @@ const Account = () => {
 
   // Get Sushi staked, issue with analytics query:
   const xSushiBalance = useTokenBalance(contractAddresses.xSushi[1]);
+  const xSushiFormatted = new BigNumber(xSushiBalance).div(new BigNumber(1000000000000000000));
   const totalSupply = useTotalXSushiSupply();
   const totalStaked = useTotalSushiStakedInBar();
   const poolShare = new BigNumber(xSushiBalance).div(new BigNumber(totalSupply));
@@ -390,7 +391,8 @@ const Account = () => {
       title: "Staked",
       sushi: Number(sushiStaked) ? `${decimalFormatter.format(Number(sushiStaked))} SUSHI` : <Loader />,
       //sushi: barStaked ? `${decimalFormatter.format(barStaked)} SUSHI` : <Loader />,
-      xsushi: xSushi ? `${Number(xSushi.toFixed(2)).toLocaleString()} xSUSHI` : <Loader />,
+      xsushi: Number(xSushiFormatted) ? `(${Number(xSushiFormatted.toFixed(2)).toLocaleString()} xSUSHI)` : <Loader />,
+      //xsushi: xSushi ? `${Number(xSushi.toFixed(2)).toLocaleString()} xSUSHI` : <Loader />,
       //usd: `${currencyFormatter.format(barStakedUSD)}`, // incorrect for some reason
       //usd: barStaked && priceUSD ? `${currencyFormatter.format(barStaked * priceUSD)}` : <Loader />,
       usd: Number(sushiStaked) && priceUSD ? `${currencyFormatter.format(Number(sushiStaked) * priceUSD)}` : <Loader />,

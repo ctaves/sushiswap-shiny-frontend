@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-expressions */
 
 import React, { useEffect, useState } from "react";
+
+// Overview Stats
 import {
   barHistoriesQuery,
   barQuery,
@@ -8,16 +10,48 @@ import {
   ethPriceQuery,
   factoryQuery,
   tokenQuery,
+  currencyFormatter,
+  decimalFormatter,
 } from "../../services/analytics/core";
 
 import { useQuery } from "@apollo/client";
 import { getFactory } from "./getFactory";
 
+// User Stats
+
+import BigNumber from "bignumber.js";
+import StakeSushi from "../Portfolio/StakeSushi";
+import UnstakeSushi from "../Portfolio/UnstakeSushi";
+
+import useTokenBalance from "../Portfolio/hooks/useTokenBalance";
+import useTotalSushiStakedInBar from "../Portfolio/hooks/useTotalSushiStakedInBar";
+import useTotalXSushiSupply from "../Portfolio/hooks/useTotalXSushiSupply";
+import useAllEarnings from "../Portfolio/hooks/useAllEarnings";
+import useAllStakedValue from "../Portfolio/hooks/useAllStakedValue";
+import useFarms from "../../services/frontend/hooks/useFarms";
+
+import { contractAddresses } from "../../services/frontend/sushi/lib/constants";
+import { useTokenData } from "../../services/vision/contexts/TokenData";
+import { formattedNum } from "../../services/vision/utils";
+import { getBalanceNumber } from "../../services/frontend/utils/formatBalance";
+
+import TableSushi from "./Table";
+
+// modals
+import HarvestModal from "../Portfolio/Harvest/Modal";
+import useModal from "../../shared/hooks/useModal";
+
+// Additional Dep
 import sushiData from "@sushiswap/sushi-data";
 import { useActiveWeb3React } from "../../services/exchange/hooks";
+import { Linker, Button } from "../Linker";
+import { Loader } from "../Portfolio/Tables/Loader";
 
 const SushiBar = () => {
   const { account } = useActiveWeb3React();
+
+  // initialize modals
+  const [onPresentHarvest] = useModal(<HarvestModal />, null, null, null);
 
   const [user, setUser] = useState();
   const [factory, setFactory] = useState();
@@ -144,6 +178,60 @@ const SushiBar = () => {
     sushiPrice: sushiPrice,
   });
 
+  // Get Sushi Price in USD
+  const { priceUSD } = useTokenData("0x6b3595068778dd592e39a122f4f5a5cf09c90fe2");
+
+  // Get all pending Sushi from farms
+  const allEarnings = useAllEarnings();
+  let sumEarning = 0;
+  for (let earning of allEarnings) {
+    sumEarning += new BigNumber(earning).div(new BigNumber(10).pow(18)).toNumber();
+  }
+  const [farms] = useFarms();
+  const allStakedValue = useAllStakedValue();
+  if (allStakedValue && allStakedValue.length) {
+    const sumWeth = farms.reduce((c, { id }, i) => c + (allStakedValue[i].totalWethValue.toNumber() || 0), 0);
+  }
+
+  // Get users # of Sushi not staked
+  const totalNotStaked = useTokenBalance(contractAddresses.sushi[1]);
+  const totalNotStakedUSD = priceUSD ? formattedNum(getBalanceNumber(totalNotStaked) * priceUSD, true) : "";
+  console.log("totalNotStaked:", totalNotStaked);
+
+  // Get Sushi staked, issue with analytics query:
+  const xSushiBalance = useTokenBalance(contractAddresses.xSushi[1]);
+  const xSushiFormatted = new BigNumber(xSushiBalance).div(new BigNumber(1000000000000000000));
+  const totalSupply = useTotalXSushiSupply();
+  const totalStaked = useTotalSushiStakedInBar();
+  const poolShare = new BigNumber(xSushiBalance).div(new BigNumber(totalSupply));
+  const poolStaked = new BigNumber(poolShare).times(new BigNumber(totalStaked));
+  const sushiStaked = new BigNumber(poolStaked).div(new BigNumber(1000000000000000000));
+
+  const balances = [
+    {
+      title: "Harvestable",
+      sushi: sumEarning ? formattedNum(sumEarning, false) : <Loader />,
+      usd: sumEarning && priceUSD ? formattedNum(sumEarning * priceUSD, true) : <Loader />,
+      cta: <Button title="Harvest" onClick={onPresentHarvest} />,
+    },
+    {
+      title: "Unstaked",
+      sushi: totalNotStaked ? `${Number(getBalanceNumber(totalNotStaked)).toFixed(4)} SUSHI` : <Loader />,
+      usd: totalNotStakedUSD ? totalNotStakedUSD : <Loader />,
+      cta: <StakeSushi />,
+    },
+    {
+      title: "Staked",
+      sushi: Number(sushiStaked) ? `${decimalFormatter.format(Number(sushiStaked))} SUSHI` : <Loader />,
+      //sushi: barStaked ? `${decimalFormatter.format(barStaked)} SUSHI` : <Loader />,
+      xsushi: Number(xSushiFormatted) ? `(${Number(xSushiFormatted.toFixed(2)).toLocaleString()} xSUSHI)` : <Loader />,
+      //usd: `${currencyFormatter.format(barStakedUSD)}`, // incorrect for some reason
+      //usd: barStaked && priceUSD ? `${currencyFormatter.format(barStaked * priceUSD)}` : <Loader />,
+      usd: Number(sushiStaked) && priceUSD ? `${currencyFormatter.format(Number(sushiStaked) * priceUSD)}` : <Loader />,
+      cta: <UnstakeSushi />,
+    },
+  ];
+
   const state = {
     APY: APY,
     APR: APR,
@@ -159,7 +247,14 @@ const SushiBar = () => {
 
   console.log("xsushi_state:", state);
 
-  return <></>;
+  return (
+    <>
+      <TableSushi
+        balances={balances ? balances : <Loader />}
+        price={sushiPrice ? currencyFormatter.format(sushiPrice) : <Loader />}
+      />
+    </>
+  );
 };
 
 export default SushiBar;

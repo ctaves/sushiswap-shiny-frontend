@@ -1,32 +1,18 @@
 import React from "react";
-import SushiLogo from "../../../assets/img/logo.png";
-import xSushiLogo from "../../../assets/icons/xsushi.svg";
+import SushiLogo from "../../assets/img/logo.png";
+import xSushiLogo from "../../assets/icons/xsushi.svg";
 
-const Table = ({ balances, price, total, SushiBalanceUSD, totalSushiBalance, totalSushiBalanceUSD }) => {
+const Table = ({ balances, price }) => {
   return (
     <>
       <div className="flex overflow-hidden bg-white">
-        {/* Main column */}
-        {/* Title */}
         <div className="flex flex-col w-0 flex-1 overflow-hidden">
-          <div className="bg-white px-4 py-5 border-b border-gray-200 sm:px-8">
-            <div className="-ml-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-no-wrap">
-              <div className="ml-4 mt-4">
-                <h3 className="text-lg leading-6 font-medium text-gray-900">Sushi Balance</h3>
-                <p className="mt-1 text-sm leading-5 text-gray-500">1 SUSHI = {price}</p>
-              </div>
-              <div className="ml-4 mt-4 flex-shrink-0">
-                <h3 className="text-lg text-right leading-6 font-medium text-gray-900">{totalSushiBalanceUSD}</h3>
-                <p className="mt-1 text-sm leading-5 text-gray-500">{totalSushiBalance} SUSHI</p>
-              </div>
-            </div>
-          </div>
           {/* Main content */}
           <main className="flex-1 relative z-0 overflow-y-auto focus:outline-none" tabIndex={0}>
             <div className="block">
               <div className="align-middle inline-block min-w-full border-b border-gray-200">
                 <table className="hidden sm:table min-w-full table-fixed">
-                  <TableHead />
+                  {/* <TableHead /> */}
                   <tbody className="bg-white divide-y divide-gray-100">
                     {balances &&
                       balances.map((balance) => {
@@ -92,27 +78,6 @@ const Card = ({ balance }) => {
           </div>
         </a>
       </li>
-    </>
-  );
-};
-
-const TableHead = () => {
-  return (
-    <>
-      <thead>
-        <tr>
-          <th className="w-2/5 px-6 py-3 border-b border-gray-200 bg-white text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-            <span className="lg:pl-2">State</span>
-          </th>
-          <th className="w-1/5 table-cell px-6 py-3 border-b border-gray-200 bg-white text-right text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-            SUSHI {/* Balance SUSHI */}
-          </th>
-          <th className="w-1/5 table-cell px-6 py-3 border-b border-gray-200 bg-white text-right text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-            USD {/* Balance USD */}
-          </th>
-          <th className="w-1/5 pr-6 py-3 border-b border-gray-200 bg-white text-right text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider" />
-        </tr>
-      </thead>
     </>
   );
 };
