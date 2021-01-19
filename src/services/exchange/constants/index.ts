@@ -31,6 +31,7 @@ export const SUSHI = new Token(
   "SushiToken"
 );
 export const YAM = new Token(ChainId.MAINNET, "0x0e2298E3B3390e3b945a5456fBf59eCc3f55DA16", 18, "YAM", "YAM");
+export const RUNE = new Token(ChainId.MAINNET, "0x3155ba85d5f96b2d030a4966af206230e46849cb", 18, "RUNE", "RUNE.ETH");
 
 const WETH_ONLY: ChainTokenList = {
   [ChainId.MAINNET]: [WETH[ChainId.MAINNET]],
@@ -47,7 +48,7 @@ const WETH_ONLY: ChainTokenList = {
 // }
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT, SUSHI, YAM, WBTC],
+  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT, SUSHI, YAM, WBTC, RUNE],
 };
 
 /**
