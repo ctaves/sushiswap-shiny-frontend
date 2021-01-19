@@ -1,15 +1,11 @@
+import React, { useCallback, useMemo, useState } from "react";
+
 import { AreaClosed, Bar } from "@visx/shape";
 import { AxisBottom, AxisLeft, AxisRight } from "@visx/axis";
 import { Grid, GridColumns, GridRows } from "@visx/grid";
-import {
-  Tooltip,
-  TooltipWithBounds,
-  defaultStyles,
-  withTooltip,
-} from "@visx/tooltip";
-import { currencyFormatter, oneMonth, oneWeek } from "app/core";
+import { Tooltip, TooltipWithBounds, defaultStyles, withTooltip } from "@visx/tooltip";
+import { currencyFormatter, oneMonth, oneWeek } from "../core";
 import { scaleLinear, scaleTime } from "@visx/scale";
-import { useCallback, useMemo, useState } from "react";
 
 import ChartOverlay from "./ChartOverlay";
 import { GradientTealBlue } from "@visx/gradient";
@@ -84,10 +80,7 @@ function AreaChart({
     () =>
       scaleTime({
         range: [0, xMax],
-        domain: [
-          Math.min(...data.map(getDate)),
-          Math.max(...data.map(getDate)),
-        ],
+        domain: [Math.min(...data.map(getDate)), Math.max(...data.map(getDate))],
       }),
     [xMax, data]
   );
@@ -95,10 +88,7 @@ function AreaChart({
     () =>
       scaleLinear({
         range: [yMax, 0],
-        domain: [
-          Math.min(...data.map((d) => getValue(d))),
-          Math.max(...data.map((d) => getValue(d))),
-        ],
+        domain: [Math.min(...data.map((d) => getValue(d))), Math.max(...data.map((d) => getValue(d)))],
         nice: true,
       }),
     [yMax, data]
@@ -114,11 +104,7 @@ function AreaChart({
       const d1 = data[index];
       let d = d0;
       if (d1 && getDate(d1)) {
-        d =
-          x0.valueOf() - getDate(d0).valueOf() >
-          getDate(d1).valueOf() - x0.valueOf()
-            ? d1
-            : d0;
+        d = x0.valueOf() - getDate(d0).valueOf() > getDate(d1).valueOf() - x0.valueOf() ? d1 : d0;
       }
       // console.log("show ", d);
       setOverlay({
@@ -139,9 +125,7 @@ function AreaChart({
 
   return (
     <div style={{ position: "relative" }}>
-      {overlayEnabled && (
-        <ChartOverlay overlay={overlay} onTimespanChange={onTimespanChange} />
-      )}
+      {overlayEnabled && <ChartOverlay overlay={overlay} onTimespanChange={onTimespanChange} />}
       <svg width={width} height={height}>
         <GradientTealBlue id="teal" fromOffset={0.5} />
         <rect x={0} y={0} width={width} height={height} fill="transparent" />
@@ -202,11 +186,7 @@ function AreaChart({
       </svg>
       {!tooltipDisabled && tooltipData && (
         <div>
-          <Tooltip
-            top={margin.top + tooltipTop - 12}
-            left={tooltipLeft + 12}
-            style={tooltipStyles}
-          >
+          <Tooltip top={margin.top + tooltipTop - 12} left={tooltipLeft + 12} style={tooltipStyles}>
             {`$${millify(getValue(tooltipData))}`}
           </Tooltip>
           <Tooltip

@@ -1,18 +1,17 @@
-import Autocomplete, {
-  createFilterOptions,
-} from "@material-ui/lab/Autocomplete";
+import React, { useState } from "react";
+import Autocomplete, { createFilterOptions } from "@material-ui/lab/Autocomplete";
 import { Box, TextField } from "@material-ui/core";
 /* eslint-disable no-use-before-define */
-import React, { useState } from "react";
 import { pairsQuery, tokensQuery } from "../core";
 
 import PairIcon from "./PairIcon";
-import { TokenIcon } from "app/components";
+import { TokenIcon } from "../components";
 import Typography from "@material-ui/core/Typography";
 import match from "autosuggest-highlight/match";
 import parse from "autosuggest-highlight/parse";
 import { useQuery } from "@apollo/client";
-import { useRouter } from "next/router";
+//import { useRouter } from "next/router";
+import { useRouter } from "../core/hooks/useRouter";
 
 export default function Search() {
   const router = useRouter();
@@ -41,9 +40,7 @@ export default function Search() {
       id: option.id,
       token0: option.token0 ? option.token0.id : "",
       token1: option.token1 ? option.token1.id : "",
-      text: option.name
-        ? ` ${option.symbol} ${option.name}`
-        : `${option.token0?.symbol}-${option.token1?.symbol}`,
+      text: option.name ? ` ${option.symbol} ${option.name}` : `${option.token0?.symbol}-${option.token1?.symbol}`,
     };
   });
 
@@ -68,14 +65,7 @@ export default function Search() {
         router.push(`/${v.__typename.toLowerCase()}s/${v.id}`);
       }}
       loading={pairsLoading || tokensLoading}
-      renderInput={(params) => (
-        <TextField
-          {...params}
-          label="Looking for something?"
-          variant="outlined"
-          size="small"
-        />
-      )}
+      renderInput={(params) => <TextField {...params} label="Looking for something?" variant="outlined" size="small" />}
       renderOption={(option, { inputValue }) => {
         const matches = match(option.text, inputValue);
         const parts = parse(option.text, matches);
@@ -87,10 +77,7 @@ export default function Search() {
               <PairIcon base={option.token0} quote={option.token1} />
             )}
             {parts.map((part, index) => (
-              <span
-                key={index}
-                style={{ fontWeight: part.highlight ? 700 : 400 }}
-              >
+              <span key={index} style={{ fontWeight: part.highlight ? 700 : 400 }}>
                 {part.text}
               </span>
             ))}

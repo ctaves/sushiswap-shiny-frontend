@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Paper,
   Table,
@@ -9,7 +10,6 @@ import {
   Typography,
 } from "@material-ui/core";
 
-import React from "react";
 import SortableTableHead from "./SortableTableHead";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -42,12 +42,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function descendingComparator(a, b, orderBy) {
-  a = Number.isNaN(parseFloat(a[orderBy]))
-    ? a[orderBy]
-    : parseFloat(a[orderBy]);
-  b = Number.isNaN(parseFloat(b[orderBy]))
-    ? b[orderBy]
-    : parseFloat(b[orderBy]);
+  a = Number.isNaN(parseFloat(a[orderBy])) ? a[orderBy] : parseFloat(a[orderBy]);
+  b = Number.isNaN(parseFloat(b[orderBy])) ? b[orderBy] : parseFloat(b[orderBy]);
 
   if (b < a) {
     return -1;
@@ -137,15 +133,11 @@ export default function SortableTable({
                       return (
                         <TableCell
                           key={i}
-                          {...(i === 0
-                            ? { component: "th", scope: "row" }
-                            : {})}
+                          {...(i === 0 ? { component: "th", scope: "row" } : {})}
                           align={column.align || "left"}
                           // variant="body"
                         >
-                          {typeof column.render === "function"
-                            ? column.render(row, index)
-                            : row[column.key]}
+                          {typeof column.render === "function" ? column.render(row, index) : row[column.key]}
                         </TableCell>
                       );
                     })}

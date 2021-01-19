@@ -1,24 +1,19 @@
+import React from "react";
 import { AxisBottom, AxisLeft } from "@visx/axis";
 import { Grid, GridColumns, GridRows } from "@visx/grid";
-import {
-  MarkerArrow,
-  MarkerCircle,
-  MarkerCross,
-  MarkerLine,
-  MarkerX,
-} from "@visx/marker";
+import { MarkerArrow, MarkerCircle, MarkerCross, MarkerLine, MarkerX } from "@visx/marker";
 import { deepPurple, green, red } from "@material-ui/core/colors";
-import { getX, getY } from "app/core";
-import { scaleLinear, scaleTime, scaleUtc } from "@visx/scale";
+import { getX, getY } from "../core";
+import { scaleLinear, scaleOrdinal, scaleTime } from "@visx/scale";
 import { timeFormat, timeParse } from "d3-time-format";
 import { useMemo, useState } from "react";
 
 import { Brush } from "@visx/brush";
 import Curve from "./Curve";
 import { Group } from "@visx/group";
+import { LegendOrdinal } from "@visx/legend";
 import { LinearGradient } from "@visx/gradient";
 import { PatternLines } from "@visx/pattern";
-import React from "react";
 import { Text } from "@visx/text";
 import { curveNatural } from "@visx/curve";
 import { extent } from "d3-array";
@@ -58,6 +53,10 @@ const axisLeftTickLabelProps = {
   fill: axisColor,
 };
 
+const purple1 = "#6c5efb";
+const purple2 = "#c998ff";
+const purple3 = "#a44afe";
+
 const Curves = ({
   compact = false,
   width,
@@ -65,11 +64,10 @@ const Curves = ({
   margin = { top: 0, right: 0, bottom: 0, left: 0 },
   data,
   title,
+  labels,
+  colors = [purple1, purple2, purple3],
 }) => {
-  const allData = data.reduce(
-    (previousValue, currentValue) => previousValue.concat(currentValue),
-    []
-  );
+  const allData = data.reduce((previousValue, currentValue) => previousValue.concat(currentValue), []);
 
   const [filteredData, setFilteredData] = useState(
     data.map((curve) => curve.slice(curve.length - 30, curve.length - 1))
@@ -90,9 +88,7 @@ const Curves = ({
 
   const innerHeight = height - margin.top - margin.bottom;
 
-  const topChartBottomMargin = compact
-    ? chartSeparation / 2
-    : chartSeparation + 10;
+  const topChartBottomMargin = compact ? chartSeparation / 2 : chartSeparation + 10;
 
   const topChartHeight = 0.8 * innerHeight - topChartBottomMargin;
 
@@ -108,10 +104,7 @@ const Curves = ({
       scaleTime({
         range: [0, xMax],
         domain: extent(
-          filteredData.reduce(
-            (previousValue, currentValue) => previousValue.concat(currentValue),
-            []
-          ),
+          filteredData.reduce((previousValue, currentValue) => previousValue.concat(currentValue), []),
           getX
         ),
       }),
@@ -125,20 +118,12 @@ const Curves = ({
         domain: [
           Math.min(
             ...filteredData
-              .reduce(
-                (previousValue, currentValue) =>
-                  previousValue.concat(currentValue),
-                []
-              )
+              .reduce((previousValue, currentValue) => previousValue.concat(currentValue), [])
               .map((d) => getY(d))
           ),
           Math.max(
             ...filteredData
-              .reduce(
-                (previousValue, currentValue) =>
-                  previousValue.concat(currentValue),
-                []
-              )
+              .reduce((previousValue, currentValue) => previousValue.concat(currentValue), [])
               .map((d) => getY(d))
           ),
         ],
@@ -148,10 +133,7 @@ const Curves = ({
   );
 
   const xBrushMax = Math.max(width - brushMargin.left - brushMargin.right, 0);
-  const yBrushMax = Math.max(
-    bottomChartHeight - brushMargin.top - brushMargin.bottom,
-    0
-  );
+  const yBrushMax = Math.max(bottomChartHeight - brushMargin.top - brushMargin.bottom, 0);
 
   const brushXScale = useMemo(
     () =>
@@ -165,10 +147,7 @@ const Curves = ({
     () =>
       scaleLinear({
         range: [yBrushMax, 0],
-        domain: [
-          Math.min(...allData.map((d) => getY(d))),
-          Math.max(...allData.map((d) => getY(d))),
-        ],
+        domain: [Math.min(...allData.map((d) => getY(d))), Math.max(...allData.map((d) => getY(d)))],
         nice: true,
       }),
     [yBrushMax]
@@ -177,25 +156,41 @@ const Curves = ({
   const initialBrushPosition = useMemo(
     () => ({
       start: {
-        x: brushXScale(
-          getX(data[0][data[0].length >= 30 ? data[0].length - 30 : 0])
-        ),
+        x: brushXScale(getX(data[0][data[0].length >= 30 ? data[0].length - 30 : 0])),
       },
       end: { x: brushXScale(getX(data[0][data[0].length - 1])) },
     }),
     [brushXScale]
   );
 
+  const colorScale = scaleOrdinal({
+    domain: labels,
+    range: colors,
+  });
+
   if (width < 10) {
     return null;
   }
 
   return (
-    <div>
+    <div style={{ position: "relative" }}>
+      {labels && (
+        <div
+          style={{
+            position: "absolute",
+            top: margin.top / 2 - 10,
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            fontSize: "14px",
+          }}
+        >
+          <LegendOrdinal scale={colorScale} direction="row" labelMargin="0 15px 0 0" />
+        </div>
+      )}
+
       <svg width={width} height={height}>
         <rect x={0} y={0} width={width} height={height} fill="transparent" />
-        <LinearGradient id="positive" from="#43e97b" to="#43e97b" rotate="0" />
-        <LinearGradient id="negative" from="#ff0844" to="#ffb199" rotate="0" />
         <GridRows
           top={margin.top}
           left={margin.left}
@@ -217,19 +212,13 @@ const Curves = ({
           strokeOpacity={0.2}
           pointerEvents="none"
         />
-        <Group
-          top={margin.top}
-          left={margin.left}
-          bottom={topChartBottomMargin}
-        >
+        <Group top={margin.top} left={margin.left} bottom={topChartBottomMargin}>
           {width > 8 &&
             filteredData.map((curve, i) => {
               const even = i % 2 === 0;
               let markerStart = even ? "url(#marker-cross)" : "url(#marker-x)";
               if (i === 1) markerStart = "url(#marker-line)";
-              const markerEnd = even
-                ? "url(#marker-arrow)"
-                : "url(#marker-arrow-odd)";
+              const markerEnd = even ? "url(#marker-arrow)" : "url(#marker-arrow-odd)";
               return (
                 <Group
                   key={`chart-${i}`}
@@ -237,45 +226,24 @@ const Curves = ({
                   // left={margin.left}
                   // right={margin.right}
                 >
-                  <MarkerX
-                    id="marker-x"
-                    stroke={even ? green[600] : red[600]}
-                    size={22}
-                    strokeWidth={4}
-                    markerUnits="userSpaceOnUse"
-                  />
+                  <MarkerX id="marker-x" stroke={colors[i]} size={22} strokeWidth={4} markerUnits="userSpaceOnUse" />
                   <MarkerCross
                     id="marker-cross"
-                    stroke={even ? green[600] : red[600]}
+                    stroke={colors[i]}
                     size={22}
                     strokeWidth={4}
                     strokeOpacity={0.6}
                     markerUnits="userSpaceOnUse"
                   />
-                  <MarkerCircle
+                  {/* <MarkerCircle
                     id="marker-circle"
-                    fill={even ? green[600] : red[600]}
+                    fill={colors[i]}
                     size={2}
                     refX={2}
-                  />
-                  <MarkerArrow
-                    id="marker-arrow-odd"
-                    stroke={even ? green[600] : red[600]}
-                    size={8}
-                    strokeWidth={1}
-                  />
-                  <MarkerLine
-                    id="marker-line"
-                    fill={even ? green[600] : red[600]}
-                    size={16}
-                    strokeWidth={1}
-                  />
-                  <MarkerArrow
-                    id="marker-arrow"
-                    fill={even ? green[600] : red[600]}
-                    refX={2}
-                    size={6}
-                  />
+                  /> */}
+                  <MarkerArrow id="marker-arrow-odd" stroke={colors[i]} size={8} strokeWidth={1} />
+                  <MarkerLine id="marker-line" fill={colors[i]} size={16} strokeWidth={1} />
+                  <MarkerArrow id="marker-arrow" fill={colors[i]} refX={2} size={6} />
                   <Curve
                     hideBottomAxis
                     hideLeftAxis
@@ -284,9 +252,9 @@ const Curves = ({
                     width={width}
                     xScale={xScale}
                     yScale={yScale}
-                    stroke={even ? green[500] : red[500]}
-                    strokeWidth={even ? 2 : 1}
-                    strokeOpacity={even ? 0.8 : 1}
+                    stroke={colors[i]}
+                    strokeWidth={2}
+                    strokeOpacity={1}
                     shapeRendering="geometricPrecision"
                     markerMid="url(#marker-circle)"
                     markerStart={markerStart}
@@ -313,23 +281,18 @@ const Curves = ({
           />
         </Group>
 
-        <Group
-          top={topChartHeight + topChartBottomMargin + margin.top}
-          left={brushMargin.left}
-        >
+        <Group top={topChartHeight + topChartBottomMargin + margin.top} left={brushMargin.left}>
           {data.map((brushData, i) => {
             const even = i % 2 === 0;
             let markerStart = even ? "url(#marker-cross)" : "url(#marker-x)";
             if (i === 1) markerStart = "url(#marker-line)";
-            const markerEnd = even
-              ? "url(#marker-arrow)"
-              : "url(#marker-arrow-odd)";
+            const markerEnd = even ? "url(#marker-arrow)" : "url(#marker-arrow-odd)";
             return (
               <Curve
                 curve={curveNatural}
-                stroke={even ? green[400] : red[400]}
-                strokeWidth={even ? 2 : 1}
-                strokeOpacity={even ? 0.8 : 1}
+                stroke={colors[i]}
+                strokeWidth={2}
+                strokeOpacity={1}
                 shapeRendering="geometricPrecision"
                 hideBottomAxis
                 hideLeftAxis

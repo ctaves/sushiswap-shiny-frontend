@@ -1,11 +1,11 @@
+import React from "react";
 import { Box } from "@material-ui/core";
 import Link from "./Link";
-import { PAIR_DENY } from "app/core/constants";
+import { PAIR_DENY } from "../core/constants";
 import PairIcon from "./PairIcon";
 import Percent from "./Percent";
-import React from "react";
 import SortableTable from "./SortableTable";
-import { currencyFormatter } from "app/core";
+import { currencyFormatter } from "../core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -24,16 +24,11 @@ export default function PairTable({ pairs, title, ...rest }) {
       // const oneDayVolumeUSD = pair?.oneDay?.volumeUSD === "0" ? pair?.oneDay?.untrackedVolumeUSD : pair?.oneDay?.volumeUSD
       // const twoDayVolumeUSD = pair?.twoDay?.volumeUSD === "0" ? pair?.twoDay?.untrackedVolumeUSD : pair?.twoDay?.volumeUSD
 
-      const volumeUSD =
-        pair?.volumeUSD === "0" ? pair?.untrackedVolumeUSD : pair?.volumeUSD;
+      const volumeUSD = pair?.volumeUSD === "0" ? pair?.untrackedVolumeUSD : pair?.volumeUSD;
       const oneDayVolumeUSD =
-        pair?.oneDay?.volumeUSD === "0"
-          ? pair?.oneDay?.untrackedVolumeUSD
-          : pair?.oneDay?.volumeUSD;
+        pair?.oneDay?.volumeUSD === "0" ? pair?.oneDay?.untrackedVolumeUSD : pair?.oneDay?.volumeUSD;
       const sevenDayVolumeUSD =
-        pair?.sevenDay?.volumeUSD === "0"
-          ? pair?.sevenDay?.untrackedVolumeUSD
-          : pair?.sevenDay?.volumeUSD;
+        pair?.sevenDay?.volumeUSD === "0" ? pair?.sevenDay?.untrackedVolumeUSD : pair?.sevenDay?.volumeUSD;
 
       const oneDayVolume = volumeUSD - oneDayVolumeUSD;
       const oneDayFees = oneDayVolume * 0.003;
@@ -42,10 +37,7 @@ export default function PairTable({ pairs, title, ...rest }) {
 
       return {
         ...pair,
-        displayName: `${pair.token0.symbol.replace(
-          "WETH",
-          "ETH"
-        )}-${pair.token1.symbol.replace("WETH", "ETH")}`,
+        displayName: `${pair.token0.symbol.replace("WETH", "ETH")}-${pair.token1.symbol.replace("WETH", "ETH")}`,
         oneDayVolume: !Number.isNaN(oneDayVolume) ? oneDayVolume : 0,
         sevenDayVolume: !Number.isNaN(sevenDayVolume) ? sevenDayVolume : 0,
         oneDayFees: !Number.isNaN(oneDayFees) ? oneDayFees : 0,
@@ -99,8 +91,7 @@ export default function PairTable({ pairs, title, ...rest }) {
           },
           {
             key: "sevenDayFees",
-            render: (row) =>
-              currencyFormatter.format(row.sevenDayVolume * 0.03),
+            render: (row) => currencyFormatter.format(row.sevenDayVolume * 0.03),
             align: "right",
             label: "Fees (7d)",
           },

@@ -1,19 +1,15 @@
+import React from "react";
 import { Box, Typography } from "@material-ui/core";
 import { Sparklines, SparklinesLine } from "react-sparklines";
-import {
-  ethPriceQuery,
-  oneDayEthPriceQuery,
-  sevenDayEthPriceQuery,
-} from "app/core";
+import { ethPriceQuery, oneDayEthPriceQuery, sevenDayEthPriceQuery } from "../core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 
 import Link from "./Link";
 import Percent from "./Percent";
-import React from "react";
 import SortableTable from "./SortableTable";
-import { TOKEN_DENY } from "app/core/constants";
+import { TOKEN_DENY } from "../core/constants";
 import TokenIcon from "./TokenIcon";
-import { currencyFormatter } from "app/core";
+import { currencyFormatter } from "../core";
 import { useQuery } from "@apollo/client";
 
 const useStyles = makeStyles((theme) => ({
@@ -38,26 +34,18 @@ export default function TokenTable({ tokens, title }) {
       return !TOKEN_DENY.includes(id);
     })
     .map((token) => {
-      const price =
-        parseFloat(token.derivedETH) * parseFloat(bundles[0]?.ethPrice);
+      const price = parseFloat(token.derivedETH) * parseFloat(bundles[0]?.ethPrice);
 
-      const priceYesterday =
-        parseFloat(token.oneDay?.derivedETH) *
-        parseFloat(oneDayEthPriceData?.ethPrice);
+      const priceYesterday = parseFloat(token.oneDay?.derivedETH) * parseFloat(oneDayEthPriceData?.ethPrice);
 
       const priceChange = ((price - priceYesterday) / priceYesterday) * 100;
 
-      const priceLastWeek =
-        parseFloat(token.sevenDay?.derivedETH) *
-        parseFloat(sevenDayEthPriceData?.ethPrice);
+      const priceLastWeek = parseFloat(token.sevenDay?.derivedETH) * parseFloat(sevenDayEthPriceData?.ethPrice);
 
-      const sevenDayPriceChange =
-        ((price - priceLastWeek) / priceLastWeek) * 100;
+      const sevenDayPriceChange = ((price - priceLastWeek) / priceLastWeek) * 100;
 
       const liquidityUSD =
-        parseFloat(token?.liquidity) *
-        parseFloat(token?.derivedETH) *
-        parseFloat(bundles[0]?.ethPrice);
+        parseFloat(token?.liquidity) * parseFloat(token?.derivedETH) * parseFloat(bundles[0]?.ethPrice);
 
       const volumeYesterday = token.volumeUSD - token.oneDay?.volumeUSD;
 
@@ -131,12 +119,7 @@ export default function TokenTable({ tokens, title }) {
             align: "right",
             label: "Last 7 Days",
             render: (row) => (
-              <Sparklines
-                data={row.dayData.map((d) => d.priceUSD)}
-                limit={7}
-                svgWidth={160}
-                svgHeight={30}
-              >
+              <Sparklines data={row.dayData.map((d) => d.priceUSD)} limit={7} svgWidth={160} svgHeight={30}>
                 <SparklinesLine
                   style={{
                     strokeWidth: 3,

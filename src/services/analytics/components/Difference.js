@@ -1,3 +1,4 @@
+import React from "react";
 import Percent from "./Percent";
 
 export default function Difference(previousValue, currentValue) {

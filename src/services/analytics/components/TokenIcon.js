@@ -1,7 +1,7 @@
+import React, { useMemo } from "react";
 import { Avatar } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { toChecksumAddress } from "web3-utils";
-import { useMemo } from "react";
 
 const useStyles = makeStyles((theme) => ({
   root: {

@@ -73,7 +73,7 @@ import _ from "lodash";
 const Account = () => {
   const { account } = useActiveWeb3React();
   const { ethereum } = window;
-  console.log("ethereum:", ethereum, account);
+  //console.log("ethereum:", ethereum, account);
   //const { account } = useActiveWeb3React();
   const id = account;
 
@@ -155,7 +155,7 @@ const Account = () => {
   // Get users # of Sushi not staked
   const totalNotStaked = useTokenBalance(contractAddresses.sushi[1]);
   const totalNotStakedUSD = priceUSD ? formattedNum(getBalanceNumber(totalNotStaked) * priceUSD, true) : "";
-  console.log("totalNotStaked:", totalNotStaked);
+  //console.log("totalNotStaked:", totalNotStaked);
 
   // Get Sushi staked, issue with analytics query:
   const xSushiBalance = useTokenBalance(contractAddresses.xSushi[1]);
@@ -273,7 +273,7 @@ const Account = () => {
   const originalInvestments = parseFloat(barData?.user?.sushiStakedUSD) + parseFloat(poolInvestments);
   const barPendingUSD = barPending > 0 ? barPending * sushiPrice : 0;
 
-  console.log("barPendingUSD:", barPendingUSD, barPending, sushiPrice);
+  //console.log("barPendingUSD:", barPendingUSD, barPending, sushiPrice);
   const barRoiSushi =
     parseFloat(barData?.user?.sushiHarvested) -
     parseFloat(barData?.user?.sushiStaked) -

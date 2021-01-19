@@ -1,13 +1,5 @@
-import {
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Typography,
-} from "@material-ui/core";
+import React from "react";
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@material-ui/core";
 
 export default function BasicTable({ title, headCells, bodyCells, style }) {
   return (
@@ -22,11 +14,7 @@ export default function BasicTable({ title, headCells, bodyCells, style }) {
           <TableHead>
             <TableRow key={Date.now()}>
               {headCells.map((cell) => (
-                <TableCell
-                  key={cell.key}
-                  align={cell.align || "left"}
-                  style={{ maxWidth: cell.maxWidth || "initial" }}
-                >
+                <TableCell key={cell.key} align={cell.align || "left"} style={{ maxWidth: cell.maxWidth || "initial" }}>
                   {cell.label}
                 </TableCell>
               ))}

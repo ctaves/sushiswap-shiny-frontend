@@ -1,11 +1,6 @@
+import React, { useMemo } from "react";
 import { AxisBottom, AxisLeft } from "@visx/axis";
-import {
-  axisBottomTickLabelProps,
-  axisColor,
-  axisLeftTickLabelProps,
-  getX,
-  getY,
-} from "app/core";
+import { axisBottomTickLabelProps, axisColor, axisLeftTickLabelProps, getX, getY } from "../core";
 import { scaleLinear, scaleTime } from "@visx/scale";
 
 import { AreaClosed } from "@visx/shape";
@@ -13,7 +8,6 @@ import { GradientTealBlue } from "@visx/gradient";
 import { Group } from "@visx/group";
 import { curveMonotoneX } from "@visx/curve";
 import millify from "millify";
-import { useMemo } from "react";
 
 export default function AreaChart({
   data,

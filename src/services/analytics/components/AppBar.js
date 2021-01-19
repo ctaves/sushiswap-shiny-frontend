@@ -10,21 +10,17 @@ import {
   Typography,
   useMediaQuery,
 } from "@material-ui/core";
-import {
-  Brightness4Outlined,
-  Brightness7Outlined,
-  CloseOutlined,
-  Menu,
-} from "@material-ui/icons";
+import { Brightness4Outlined, Brightness7Outlined, CloseOutlined, Menu } from "@material-ui/icons";
 import React, { useState } from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 
 import Sushi from "./Sushi";
 import clsx from "clsx";
-import { darkModeVar } from "app/core";
+import { darkModeVar } from "../core";
 import useDetect from "../core/hooks/useDetect";
 import { useReactiveVar } from "@apollo/client";
-import { useRouter } from "next/router";
+//import { useRouter } from "next/router";
+import { useRouter } from "../core/hooks/useRouter";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,9 +34,7 @@ const useStyles = makeStyles((theme) => ({
       // marginLeft: drawerWidth,
     },
     borderBottom:
-      theme.palette.type === "light"
-        ? "1px solid rgba(5, 7, 9, 0.12)"
-        : "1px solid rgba(255, 255, 255, 0.12)",
+      theme.palette.type === "light" ? "1px solid rgba(5, 7, 9, 0.12)" : "1px solid rgba(255, 255, 255, 0.12)",
   },
 
   logo: {
@@ -68,12 +62,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function AppBar({
-  children,
-  onToggleSidebar,
-  open,
-  mobileOpen,
-}) {
+export default function AppBar({ children, onToggleSidebar, open, mobileOpen }) {
   const classes = useStyles();
   const theme = useTheme();
   const router = useRouter();
@@ -101,17 +90,10 @@ export default function AppBar({
     localStorage.setItem("darkMode", value);
   }
 
-  const page =
-    router.pathname === "/" ? "Dashboard" : router.pathname.split("/")[1];
+  const page = router.pathname === "/" ? "Dashboard" : router.pathname.split("/")[1];
   const { isDesktop } = useDetect();
   return (
-    <MuiAppBar
-      position="fixed"
-      color="transparent"
-      color="inherit"
-      elevation={0}
-      className={classes.root}
-    >
+    <MuiAppBar position="fixed" color="transparent" color="inherit" elevation={0} className={classes.root}>
       <Toolbar>
         <IconButton
           color="default"
@@ -120,11 +102,7 @@ export default function AppBar({
           onClick={onToggleSidebar}
           className={classes.menuButton}
         >
-          {(open && isDesktop) || (mobileOpen && !matches) ? (
-            <CloseOutlined />
-          ) : (
-            <Menu />
-          )}
+          {(open && isDesktop) || (mobileOpen && !matches) ? <CloseOutlined /> : <Menu />}
           {/* {!matches && open ? <CloseOutlined /> : <Menu />} */}
         </IconButton>
         <div
@@ -133,11 +111,7 @@ export default function AppBar({
           })}
         >
           <Hidden xsDown implementation="css">
-            <Box
-              display="flex"
-              alignItems="center"
-              justifyContent="space-around"
-            >
+            <Box display="flex" alignItems="center" justifyContent="space-around">
               <IconButton edge={false} onClick={() => router.push("/")}>
                 <Sushi />
               </IconButton>
@@ -146,12 +120,7 @@ export default function AppBar({
               </Typography>
             </Box>
           </Hidden>
-          <Typography
-            variant="h6"
-            color="textPrimary"
-            noWrap
-            style={{ marginLeft: 8, marginRight: 8 }}
-          >
+          <Typography variant="h6" color="textPrimary" noWrap style={{ marginLeft: 8, marginRight: 8 }}>
             /
           </Typography>
           <Typography variant="subtitle1" color="textPrimary" noWrap>
@@ -159,12 +128,7 @@ export default function AppBar({
           </Typography>
         </div>
         <Tooltip title="Toggle theme" enterDelay={300}>
-          <IconButton
-            edge="end"
-            onClick={onToggleDarkMode}
-            color="default"
-            aria-label="theme toggle"
-          >
+          <IconButton edge="end" onClick={onToggleDarkMode} color="default" aria-label="theme toggle">
             {!darkMode ? <Brightness4Outlined /> : <Brightness7Outlined />}
           </IconButton>
         </Tooltip>

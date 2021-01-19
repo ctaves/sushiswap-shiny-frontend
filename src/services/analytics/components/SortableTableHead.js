@@ -1,13 +1,5 @@
-import {
-  Hidden,
-  TableCell,
-  TableHead,
-  TableRow,
-  TableSortLabel,
-  Typography,
-} from "@material-ui/core";
-
 import React from "react";
+import { Hidden, TableCell, TableHead, TableRow, TableSortLabel, Typography } from "@material-ui/core";
 
 export default function SortableTableHead({
   classes,

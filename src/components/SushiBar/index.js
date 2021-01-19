@@ -1,11 +1,13 @@
 /* eslint-disable no-unused-expressions */
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 // Overview Stats
 import {
   barHistoriesQuery,
   barQuery,
+  barUserQuery,
+  latestBlockQuery,
   dayDatasQuery,
   ethPriceQuery,
   factoryQuery,
@@ -41,11 +43,26 @@ import TableSushi from "./Table";
 import HarvestModal from "../Portfolio/Harvest/Modal";
 import useModal from "../../shared/hooks/useModal";
 
+// charts
+//import { ResponsiveContainer } from "recharts";
+//import TradingViewChart from "../../services/vision/components/TradingviewChart/apy";
+//import LineChart from "./Chart";
+//import { Curves } from "../../services/analytics/components";
+//import { ParentSize } from "@visx/responsive";
+import AreaChart from "./AreaChart";
+
 // Additional Dep
 import sushiData from "@sushiswap/sushi-data";
 import { useActiveWeb3React } from "../../services/exchange/hooks";
 import { Linker, Button } from "../Linker";
 import { Loader } from "../Portfolio/Tables/Loader";
+import Title from "./Title";
+
+function formatPercent(rawPercent) {
+  if (rawPercent < 0.01) {
+    return "<1%";
+  } else return parseFloat(rawPercent * 100).toFixed(2) + "%";
+}
 
 const SushiBar = () => {
   const { account } = useActiveWeb3React();
@@ -81,6 +98,15 @@ const SushiBar = () => {
   }, [getFactory, account]);
 
   const { data: { bar } = {} } = useQuery(barQuery, {
+    context: {
+      clientName: "bar",
+    },
+  });
+
+  const { data: barData } = useQuery(barUserQuery, {
+    variables: {
+      id: account.toLowerCase(),
+    },
     context: {
       clientName: "bar",
     },
@@ -207,6 +233,50 @@ const SushiBar = () => {
   const poolStaked = new BigNumber(poolShare).times(new BigNumber(totalStaked));
   const sushiStaked = new BigNumber(poolStaked).div(new BigNumber(1000000000000000000));
 
+  // user bar subgraph
+  const userXSushi = parseFloat(barData?.user?.xSushi);
+
+  const barPending =
+    (userXSushi * parseFloat(barData?.user?.bar?.sushiStaked)) / parseFloat(barData?.user?.bar?.totalSupply);
+
+  const xSushiTransfered =
+    barData?.user?.xSushiIn > barData?.user?.xSushiOut
+      ? parseFloat(barData?.user?.xSushiIn) - parseFloat(barData?.user?.xSushiOut)
+      : parseFloat(barData?.user?.xSushiOut) - parseFloat(barData?.user?.xSushiIn);
+
+  const barStaked = barData?.user?.sushiStaked;
+
+  const barStakedUSD = barData?.user?.sushiStakedUSD;
+
+  const barHarvested = barData?.user?.sushiHarvested;
+  const barHarvestedUSD = barData?.user?.sushiHarvestedUSD;
+
+  const barPendingUSD = barPending > 0 ? barPending * sushiPrice : 0;
+
+  const barRoiSushi =
+    barPending -
+    (parseFloat(barData?.user?.sushiStaked) -
+      parseFloat(barData?.user?.sushiHarvested) +
+      parseFloat(barData?.user?.sushiIn) -
+      parseFloat(barData?.user?.sushiOut));
+
+  const barRoiUSD =
+    barPendingUSD -
+    (parseFloat(barData?.user?.sushiStakedUSD) -
+      parseFloat(barData?.user?.sushiHarvestedUSD) +
+      parseFloat(barData?.user?.usdIn) -
+      parseFloat(barData?.user?.usdOut));
+
+  const { data: blocksData } = useQuery(latestBlockQuery, {
+    context: {
+      clientName: "blocklytics",
+    },
+  });
+
+  const blockDifference = parseInt(blocksData?.blocks[0].number) - parseInt(barData?.user?.createdAtBlock);
+
+  const barRoiDailySushi = (barRoiSushi / blockDifference) * 6440;
+
   const balances = [
     {
       title: "Harvestable",
@@ -232,9 +302,72 @@ const SushiBar = () => {
     },
   ];
 
+  const stats = [
+    {
+      title: "Deposited (All-time)",
+      sushi: Number(barStaked) ? `${decimalFormatter.format(Number(barStaked))} SUSHI` : <Loader />,
+      usd: Number(barStakedUSD) ? `${currencyFormatter.format(Number(barStakedUSD))}` : <Loader />,
+      cta:
+        Number(barStaked) && Number(barStakedUSD) ? (
+          `~ ${currencyFormatter.format(Number(barStakedUSD) / Number(barStaked))}`
+        ) : (
+          <Loader />
+        ),
+    },
+    {
+      title: "Withdrawn (All-time)",
+      sushi: Number(barHarvested) ? `${decimalFormatter.format(Number(barHarvested))} SUSHI` : <Loader />,
+      usd: Number(barHarvestedUSD) ? `${currencyFormatter.format(Number(barHarvestedUSD))}` : <Loader />,
+      cta:
+        Number(barHarvested) && Number(barHarvestedUSD) ? (
+          `~ ${currencyFormatter.format(Number(barHarvestedUSD) / Number(barHarvested))}`
+        ) : (
+          <Loader />
+        ),
+    },
+    // {
+    //   title: "ROI (All-time)",
+    //   sushi: Number(barRoiSushi) ? `${decimalFormatter.format(Number(barRoiSushi))}` : <Loader />,
+    //   usd: Number(barRoiSushi) && priceUSD ? `${currencyFormatter.format(Number(barRoiSushi) * priceUSD)}` : <Loader />,
+    //   //cta: <UnstakeSushi />,
+    // },
+    {
+      title: "ROI (1y)",
+      sushi: Number(barRoiDailySushi) ? `${decimalFormatter.format(Number(barRoiDailySushi) * 365)}` : <Loader />,
+      usd:
+        Number(barRoiDailySushi) && priceUSD ? (
+          `${currencyFormatter.format(Number(barRoiDailySushi) * 365 * priceUSD)}`
+        ) : (
+          <Loader />
+        ),
+    },
+    {
+      title: "ROI (1m)",
+      sushi: Number(barRoiDailySushi) ? `${decimalFormatter.format(Number(barRoiDailySushi) * 30)}` : <Loader />,
+      usd:
+        Number(barRoiDailySushi) && priceUSD ? (
+          `${currencyFormatter.format(Number(barRoiDailySushi) * 30 * priceUSD)}`
+        ) : (
+          <Loader />
+        ),
+    },
+    {
+      title: "ROI (1d)",
+      sushi: Number(barRoiDailySushi) ? `${decimalFormatter.format(Number(barRoiDailySushi))}` : <Loader />,
+      usd:
+        Number(barRoiDailySushi) && priceUSD ? (
+          `${currencyFormatter.format(Number(barRoiDailySushi) * priceUSD)}`
+        ) : (
+          <Loader />
+        ),
+    },
+  ];
+
   const state = {
     APY: APY,
     APR: APR,
+    apy: apy,
+    apr: apr,
     averageAPY: averageApy,
     //sushiStakedUSD: sushiStakedUSD,
     //sushiHarvestedUSD: sushiHarvestedUSD,
@@ -245,14 +378,112 @@ const SushiBar = () => {
     user: user,
   };
 
-  console.log("xsushi_state:", state);
+  console.log("sushibar_state:", state);
+
+  // update the width on a window resize
+  const ref = useRef();
+  const isClient = typeof window === "object";
+  const [width, setWidth] = useState(ref?.current?.container?.clientWidth);
+  useEffect(() => {
+    if (!isClient) {
+      return false;
+    }
+    function handleResize() {
+      setWidth(ref?.current?.container?.clientWidth ?? width);
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [isClient, width]);
 
   return (
     <>
-      <TableSushi
-        balances={balances ? balances : <Loader />}
-        price={sushiPrice ? currencyFormatter.format(sushiPrice) : <Loader />}
-      />
+      {/* {apy && apr && apy.length > 0 && apr.length > 0 ? (
+        <div className="h-80">
+          <ParentSize>
+            {({ width, height }) => (
+              <Curves
+                width={width}
+                height={height}
+                margin={{ top: 64, right: 32, bottom: 0, left: 64 }}
+                data={[apy, apr]}
+                labels={["APY", "APR"]}
+              />
+            )}
+          </ParentSize>
+        </div>
+      ) : null} */}
+      {/* <LineChart data={apy} /> */}
+      {/* {apy && apy.length > 0 && (
+        <ResponsiveContainer aspect={60 / 28} ref={ref}>
+          <TradingViewChart
+            data={apy.slice(apy.length - 31, apy.length - 1)} // get last 30 days
+            base={apy[apy.length - 1].value}
+            // baseChange={
+            //   ((apy?.[apy?.length - 1].value - apy?.[apy?.length - 2].value) / apy?.[apy?.length - 2].value) * 100
+            // }
+            title="xSushi APY"
+            field="value"
+            width={width}
+            type={"AREA"}
+          />
+        </ResponsiveContainer>
+      )} */}
+      {/* {apy && apy.length > 0 && (
+        <ResponsiveContainer aspect={60 / 28} ref={ref}>
+          <TradingViewChart
+            data={apy.slice(apy.length - 31, apy.length - 1)} // get last 30 days
+            base={apy[apy.length - 1].value}
+            // baseChange={
+            //   ((apy?.[apy?.length - 1].value - apy?.[apy?.length - 2].value) / apy?.[apy?.length - 2].value) * 100
+            // }
+            title="xSushi APY"
+            field="value"
+            width={width}
+            type={"AREA"}
+          />
+        </ResponsiveContainer>
+      )} */}
+      <div className="py-4 px-4 bg-gray-100">
+        <div className="lg:grid lg:grid-cols-5 lg:gap-x-4">
+          <div className="col-span-2 rounded-md bg-white overflow-hidden border border-gray-100 shadow">
+            <Title title={"APY (24hr)"} metric={state.APY ? formatPercent(state.APY) : <Loader />} />
+            {/* <div className="absolute p-4 z-2">
+              <div className="font-semibold text-md text-gray-400">APY (24hr)</div>
+              <div className="font-semibold text-3xl" style={{ color: "#fead28" }}>
+                {state.APY ? formatPercent(state.APY) : <Loader />}
+              </div>
+            </div> */}
+            {apy && apy.length > 0 && (
+              <AreaChart
+                field={"value"}
+                data={apy.slice(apy.length - 31, apy.length - 1)} // get last 30 days
+              />
+            )}
+            <div className="border border-t border-gray-100"></div>
+            <Title
+              title={"APY (Avg.)"}
+              metric={state?.averageAPY ? `${Number(state?.averageAPY).toFixed(2)}%` : <Loader />}
+            />
+            <Title
+              title={"xSushi Supply"}
+              metric={state?.bar?.totalSupply ? Number(state?.bar?.totalSupply).toFixed(0) : <Loader />}
+            />
+            <Title
+              title={"xSushi:Sushi"}
+              metric={state?.bar?.ratio ? Number(state?.bar?.ratio).toFixed(2) : <Loader />}
+            />
+          </div>
+          <div className="col-span-3 rounded-md bg-white overflow-hidden border border-gray-100 shadow">
+            <Title
+              title={"Balance"}
+              metric={sushiPrice ? `1 SUSHI = ${currencyFormatter.format(sushiPrice)}` : <Loader />}
+            />
+            <TableSushi balances={balances ? balances : <Loader />} />
+            <Title title={"Stats"} />
+            <TableSushi balances={stats ? stats : <Loader />} />
+          </div>
+        </div>
+      </div>
     </>
   );
 };

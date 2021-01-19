@@ -1,10 +1,5 @@
-import {
-  Box,
-  Button,
-  Typography,
-  makeStyles,
-  useMediaQuery,
-} from "@material-ui/core";
+import React from "react";
+import { Box, Button, Typography, makeStyles, useMediaQuery } from "@material-ui/core";
 import { timeFormat, timeParse } from "d3-time-format";
 
 import { useTheme } from "@material-ui/core/styles";

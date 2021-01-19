@@ -1,7 +1,7 @@
-import { currencyFormatter, decimalFormatter } from "app/core";
+import React from "react";
+import { currencyFormatter, decimalFormatter } from "../core";
 
 import Link from "./Link";
-import React from "react";
 import SortableTable from "./SortableTable";
 import { Typography } from "@material-ui/core";
 import formatDistance from "date-fns/formatDistance";
@@ -15,22 +15,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Transactions({ transactions, txCount }) {
   const classes = useStyles();
-  const rows = [
-    ...transactions.swaps,
-    ...transactions.mints,
-    ...transactions.burns,
-  ].map((transaction) => {
+  const rows = [...transactions.swaps, ...transactions.mints, ...transactions.burns].map((transaction) => {
     if (transaction.__typename === "Swap") {
       return {
         ...transaction,
-        amount0:
-          transaction.amount0In === "0"
-            ? transaction.amount1In
-            : transaction.amount0In,
-        amount1:
-          transaction.amount1Out === "0"
-            ? transaction.amount0Out
-            : transaction.amount1Out,
+        amount0: transaction.amount0In === "0" ? transaction.amount1In : transaction.amount0In,
+        amount1: transaction.amount1Out === "0" ? transaction.amount0Out : transaction.amount1Out,
       };
     }
 
@@ -50,14 +40,8 @@ export default function Transactions({ transactions, txCount }) {
             label: "Type",
             render: (row) => (
               <Typography variant="body2" noWrap>
-                {row.__typename}{" "}
-                {row.amount0In === "0"
-                  ? row.pair.token1.symbol
-                  : row.pair.token0.symbol}{" "}
-                for{" "}
-                {row.amount1Out === "0"
-                  ? row.pair.token0.symbol
-                  : row.pair.token1.symbol}
+                {row.__typename} {row.amount0In === "0" ? row.pair.token1.symbol : row.pair.token0.symbol} for{" "}
+                {row.amount1Out === "0" ? row.pair.token0.symbol : row.pair.token1.symbol}
               </Typography>
             ),
           },
@@ -74,9 +58,7 @@ export default function Transactions({ transactions, txCount }) {
             render: (row) => (
               <Typography variant="body2" noWrap>
                 {decimalFormatter.format(row.amount0)}{" "}
-                {row.amount1In === "0"
-                  ? row.pair.token0.symbol
-                  : row.pair.token1.symbol}
+                {row.amount1In === "0" ? row.pair.token0.symbol : row.pair.token1.symbol}
               </Typography>
             ),
           },
@@ -87,20 +69,14 @@ export default function Transactions({ transactions, txCount }) {
             render: (row) => (
               <Typography variant="body2" noWrap>
                 {decimalFormatter.format(row.amount1)}{" "}
-                {row.amount0Out === "0"
-                  ? row.pair.token1.symbol
-                  : row.pair.token0.symbol}
+                {row.amount0Out === "0" ? row.pair.token1.symbol : row.pair.token0.symbol}
               </Typography>
             ),
           },
           {
             key: "to",
             label: "To",
-            render: (row) => (
-              <Link href={`https://etherscan.io/address/${row.to}`}>
-                {row.to}
-              </Link>
-            ),
+            render: (row) => <Link href={`https://etherscan.io/address/${row.to}`}>{row.to}</Link>,
           },
           {
             key: "timestamp",

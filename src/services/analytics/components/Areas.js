@@ -1,20 +1,14 @@
+import React from "react";
 import { AreaClosed, LinePath } from "@visx/shape";
 import { AxisBottom, AxisLeft } from "@visx/axis";
 import { GradientTealBlue, LinearGradient } from "@visx/gradient";
-import {
-  MarkerArrow,
-  MarkerCircle,
-  MarkerCross,
-  MarkerLine,
-  MarkerX,
-} from "@visx/marker";
+import { MarkerArrow, MarkerCircle, MarkerCross, MarkerLine, MarkerX } from "@visx/marker";
 import { bisector, extent, max } from "d3-array";
 import { green, red } from "@material-ui/core/colors";
 import { scaleLinear, scaleTime, scaleUtc } from "@visx/scale";
 import { timeFormat, timeParse } from "d3-time-format";
 
 import { Group } from "@visx/group";
-import React from "react";
 import { Text } from "@visx/text";
 import { curveMonotoneX } from "@visx/curve";
 import { curveNatural } from "@visx/curve";
@@ -38,10 +32,7 @@ const ordinalColorScale = scaleOrdinal({
 });
 
 const Areas = withParentSize(({ parentWidth, parentHeight, margin, data }) => {
-  const allData = data.reduce(
-    (previousValue, currentValue) => previousValue.concat(currentValue),
-    []
-  );
+  const allData = data.reduce((previousValue, currentValue) => previousValue.concat(currentValue), []);
 
   const xMax = parentWidth - margin.left - margin.right;
 
@@ -58,10 +49,7 @@ const Areas = withParentSize(({ parentWidth, parentHeight, margin, data }) => {
   const yScale = scaleLinear({
     range: [yMax, 0],
     // domain: [0, max(allData, getY)],
-    domain: [
-      Math.min(...allData.map((d) => getY(d))),
-      Math.max(...allData.map((d) => getY(d))),
-    ],
+    domain: [Math.min(...allData.map((d) => getY(d))), Math.max(...allData.map((d) => getY(d)))],
     nice: true,
   });
 
@@ -78,9 +66,7 @@ const Areas = withParentSize(({ parentWidth, parentHeight, margin, data }) => {
               const even = i % 2 === 0;
               let markerStart = even ? "url(#marker-cross)" : "url(#marker-x)";
               if (i === 1) markerStart = "url(#marker-line)";
-              const markerEnd = even
-                ? "url(#marker-arrow)"
-                : "url(#marker-arrow-odd)";
+              const markerEnd = even ? "url(#marker-arrow)" : "url(#marker-arrow-odd)";
               return (
                 <Group
                   key={`chart-${i}`}
@@ -106,9 +92,7 @@ const Areas = withParentSize(({ parentWidth, parentHeight, margin, data }) => {
             scale={xScale}
             stroke="currentColor"
             tickStroke="currentColor"
-            tickFormat={(v, i) =>
-              parentWidth > 800 || i % 2 === 0 ? timeFormat("%b %d")(v) : ""
-            }
+            tickFormat={(v, i) => (parentWidth > 800 || i % 2 === 0 ? timeFormat("%b %d")(v) : "")}
             tickLabelProps={() => ({
               fill: "currentColor",
               fontSize: 11,

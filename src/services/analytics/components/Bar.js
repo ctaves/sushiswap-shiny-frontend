@@ -1,18 +1,12 @@
+import React, { useMemo } from "react";
 import { AxisBottom, AxisLeft } from "@visx/axis";
-import {
-  axisBottomTickLabelProps,
-  axisColor,
-  axisLeftTickLabelProps,
-  getX,
-  getY,
-} from "app/core";
+import { axisBottomTickLabelProps, axisColor, axisLeftTickLabelProps, getX, getY } from "../core";
 import { scaleBand, scaleLinear } from "@visx/scale";
 
 import { Bar } from "@visx/shape";
 import { GradientTealBlue } from "@visx/gradient";
 import { Group } from "@visx/group";
 import millify from "millify";
-import { useMemo } from "react";
 
 export default function BarChart({
   data,

@@ -1,5 +1,5 @@
-import { Container, Drawer, Hidden, useMediaQuery } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
+import { Container, Drawer, Hidden, useMediaQuery } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 
 import AppBar from "./AppBar";
@@ -83,8 +83,7 @@ function AppShell(props) {
 
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
 
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
+  const container = window !== undefined ? () => window().document.body : undefined;
 
   const onToggleSidebar = () => {
     if (!matches) {
@@ -96,11 +95,7 @@ function AppShell(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar
-        onToggleSidebar={onToggleSidebar}
-        open={open}
-        mobileOpen={mobileOpen}
-      />
+      <AppBar onToggleSidebar={onToggleSidebar} open={open} mobileOpen={mobileOpen} />
       <nav className={classes.drawer} aria-label="navigation">
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Hidden smUp implementation="js">

@@ -1,3 +1,4 @@
+import React, { useMemo, useState } from "react";
 import { Bar, Line } from "@visx/shape";
 import {
   GradientDarkgreenGreen,
@@ -9,18 +10,10 @@ import {
   LinearGradient,
 } from "@visx/gradient";
 import { Grid, GridColumns, GridRows } from "@visx/grid";
-import React, { useMemo, useState } from "react";
-import {
-  Tooltip,
-  defaultStyles,
-  useTooltip,
-  useTooltipInPortal,
-} from "@visx/tooltip";
+import { Tooltip, defaultStyles, useTooltip, useTooltipInPortal } from "@visx/tooltip";
 import { bisector, extent, max } from "d3-array";
-import { currencyFormatter, oneMonth, oneWeek } from "app/core";
-import letterFrequency, {
-  LetterFrequency,
-} from "@visx/mock-data/lib/mocks/letterFrequency";
+import { currencyFormatter, oneMonth, oneWeek } from "../core";
+import letterFrequency, { LetterFrequency } from "@visx/mock-data/lib/mocks/letterFrequency";
 import { scaleBand, scaleLinear } from "@visx/scale";
 import { timeFormat, timeParse } from "d3-time-format";
 
@@ -65,14 +58,7 @@ export default function BarChart({
   overlayEnabled = false,
   title = "",
 }) {
-  const {
-    tooltipOpen,
-    tooltipTop,
-    tooltipLeft,
-    tooltipData,
-    hideTooltip,
-    showTooltip,
-  } = useTooltip();
+  const { tooltipOpen, tooltipTop, tooltipLeft, tooltipData, hideTooltip, showTooltip } = useTooltip();
 
   const { containerRef, TooltipInPortal } = useTooltipInPortal();
 
@@ -113,10 +99,7 @@ export default function BarChart({
     () =>
       scaleLinear({
         range: [yMax, 0],
-        domain: [
-          Math.min(...data.map((d) => getValue(d))),
-          Math.max(...data.map((d) => getValue(d))),
-        ],
+        domain: [Math.min(...data.map((d) => getValue(d))), Math.max(...data.map((d) => getValue(d)))],
         nice: true,
       }),
     [yMax, data]
@@ -130,9 +113,7 @@ export default function BarChart({
 
   return (
     <div style={{ position: "relative" }}>
-      {overlayEnabled && (
-        <ChartOverlay overlay={overlay} onTimespanChange={onTimespanChange} />
-      )}
+      {overlayEnabled && <ChartOverlay overlay={overlay} onTimespanChange={onTimespanChange} />}
 
       <svg ref={containerRef} width={width} height={height}>
         <GradientTealBlue id="bar-gradient" />
@@ -170,8 +151,7 @@ export default function BarChart({
                 // fill="#7c4dff"
                 fill="url(#bar-gradient)"
                 onClick={() => {
-                  if (events)
-                    alert(`clicked: ${JSON.stringify(Object.values(d))}`);
+                  if (events) alert(`clicked: ${JSON.stringify(Object.values(d))}`);
                 }}
                 // onClick={() => {
                 //   if (events) alert(`clicked: ${JSON.stringify(bar)}`);
@@ -182,9 +162,7 @@ export default function BarChart({
 
                     setOverlay({
                       ...overlay,
-                      value: currencyFormatter.format(
-                        data[data.length - 1].value
-                      ),
+                      value: currencyFormatter.format(data[data.length - 1].value),
                       date: data[data.length - 1].date,
                     });
                   }, 300);
@@ -244,11 +222,7 @@ export default function BarChart({
       </svg>
       {!tooltipDisabled && tooltipData && (
         <div>
-          <Tooltip
-            top={margin.top + tooltipTop - 12}
-            left={tooltipLeft + 12}
-            style={tooltipStyles}
-          >
+          <Tooltip top={margin.top + tooltipTop - 12} left={tooltipLeft + 12} style={tooltipStyles}>
             {`$${millify(getValue(tooltipData))}`}
           </Tooltip>
           <Tooltip

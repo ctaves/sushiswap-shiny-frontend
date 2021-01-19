@@ -1,10 +1,10 @@
+import React from "react";
 import { Box, Divider, Typography } from "@material-ui/core";
-import { formatCurrency, formatDecimal } from "app/core";
+import { formatCurrency, formatDecimal } from "../core";
 
 import Link from "./Link";
 import PairIcon from "./PairIcon";
 import Percent from "./Percent";
-import React from "react";
 import SortableTable from "./SortableTable";
 import TokenIcon from "./TokenIcon";
 import { makeStyles } from "@material-ui/core/styles";

@@ -1,7 +1,7 @@
+import React from "react";
 import { Box, Card, CardContent, Grid, Typography } from "@material-ui/core";
 
 import Percent from "./Percent";
-import React from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/styles";
 
@@ -25,29 +25,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function KPI({
-  className,
-  title = "",
-  difference = "",
-  value = "",
-  valueUSD = "",
-  type = "full",
-  ...rest
-}) {
+function KPI({ className, title = "", difference = "", value = "", valueUSD = "", type = "full", ...rest }) {
   const classes = useStyles();
   return (
-    <Card
-      {...rest}
-      className={clsx(classes.root, className)}
-      variant="outlined"
-    >
+    <Card {...rest} className={clsx(classes.root, className)} variant="outlined">
       <CardContent className={classes.cardContent}>
-        <Typography
-          variant="subtitle2"
-          color="textSecondary"
-          gutterBottom
-          noWrap
-        >
+        <Typography variant="subtitle2" color="textSecondary" gutterBottom noWrap>
           {title}
         </Typography>
         <Box display="flex" alignItems="center" justifyContent="center">
@@ -55,9 +38,7 @@ function KPI({
             {!Number.isNaN(value) ? value : 0}
           </Typography>
           <Typography variant="subtitle2" color="textSecondary" noWrap>
-            {difference && !Number.isNaN(difference) ? (
-              <Percent marginLeft={1} percent={difference} />
-            ) : null}
+            {difference && !Number.isNaN(difference) ? <Percent marginLeft={1} percent={difference} /> : null}
           </Typography>
         </Box>
       </CardContent>

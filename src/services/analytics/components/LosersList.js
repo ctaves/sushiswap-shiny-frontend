@@ -1,10 +1,10 @@
+import React from "react";
 import { Box, Typography } from "@material-ui/core";
 
 import Link from "./Link";
 import PairIcon from "./PairIcon";
-import React from "react";
 import SortableTable from "./SortableTable";
-import { formatCurrency } from "app/core";
+import { formatCurrency } from "../core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -31,10 +31,7 @@ export default function LosersList({ pairs }) {
               <Box display="flex" alignItems="center">
                 <PairIcon base={row.token0.id} quote={row.token1.id} />
                 <Link href={`/pairs/${row.id}`} variant="body2" noWrap>
-                  {`${row.token0.symbol.replace(
-                    "WETH",
-                    "ETH"
-                  )}-${row.token1.symbol.replace("WETH", "ETH")}`}
+                  {`${row.token0.symbol.replace("WETH", "ETH")}-${row.token1.symbol.replace("WETH", "ETH")}`}
                 </Link>
               </Box>
             ),

@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   AccountTreeOutlined,
   AppsOutlined,
@@ -48,11 +49,11 @@ import {
   Typography,
   useMediaQuery,
 } from "@material-ui/core";
-import React, { useState } from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 
 import Sushi from "./Sushi";
-import { useRouter } from "next/router";
+//import { useRouter } from "next/router";
+import { useRouter } from "../core/hooks/useRouter";
 
 const drawerWidth = 240;
 
@@ -111,24 +112,14 @@ export default function AppNavigation() {
         // }
         direction="horizontal"
       >
-        <ListItem
-          key="/"
-          button
-          selected={router.pathname === "/"}
-          onClick={() => router.push("/")}
-        >
+        <ListItem key="/" button selected={router.pathname === "/"} onClick={() => router.push("/")}>
           <ListItemIcon>
             <DashboardOutlined />
           </ListItemIcon>
           <ListItemText primary="Dashboard" />
         </ListItem>
 
-        <ListItem
-          key="/bar"
-          button
-          selected={router.pathname === "/bar"}
-          onClick={() => router.push("/bar")}
-        >
+        <ListItem key="/bar" button selected={router.pathname === "/bar"} onClick={() => router.push("/bar")}>
           <ListItemIcon>
             <FastfoodOutlined />
           </ListItemIcon>
@@ -303,17 +294,10 @@ export default function AppNavigation() {
           <ListItemText primary="Portfolio" />
         </ListItem>
       </List>
-      <Dialog
-        maxWidth="sm"
-        open={dialogOpen}
-        onClose={handleClose}
-        aria-labelledby="form-dialog-title"
-      >
+      <Dialog maxWidth="sm" open={dialogOpen} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Portfolio</DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            Enter an address and click load.
-          </DialogContentText>
+          <DialogContentText>Enter an address and click load.</DialogContentText>
           <TextField
             autoFocus
             margin="dense"

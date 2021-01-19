@@ -1,15 +1,10 @@
+import React, { useCallback, useMemo, useState } from "react";
 import { Grid, GridColumns, GridRows } from "@visx/grid";
 import { Paper, Typography } from "@material-ui/core";
-import {
-  Tooltip,
-  defaultStyles,
-  useTooltip,
-  useTooltipInPortal,
-} from "@visx/tooltip";
-import { bisectDate, formatDate, getX, getY } from "app/core";
+import { Tooltip, defaultStyles, useTooltip, useTooltipInPortal } from "@visx/tooltip";
+import { bisectDate, formatDate, getX, getY } from "../core";
 import { extent, max } from "d3-array";
 import { scaleLinear, scaleTime } from "@visx/scale";
-import { useCallback, useMemo, useState } from "react";
 
 import Area from "./Area";
 import Bar from "./Bar";
@@ -51,11 +46,7 @@ export default function ChartContainer(props) {
         flex: 1,
       }}
     >
-      <ParentSize>
-        {({ width, height }) => (
-          <Chart {...props} width={width} height={height} />
-        )}
-      </ParentSize>
+      <ParentSize>{({ width, height }) => <Chart {...props} width={width} height={height} />}</ParentSize>
     </Paper>
   );
 }
@@ -75,14 +66,7 @@ export function Chart({
   brush = false,
   compact = false,
 }) {
-  const {
-    tooltipData,
-    tooltipLeft,
-    tooltipTop,
-    tooltipOpen,
-    showTooltip,
-    hideTooltip,
-  } = useTooltip();
+  const { tooltipData, tooltipLeft, tooltipTop, tooltipOpen, showTooltip, hideTooltip } = useTooltip();
 
   // If you don't want to use a Portal, simply replace `TooltipInPortal` below with
   // `Tooltip` or `TooltipWithBounds` and remove `containerRef`
@@ -93,9 +77,7 @@ export function Chart({
     scroll: true,
   });
 
-  const [filteredData, setFilteredData] = useState(
-    data.slice(data.length - 30, data.length - 1)
-  );
+  const [filteredData, setFilteredData] = useState(data.slice(data.length - 30, data.length - 1));
 
   const onBrushChange = (domain) => {
     if (!domain) return;
@@ -110,9 +92,7 @@ export function Chart({
 
   const innerHeight = height - margin.top - margin.bottom;
 
-  const topChartBottomMargin = compact
-    ? chartSeparation / 2
-    : chartSeparation + 10;
+  const topChartBottomMargin = compact ? chartSeparation / 2 : chartSeparation + 10;
 
   const topChartHeight = 0.8 * innerHeight - topChartBottomMargin;
 
@@ -138,10 +118,7 @@ export function Chart({
     () =>
       scaleLinear({
         range: [yMax, 0],
-        domain: [
-          Math.min(...filteredData.map((d) => getY(d))),
-          Math.max(...filteredData.map((d) => getY(d))),
-        ],
+        domain: [Math.min(...filteredData.map((d) => getY(d))), Math.max(...filteredData.map((d) => getY(d)))],
         nice: true,
       }),
     [yMax, filteredData]
@@ -156,10 +133,7 @@ export function Chart({
       const d1 = data[index];
       let d = d0;
       if (d1 && getX(d1)) {
-        d =
-          x0.valueOf() - getX(d0).valueOf() > getX(d1).valueOf() - x0.valueOf()
-            ? d1
-            : d0;
+        d = x0.valueOf() - getX(d0).valueOf() > getX(d1).valueOf() - x0.valueOf() ? d1 : d0;
       }
       showTooltip({
         tooltipData: d,
@@ -171,10 +145,7 @@ export function Chart({
   );
 
   const xBrushMax = Math.max(width - brushMargin.left - brushMargin.right, 0);
-  const yBrushMax = Math.max(
-    bottomChartHeight - brushMargin.top - brushMargin.bottom,
-    0
-  );
+  const yBrushMax = Math.max(bottomChartHeight - brushMargin.top - brushMargin.bottom, 0);
 
   const brushDateScale = useMemo(
     () =>
@@ -329,18 +300,9 @@ export function Chart({
 
       {tooptip && tooltipOpen && (
         <div>
-          <TooltipInPortal
-            key={Math.random()}
-            top={tooltipTop - 12}
-            left={tooltipLeft + 12}
-            style={tooltipStyles}
-          >
-            <Typography variant="subtitle2">
-              {millify(getY(tooltipData))}
-            </Typography>
-            <Typography variant="body2">
-              {formatDate(getX(tooltipData))}
-            </Typography>
+          <TooltipInPortal key={Math.random()} top={tooltipTop - 12} left={tooltipLeft + 12} style={tooltipStyles}>
+            <Typography variant="subtitle2">{millify(getY(tooltipData))}</Typography>
+            <Typography variant="body2">{formatDate(getX(tooltipData))}</Typography>
           </TooltipInPortal>
           {/* <Tooltip
             top={innerHeight + margin.top - 14}

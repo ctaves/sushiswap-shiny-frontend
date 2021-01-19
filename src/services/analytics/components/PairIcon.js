@@ -1,9 +1,10 @@
+import React, { useMemo } from "react";
+
 import Avatar from "@material-ui/core/Avatar";
 import AvatarGroup from "@material-ui/lab/AvatarGroup";
 import TokenIcon from "./TokenIcon";
 import { makeStyles } from "@material-ui/core/styles";
 import { toChecksumAddress } from "web3-utils";
-import { useMemo } from "react";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
