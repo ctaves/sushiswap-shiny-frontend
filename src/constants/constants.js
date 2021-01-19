@@ -265,7 +265,7 @@ export const supportedPools = [
     icon: "‍🌽",
     uniswapPair: "WBTC/ETH",
     lpToken: "0xceff51756c56ceffca006cd410b03ffc46dd3a58",
-    allocPoint: "3500",
+    allocPoint: "3349",
   },
   {
     pid: 0,
@@ -281,7 +281,7 @@ export const supportedPools = [
     icon: "🐢",
     uniswapPair: "USDT/ETH",
     lpToken: "0x06da0fd433C1A5d7a4faa01111c044910A184553",
-    allocPoint: "2718",
+    allocPoint: "2451",
   },
   {
     pid: 1,
@@ -297,7 +297,7 @@ export const supportedPools = [
     icon: "🐌",
     uniswapPair: "USDC/ETH",
     lpToken: "0x397FF1542f962076d0BFE58eA045FfA2d347ACa0",
-    allocPoint: "3140",
+    allocPoint: "2875",
   },
   {
     pid: 2,
@@ -313,7 +313,7 @@ export const supportedPools = [
     icon: "🦆",
     uniswapPair: "DAI/ETH",
     lpToken: "0xC3D03e4F041Fd4cD388c549Ee2A29a9E5075882f",
-    allocPoint: "3492",
+    allocPoint: "3231",
   },
   {
     pid: 3,
@@ -329,7 +329,7 @@ export const supportedPools = [
     icon: "🦍",
     uniswapPair: "sUSD/ETH",
     lpToken: "0xF1F85b2C54a2bD284B1cf4141D64fD171Bd85539",
-    allocPoint: "500",
+    allocPoint: "298",
   },
   {
     pid: 4,
@@ -345,7 +345,7 @@ export const supportedPools = [
     icon: "🍄",
     uniswapPair: "COMP/ETH",
     lpToken: "0x31503dcb60119a812fee820bb7042752019f2355",
-    allocPoint: "200",
+    allocPoint: "149",
   },
   {
     pid: 37,
@@ -361,7 +361,7 @@ export const supportedPools = [
     icon: "🐗",
     uniswapPair: "AAVE/ETH",
     lpToken: "0xD75EA151a61d06868E31F8988D28DFE5E9df57B4",
-    allocPoint: "1000",
+    allocPoint: "974",
   },
   {
     pid: 5,
@@ -393,7 +393,7 @@ export const supportedPools = [
     icon: "🐍",
     uniswapPair: "SNX/ETH",
     lpToken: "0xA1d7b2d891e3A1f9ef4bBC5be20630C2FEB1c470",
-    allocPoint: "454",
+    allocPoint: "443",
   },
   {
     pid: 7,
@@ -409,7 +409,7 @@ export const supportedPools = [
     icon: "🦑",
     uniswapPair: "UMA/ETH",
     lpToken: "0x001b6450083e531a5a7bf310bd2c1af4247e23d4",
-    allocPoint: "250",
+    allocPoint: "219",
   },
   {
     pid: 8,
@@ -425,7 +425,7 @@ export const supportedPools = [
     icon: "🐸",
     uniswapPair: "LINK/ETH",
     lpToken: "0xC40D16476380e4037e6b1A2594cAF6a6cc8Da967",
-    allocPoint: "1000",
+    allocPoint: "763",
   },
   {
     pid: 9,
@@ -441,7 +441,7 @@ export const supportedPools = [
     icon: "🦖",
     uniswapPair: "BAND/ETH",
     lpToken: "0xA75F7c2F025f470355515482BdE9EFA8153536A8",
-    allocPoint: "250",
+    allocPoint: "239",
   },
   {
     pid: 10,
@@ -473,7 +473,7 @@ export const supportedPools = [
     icon: "🐋",
     uniswapPair: "YFI/ETH",
     lpToken: "0x088ee5007C98a9677165D78dD2109AE4a3D04d0C",
-    allocPoint: "2520",
+    allocPoint: "2300",
   },
   {
     pid: 13,
@@ -537,7 +537,7 @@ export const supportedPools = [
     icon: "🍠",
     uniswapPair: "YAM/ETH",
     lpToken: "0x0f82e57804d0b1f6fab2370a43dcfad3c7cb239c",
-    allocPoint: "150",
+    allocPoint: "1341",
   },
   {
     pid: 16,
@@ -585,7 +585,7 @@ export const supportedPools = [
     icon: "🦄",
     uniswapPair: "UNI/ETH",
     lpToken: "0xdafd66636e2561b0284edde37e42d192f2844d40",
-    allocPoint: "100",
+    allocPoint: "49",
   },
   {
     pid: 25,
