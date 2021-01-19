@@ -9,6 +9,9 @@ $ npm install
 $ npm run dev
 ```
 
+Add the following environmental variable
+
+
 ## Features
 
 This project contains frontend components for the following screens:
