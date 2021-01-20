@@ -537,7 +537,7 @@ export const supportedPools = [
     icon: "🍠",
     uniswapPair: "YAM/ETH",
     lpToken: "0x0f82e57804d0b1f6fab2370a43dcfad3c7cb239c",
-    allocPoint: "1341",
+    allocPoint: "134",
   },
   {
     pid: 16,
