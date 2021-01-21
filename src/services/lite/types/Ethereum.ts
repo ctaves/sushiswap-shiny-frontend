@@ -31,8 +31,8 @@ export default interface Ethereum {
   send(payload: any, callback: any): any;
   send(payload: JsonRPCRequest, callback: Callback<JsonRPCResponse>): any;
   request(args: RequestArguments): Promise<any>;
-  on(eventName: EventType, listener: Listener);
-  off(eventName: EventType, listener: Listener);
+  on(eventName: EventType, listener: Listener): any;
+  off(eventName: EventType, listener: Listener): any;
 }
 
 declare global {
