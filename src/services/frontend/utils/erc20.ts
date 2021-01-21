@@ -1,9 +1,9 @@
-//@ts-nocheck
-import Web3 from "web3";
-import { provider } from "web3-core";
 import { Contract } from "web3-eth-contract";
 //import { AbiItem } from 'web3-utils'
 import ERC20ABI from "../constants/abi/ERC20.json";
+//@ts-nocheck
+import Web3 from "web3";
+import { provider } from "web3-core";
 const AbiItem = require("web3-utils").AbiItem;
 
 export const getContract = (provider: provider, address: string) => {

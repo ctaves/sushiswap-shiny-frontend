@@ -1,20 +1,21 @@
 import React, { useEffect, useMemo } from 'react'
-import { useParams } from 'react-router-dom'
-import styled from 'styled-components'
-import { useWallet } from 'use-wallet'
-import { provider } from 'web3-core'
+
+import Harvest from './components/Harvest'
 import PageHeader from '../../components/PageHeader'
 import Spacer from '../../components/Spacer'
+import Stake from './components/Stake'
+import { getContract } from '../../utils/erc20'
+import { getMasterChefContract } from '../../sushi/utils'
+import { provider } from 'web3-core'
+import styled from 'styled-components'
 import useFarm from '../../hooks/useFarm'
+import { useParams } from 'react-router-dom'
 import useRedeem from '../../hooks/useRedeem'
 import useSushi from '../../hooks/useSushi'
-import { getMasterChefContract } from '../../sushi/utils'
-import { getContract } from '../../utils/erc20'
-import Harvest from './components/Harvest'
-import Stake from './components/Stake'
+import { useWallet } from 'use-wallet'
 
 const Farm: React.FC = () => {
-  const { farmId } = useParams()
+  const { farmId }: { farmId: string } = useParams()
   const {
     pid,
     lpToken,

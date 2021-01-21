@@ -1,16 +1,16 @@
-import {useCallback} from 'react'
-
-import useSushi from './useSushi'
-import {useWallet} from 'use-wallet'
-import {provider} from 'web3-core'
 import {
   approve,
   getSushiContract,
   getXSushiStakingContract
 } from '../sushi/utils'
 
+import {provider} from 'web3-core'
+import {useCallback} from 'react'
+import useSushi from './useSushi'
+import {useWallet} from 'use-wallet'
+
 const useApproveStaking = () => {
-  const {account}: { account: string; ethereum: provider } = useWallet()
+  const { account } = useWallet()
   const sushi = useSushi()
   const lpContract = getSushiContract(sushi)
   const contract = getXSushiStakingContract(sushi)

@@ -1,16 +1,15 @@
+import { getEarned, getFarms, getMasterChefContract } from '../sushi/utils'
 import { useCallback, useEffect, useState } from 'react'
-import { provider } from 'web3-core'
 
 import BigNumber from 'bignumber.js'
-import { useWallet } from 'use-wallet'
-
-import { getEarned, getMasterChefContract, getFarms } from '../sushi/utils'
-import useSushi from './useSushi'
+import { provider } from 'web3-core'
 import useBlock from './useBlock'
+import useSushi from './useSushi'
+import { useWallet } from 'use-wallet'
 
 const useAllEarnings = () => {
   const [balances, setBalance] = useState([] as Array<BigNumber>)
-  const { account }: { account: string; ethereum: provider } = useWallet()
+  const { account } = useWallet()
   const sushi = useSushi()
   const farms = getFarms(sushi)
   const masterChefContract = getMasterChefContract(sushi)

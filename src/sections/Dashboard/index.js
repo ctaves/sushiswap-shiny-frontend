@@ -1,56 +1,58 @@
-import React, { useState, useEffect, useRef, createContext, useContext, useReducer, Suspense } from "react";
-import { Link, Route, Redirect, useParams } from "react-router-dom";
-import WalletRoute from "../../shared/WalletRoute";
-import PublicRoute from "../../shared/PublicRoute";
-import TitleTabs from "../../components/TitleTabs";
-import Connect from "../../pages/Connect";
-// import AlbumCards from "../../components/AlbumCards";
-// Dashboard
-import FeaturedItem from "../../components/FeaturedItem";
-import MobileNavigation from "../../components/MobileNavigation";
-import Sidebar from "../../components/Sidebar/Layout";
-//import MainSearch from "../../components/Search/Desktop";
-import MainSearch from "../../services/vision/components/Search/secondary";
-import useMenu from "../../shared/hooks/useMenu";
-// Overview
-import CardTokenActions from "../../components/Cards/TokenActions/StandaloneWithoutRemove";
-import Flickity from "react-flickity-component";
-import GlobalStats from "../../services/vision/components/GlobalStats/secondary";
-// Portfolio
-import PortfolioPage from "../../components/Portfolio";
-import TransactionsPage from "../../components/Portfolio/Transactions";
-// Onsen
-import OnsenInfo from "../../components/Onsen/Hero";
-// Tokens
-import FeaturedList from "../../components/FeaturedList";
-import TokenList from "../../services/vision/components/TokenList/secondary";
-import { useAllTokenData } from "../../services/vision/contexts/TokenData";
-// Pools / Farms
-import TableFarms from "../../components/Farms";
-import SushiBar from "../../components/SushiBar";
-// Pairs
-import { useAllPairData } from "../../services/vision/contexts/PairData";
-import PairList from "../../services/vision/components/PairList/secondary";
-// Pair
-import { isAddress } from "../../services/vision/utils";
-import Pair from "../../pages/Pair";
-// Token
-import Token from "../../pages/Token";
+import { Link, Redirect, Route, useParams } from "react-router-dom";
+import React, { Suspense, createContext, useContext, useEffect, useReducer, useRef, useState } from "react";
+
+import AlbumCardsLoading from "../../components/AlbumCards/Loading";
 // About
 import CardAbout from "../../components/Cards/About";
-// Community
-import Community from "../../components/Community";
+import CardGovernanceMultisig from "../../components/Cards/Governance/Multisig/Layout";
 // Faq
 //import TableFAQ from "../../components/Table/FAQ";
 // Governance
 import CardTimelock from "../../components/Cards/Governance/Timelock/Layout";
-import CardGovernanceMultisig from "../../components/Cards/Governance/Multisig/Layout";
+// Overview
+import CardTokenActions from "../../components/Cards/TokenActions/StandaloneWithoutRemove";
+// Community
+import Community from "../../components/Community";
+import Connect from "../../pages/Connect";
+// import AlbumCards from "../../components/AlbumCards";
+// Dashboard
+import FeaturedItem from "../../components/FeaturedItem";
+// Tokens
+import FeaturedList from "../../components/FeaturedList";
+import Flickity from "react-flickity-component";
+import GlobalStats from "../../services/vision/components/GlobalStats/secondary";
+//import MainSearch from "../../components/Search/Desktop";
+import MainSearch from "../../services/vision/components/Search/secondary";
+import MobileNavigation from "../../components/MobileNavigation";
+// Onsen
+import OnsenInfo from "../../components/Onsen/Hero";
+import Pair from "../../pages/Pair";
+import PairList from "../../services/vision/components/PairList/secondary";
+// Portfolio
+import PortfolioPage from "../../components/Portfolio";
+import PublicRoute from "../../shared/PublicRoute";
+import Sidebar from "../../components/Sidebar/Layout";
+import SushiBar from "../../components/SushiBar";
+// Pools / Farms
+import TableFarms from "../../components/Farms";
+import TitleTabs from "../../components/TitleTabs";
+// Token
+import Token from "../../pages/Token";
+import TokenList from "../../services/vision/components/TokenList/secondary";
+import TransactionsPage from "../../components/Portfolio/Transactions";
+import WalletRoute from "../../shared/WalletRoute";
+import { featured } from "../../constants/featured";
+// Pair
+import { isAddress } from "../../services/vision/utils";
+import sushiData from "@sushiswap/sushi-data";
+// Pairs
+import { useAllPairData } from "../../services/vision/contexts/PairData";
+import { useAllTokenData } from "../../services/vision/contexts/TokenData";
+import useMenu from "../../shared/hooks/useMenu";
+
 //import CardGovernanceActions from "../../components/Cards/Governance/Actions/Layout";
 
-import sushiData from "@sushiswap/sushi-data";
-import { featured } from "../../constants/featured";
 
-import AlbumCardsLoading from "../../components/AlbumCards/Loading";
 const AlbumCards = React.lazy(() => import("../../components/AlbumCards"));
 
 const LazyComponent = ({ component, fallback }) => {

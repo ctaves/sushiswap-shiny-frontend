@@ -1,23 +1,24 @@
-import BigNumber from "bignumber.js";
-import React, { useEffect, useState } from "react";
 import Countdown, { CountdownRenderProps } from "react-countdown";
+import React, { useEffect, useState } from "react";
+import { getEarned, getMasterChefContract } from "../../../sushi/utils";
 import styled, { keyframes } from "styled-components";
-import { useWallet } from "use-wallet";
+import useAllStakedValue, { StakedValue } from "../../../hooks/useAllStakedValue";
+
+import BigNumber from "bignumber.js";
 import Button from "../../../components/Button";
 import Card from "../../../components/Card";
 import CardContent from "../../../components/CardContent";
 import CardIcon from "../../../components/CardIcon";
+import { Farm } from "../../../contexts/Farms";
 import Loader from "../../../components/Loader";
 import Spacer from "../../../components/Spacer";
-import { Farm } from "../../../contexts/Farms";
-import useAllStakedValue, { StakedValue } from "../../../hooks/useAllStakedValue";
+import { bnToDec } from "../../../utils";
 import useFarms from "../../../hooks/useFarms";
 import useSushi from "../../../hooks/useSushi";
-import { getEarned, getMasterChefContract } from "../../../sushi/utils";
-import { bnToDec } from "../../../utils";
+import { useWallet } from "use-wallet";
 
 interface FarmWithStakedValue extends Farm, StakedValue {
-  apy: BigNumber;
+  apy: BigNumber | null;
 }
 
 const FarmCards: React.FC = () => {

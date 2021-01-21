@@ -1,8 +1,14 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import MenuItems from "../Sidebar/MenuItems";
+import React from "react";
 
-const MobileNavigation = ({ selected, changeMenu, isOpen }) => {
+interface MobileNavigationProps {
+  selected: boolean;
+  changeMenu: () => void;
+  isOpen: boolean;
+}
+
+const MobileNavigation = ({ selected, changeMenu, isOpen }: MobileNavigationProps) => {
   return (
     <>
       {/* Tablet and Mobile */}

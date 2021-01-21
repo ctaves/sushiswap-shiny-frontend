@@ -1,7 +1,8 @@
-import { useContext } from "react";
-import { Context as FarmsContext, Farm } from "../contexts/Farms";
+import { Farm, Context as FarmsContext } from "../contexts/Farms";
 
-const useFarm = (id: string): Farm => {
+import { useContext } from "react";
+
+const useFarm = (id: string): Farm | undefined => {
   const { farms } = useContext(FarmsContext);
   const farm = farms.find((farm) => farm.id === id);
   //console.log("FARMS:", farms);

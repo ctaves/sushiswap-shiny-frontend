@@ -1,6 +1,7 @@
+import { formatCurrency, formatDecimal } from "../../../core";
+
 import React from "react";
 import { formattedNum } from "../../../services/vision/utils";
-import { formatCurrency, formatDecimal } from "../../../services/analytics/core";
 
 const ColumnStaked = ({ farm }) => {
   return (

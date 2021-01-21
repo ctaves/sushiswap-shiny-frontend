@@ -1,7 +1,7 @@
-import { useContext } from "react";
+import { EthersContext, OnBlockListener } from "../context/EthersContext";
 
 import useAsyncEffect from "use-async-effect";
-import { EthersContext, OnBlockListener } from "../context/EthersContext";
+import { useContext } from "react";
 
 const useDelayedOnBlockEffect = (
     effect: OnBlockListener,
@@ -16,7 +16,7 @@ const useDelayedOnBlockEffect = (
             return [
                 setTimeout(effect, initialTimeout),
                 setTimeout(() => addOnBlockListener(eventName, effect), initialTimeout)
-            ];
+            ] as number[];
         },
         handles => {
             if (handles) {

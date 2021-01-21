@@ -19,9 +19,9 @@ import {
   useInterval,
   userIdsQuery,
   userQuery,
-} from "../../services/analytics/core";
+} from "../../core";
 import { getUnixTime, startOfMinute, startOfSecond } from "date-fns";
-import { POOL_DENY } from "../../services/analytics/core/constants";
+import { POOL_DENY } from "../../core/constants";
 import { toChecksumAddress } from "web3-utils";
 import { useQuery } from "@apollo/client";
 

@@ -1,20 +1,21 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { fetchTokenWithValue, fetchTokens } from "../utils/fetch-utils";
+import { getContract, isWETH } from "../utils";
+
+import AsyncStorage from "@react-native-community/async-storage";
+import { ETH } from "../constants/tokens";
+import Ethereum from "../types/Ethereum";
+import Fraction from "../constants/Fraction";
+import Token from "../types/Token";
+import TokenWithValue from "../types/TokenWithValue";
+import { ethers } from "ethers";
+import { logTransaction } from "../utils/analytics-utils";
+import sushiData from "@sushiswap/sushi-data";
+import useAsyncEffect from "use-async-effect";
+import useSDK from "../hooks/useSDK";
 
 //import * as Analytics from "expo-firebase-analytics";
 
-import AsyncStorage from "@react-native-community/async-storage";
-import sushiData from "@sushiswap/sushi-data";
-import { ethers } from "ethers";
-import useAsyncEffect from "use-async-effect";
-import Fraction from "../constants/Fraction";
-import { ETH } from "../constants/tokens";
-import useSDK from "../hooks/useSDK";
-import Ethereum from "../types/Ethereum";
-import Token from "../types/Token";
-import TokenWithValue from "../types/TokenWithValue";
-import { getContract, isWETH } from "../utils";
-import { logTransaction } from "../utils/analytics-utils";
-import { fetchTokens, fetchTokenWithValue } from "../utils/fetch-utils";
 
 export type OnBlockListener = (block?: number) => void | Promise<void>;
 

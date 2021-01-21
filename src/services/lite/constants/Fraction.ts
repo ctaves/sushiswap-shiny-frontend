@@ -1,7 +1,8 @@
-import { Fraction as SDKFraction } from "@sushiswap/sdk";
-import { ethers } from "ethers";
-import Token from "../types/Token";
 import { formatBalance, isEmptyValue, parseBalance } from "../utils";
+
+import { Fraction as SDKFraction } from "@sushiswap/sdk";
+import Token from "../types/Token";
+import { ethers } from "ethers";
 
 class Fraction {
   static BASE = ethers.BigNumber.from(10).pow(18);
@@ -81,7 +82,7 @@ class Fraction {
   }
 
   apply(value: ethers.BigNumberish) {
-    return this?.denominator?.isZero() ? ethers.constants.Zero : this?.numerator?.mul(value).div(this?.denominator);
+    return this?.denominator?.isZero() ? ethers.constants.Zero : this?.numerator?.mul(value).div(this.denominator);
   }
 }
 

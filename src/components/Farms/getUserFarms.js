@@ -1,6 +1,6 @@
-import { poolUserQuery } from "../../services/analytics/core/queries/masterchef";
-import { POOL_DENY } from "../../services/analytics/core/constants";
-import { getApollo } from "../../services/analytics/core/apollo";
+import { poolUserQuery } from "../../core/queries/masterchef";
+import { POOL_DENY } from "../../core/constants";
+import { getApollo } from "../../core/apollo";
 
 import BigNumber from "bignumber.js";
 import Web3 from "web3";

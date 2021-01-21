@@ -1,62 +1,56 @@
 /* eslint-disable no-unused-expressions */
 
-import React, { useEffect, useState, useRef } from "react";
-
+import { Button, Linker } from "../Linker";
+import React, { useEffect, useRef, useState } from "react";
 // Overview Stats
 import {
   barHistoriesQuery,
   barQuery,
   barUserQuery,
-  latestBlockQuery,
+  currencyFormatter,
   dayDatasQuery,
+  decimalFormatter,
   ethPriceQuery,
   factoryQuery,
+  latestBlockQuery,
   tokenQuery,
-  currencyFormatter,
-  decimalFormatter,
-} from "../../services/analytics/core";
-
-import { useQuery } from "@apollo/client";
-import { getFactory } from "./getFactory";
-
-// User Stats
-
-import BigNumber from "bignumber.js";
-import StakeSushi from "../Portfolio/StakeSushi";
-import UnstakeSushi from "../Portfolio/UnstakeSushi";
-
-import useTokenBalance from "../Portfolio/hooks/useTokenBalance";
-import useTotalSushiStakedInBar from "../Portfolio/hooks/useTotalSushiStakedInBar";
-import useTotalXSushiSupply from "../Portfolio/hooks/useTotalXSushiSupply";
-import useAllEarnings from "../Portfolio/hooks/useAllEarnings";
-import useAllStakedValue from "../Portfolio/hooks/useAllStakedValue";
-import useFarms from "../../services/frontend/hooks/useFarms";
-
-import { contractAddresses } from "../../services/frontend/sushi/lib/constants";
-import { useTokenData } from "../../services/vision/contexts/TokenData";
-import { formattedNum } from "../../services/vision/utils";
-import { getBalanceNumber } from "../../services/frontend/utils/formatBalance";
-
-import TableSushi from "./Table";
-
-// modals
-import HarvestModal from "../Portfolio/Harvest/Modal";
-import useModal from "../../shared/hooks/useModal";
+} from "../../core";
 
 // charts
-//import { ResponsiveContainer } from "recharts";
-//import TradingViewChart from "../../services/vision/components/TradingviewChart/apy";
-//import LineChart from "./Chart";
-//import { Curves } from "../../services/analytics/components";
-//import { ParentSize } from "@visx/responsive";
 import AreaChart from "./AreaChart";
-
+import BigNumber from "bignumber.js";
+// modals
+import HarvestModal from "../Portfolio/Harvest/Modal";
+import { Loader } from "../Portfolio/Tables/Loader";
+import StakeSushi from "../Portfolio/StakeSushi";
+import TableSushi from "./Table";
+import Title from "./Title";
+import UnstakeSushi from "../Portfolio/UnstakeSushi";
+import { contractAddresses } from "../../services/frontend/sushi/lib/constants";
+import { formattedNum } from "../../services/vision/utils";
+import { getBalanceNumber } from "../../services/frontend/utils/formatBalance";
+import { getFactory } from "./getFactory";
 // Additional Dep
 import sushiData from "@sushiswap/sushi-data";
 import { useActiveWeb3React } from "../../services/exchange/hooks";
-import { Linker, Button } from "../Linker";
-import { Loader } from "../Portfolio/Tables/Loader";
-import Title from "./Title";
+import useAllEarnings from "../Portfolio/hooks/useAllEarnings";
+import useAllStakedValue from "../Portfolio/hooks/useAllStakedValue";
+import useFarms from "../../services/frontend/hooks/useFarms";
+import useModal from "../../shared/hooks/useModal";
+import { useQuery } from "@apollo/client";
+import useTokenBalance from "../Portfolio/hooks/useTokenBalance";
+import { useTokenData } from "../../services/vision/contexts/TokenData";
+import useTotalSushiStakedInBar from "../Portfolio/hooks/useTotalSushiStakedInBar";
+import useTotalXSushiSupply from "../Portfolio/hooks/useTotalXSushiSupply";
+
+// User Stats
+
+
+
+
+
+
+
 
 function formatPercent(rawPercent) {
   if (rawPercent < 0.01) {

@@ -6,10 +6,10 @@ import {
   tokenTimeTravelQuery,
   tokensQuery,
   tokensTimeTravelQuery,
-} from "../../services/analytics/core/queries/exchange";
-import { getOneDayBlock, getSevenDayBlock, getTwoDayBlock } from "../../services/analytics/core/api/blocks";
+} from "../../core/queries/exchange";
+import { getOneDayBlock, getSevenDayBlock, getTwoDayBlock } from "../../core/api/blocks";
 
-import { getApollo } from "../../services/analytics/core/apollo";
+import { getApollo } from "../../core/apollo";
 
 export async function getFactory(client = getApollo()) {
   const {

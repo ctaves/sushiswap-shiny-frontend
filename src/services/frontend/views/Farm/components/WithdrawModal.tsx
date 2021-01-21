@@ -1,7 +1,8 @@
-import BigNumber from 'bignumber.js'
-import React, { useCallback, useMemo, useState } from 'react'
-import Button from '../../../components/Button'
 import Modal, { ModalProps } from '../../../components/Modal'
+import React, { useCallback, useMemo, useState } from 'react'
+
+import BigNumber from 'bignumber.js'
+import Button from '../../../components/Button'
 import ModalActions from '../../../components/ModalActions'
 import ModalTitle from '../../../components/ModalTitle'
 import TokenInput from '../../../components/TokenInput'
@@ -56,7 +57,9 @@ const WithdrawModal: React.FC<WithdrawModalProps> = ({
             setPendingTx(true)
             await onConfirm(val)
             setPendingTx(false)
-            onDismiss()
+            if (onDismiss) {
+              onDismiss()
+            }
           }}
         />
       </ModalActions>

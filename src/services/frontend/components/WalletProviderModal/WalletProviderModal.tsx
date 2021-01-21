@@ -1,24 +1,22 @@
+import Modal, { ModalProps } from "../Modal";
 import React, { useEffect } from "react";
-import styled from "styled-components";
-import { useWallet } from "use-wallet";
-
-import metamaskLogo from "../../assets/img/metamask-fox.svg";
-import walletConnectLogo from "../../assets/img/wallet-connect.svg";
 
 import Button from "../Button";
-import Modal, { ModalProps } from "../Modal";
 import ModalActions from "../ModalActions";
 import ModalContent from "../ModalContent";
 import ModalTitle from "../ModalTitle";
 import Spacer from "../Spacer";
-
 import WalletCard from "./components/WalletCard";
+import metamaskLogo from "../../assets/img/metamask-fox.svg";
+import styled from "styled-components";
+import { useWallet } from "use-wallet";
+import walletConnectLogo from "../../assets/img/wallet-connect.svg";
 
 const WalletProviderModal: React.FC<ModalProps> = ({ onDismiss }) => {
   const { account, connect } = useWallet();
 
   useEffect(() => {
-    if (account) {
+    if (account && onDismiss) {
       onDismiss();
     }
   }, [account, onDismiss]);

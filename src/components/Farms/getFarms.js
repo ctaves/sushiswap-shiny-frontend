@@ -1,8 +1,8 @@
-import { getAverageBlockTime, getEthPrice, getToken } from "../../services/analytics/core/api";
-import { liquidityPositionSubsetQuery, pairSubsetQuery } from "../../services/analytics/core/queries/exchange";
-import { poolsQuery } from "../../services/analytics/core/queries/masterchef";
-import { POOL_DENY } from "../../services/analytics/core/constants";
-import { getApollo } from "../../services/analytics/core/apollo";
+import { getAverageBlockTime, getEthPrice, getToken } from "../../core/api";
+import { liquidityPositionSubsetQuery, pairSubsetQuery } from "../../core/queries/exchange";
+import { poolsQuery } from "../../core/queries/masterchef";
+import { POOL_DENY } from "../../core/constants";
+import { getApollo } from "../../core/apollo";
 
 import { FARM_DETAILS, menus } from "../../constants/farms";
 //import sushiData from "@sushiswap/sushi-data";

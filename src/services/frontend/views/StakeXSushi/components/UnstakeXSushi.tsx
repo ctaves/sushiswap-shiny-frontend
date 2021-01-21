@@ -1,21 +1,22 @@
 import React, {useState} from 'react'
-import styled from 'styled-components'
+
 import Button from '../../../components/Button'
 import Card from '../../../components/Card'
 import CardContent from '../../../components/CardContent'
 import CardIcon from '../../../components/CardIcon'
+import {Contract} from "web3-eth-contract";
 import Label from '../../../components/Label'
 import Value from '../../../components/Value'
-import useReward from '../../../hooks/useReward'
-import {getBalanceNumber} from '../../../utils/formatBalance'
-import useTokenBalance from "../../../hooks/useTokenBalance";
-import {Contract} from "web3-eth-contract";
-import useModal from "../../../hooks/useModal";
 import WithdrawModal from "./WithdrawModal";
+import {getBalanceNumber} from '../../../utils/formatBalance'
+import styled from 'styled-components'
 import useLeave from "../../../hooks/useLeave";
+import useModal from "../../../hooks/useModal";
+import useReward from '../../../hooks/useReward'
+import useTokenBalance from "../../../hooks/useTokenBalance";
 
 interface HarvestProps {
-  lpContract: Contract
+  lpContract: any
 }
 
 const UnstakeXSushi: React.FC<HarvestProps> = ({lpContract}) => {

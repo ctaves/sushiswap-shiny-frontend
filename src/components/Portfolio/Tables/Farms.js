@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Linker, Button } from "../../Linker";
 import { isAddress } from "../../../services/vision/utils/index.js";
 import { formattedNum } from "../../../services/vision/utils";
-import { currencyFormatter, decimalFormatter } from "../../../services/analytics/core";
+import { currencyFormatter, decimalFormatter } from "../../../core";
 import logoNotFound from "../../../assets/img/logoNotFound.png";
 import SushiLogo from "../../../assets/img/logo.png";
 

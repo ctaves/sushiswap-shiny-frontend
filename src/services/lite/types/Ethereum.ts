@@ -33,6 +33,7 @@ export default interface Ethereum {
   request(args: RequestArguments): Promise<any>;
   on(eventName: EventType, listener: Listener): any;
   off(eventName: EventType, listener: Listener): any;
+  removeListener(eventName: EventType, listener: Listener): any;
 }
 
 declare global {

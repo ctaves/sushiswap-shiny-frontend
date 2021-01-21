@@ -1,33 +1,34 @@
-import React, { useRef, useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
+import { RowBetween, RowFixed } from "../Row";
 import { Settings, X } from "react-feather";
-import styled from "styled-components";
-import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 import {
-  useUserSlippageTolerance,
+  useDarkModeManager,
   useExpertModeManager,
   useUserDeadline,
-  useDarkModeManager,
+  useUserSlippageTolerance,
 } from "../../state/user/hooks";
-import TransactionSettings from "../TransactionSettings";
-import { RowFixed, RowBetween } from "../Row";
-import { TYPE } from "../../theme";
-import QuestionHelper from "../QuestionHelper";
-import Toggle from "../Toggle";
-import { ThemeContext } from "styled-components";
+import { useSettingsMenuOpen, useToggleSettingsMenu } from "../../state/application/hooks";
+
 import { AutoColumn } from "../Column";
 import { ButtonError } from "../Button";
-import { useSettingsMenuOpen, useToggleSettingsMenu } from "../../state/application/hooks";
-import { Text } from "rebass";
 import Modal from "../Modal";
+import QuestionHelper from "../QuestionHelper";
+import { TYPE } from "../../theme";
+import { Text } from "rebass";
+import { ThemeContext } from "styled-components";
+import Toggle from "../Toggle";
+import TransactionSettings from "../TransactionSettings";
+import styled from "styled-components";
+import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 
-const StyledMenuIcon = styled(Settings)`
-  height: 20px;
-  width: 20px;
+// const StyledMenuIcon = styled(Settings)`
+//   height: 20px;
+//   width: 20px;
 
-  > * {
-    stroke: ${({ theme }) => theme.text1};
-  }
-`;
+//   > * {
+//     stroke: ${({ theme }) => theme.text1};
+//   }
+// `;
 
 const StyledCloseIcon = styled(X)`
   height: 20px;

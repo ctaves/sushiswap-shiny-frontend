@@ -1,17 +1,18 @@
+import { BIPS_BASE, DEFAULT_DEADLINE_FROM_NOW, INITIAL_ALLOWED_SLIPPAGE } from '../constants'
+import { JSBI, Percent, Router, SwapParameters, Trade, TradeType } from '@sushiswap/sdk'
+import { calculateGasMargin, getRouterContract, isAddress, shortenAddress } from '../utils'
+import { getTradeVersion, useV1TradeExchangeAddress } from '../data/V1'
+
 import { BigNumber } from '@ethersproject/bignumber'
 import { Contract } from '@ethersproject/contracts'
-import { JSBI, Percent, Router, SwapParameters, Trade, TradeType } from '@sushiswap/sdk'
-import { useMemo } from 'react'
-import { BIPS_BASE, DEFAULT_DEADLINE_FROM_NOW, INITIAL_ALLOWED_SLIPPAGE } from '../constants'
-import { getTradeVersion, useV1TradeExchangeAddress } from '../data/V1'
-import { useTransactionAdder } from '../state/transactions/hooks'
-import { calculateGasMargin, getRouterContract, isAddress, shortenAddress } from '../utils'
-import isZero from '../utils/isZero'
-import v1SwapArguments from '../utils/v1SwapArguments'
-import { useActiveWeb3React } from './index'
-import { useV1ExchangeContract } from './useContract'
-import useENS from './useENS'
 import { Version } from './useToggledVersion'
+import isZero from '../utils/isZero'
+import { useActiveWeb3React } from './index'
+import useENS from './useENS'
+import { useMemo } from 'react'
+import { useTransactionAdder } from '../state/transactions/hooks'
+import { useV1ExchangeContract } from './useContract'
+import v1SwapArguments from '../utils/v1SwapArguments'
 
 export enum SwapCallbackState {
   INVALID,
@@ -66,7 +67,7 @@ function useSwapCallArguments(
       return []
     }
 
-    const swapMethods = []
+    const swapMethods: SwapParameters[] = []
 
     switch (tradeVersion) {
       case Version.v2:

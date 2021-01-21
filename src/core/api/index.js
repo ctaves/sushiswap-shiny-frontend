@@ -4,6 +4,7 @@ import {
   getApollo,
   getOneDayBlock,
   getSevenDayBlock,
+  getTokens,
   getTwoDayBlock,
   oneDayEthPriceQuery,
   pairQuery,
@@ -12,31 +13,12 @@ import {
   pairsTimeTravelQuery,
   sevenDayEthPriceQuery,
   tokenPairsQuery,
-  getTokens,
 } from "../index";
 
 export * from "./bar";
 export * from "./blocks";
 export * from "./exchange";
 export * from "./masterchef";
-export * from "./pages";
-
-export async function preload() {
-  // Pre-load anything that might be needed globally (stuff for search bar etc...)
-  await getTokens();
-  await getPairs();
-}
-
-// export async function getLiquidityPositionSnapshots(user, client = getApollo()) {
-//   const {
-//     data: { liquidityPositionSnapshots },
-//   } = await client.query({
-//     query: liquidityPositionSnapshotsQuery,
-//     variables: {
-//       user,
-//     },
-//   });
-// }
 
 // Eth Price
 export async function getEthPrice(client = getApollo()) {

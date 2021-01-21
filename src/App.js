@@ -21,7 +21,7 @@ import theme from "./services/frontend/theme";
 // Services -  Analytics Dependencies
 import { ApolloProvider as SushiAnalyticsApolloProvider } from "@apollo/client";
 import SushiAnalyticsCssBaseline from "@material-ui/core/CssBaseline";
-import { useApollo } from "./services/analytics/core";
+import { useApollo } from "./core";
 
 // Services - Sushi View Dependencies (Deprecated)
 // import AnalyticsGlobalDataContextProvider from "./services/view/contexts/globalData";
@@ -80,9 +80,6 @@ import PoolWrapper from "./pages/Pool";
 import { ContextProvider as LiteProvider } from "./services/lite/context";
 
 const App = () => {
-  //const globalData = useGlobalData();
-  //const globalChartData = useGlobalChartData();
-  //const latestBlock = useLatestBlock();
   return (
     <>
       <Router>
@@ -181,14 +178,7 @@ const SushiAnalyticsProviders = ({ children }) => {
   const client = useApollo(null);
   return (
     <SushiAnalyticsApolloProvider client={client}>
-      {/* <SushiAnalyticsThemeProvider
-        theme={{
-          ...theme,
-        }}
-      > */}
-      <SushiAnalyticsCssBaseline />
       {children}
-      {/* </SushiAnalyticsThemeProvider> */}
     </SushiAnalyticsApolloProvider>
   );
 };

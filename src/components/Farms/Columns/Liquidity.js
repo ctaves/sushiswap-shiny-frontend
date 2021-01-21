@@ -1,6 +1,7 @@
+import { formatCurrency, formatDecimal } from "../../../core";
+
 import React from "react";
 import { formatNumber } from "./utils";
-import { formatCurrency, formatDecimal } from "../../../services/analytics/core";
 //import { isAddress } from "../../../services/vision/utils/";
 //import logoNotFound from "../../../assets/img/logoNotFound.png";
 

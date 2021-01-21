@@ -1,10 +1,9 @@
-import React from "react";
 import Header from "./Header";
 import NoResults from "./NoResults";
+import React from "react";
 //import ColumnActions from "../Columns/ActionsStacked";
 //import { getUserFarms } from "../getUserFarms";
 import { useActiveWeb3React } from "../../../services/exchange/hooks";
-//import { getApollo } from "../../../services/analytics/core/apollo";
 
 const TableFarms = ({ title, farms, columns, requestSort, getClassNamesFor }) => {
   const { account } = useActiveWeb3React();

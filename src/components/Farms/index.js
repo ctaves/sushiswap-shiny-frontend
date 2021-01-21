@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { getFarms } from "./getFarms";
 import { getUserFarms } from "./getUserFarms";
 import { useActiveWeb3React } from "../../services/exchange/hooks";
-import { getApollo } from "../../services/analytics/core/apollo";
+import { getApollo } from "../../core/apollo";
 
 import useFuse from "../../shared/hooks/useFuse";
 import useSortableData from "../../shared/hooks/useSortableData";

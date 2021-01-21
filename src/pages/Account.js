@@ -1,35 +1,19 @@
-import React from "react";
 import {
   barUserQuery,
-  blockQuery,
   currencyFormatter,
   decimalFormatter,
   ethPriceQuery,
-  getApollo,
-  getBarUser,
-  getEthPrice,
-  getLatestBlock,
-  getPairs,
-  getPoolUser,
-  getSushiToken,
-  getToken,
-  getUser,
   latestBlockQuery,
   lockupUserQuery,
-  pairSubsetQuery,
   pairsQuery,
   poolUserQuery,
   tokenQuery,
-  useInterval,
-  userIdsQuery,
-  userQuery,
-} from "../services/analytics/core";
-import { getUnixTime, startOfMinute, startOfSecond } from "date-fns";
-import { POOL_DENY } from "../services/analytics/core/constants";
-import { toChecksumAddress } from "web3-utils";
-import { useQuery } from "@apollo/client";
+} from "../apollo/queries";
 
+import { POOL_DENY } from "../constants";
+import React from "react";
 import { useActiveWeb3React } from "../services/exchange/hooks";
+import { useQuery } from "@apollo/client";
 
 const Account = () => {
   //   const { loading, error, data: { bundles } = {} } = useQuery(ethPriceQuery, {
