@@ -41,12 +41,12 @@ const TableFilter = ({ search, term, columns, setColumns }) => {
               </div>
             </div>
             <div className="mt-5 flex justify-center sm:mt-0">
-              <button className="mr-4 flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+              {/* <button className="mr-4 flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
                 View Cards
               </button>
               <button className="mr-4 flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
                 View List
-              </button>
+              </button> */}
             </div>
           </div>
 
