@@ -87,7 +87,7 @@ export const CardOnsen = () => {
                 return (
                   <>
                     <div className="flex justify-between overflow-hidden">
-                      <Linker to={"/pairs/" + farm.pair}>
+                      <Linker to={"/pair/" + farm.pair}>
                         {farm.liquidityPair.token0.symbol + "-" + farm.liquidityPair.token1.symbol}
                       </Linker>
                       <div className="text-sm">{Number(farm.roiPerYear * 100).toFixed(2)}%</div>
