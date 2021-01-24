@@ -15,6 +15,7 @@ import LocalLoader from "../../../../components/CoinLoader";
 import { AutoColumn } from "../Column";
 import { Activity } from "react-feather";
 import { useDarkModeManager } from "../../contexts/LocalStorage";
+import { EmptyCard } from "..";
 
 const ChartWrapper = styled.div`
   height: 100%;
@@ -135,6 +136,15 @@ const TokenChart = ({ address, color, base }) => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [isClient, width]); // Empty array ensures that effect is only run on mount and unmount
+
+  // console.log("chartData:", chartData);
+  // if (!chartData || chartData.length === 0) {
+  //   return (
+  //     <ChartWrapper>
+  //       <EmptyCard height="300px">No historical data yet.</EmptyCard>{" "}
+  //     </ChartWrapper>
+  //   );
+  // }
 
   return (
     <ChartWrapper>
