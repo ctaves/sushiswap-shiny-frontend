@@ -3,7 +3,7 @@ import { useActiveWeb3React } from "../../../services/exchange/hooks";
 
 // handle harvesting
 import useReward from "../hooks/useReward";
-import Value from "../../Cards/Balance/Value";
+import Value from "../../Value";
 
 import SushiLogo from "../../../assets/img/logo.png";
 

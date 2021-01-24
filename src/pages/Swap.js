@@ -1,6 +1,6 @@
 import React from "react";
 import Sidebar from "../components/Sidebar/Layout";
-import CardTokenActions from "../components/Cards/TokenActions/Standalone";
+import CardTokenActions from "../components/Plugin/Standalone";
 import Background from "../assets/illustrations/swap_background_1d.svg";
 import MobileNavigation from "../components/MobileNavigation";
 

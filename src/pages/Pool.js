@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import { DashboardContainer } from "../sections/Dashboard";
-import CardTokenActions from "../components/Cards/TokenActions/Standalone";
+import CardTokenActions from "../components/Plugin/Standalone";
 
 const Pool = ({ currencyIdA, currencyIdB }) => {
   return (

@@ -31,6 +31,8 @@ module.exports = {
       colors: {
         "blue-brand": "#0090a6", //"#27B0E6",
         "blue-brand-dark": "#067587", //"#s2397c4",
+        "blue-brand-light": "#27B0E6",
+        "pink-brand": "#fa52a0",
         "green-finance": "#04c806",
         "red-finance": "#ff5001",
         "brand-1": "#FFBEE3",

@@ -90,6 +90,9 @@ const App = () => {
         <Popups />
         <Web3ReactManager>
           <Switch>
+            {/* Home Routes */}
+            <Route exact path="/" component={Dashboard} />
+            <Route exact path="/home" component={Dashboard} />
             {/* Experimental Routes */}
             <Route exact path="/experimental/midnight" component={Midnight} />
             <Route exact path="/experimental/trader" component={Trader} />

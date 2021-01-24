@@ -1,4 +1,4 @@
-import RocketIcon from "../assets/featured/rocket.png";
+import RocketIcon from "../assets/featured/rocket.svg";
 import OnsenIllustration from "../assets/featured/onsen.jpg";
 
 export const featured = [
@@ -10,12 +10,12 @@ export const featured = [
     pairs: [],
     tokens: [],
   },
-  {
-    id: "daily-movers",
-    title: "Daily Movers",
-    path: "/lists/daily-movers",
-    image: RocketIcon,
-  },
+  // {
+  //   id: "daily-movers",
+  //   title: "Daily Movers",
+  //   path: "/lists/daily-movers",
+  //   image: RocketIcon,
+  // },
   {
     id: "stablecoins",
     title: "Stablecoins",

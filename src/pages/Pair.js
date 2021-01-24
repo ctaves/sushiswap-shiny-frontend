@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import { isAddress } from "../services/vision/utils";
 
 import Search from "../services/vision/components/Search/secondary";
-import CardTokenActions from "../components/Cards/TokenActions/Layout";
+import CardTokenActions from "../components/Plugin/Layout";
 
 import PairChart from "../services/vision/components/PairChart/secondary";
 import TxnList from "../services/vision/components/TxnList/secondary";

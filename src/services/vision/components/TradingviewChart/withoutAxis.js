@@ -66,7 +66,7 @@ const TradingViewChart = ({
   const topScale = type === CHART_TYPES.AREA ? 0.32 : 0.2;
 
   const [darkMode] = useDarkModeManager();
-  const textColor = "white"; //darkMode ? "white" : "black";
+  const textColor = "black"; //darkMode ? "white" : "black";
   const previousTheme = usePrevious(darkMode);
 
   // reset the chart if them switches
@@ -101,6 +101,7 @@ const TradingViewChart = ({
         },
         timeScale: {
           borderVisible: false,
+          lockVisibleTimeRangeOnResize: true,
         },
         grid: {
           horzLines: {
@@ -131,6 +132,12 @@ const TradingViewChart = ({
           horzTouchDrag: false,
           vertTouchDrag: false,
         },
+        handleScale: {
+          mouseWheel: false,
+          pressedMouseMove: false,
+          horzTouchDrag: false,
+          vertTouchDrag: false,
+        },
         localization: {
           priceFormatter: (val) => formattedNum(val, true),
         },
@@ -139,7 +146,7 @@ const TradingViewChart = ({
       var series =
         type === CHART_TYPES.BAR
           ? chart.addHistogramSeries({
-              color: "rgba(255, 255, 255, 1.000)",
+              color: "rgba(250, 82, 160, 1.000)",
               priceFormat: {
                 type: "volume",
               },
@@ -147,13 +154,13 @@ const TradingViewChart = ({
                 top: 0.32,
                 bottom: 0,
               },
-              lineColor: "rgba(255, 255, 255, 1.000)",
+              lineColor: "rgba(250, 82, 160, 1.000)",
               lineWidth: 3,
             })
           : chart.addAreaSeries({
-              topColor: "rgba(164, 233, 255, 1.000)",
-              bottomColor: "rgba(255, 255, 255, 0.000)",
-              lineColor: "rgba(255, 255, 255, 1.000)",
+              topColor: "#27B0E6",
+              bottomColor: "rgba(0, 178, 235, 0.000)",
+              lineColor: "#27B0E6",
               lineWidth: 3,
             });
 
@@ -259,13 +266,13 @@ const TradingViewChart = ({
   return (
     <Wrapper>
       <div ref={ref} id={"test-id" + type} />
-      <IconWrapper>
+      {/* <IconWrapper>
         <Play
           onClick={() => {
             chartCreated && chartCreated.timeScale().fitContent();
           }}
         />
-      </IconWrapper>
+      </IconWrapper> */}
     </Wrapper>
   );
 };

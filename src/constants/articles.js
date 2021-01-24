@@ -4,13 +4,13 @@ import CoverWarningLogo from "../assets/articles/cover-warning.jpg";
 import MidnightTrading from "../assets/articles/midnight-trading.jpg";
 
 export const articles = [
-  {
-    title: "Ethereum hits $1000",
-    description:
-      "High volatility means higher volume which means more fees for our liquidity providers. Check out pairs to provide liquidity to today!",
-    image: StablecoinList,
-    token: "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2", // WETH
-  },
+  // {
+  //   title: "Ethereum hits $1000",
+  //   description:
+  //     "High volatility means higher volume which means more fees for our liquidity providers. Check out pairs to provide liquidity to today!",
+  //   image: StablecoinList,
+  //   token: "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2", // WETH
+  // },
   {
     title: "Introducing the Stablecoin List",
     description:

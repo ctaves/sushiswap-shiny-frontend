@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import { isAddress } from "../services/vision/utils";
 import logoNotFound from "../assets/img/logoNotFound.png";
 import Search from "../services/vision/components/Search/secondary";
-import CardTokenActions from "../components/Cards/TokenActions/Layout";
+import CardTokenActions from "../components/Plugin/Layout";
 
 import TokenChart from "../services/vision/components/TokenChart/secondary";
 import { formattedNum, formattedPercent, localNumber } from "../services/vision/utils";

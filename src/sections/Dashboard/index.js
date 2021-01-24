@@ -4,7 +4,6 @@ import WalletRoute from "../../shared/WalletRoute";
 import PublicRoute from "../../shared/PublicRoute";
 import TitleTabs from "../../components/TitleTabs";
 import Connect from "../../pages/Connect";
-// import AlbumCards from "../../components/AlbumCards";
 // Dashboard
 import FeaturedItem from "../../components/FeaturedItem";
 import MobileNavigation from "../../components/MobileNavigation";
@@ -13,8 +12,8 @@ import Sidebar from "../../components/Sidebar/Layout";
 import MainSearch from "../../services/vision/components/Search/secondary";
 import useMenu from "../../shared/hooks/useMenu";
 // Overview
-import CardTokenActions from "../../components/Cards/TokenActions/StandaloneWithoutRemove";
-import Flickity from "react-flickity-component";
+import CardTokenActions from "../../components/Plugin/StandaloneWithoutRemove";
+//import Flickity from "react-flickity-component";
 import GlobalStats from "../../services/vision/components/GlobalStats/secondary";
 // Portfolio
 import PortfolioPage from "../../components/Portfolio";
@@ -37,21 +36,23 @@ import Pair from "../../pages/Pair";
 // Token
 import Token from "../../pages/Token";
 // About
-import CardAbout from "../../components/Cards/About";
+import CardAbout from "../../components/About";
 // Community
 import Community from "../../components/Community";
 // Faq
 //import TableFAQ from "../../components/Table/FAQ";
 // Governance
-import CardTimelock from "../../components/Cards/Governance/Timelock/Layout";
-import CardGovernanceMultisig from "../../components/Cards/Governance/Multisig/Layout";
+import CardTimelock from "../../components/Governance/Timelock/Layout";
+import CardGovernanceMultisig from "../../components/Governance/Multisig/Layout";
 //import CardGovernanceActions from "../../components/Cards/Governance/Actions/Layout";
 
 import sushiData from "@sushiswap/sushi-data";
 import { featured } from "../../constants/featured";
 
-import AlbumCardsLoading from "../../components/AlbumCards/Loading";
-const AlbumCards = React.lazy(() => import("../../components/AlbumCards"));
+import { CardLiquidity, CardVolume, CardOnsen, CardBentoBox } from "../../components/Cards";
+
+//import AlbumCardsLoading from "../../components/AlbumCards/Loading";
+//const AlbumCards = React.lazy(() => import("../../components/AlbumCards"));
 
 const LazyComponent = ({ component, fallback }) => {
   return (
@@ -123,8 +124,8 @@ const DashboardRoutes = () => {
       <Route exact path="/farms/permanent" component={FarmsPermanentPage} />
       <Route exact path="/farms/special" component={FarmsSpecialPage} />
       <Route exact path="/onsen" component={FarmsSpecialPage} />
-      <Route exact path="/farms/xsushi" component={FarmsXSushiPage} />
-      <Route exact path="/sushibar" component={FarmsXSushiPage} />
+      <WalletRoute exact path="/farms/xsushi" component={FarmsXSushiPage} />
+      <WalletRoute exact path="/sushibar" component={FarmsXSushiPage} />
       <Route exact path="/farms/previous" component={FarmsPreviousPage} />
       {/* Tokens */}
       <Route exact path="/tokens" component={TokensPage} />
@@ -199,10 +200,18 @@ const OverviewPage = () => {
           <div className="sm:mt-2 lg:mt-6 py-2 pl-2 bg-gray-100 sm:rounded-md">
             <GlobalStats />
           </div>
-          <div className="ml-4 sm:m-0 h-80">
-            <LazyComponent component={<AlbumCards />} fallback={<AlbumCardsLoading />} />
+          <div className="grid grid-cols-1 h-80 ml-4 sm:hidden md:block sm:m-0 pt-4">
+            {/* <LazyComponent component={<AlbumCards />} fallback={<AlbumCardsLoading />} /> */}
+            <div className="col-span-1 flex overflow-x-auto">
+              <CardLiquidity />
+              <CardVolume />
+              <CardOnsen />
+              {/* <CardBentoBox />
+              <CardBentoBox />
+              <CardBentoBox /> */}
+            </div>
           </div>
-          <div className="grid gap-0 mx-auto lg:grid-cols-5 lg:max-w-none">
+          <div className="pt-4 grid gap-0 mx-auto lg:grid-cols-5 lg:max-w-none">
             <div className="pt-4 pb-8 lg:pb-20 lg:col-span-3 overflow-x-hidden lg:overflow-visible">
               <div className="lg:mr-4">
                 <FeaturedItem />

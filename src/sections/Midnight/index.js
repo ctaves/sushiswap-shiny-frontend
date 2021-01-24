@@ -6,7 +6,7 @@ import Account from "./Account";
 
 import TradingThemeProvider from "./theme";
 import logo from "../../assets/img/logo.png";
-import Portfolio from "../../components/Portfolio";
+// import Portfolio from "../../components/Portfolio";
 
 const Layout = () => {
   return (
@@ -83,9 +83,7 @@ const TradingView = () => {
                   </div>
                   <div className="-ml-12 z-10 col-span-3 h-full" style={{ backgroundColor: "#1f222d" }}>
                     <CardTokenActions initialSection={"swap"} currencyIdB={"ETH"} />
-                    <div className="h-32 overflow-y:scroll">
-                      <Portfolio />
-                    </div>
+                    <div className="h-32 overflow-y:scroll">{/* <Portfolio /> */}</div>
                   </div>
                 </div>
               </div>
