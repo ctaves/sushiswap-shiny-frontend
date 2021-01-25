@@ -110,10 +110,10 @@ const Farms = ({ group }) => {
       setIsLoading(true);
       try {
         const data = await getFarms(client, group);
-        //console.log("getFarms:", data);
+        console.log("getFarms:", data.length, group, data);
         setFarms(data);
       } catch (e) {
-        //console.log("getFarms error:", e);
+        console.log("getFarms error:", e);
         setIsError(true);
       }
       setIsLoading(false);

@@ -10,6 +10,9 @@ import { FARM_DETAILS, menus } from "../../constants/farms";
 export async function getFarms(client = getApollo(), group) {
   // const sushiPools = await sushiData.masterchef.pools();
   // console.log("sushiPools:", sushiPools);
+
+  //console.log("group:", menus[group].length, menus[group]);
+
   const {
     data: { pools },
   } = await client.query({
@@ -23,6 +26,7 @@ export async function getFarms(client = getApollo(), group) {
       return pool.pair;
     })
     .sort();
+
   const pool45 = pools.find((p) => p.id === "45");
   const {
     data: { pairs },
@@ -31,7 +35,7 @@ export async function getFarms(client = getApollo(), group) {
     variables: { pairAddresses },
     fetchPolicy: "network-only",
   });
-  console.log("sushiPairs:", pairs);
+  //console.log("sushiPairs:", pairs);
 
   // const averageBlockTime = (await getAverageBlockTime()) / 100;
   const averageBlockTime = await getAverageBlockTime();
@@ -53,26 +57,63 @@ export async function getFarms(client = getApollo(), group) {
     .filter((pool) => {
       // group: "all", "onsen", "upcoming", "previous", "active"
       // console.log("group:", group, menus[group], pool.id);
-      if (group === "all") {
-        return !POOL_DENY.includes(pool.id) && pairs.find((pair) => pair?.id === pool.pair);
-      } else if (group === "previous") {
-        return !POOL_DENY.includes(pool.id) && pool.allocPoint === "0" && pairs.find((pair) => pair?.id === pool.pair);
-      } else if (group) {
-        return (
-          !POOL_DENY.includes(pool.id) &&
-          //pool.allocPoint !== "0" &&
-          pool.accSushiPerShare !== "0" &&
-          menus[group].includes(Number(pool.id)) &&
-          pairs.find((pair) => pair?.id === pool.pair)
-        );
-      } else {
-        return (
-          !POOL_DENY.includes(pool.id) &&
-          pool.allocPoint !== "0" &&
-          pool.accSushiPerShare !== "0" &&
-          pairs.find((pair) => pair?.id === pool.pair)
-        );
+
+      //console.log("group:", group);
+      switch (group) {
+        case "all":
+          return !POOL_DENY.includes(pool.id) && pairs.find((pair) => pair?.id === pool.pair);
+        case "active":
+          return (
+            !POOL_DENY.includes(pool.id) &&
+            //pool.accSushiPerShare !== "0" &&
+            menus[group].includes(Number(pool.id)) &&
+            pairs.find((pair) => pair?.id === pool.pair)
+          );
+        case "permanent":
+          return (
+            !POOL_DENY.includes(pool.id) &&
+            //pool.accSushiPerShare !== "0" &&
+            menus[group].includes(Number(pool.id)) &&
+            pairs.find((pair) => pair?.id === pool.pair)
+          );
+        case "onsen":
+          return (
+            !POOL_DENY.includes(pool.id) &&
+            menus[group].includes(Number(pool.id)) &&
+            pairs.find((pair) => pair?.id === pool.pair)
+          );
+        case "previous":
+          return (
+            !POOL_DENY.includes(pool.id) && pool.allocPoint === "0" && pairs.find((pair) => pair?.id === pool.pair)
+          );
+        default:
+          return (
+            !POOL_DENY.includes(pool.id) &&
+            pool.allocPoint !== "0" &&
+            pool.accSushiPerShare !== "0" &&
+            pairs.find((pair) => pair?.id === pool.pair)
+          );
       }
+      // if (group === "all") {
+      //   return !POOL_DENY.includes(pool.id) && pairs.find((pair) => pair?.id === pool.pair);
+      // } else if (group === "previous") {
+      //   return !POOL_DENY.includes(pool.id) && pool.allocPoint === "0" && pairs.find((pair) => pair?.id === pool.pair);
+      // } else if (group) {
+      //   return (
+      //     !POOL_DENY.includes(pool.id) &&
+      //     //pool.allocPoint !== "0" &&
+      //     pool.accSushiPerShare !== "0" &&
+      //     menus[group].includes(Number(pool.id)) &&
+      //     pairs.find((pair) => pair?.id === pool.pair)
+      //   );
+      // } else {
+      //   return (
+      //     !POOL_DENY.includes(pool.id) &&
+      //     pool.allocPoint !== "0" &&
+      //     pool.accSushiPerShare !== "0" &&
+      //     pairs.find((pair) => pair?.id === pool.pair)
+      //   );
+      // }
       // return (
       //   !POOL_DENY.includes(pool.id) &&
       //   pool.allocPoint !== "0" &&
@@ -88,8 +129,6 @@ export async function getFarms(client = getApollo(), group) {
       //console.log("details:", details, FARM_DETAILS, pool.id, pool, pair);
 
       const liquidityPosition = liquidityPositions.find((liquidityPosition) => liquidityPosition.pair.id === pair.id);
-      const balance = Number(pool.balance / 1e18);
-
       const blocksPerHour = 3600 / averageBlockTime;
       //const rewardPerBlock = 100 - 100 * (pool45.allocPoint / pool45.owner.totalAllocPoint);
       // const roiPerBlock =
@@ -99,7 +138,11 @@ export async function getFarms(client = getApollo(), group) {
       //     (Number(pool.allocPoint) / Number(pool.owner.totalAllocPoint))) /
       //   (Number(pair.reserveETH) * (balance / Number(pair.totalSupply)));
 
-      const balanceUSD = (balance / Number(pair.totalSupply)) * Number(pair.reserveUSD);
+      const balance = Number(pool.balance / 1e18) > 0 ? Number(pool.balance / 1e18) : 0.1;
+      const totalSupply = pair.totalSupply > 0 ? pair.totalSupply : 0.1;
+      const reserveUSD = pair.reserveUSD > 0 ? pair.reserveUSD : 0.1;
+
+      const balanceUSD = (balance / Number(totalSupply)) * Number(reserveUSD);
 
       const rewardPerBlock = ((pool.allocPoint / pool.owner.totalAllocPoint) * pool.owner.sushiPerBlock) / 1e18;
 
@@ -122,7 +165,9 @@ export async function getFarms(client = getApollo(), group) {
         roiPerMonth,
         roiPerYear,
         rewardPerThousand: 1 * roiPerDay * (1000 / sushiPrice),
-        tvl: (pair.reserveUSD / pair.totalSupply) * liquidityPosition.liquidityTokenBalance,
+        tvl: liquidityPosition?.liquidityTokenBalance
+          ? (pair.reserveUSD / pair.totalSupply) * liquidityPosition.liquidityTokenBalance
+          : 0.1,
       };
     });
 
