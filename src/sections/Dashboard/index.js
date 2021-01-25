@@ -200,7 +200,10 @@ const OverviewPage = () => {
           <div className="sm:mt-2 lg:mt-6 py-2 pl-2 bg-gray-100 sm:rounded-md">
             <GlobalStats />
           </div>
-          <div className="grid grid-cols-1 h-80 ml-4 sm:hidden md:block sm:m-0 pt-4">
+          <div className="px-2 py-4 block sm:hidden">
+            <MainSearch />
+          </div>
+          <div className="hidden sm:block grid grid-cols-1 h-80 ml-4 sm:m-0 pt-4">
             {/* <LazyComponent component={<AlbumCards />} fallback={<AlbumCardsLoading />} /> */}
             <div className="col-span-1 flex overflow-x-auto">
               <CardLiquidity />
