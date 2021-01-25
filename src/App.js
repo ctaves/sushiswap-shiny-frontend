@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import Dashboard from "./sections/Dashboard";
 import Midnight from "./sections/Midnight";
 import Trader from "./sections/Trader";
-import Hasu from "./pages/Hasu";
+import Beginner from "./pages/Beginner";
 
 import ModalsProvider from "./shared/contexts/ModalsContext";
 
@@ -94,7 +94,7 @@ const App = () => {
             {/* Home Routes */}
             <Route exact path="/" component={Dashboard} />
             <Route exact path="/home" component={Dashboard} />
-            <Route exact path="/experimental/hasu" component={Hasu} />
+            <Route exact path="/experimental/beginner" component={Beginner} />
             {/* Experimental Routes */}
             <Route exact path="/experimental/midnight" component={Midnight} />
             <Route exact path="/experimental/trader" component={Trader} />

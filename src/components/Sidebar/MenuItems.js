@@ -16,12 +16,11 @@ const MenuItems = ({ selected }) => {
     <>
       <div className="space-y-1">
         <div className="py-1 relative">
-          <Link
-            to="/home"
+          <div
             className={
               selected === "home"
                 ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
-                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:font-semibold focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
+                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
             }
           >
             <svg
@@ -37,8 +36,16 @@ const MenuItems = ({ selected }) => {
                 d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
               />
             </svg>
-            Overview
-          </Link>
+            <div className="flex space-x-2">
+              <Link to="/home" className="hover:text-gray-900 hover:font-semibold">
+                Overview
+              </Link>
+              <div>/</div>
+              <Link to="/experimental/beginner" className="hover:text-gray-900 hover:font-semibold">
+                Beginner
+              </Link>
+            </div>
+          </div>
           <Link
             to="/portfolio"
             className={

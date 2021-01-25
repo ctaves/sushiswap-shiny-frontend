@@ -315,3 +315,79 @@ export function useDefaultsFromURLSearch(
 
   return result;
 }
+
+// updates the swap state to use the defaults for a given network
+// @ts-ignore;
+export function useDefaultsFromState(
+  tokens?
+): { inputCurrencyId: string | undefined; outputCurrencyId: string | undefined } | undefined {
+  const { chainId } = useActiveWeb3React();
+  const dispatch = useDispatch<AppDispatch>();
+  const parsedQs = useParsedQueryString();
+
+  const [result, setResult] = useState<
+    { inputCurrencyId: string | undefined; outputCurrencyId: string | undefined } | undefined
+  >();
+
+  useEffect(() => {
+    if (!chainId) return;
+
+    let formattedQs;
+    if (tokens) {
+      formattedQs = { inputCurrency: tokens.tokenA, outputCurrency: tokens.tokenB };
+    } else {
+      formattedQs = parsedQs;
+    }
+    const parsed = queryParametersToSwapState(formattedQs);
+    dispatch(
+      replaceSwapState({
+        typedValue: parsed.typedValue,
+        field: parsed.independentField,
+        inputCurrencyId: parsed[Field.INPUT].currencyId,
+        outputCurrencyId: parsed[Field.OUTPUT].currencyId,
+        recipient: parsed.recipient,
+      })
+    );
+
+    setResult({ inputCurrencyId: parsed[Field.INPUT].currencyId, outputCurrencyId: parsed[Field.OUTPUT].currencyId });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch, chainId]);
+
+  return result;
+}
+
+function parseCurrencyFromState(urlParam: any): string {
+  if (typeof urlParam === "string") {
+    const valid = isAddress(urlParam);
+    if (valid) return valid;
+    if (urlParam.toUpperCase() === "ETH") return "ETH";
+    if (valid === false) return "ETH";
+  }
+  return "ETH" ?? "";
+}
+
+export function queryStateToSwapState(parsedQs: ParsedQs): SwapState {
+  let inputCurrency = parseCurrencyFromState(parsedQs.inputCurrency);
+  let outputCurrency = parseCurrencyFromState(parsedQs.outputCurrency);
+  if (inputCurrency === outputCurrency) {
+    if (typeof parsedQs.outputCurrency === "string") {
+      inputCurrency = "";
+    } else {
+      outputCurrency = "";
+    }
+  }
+
+  const recipient = validatedRecipient(parsedQs.recipient);
+
+  return {
+    [Field.INPUT]: {
+      currencyId: inputCurrency,
+    },
+    [Field.OUTPUT]: {
+      currencyId: outputCurrency,
+    },
+    typedValue: parseTokenAmountURLParameter(parsedQs.exactAmount),
+    independentField: parseIndependentFieldURLParameter(parsedQs.exactField),
+    recipient,
+  };
+}

@@ -118,7 +118,7 @@ const PairCard = ({ id, token0, token1, apy }) => {
         <div>
           <div className="text-sm font-semibold">
             <FormattedName
-              text={token0.symbol + "-" + token1.symbol}
+              text={token0?.symbol + "-" + token1?.symbol}
               maxCharacters={below600 ? 8 : 16}
               adjustSize={true}
             />
