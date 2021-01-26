@@ -37,11 +37,11 @@ const MenuItems = ({ selected }) => {
               />
             </svg>
             <div className="flex space-x-2">
-              <Link to="/home" className="hover:text-gray-900 hover:font-semibold">
+              <Link to="/home" className="hover:text-gray-900 ">
                 Overview
               </Link>
               <div>/</div>
-              <Link to="/experimental/beginner" className="hover:text-gray-900 hover:font-semibold">
+              <Link to="/experimental/beginner" className="hover:text-gray-900 ">
                 Beginner
               </Link>
             </div>
@@ -51,7 +51,7 @@ const MenuItems = ({ selected }) => {
             className={
               selected === "omakase"
                 ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
-                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:font-semibold focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
+                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900  focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
             }
           >
             <svg
@@ -77,7 +77,7 @@ const MenuItems = ({ selected }) => {
             className={
               selected === "swap"
                 ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
-                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:font-semibold focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
+                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900  focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
             }
           >
             {/* <img
@@ -119,7 +119,7 @@ const MenuItems = ({ selected }) => {
             className={
               selected === "pools"
                 ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
-                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:font-semibold focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
+                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900  focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
             }
           >
             <svg
@@ -142,7 +142,7 @@ const MenuItems = ({ selected }) => {
             className={
               selected === "special"
                 ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
-                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:font-semibold focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
+                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900  focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
             }
           >
             <svg
@@ -165,7 +165,7 @@ const MenuItems = ({ selected }) => {
             className={
               selected === "pools"
                 ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
-                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:font-semibold focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
+                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900  focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
             }
           >
             <img
@@ -182,7 +182,7 @@ const MenuItems = ({ selected }) => {
             className={
               selected === "tokens"
                 ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
-                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:font-semibold focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
+                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900  focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
             }
           >
             <svg
@@ -218,7 +218,7 @@ const MenuItems = ({ selected }) => {
             className={
               selected === "pairs"
                 ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
-                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:font-semibold focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
+                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900  focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
             }
           >
             {/* <svg
@@ -258,7 +258,7 @@ const MenuItems = ({ selected }) => {
             className={
               selected === "governance"
                 ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
-                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:font-semibold focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
+                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900  focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
             }
           >
             <svg
@@ -282,7 +282,7 @@ const MenuItems = ({ selected }) => {
             className={
               selected === "community"
                 ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
-                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:font-semibold focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
+                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900  focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
             }
           >
             <svg
@@ -305,7 +305,7 @@ const MenuItems = ({ selected }) => {
             className={
               selected === "community"
                 ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
-                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:font-semibold focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
+                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900  focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
             }
           >
             <svg
@@ -328,7 +328,7 @@ const MenuItems = ({ selected }) => {
             className={
               selected === "about"
                 ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
-                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:font-semibold focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
+                : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900  focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
             }
           >
             <svg
@@ -353,7 +353,7 @@ const MenuItems = ({ selected }) => {
           className={
             selected === "faqs"
               ? "shadow group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-900 bg-orange-50 focus:outline-none focus:bg-orange-50 transition ease-in-out duration-150"
-              : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900 hover:font-semibold focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
+              : "group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900  focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
           }
         >
           <svg
