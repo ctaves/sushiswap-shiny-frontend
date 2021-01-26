@@ -371,8 +371,13 @@ const Account = () => {
   const balances = [
     {
       title: "Harvestable",
-      sushi: sumEarning ? formattedNum(sumEarning, false) : <Loader />,
-      usd: sumEarning && priceUSD ? formattedNum(sumEarning * priceUSD, true) : <Loader />,
+      sushi: sumEarning || sumEarning === 0 ? formattedNum(sumEarning, false) : <Loader />,
+      usd:
+        (sumEarning && priceUSD) || (sumEarning === 0 && priceUSD) ? (
+          formattedNum(sumEarning * priceUSD, true)
+        ) : (
+          <Loader />
+        ),
       cta: <Button title="Harvest" onClick={onPresentHarvest} />,
     },
     {
@@ -389,13 +394,28 @@ const Account = () => {
     },
     {
       title: "Staked",
-      sushi: Number(sushiStaked) ? `${decimalFormatter.format(Number(sushiStaked))} SUSHI` : <Loader />,
+      sushi:
+        Number(sushiStaked) || Number(sushiStaked) === 0 ? (
+          `${decimalFormatter.format(Number(sushiStaked))} SUSHI`
+        ) : (
+          <Loader />
+        ),
       //sushi: barStaked ? `${decimalFormatter.format(barStaked)} SUSHI` : <Loader />,
-      xsushi: Number(xSushiFormatted) ? `(${Number(xSushiFormatted.toFixed(2)).toLocaleString()} xSUSHI)` : <Loader />,
+      xsushi:
+        Number(xSushiFormatted) || Number(xSushiFormatted) === 0 ? (
+          `(${Number(xSushiFormatted.toFixed(2)).toLocaleString()} xSUSHI)`
+        ) : (
+          <Loader />
+        ),
       //xsushi: xSushi ? `${Number(xSushi.toFixed(2)).toLocaleString()} xSUSHI` : <Loader />,
       //usd: `${currencyFormatter.format(barStakedUSD)}`, // incorrect for some reason
       //usd: barStaked && priceUSD ? `${currencyFormatter.format(barStaked * priceUSD)}` : <Loader />,
-      usd: Number(sushiStaked) && priceUSD ? `${currencyFormatter.format(Number(sushiStaked) * priceUSD)}` : <Loader />,
+      usd:
+        (Number(sushiStaked) && priceUSD) || (Number(sushiStaked) === 0 && priceUSD) ? (
+          `${currencyFormatter.format(Number(sushiStaked) * priceUSD)}`
+        ) : (
+          <Loader />
+        ),
       cta: <UnstakeSushi />,
     },
   ];
@@ -439,7 +459,10 @@ const Account = () => {
     <>
       <TableTotal
         totalBalanceUSD={
-          totalSushiBalance && sushiPrice && farmBalances && LPBalance ? (
+          (totalSushiBalance || totalSushiBalance === 0) &&
+          sushiPrice &&
+          farmBalances &&
+          (LPBalance || LPBalance === 0) ? (
             formattedNum(totalSushiBalance * sushiPrice + _.sumBy(farmBalances, "valueUSD") + LPBalance, true)
           ) : (
             <Loader />
@@ -450,9 +473,13 @@ const Account = () => {
       <TableSushi
         balances={balances ? balances : <Loader />}
         price={sushiPrice ? currencyFormatter.format(sushiPrice) : <Loader />}
-        totalSushiBalance={totalSushiBalance ? formattedNum(totalSushiBalance) : <Loader />}
+        totalSushiBalance={totalSushiBalance || totalSushiBalance === 0 ? formattedNum(totalSushiBalance) : <Loader />}
         totalSushiBalanceUSD={
-          totalSushiBalance && sushiPrice ? formattedNum(totalSushiBalance * sushiPrice, true) : <Loader />
+          (totalSushiBalance && sushiPrice) || (totalSushiBalance === 0 && sushiPrice) ? (
+            formattedNum(totalSushiBalance * sushiPrice, true)
+          ) : (
+            <Loader />
+          )
         }
       />
       <TableLP positions={positions} ethPrice={ethPrice} LPBalanceUSD={formattedNum(LPBalance, true)} />
