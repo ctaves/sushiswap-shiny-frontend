@@ -346,7 +346,7 @@ const FarmsPreviousPage = () => {
   return (
     <>
       <TitleTabs title={"Farms"} tabs={FarmTabs} selected={"previous"} withSearch />
-      <OnsenInfo />
+      {/* <OnsenInfo /> */}
       <TableFarms title={"Previous Farms"} group={"previous"} />
     </>
   );
