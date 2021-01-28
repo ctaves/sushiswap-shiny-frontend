@@ -125,7 +125,7 @@ const Card = ({ position }) => {
               </div>
             </div>
           </div>
-          <div className="mt-4 rounded-md bg-gray-50">
+          {/* <div className="mt-4 rounded-md bg-gray-50">
             <div className="p-2 flex flex justify-around">
               <div>
                 <Button title={"Harvest"} />
@@ -137,7 +137,7 @@ const Card = ({ position }) => {
                 <Button title={"Unstake"} />
               </div>
             </div>
-          </div>
+          </div> */}
         </a>
       </li>
     </>
