@@ -66,9 +66,10 @@ export const getEarned = async (masterChefContract, pid, account) => {
 };
 
 export const getEarnedWithProps = async (masterChefContract, farm, account) => {
-  const pending = await masterChefContract.methods.pendingSushi(farm.pid, account).call();
+  const pending = await masterChefContract.methods.pendingSushi(farm.id, account).call();
   return {
     ...farm,
+    pid: farm.id,
     pending: BigNumber(pending)
       .div(new BigNumber(10).pow(18))
       .toNumber(),

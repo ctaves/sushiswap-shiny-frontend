@@ -10,6 +10,8 @@ const useHarvest = (pid, name) => {
   const masterChefContract = getMasterChefContract(sushi);
   const addTransaction = useTransactionAdder();
 
+  console.log("pid:", pid);
+
   const handleReward = useCallback(async () => {
     await masterChefContract.methods
       .deposit(pid, "0")

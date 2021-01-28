@@ -13,7 +13,7 @@ import DoubleToken from "../../DoubleToken";
 import { Chevron } from "../../Loading";
 import { formattedNum } from "../../../services/vision/utils";
 
-//import sushiData from "@sushiswap/sushi-data";
+import sushiData from "@sushiswap/sushi-data";
 import _ from "lodash";
 
 //import { contractAddresses } from "../../../services/frontend/sushi/lib/constants";
@@ -26,12 +26,14 @@ const Harvest = () => {
   const [balances, setBalance] = useState(undefined);
   const { account } = useActiveWeb3React();
   const sushi = useSushi();
-  const farms = getFarms(sushi);
+  const farms_ = getFarms(sushi);
   const masterChefContract = getMasterChefContract(sushi);
   const block = useBlock();
 
   const fetchAllBalances = useCallback(async () => {
     // get balances for all farms
+    const farms = await sushiData.masterchef.pools();
+    console.log("farms___:", farms, farms_);
     const results = await Promise.all(farms.map((farm) => getEarnedWithProps(masterChefContract, farm, account)));
     //console.log("BALANCES_:", balances);
 
@@ -44,7 +46,7 @@ const Harvest = () => {
 
     // fetch pair details like token address, etc
     const lpTokens = _.map(hasBalance, function(farm) {
-      return farm.lpTokenAddress.toLowerCase();
+      return farm.pair.toLowerCase();
     });
     console.log("LPTOKENS_:", lpTokens);
     const chefAddress = "0xc2edad668740f1aa35e4d8f227fb8e17dca888cd";
@@ -57,7 +59,7 @@ const Harvest = () => {
 
     // combine details with farms
     const mergeDetails = _.map(hasBalance, function(farm) {
-      return _.merge(farm, _.find(details, { id: farm.lpTokenAddress.toLowerCase() }));
+      return _.merge(farm, _.find(details, { id: farm.pair.toLowerCase() }));
     });
     console.log("MERGED:", mergeDetails);
     setBalance(mergeDetails);
@@ -80,7 +82,7 @@ const Harvest = () => {
           {balances ? (
             balances.map((balance) => {
               //console.log("token:", state?.selectedLPToken.address, token?.address);
-              return <LPTokenItem key={balance.lpTokenAddress} balance={balance} />;
+              return <LPTokenItem key={balance.pair} balance={balance} />;
             })
           ) : (
             <CoinLoader size={"xs"} />
@@ -94,7 +96,8 @@ const Harvest = () => {
 const LPTokenItem = ({ balance, selected, onSelectToken }) => {
   const { account } = useActiveWeb3React();
   const [pendingTx, setPendingTx] = useState(false);
-  const { onReward } = useReward(balance.pid);
+
+  const { onReward } = useReward(balance.pid); // (pid, name)
   // console.log("TOKEN:", token, token.balance.toNumber(), selected);
   // const balance = formatBalance(token.balance, token.decimals, 6);
   // const onClick = useCallback(() => {

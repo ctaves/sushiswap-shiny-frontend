@@ -30,7 +30,7 @@ const Table = ({ positions, farmBalanceUSD }) => {
           <main className="flex-1 relative z-0 overflow-y-auto focus:outline-none" tabIndex={0}>
             <div className="block">
               <div className="align-middle inline-block min-w-full border-b border-gray-200">
-                <table className="hidden sm:block min-w-full table-fixed">
+                <table className="hidden sm:table min-w-full table-fixed">
                   <TableHead />
                   <tbody className="bg-white divide-y divide-gray-100">
                     {positions &&
@@ -146,17 +146,17 @@ const TableHead = () => {
     <>
       <thead>
         <tr>
-          <th className="w-1/5 px-6 py-3 border-b border-gray-200 bg-white text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+          <th className="w-2/5 px-6 py-3 border-b border-gray-200 bg-white text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
             <span className="lg:pl-2">Name</span>
           </th>
           <th className="w-1/5 table-cell px-6 py-3 border-b border-gray-200 bg-white text-right text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
             Balance
           </th>
-          <th className="w-1/5 table-cell px-6 py-3 border-b border-gray-200 bg-white text-right text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+          {/* <th className="w-1/5 table-cell px-6 py-3 border-b border-gray-200 bg-white text-right text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
             Rewards
-          </th>
+          </th> */}
           <th className="w-1/5 table-cell px-6 py-3 border-b border-gray-200 bg-white text-right text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-            P/L
+            Profit
           </th>
           <th className="w-1/5 pr-6 py-3 border-b border-gray-200 bg-white text-right text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider" />
         </tr>
@@ -195,9 +195,8 @@ const TableRow = ({ position }) => {
             </div>
             <div className="flex items-center space-x-3 lg:pl-2">
               {/* <div className="flex-shrink-0 w-2.5 h-2.5 rounded-full bg-pink-600" /> */}
-              <Link to={"/pair/"} className="truncate hover:text-gray-600">
-                <span>{position.name}</span>
-              </Link>
+              <span>{position.name}</span>
+              Harvest: {position.pendingSushi} ({position.pendingSushiUSD})
             </div>
           </div>
         </td>
@@ -210,20 +209,20 @@ const TableRow = ({ position }) => {
             {position.token1Balance} {position.token1Symbol}
           </div>
         </td>
-        <td className="table-cell px-6 py-3 whitespace-no-wrap text-sm leading-5 text-gray-500 text-right">
+        {/* <td className="table-cell px-6 py-3 whitespace-no-wrap text-sm leading-5 text-gray-500 text-right">
           <div className="text-gray-900">
-            Harvestable: {position.pendingSushi} ({position.pendingSushiUSD})
+            Harvest: {position.pendingSushi} ({position.pendingSushiUSD})
           </div>
           <div>
-            Rewarded: {position.harvestedSushi} ({position.harvestedSushiUSD})
+            Claimed: {position.harvestedSushi} ({position.harvestedSushiUSD})
           </div>
           <div>
             Locked: {decimalFormatter.format(position.lockedSushi)} ({formattedNum(position.lockedSushiUSD, true)})
           </div>
-        </td>
+        </td> */}
         <td className="table-cell px-6 py-3 whitespace-no-wrap text-sm leading-5 text-gray-500 text-right">
           <div className="text-gray-900">
-            Profit/Loss:{" "}
+            Profit:{" "}
             <span className={position.profitUSD > 0 ? "text-green-600" : "text-red-600"}>
               {formattedNum(position.profitUSD, true)}
             </span>

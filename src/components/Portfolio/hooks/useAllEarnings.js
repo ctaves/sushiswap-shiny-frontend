@@ -4,16 +4,19 @@ import { getEarned, getMasterChefContract, getFarms } from "../../../services/fr
 import useSushi from "../../../services/frontend/hooks/useSushi";
 import useBlock from "./useBlock";
 //import useBlock from "../../../services/frontend/hooks/useBlock";
+import sushiData from "@sushiswap/sushi-data";
 
 const useAllEarnings = () => {
   const [balances, setBalance] = useState([]);
   const { account } = useActiveWeb3React();
   const sushi = useSushi();
-  const farms = getFarms(sushi);
+  //const farms = getFarms(sushi);
   const masterChefContract = getMasterChefContract(sushi);
   const block = useBlock();
   const fetchAllBalances = useCallback(async () => {
-    const balances = await Promise.all(farms.map(({ pid }) => getEarned(masterChefContract, pid, account)));
+    const farms = await sushiData.masterchef.pools();
+    const balances = await Promise.all(farms.map(({ id }) => getEarned(masterChefContract, id, account)));
+    //const balances = await Promise.all(farms.map(({ pid }) => getEarned(masterChefContract, pid, account)));
     setBalance(balances);
   }, [account, masterChefContract, sushi]);
 

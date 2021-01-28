@@ -180,11 +180,12 @@ const Account = () => {
   for (let earning of allEarnings) {
     sumEarning += new BigNumber(earning).div(new BigNumber(10).pow(18)).toNumber();
   }
-  const [farms] = useFarms();
-  const allStakedValue = useAllStakedValue();
-  if (allStakedValue && allStakedValue.length) {
-    const sumWeth = farms.reduce((c, { id }, i) => c + (allStakedValue[i].totalWethValue.toNumber() || 0), 0);
-  }
+  //const [farms] = useFarms();
+  //console.log("farms_:", farms);
+  // const allStakedValue = useAllStakedValue();
+  // if (allStakedValue && allStakedValue.length) {
+  //   const sumWeth = farms.reduce((c, { id }, i) => c + (allStakedValue[i].totalWethValue.toNumber() || 0), 0);
+  // }
 
   // Initialize Analytics Queries -------------------------------------------//
 
@@ -457,33 +458,47 @@ const Account = () => {
 
   return (
     <>
-      <TableTotal
-        totalBalanceUSD={
-          (totalSushiBalance || totalSushiBalance === 0) &&
-          sushiPrice &&
-          farmBalances &&
-          (LPBalance || LPBalance === 0) ? (
-            formattedNum(totalSushiBalance * sushiPrice + _.sumBy(farmBalances, "valueUSD") + LPBalance, true)
-          ) : (
-            <Loader />
-          )
-        }
-        account={account}
-      />
-      <TableSushi
-        balances={balances ? balances : <Loader />}
-        price={sushiPrice ? currencyFormatter.format(sushiPrice) : <Loader />}
-        totalSushiBalance={totalSushiBalance || totalSushiBalance === 0 ? formattedNum(totalSushiBalance) : <Loader />}
-        totalSushiBalanceUSD={
-          (totalSushiBalance && sushiPrice) || (totalSushiBalance === 0 && sushiPrice) ? (
-            formattedNum(totalSushiBalance * sushiPrice, true)
-          ) : (
-            <Loader />
-          )
-        }
-      />
-      <TableLP positions={positions} ethPrice={ethPrice} LPBalanceUSD={formattedNum(LPBalance, true)} />
-      <TableFarms positions={farmBalances} farmBalanceUSD={formattedNum(_.sumBy(farmBalances, "valueUSD"), true)} />
+      <div className="grid grid-cols-12 gap-8 bg-gray-100">
+        <div className="col-span-4">
+          <div className="p-4 rounded-md "> Hello </div>
+        </div>
+        <div className="col-span-8">
+          <div className="p-4">
+            <TableTotal
+              totalBalanceUSD={
+                (totalSushiBalance || totalSushiBalance === 0) &&
+                sushiPrice &&
+                farmBalances &&
+                (LPBalance || LPBalance === 0) ? (
+                  formattedNum(totalSushiBalance * sushiPrice + _.sumBy(farmBalances, "valueUSD") + LPBalance, true)
+                ) : (
+                  <Loader />
+                )
+              }
+              account={account}
+            />
+            <TableSushi
+              balances={balances ? balances : <Loader />}
+              price={sushiPrice ? currencyFormatter.format(sushiPrice) : <Loader />}
+              totalSushiBalance={
+                totalSushiBalance || totalSushiBalance === 0 ? formattedNum(totalSushiBalance) : <Loader />
+              }
+              totalSushiBalanceUSD={
+                (totalSushiBalance && sushiPrice) || (totalSushiBalance === 0 && sushiPrice) ? (
+                  formattedNum(totalSushiBalance * sushiPrice, true)
+                ) : (
+                  <Loader />
+                )
+              }
+            />
+            <TableLP positions={positions} ethPrice={ethPrice} LPBalanceUSD={formattedNum(LPBalance, true)} />
+            <TableFarms
+              positions={farmBalances}
+              farmBalanceUSD={formattedNum(_.sumBy(farmBalances, "valueUSD"), true)}
+            />
+          </div>
+        </div>
+      </div>
     </>
   );
 };

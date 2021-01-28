@@ -8,6 +8,7 @@ import {
 } from "../../../services/frontend/sushi/utils";
 import useSushi from "../../../services/frontend/hooks/useSushi";
 import useBlock from "./useBlock";
+
 const useAllStakedValue = () => {
   const [balances, setBalance] = useState([]);
   const { account } = useActiveWeb3React();
