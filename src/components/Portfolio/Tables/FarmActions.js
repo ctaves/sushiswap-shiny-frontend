@@ -29,7 +29,7 @@ import AddLiquidityModal from "../../Portfolio/Modals/AddLiquidity";
 import RemoveLiquidityModal from "../../Portfolio/Modals/RemoveLiquidity";
 
 const Actions = ({ farm }) => {
-  console.log("farm:", farm);
+  //console.log("farm:", farm);
 
   const { account } = useActiveWeb3React();
   const { ethereum } = window;

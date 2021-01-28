@@ -6,6 +6,7 @@ import { formattedNum } from "../../../services/vision/utils";
 import { currencyFormatter, decimalFormatter } from "../../../services/analytics/core";
 
 import FarmActions from "./FarmActions";
+import { Loader } from "./Loader";
 
 import logoNotFound from "../../../assets/img/logoNotFound.png";
 import SushiLogo from "../../../assets/img/logo.png";
@@ -198,8 +199,16 @@ const TableRow = ({ position }) => {
             </div>
             <div className="flex items-center space-x-3 lg:pl-2">
               {/* <div className="flex-shrink-0 w-2.5 h-2.5 rounded-full bg-pink-600" /> */}
-              <span>{position.name}</span>
-              Harvest: {position.pendingSushi} ({position.pendingSushiUSD})
+              <div>
+                <div>{position.name ? position.name : <Loader />}</div>
+                <div>
+                  Harvest: {position.pendingSushi} ({position.pendingSushiUSD})
+                </div>
+                <div>
+                  Locked: {decimalFormatter.format(position.lockedSushi)} ({formattedNum(position.lockedSushiUSD, true)}
+                  )
+                </div>
+              </div>
             </div>
           </div>
         </td>

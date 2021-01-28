@@ -6,7 +6,7 @@ const RemoveLiquidity = ({ onDismiss, data }) => {
     <>
       <span className="hidden md:inline-block md:align-middle md:h-screen" />
       <div
-        className="px-6 py-4 w-full md:align-middle md:max-w-sm bg-white inline-block align-bottom bg-white rounded-md text-left overflow-hidden shadow-xl transform transition-all"
+        className="px-6 py-4 w-full md:align-middle md:max-w-md bg-white inline-block align-bottom bg-white rounded-md text-left overflow-hidden shadow-xl transform transition-all"
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-headline"

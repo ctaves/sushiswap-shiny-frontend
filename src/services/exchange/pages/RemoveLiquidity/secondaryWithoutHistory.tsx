@@ -474,7 +474,7 @@ export default function RemoveLiquidity({ currencyIdA, currencyIdB }) {
   return (
     <>
       <Wrapper>
-        {/* <TransactionConfirmationModal
+        <TransactionConfirmationModal
           isOpen={showConfirm}
           onDismiss={handleDismissConfirmation}
           attemptingTxn={attemptingTxn}
@@ -488,11 +488,11 @@ export default function RemoveLiquidity({ currencyIdA, currencyIdB }) {
             />
           )}
           pendingText={pendingText}
-        /> */}
+        />
         <AutoColumn gap="md">
           <LightCard>
             <AutoColumn gap="20px">
-              <RowBetween>
+              {/* <RowBetween>
                 <Text fontWeight={500}>Amount</Text>
                 <ClickableText
                   fontWeight={500}
@@ -502,7 +502,7 @@ export default function RemoveLiquidity({ currencyIdA, currencyIdB }) {
                 >
                   {showDetailed ? "Simple" : "Detailed"}
                 </ClickableText>
-              </RowBetween>
+              </RowBetween> */}
               <Row style={{ alignItems: "flex-end" }}>
                 <Text fontSize={72} fontWeight={500}>
                   {formattedAmounts[Field.LIQUIDITY_PERCENT]}%
