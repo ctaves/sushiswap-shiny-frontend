@@ -309,7 +309,12 @@ const Account = () => {
     const sushiAtLockup = lockupUser
       ? ((lockupUser.amount * lockupUser.pool.accSushiPerShare) / 1e12 - lockupUser.rewardDebt) / 1e18
       : 0;
-    const sushiLocked = (parseFloat(user.sushiHarvestedSinceLockup) + pendingSushi - sushiAtLockup) * 2;
+    // todo: pending sushi doesnt account for farms user has unstaked
+    // patch: use sumEarnings
+    // console.log("pendingSushi:", pendingSushi, sumEarning);
+    // const sushiLocked = (parseFloat(user.sushiHarvestedSinceLockup) + pendingSushi - sushiAtLockup) * 2;
+    const sushiLocked = (parseFloat(user.sushiHarvestedSinceLockup) + sumEarning - sushiAtLockup) * 2;
+
     const sushiLockedUSD = sushiLocked * sushiPrice;
 
     //console.log("USER:", user);
