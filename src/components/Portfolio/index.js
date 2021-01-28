@@ -388,7 +388,7 @@ const Account = () => {
     {
       title: "Locked (2/3)",
       sushi: farmBalances ? decimalFormatter.format(_.sumBy(farmBalances, "lockedSushi")) + " SUSHI" : <Loader />,
-      usd: farmBalances ? currencyFormatter.format(_.sumBy(farmBalances, "lockedSushiUSD")) : <Loader />,
+      usd: farmBalances && sushiPrice ? currencyFormatter.format(_.sumBy(farmBalances, "lockedSushiUSD")) : <Loader />,
       cta: <Button title="Learn more" onClick={onPresentLocked} />, //<Linker title="Learn more" to="https://docs.sushiswap.fi" external />,
     },
     {
