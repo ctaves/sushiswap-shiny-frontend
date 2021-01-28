@@ -4,6 +4,9 @@ import { Linker, Button } from "../../Linker";
 import { isAddress } from "../../../services/vision/utils/index.js";
 import { formattedNum } from "../../../services/vision/utils";
 import { currencyFormatter, decimalFormatter } from "../../../services/analytics/core";
+
+import FarmActions from "./FarmActions";
+
 import logoNotFound from "../../../assets/img/logoNotFound.png";
 import SushiLogo from "../../../assets/img/logo.png";
 
@@ -230,17 +233,7 @@ const TableRow = ({ position }) => {
           <div>Entries: {position.entriesUSD}</div>
           <div>Exits: {position.exitsUSD}</div>
         </td>
-        <td className="table-cell px-6 py-3 whitespace-no-wrap text-sm leading-5 text-gray-500 text-right">
-          <div>
-            <Button title={"Harvest"} />
-          </div>
-          <div>
-            <Button title={"Stake"} />
-          </div>
-          <div>
-            <Button title={"Unstake"} />
-          </div>
-        </td>
+        <FarmActions farm={position} />
         {/* <td className="table-cell px-6 py-3 whitespace-no-wrap text-sm leading-5 text-gray-900 text-right">
           <div>{position.sushi}</div>
           {position.xsushi ? <div>({position.xsushi})</div> : null}

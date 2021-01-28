@@ -316,10 +316,12 @@ const Account = () => {
     const sushiLocked = (parseFloat(user.sushiHarvestedSinceLockup) + sumEarning - sushiAtLockup) * 2;
     const sushiLockedUSD = sushiLocked * sushiPrice;
 
-    //console.log("USER:", user);
-    //console.log("PAIR:", pair);
+    console.log("USER:", user);
+    console.log("PAIR:", pair);
 
     farmBalances.push({
+      id: Number(user.pool.id),
+      pair: user.pool.pair,
       name: pair?.token0.symbol + "-" + pair?.token1.symbol,
       slp: decimalFormatter.format(slp),
       token0Address: pair?.token0.id,
