@@ -314,7 +314,6 @@ const Account = () => {
     // console.log("pendingSushi:", pendingSushi, sumEarning);
     // const sushiLocked = (parseFloat(user.sushiHarvestedSinceLockup) + pendingSushi - sushiAtLockup) * 2;
     const sushiLocked = (parseFloat(user.sushiHarvestedSinceLockup) + sumEarning - sushiAtLockup) * 2;
-
     const sushiLockedUSD = sushiLocked * sushiPrice;
 
     //console.log("USER:", user);
@@ -463,7 +462,34 @@ const Account = () => {
 
   return (
     <>
-      <div className="grid grid-cols-12 gap-8 bg-gray-100">
+      <TableTotal
+        totalBalanceUSD={
+          (totalSushiBalance || totalSushiBalance === 0) &&
+          sushiPrice &&
+          farmBalances &&
+          (LPBalance || LPBalance === 0) ? (
+            formattedNum(totalSushiBalance * sushiPrice + _.sumBy(farmBalances, "valueUSD") + LPBalance, true)
+          ) : (
+            <Loader />
+          )
+        }
+        account={account}
+      />
+      <TableSushi
+        balances={balances ? balances : <Loader />}
+        price={sushiPrice ? currencyFormatter.format(sushiPrice) : <Loader />}
+        totalSushiBalance={totalSushiBalance || totalSushiBalance === 0 ? formattedNum(totalSushiBalance) : <Loader />}
+        totalSushiBalanceUSD={
+          (totalSushiBalance && sushiPrice) || (totalSushiBalance === 0 && sushiPrice) ? (
+            formattedNum(totalSushiBalance * sushiPrice, true)
+          ) : (
+            <Loader />
+          )
+        }
+      />
+      <TableLP positions={positions} ethPrice={ethPrice} LPBalanceUSD={formattedNum(LPBalance, true)} />
+      <TableFarms positions={farmBalances} farmBalanceUSD={formattedNum(_.sumBy(farmBalances, "valueUSD"), true)} />
+      {/* <div className="grid grid-cols-12 gap-8 bg-gray-100">
         <div className="col-span-4">
           <div className="p-4 rounded-md "> Hello </div>
         </div>
@@ -503,7 +529,7 @@ const Account = () => {
             />
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
