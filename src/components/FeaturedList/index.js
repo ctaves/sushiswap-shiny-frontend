@@ -6,14 +6,14 @@ import { featured } from "../../constants/featured";
 const FeaturedList = () => {
   return (
     <>
-      <div className="pt-2 px-4 sm:pt-6 pb-1 flex justify-between">
-        <h3 className="text-lg leading-6 font-medium text-gray-900">Popular Lists</h3>
+      <div className="pt-2 mx-4 sm:pt-6 pb-1 flex justify-between">
+        <h3 className="text-xl leading-6 font-medium text-gray-900">Popular Lists</h3>
         <Linker to="/tokens">View More</Linker>
         {/* <p className="mt-1 max-w-2xl text-sm leading-5 text-gray-500">Personal details and application.</p> */}
       </div>
       <div className="py-5">
         <dl className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3">
-          <div className="col-span-2 sm:col-span-3 px-4">
+          <div className="col-span-2 sm:col-span-3 mx-4">
             {featured.map((token) => {
               return (
                 <>

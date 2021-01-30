@@ -42,7 +42,8 @@ import StakeSushi from "./StakeSushi";
 import UnstakeSushi from "./UnstakeSushi";
 
 import useTokenBalance from "./hooks/useTokenBalance";
-import useAllEarnings from "./hooks/useAllEarnings";
+//import useAllEarnings from "./hooks/useAllEarnings";
+import useAllEarningsAccount from "./hooks/useAllEarningsAccount";
 import useAllStakedValue from "./hooks/useAllStakedValue";
 import useTotalSushiStakedInBar from "./hooks/useTotalSushiStakedInBar";
 import useTotalXSushiSupply from "./hooks/useTotalXSushiSupply";
@@ -69,13 +70,14 @@ import useModal from "../../shared/hooks/useModal";
 import { Loader } from "./Tables/Loader";
 
 import _ from "lodash";
+import sushiData from "@sushiswap/sushi-data";
 
 const Account = () => {
   const { account } = useActiveWeb3React();
+  //const account = "0x8867eF1593F6A72DbbB941D4D96b746A4da691B2";
   const { ethereum } = window;
   //console.log("ethereum:", ethereum, account);
-  //const { account } = useActiveWeb3React();
-  const id = account;
+  //const id = account;
 
   // GET USER SNAPSHOTS
   const [snapshots, setSnapshots] = useState();
@@ -175,7 +177,7 @@ const Account = () => {
   // });
 
   // Get all pending Sushi from farms
-  const allEarnings = useAllEarnings();
+  const allEarnings = useAllEarningsAccount(account);
   let sumEarning = 0;
   for (let earning of allEarnings) {
     sumEarning += new BigNumber(earning).div(new BigNumber(10).pow(18)).toNumber();
@@ -194,7 +196,7 @@ const Account = () => {
   });
   const { data: barData } = useQuery(barUserQuery, {
     variables: {
-      id: id.toLowerCase(),
+      id: account.toLowerCase(),
     },
     context: {
       clientName: "bar",
@@ -202,7 +204,7 @@ const Account = () => {
   });
   const { data: poolData } = useQuery(poolUserQuery, {
     variables: {
-      address: id.toLowerCase(),
+      address: account.toLowerCase(),
     },
     context: {
       clientName: "masterchef",
@@ -210,7 +212,7 @@ const Account = () => {
   });
   const { data: lockupData } = useQuery(lockupUserQuery, {
     variables: {
-      address: id.toLowerCase(),
+      address: account.toLowerCase(),
     },
     context: {
       clientName: "lockup",
@@ -224,6 +226,8 @@ const Account = () => {
       id: "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2",
     },
   });
+
+  console.log("poolUsers:", poolData, lockupData);
 
   //console.log("token:", token);
   const { data: { pairs } = {} } = useQuery(pairsQuery);
@@ -295,8 +299,38 @@ const Account = () => {
   //console.log("ACCOUNTS:", account, id);
   //console.log("INVESTMENTS:", investments, farmingStaked, barPendingUSD, farmingPending);
 
-  let farmBalances = [];
+  // calculate total locked sushi
+  const totalSushiAtLockup = _.sum(
+    lockupData?.users?.map((lockupUser) => {
+      return ((lockupUser.amount * lockupUser.pool.accSushiPerShare) / 1e12 - lockupUser.rewardDebt) / 1e18;
+    })
+  );
+  // todo: ignores if position withdrawn
+  const totalSushiHarvestedSinceLockup = _.sum(
+    poolUsers?.map((user) => {
+      return parseFloat(user.sushiHarvestedSinceLockup);
+    })
+  );
+  const totalSushiLocked = (totalSushiHarvestedSinceLockup + sumEarning - totalSushiAtLockup) * 2;
+  const totalSushiLockedUSD = totalSushiLocked * sushiPrice;
 
+  useEffect(() => {
+    const query = async () => {
+      const user = await sushiData.lockup.user({ user_address: "0x8867eF1593F6A72DbbB941D4D96b746A4da691B2" });
+      console.log("lockupUser:", user);
+    };
+    query();
+  }, [account]);
+
+  console.log(
+    "totalSushiLocked:",
+    totalSushiLocked,
+    sumEarning,
+    _.sum(totalSushiAtLockup),
+    _.sum(totalSushiHarvestedSinceLockup)
+  );
+
+  let farmBalances = [];
   // causes no-used-expression warning, see eslint disabling at top of file
   poolUsers?.map((user) => {
     const pair = pairs?.find((pair) => pair?.id == user.pool.pair);
@@ -315,9 +349,6 @@ const Account = () => {
     // const sushiLocked = (parseFloat(user.sushiHarvestedSinceLockup) + pendingSushi - sushiAtLockup) * 2;
     const sushiLocked = (parseFloat(user.sushiHarvestedSinceLockup) + sumEarning - sushiAtLockup) * 2;
     const sushiLockedUSD = sushiLocked * sushiPrice;
-
-    console.log("USER:", user);
-    console.log("PAIR:", pair);
 
     farmBalances.push({
       id: Number(user.pool.id),

@@ -11,8 +11,8 @@ import { articles } from "../../constants/articles";
 const Articles = () => {
   return (
     <>
-      <div className="pt-4 pb-4 px-4 flex justify-between border-b border-gray-200">
-        <h3 className="text-lg leading-6 font-medium text-gray-900">New in SushiSwap</h3>
+      <div className="pt-4 pb-4 mx-4 flex justify-between border-b border-gray-200">
+        <h3 className="text-2xl leading-6 font-medium text-gray-900">News</h3>
         <Linker to="https://forum.sushiswapclassic.org/" external>
           View More
         </Linker>
@@ -40,35 +40,40 @@ const Article = ({ title, description, image, token, list }) => {
   //console.log("tokenData:", tokenData);
   return (
     <>
-      <div className="py-6 px-4 hover:bg-gray-100 border-b border-gray-100">
-        <div className="flex">
-          <div>
-            <h4 className="text-base font-bold">{title}</h4>
-            <p className="mt-1">{description}</p>
-          </div>
-          <div className="ml-4 flex-shrink-0">
-            {image && <img src={image} className="h-16 w-16 rounded" />}
-            {/* <svg
-            className="h-16 w-16 border border-gray-300 bg-white text-gray-300"
-            preserveAspectRatio="none"
-            stroke="currentColor"
-            fill="none"
-            viewBox="0 0 200 200"
-            aria-hidden="true"
-          >
-            <path vectorEffect="non-scaling-stroke" strokeWidth={1} d="M0 0l200 200M0 200L200 0" />
-          </svg> */}
+      <div className="hover:bg-gray-100">
+        <div className="pt-6 flex mx-4">
+          <div className="pr-4">
+            <h4 className="text-sm font-semibold">{title}</h4>
           </div>
         </div>
-        {tokenData && Object.keys(tokenData).length > 0 && (
-          <Link to={"/token/" + tokenData.id}>
-            <div className="flex mt-4">
-              <div className="font-semibold mr-2">{tokenData?.symbol}</div>
-              {/* <div> {formattedNum(tokenData.priceUSD, true)}</div> */}
-              <div> {formattedPercentArrow(tokenData?.priceChangeUSD)}</div>
-            </div>
-          </Link>
-        )}
+        <div className="pb-6 flex mx-4 border-b border-gray-100">
+          <div className="pr-4">
+            <p className="mt-1">{description}</p>
+            {tokenData && Object.keys(tokenData).length > 0 && (
+              <Link to={"/token/" + tokenData.id}>
+                <div className="flex mt-4">
+                  <div className="font-semibold mr-2">{tokenData?.symbol}</div>
+                  {/* <div> {formattedNum(tokenData.priceUSD, true)}</div> */}
+                  <div> {formattedPercentArrow(tokenData?.priceChangeUSD)}</div>
+                </div>
+              </Link>
+            )}
+          </div>
+          <div className="ml-4 flex items-start">
+            {image && (
+              <div
+                className="h-20 w-32 rounded bg-gray-300"
+                style={{
+                  backgroundImage: `url(${image})`,
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
+                }}
+              />
+            )}
+            {/* {image && <div src={image} className="h-16 w-16 rounded" />} */}
+          </div>
+        </div>
       </div>
     </>
   );

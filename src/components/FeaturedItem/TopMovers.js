@@ -63,10 +63,10 @@ function TokenList({ tokens, itemMax = 10 }) {
   return (
     <>
       <div className="pt-6 border-b border-gray-100">
-        <div className="px-4 flex justify-between">
+        <div className="mx-4 flex justify-between">
           <div>
-            <h3 className="text-lg leading-6 font-medium text-gray-900">Top Movers</h3>
-            <p className="text-sm font-medium text-gray-400">Tokens making moves today</p>
+            <h3 className="text-xl leading-6 font-medium text-gray-900">Top Movers</h3>
+            <p className="mt-1 text-sm font-medium text-gray-400">Tokens making moves today</p>
           </div>
           <Linker to="/tokens">View all tokens</Linker>
           {/* <p className="mt-1 max-w-2xl text-sm leading-5 text-gray-500">Personal details and application.</p> */}

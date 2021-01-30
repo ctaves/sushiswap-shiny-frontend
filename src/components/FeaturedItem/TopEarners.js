@@ -78,11 +78,11 @@ function PairList({ pairs, itemMax = 10 }) {
   return (
     <>
       <div className="pt-6">
-        <div className="px-4 flex justify-between">
+        <div className="mx-4 flex justify-between">
           <div>
-            <h3 className="text-lg leading-6 font-medium text-gray-900">Top Earners</h3>
-            <p className="text-sm font-medium text-gray-400">Pairs with the highest APY</p>
-            <p className="text-sm font-medium text-gray-400">(24hr volume annualized)</p>
+            <h3 className="text-xl leading-6 font-medium text-gray-900">Top Earners</h3>
+            <p className="mt-1 text-sm font-medium text-gray-400">Pairs with the highest APY today</p>
+            {/* <p className="text-sm font-medium text-gray-400">(24hr volume annualized)</p> */}
           </div>
           <Linker to="/pairs">View all pairs</Linker>
           {/* <p className="mt-1 max-w-2xl text-sm leading-5 text-gray-500">Personal details and application.</p> */}

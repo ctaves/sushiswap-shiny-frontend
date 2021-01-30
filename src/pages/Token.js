@@ -31,6 +31,7 @@ const Token = ({ address, history }) => {
     txnChange,
   } = useTokenData(address);
   // all transactions with this token
+  console.log("address:", address);
   const transactions = useTokenTransactions(address);
   const backgroundColor = useColor(id, symbol);
   // price
