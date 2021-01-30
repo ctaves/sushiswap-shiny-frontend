@@ -38,7 +38,7 @@ export const BAC = new Token(ChainId.MAINNET, "0x3449FC1Cd036255BA1EB19d65fF4BA2
 export const FXS = new Token(ChainId.MAINNET, "0x3432B6A60D23Ca0dFCa7761B7ab56459D9C964D0", 18, "FXS", "Frax Share");
 export const CRV = new Token(
   ChainId.MAINNET,
-  "0xd533a949740bb3306d119cc777fa900ba034cd52",
+  "0xD533a949740bb3306d119CC777fa900bA034cd52",
   18,
   "CRV",
   "Curve Dao Token"
