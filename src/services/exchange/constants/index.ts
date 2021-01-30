@@ -36,6 +36,13 @@ export const YFI = new Token(ChainId.MAINNET, "0x0bc529c00c6401aef6d220be8c6ea16
 export const CREAM = new Token(ChainId.MAINNET, "0x2ba592f78db6436527729929aaf6c908497cb200", 18, "CREAM", "Cream");
 export const BAC = new Token(ChainId.MAINNET, "0x3449fc1cd036255ba1eb19d65ff4ba2b8903a69a", 18, "BAC", "Basis Cash");
 export const FXS = new Token(ChainId.MAINNET, "0x3432b6a60d23ca0dfca7761b7ab56459d9c964d0", 18, "FXS", "Frax Share");
+export const CRV = new Token(
+  ChainId.MAINNET,
+  "0xd533a949740bb3306d119cc777fa900ba034cd52",
+  18,
+  "CRV",
+  "Curve Dao Token"
+);
 
 const WETH_ONLY: ChainTokenList = {
   [ChainId.MAINNET]: [WETH[ChainId.MAINNET]],
@@ -52,7 +59,7 @@ const WETH_ONLY: ChainTokenList = {
 // }
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT, SUSHI, YAM, WBTC, RUNE, CREAM, BAC, FXS],
+  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT, SUSHI, YAM, WBTC, RUNE, CREAM, BAC, FXS, CRV],
 };
 
 /**
