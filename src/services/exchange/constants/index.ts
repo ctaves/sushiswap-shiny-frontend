@@ -31,11 +31,11 @@ export const SUSHI = new Token(
   "SushiToken"
 );
 export const YAM = new Token(ChainId.MAINNET, "0x0e2298E3B3390e3b945a5456fBf59eCc3f55DA16", 18, "YAM", "YAM");
-export const RUNE = new Token(ChainId.MAINNET, "0x3155ba85d5f96b2d030a4966af206230e46849cb", 18, "RUNE", "RUNE.ETH");
-export const YFI = new Token(ChainId.MAINNET, "0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e", 18, "YFI", "Yearn");
-export const CREAM = new Token(ChainId.MAINNET, "0x2ba592f78db6436527729929aaf6c908497cb200", 18, "CREAM", "Cream");
-export const BAC = new Token(ChainId.MAINNET, "0x3449fc1cd036255ba1eb19d65ff4ba2b8903a69a", 18, "BAC", "Basis Cash");
-export const FXS = new Token(ChainId.MAINNET, "0x3432b6a60d23ca0dfca7761b7ab56459d9c964d0", 18, "FXS", "Frax Share");
+export const RUNE = new Token(ChainId.MAINNET, "0x3155BA85D5F96b2d030a4966AF206230e46849cb", 18, "RUNE", "RUNE.ETH");
+export const YFI = new Token(ChainId.MAINNET, "0x0bc529c00C6401aEF6D220BE8C6Ea1667F6Ad93e", 18, "YFI", "Yearn");
+export const CREAM = new Token(ChainId.MAINNET, "0x2ba592F78dB6436527729929AAf6c908497cB200", 18, "CREAM", "Cream");
+export const BAC = new Token(ChainId.MAINNET, "0x3449FC1Cd036255BA1EB19d65fF4BA2b8903A69a", 18, "BAC", "Basis Cash");
+export const FXS = new Token(ChainId.MAINNET, "0x3432B6A60D23Ca0dFCa7761B7ab56459D9C964D0", 18, "FXS", "Frax Share");
 export const CRV = new Token(
   ChainId.MAINNET,
   "0xd533a949740bb3306d119cc777fa900ba034cd52",

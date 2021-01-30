@@ -91,6 +91,8 @@ const Token = ({ pairAddress, history }) => {
   //const txnChangeFormatted = formattedPercent(txnChange);
   //console.log("TXNCHANGE", oneDayTxns, txnChangeFormatted);
 
+  console.log("pair_diagnosis:", token0, token1);
+
   return (
     <>
       <div className="md:flex">

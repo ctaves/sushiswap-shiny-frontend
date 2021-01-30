@@ -82,9 +82,6 @@ import PoolWrapper from "./pages/Pool";
 import { ContextProvider as LiteProvider } from "./services/lite/context";
 
 const App = () => {
-  //const globalData = useGlobalData();
-  //const globalChartData = useGlobalChartData();
-  //const latestBlock = useLatestBlock();
   return (
     <>
       <Router>
