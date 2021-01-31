@@ -52,14 +52,8 @@ const CandleStickChart = ({
       time: dayjs().unix(),
       open: parseFloat(formattedData[formattedData.length - 1].close),
       close: parseFloat(base),
-      low: Math.min(
-        parseFloat(base),
-        parseFloat(formattedData[formattedData.length - 1].close)
-      ),
-      high: Math.max(
-        parseFloat(base),
-        parseFloat(formattedData[formattedData.length - 1].close)
-      ),
+      low: Math.min(parseFloat(base), parseFloat(formattedData[formattedData.length - 1].close)),
+      high: Math.max(parseFloat(base), parseFloat(formattedData[formattedData.length - 1].close)),
     });
   }
 
@@ -150,9 +144,7 @@ const CandleStickChart = ({
       // get the title of the chart
       function setLastBarText() {
         toolTip.innerHTML = base
-          ? `<div style="font-size: 22px; margin: 4px 0px; color: ${textColor}">` +
-            valueFormatter(base) +
-            "</div>"
+          ? `<div style="font-size: 22px; margin: 4px 0px; color: ${textColor}">` + valueFormatter(base) + "</div>"
           : "";
       }
       setLastBarText();
@@ -186,16 +178,7 @@ const CandleStickChart = ({
 
       setChartCreated(chart);
     }
-  }, [
-    chartCreated,
-    formattedData,
-    width,
-    height,
-    valueFormatter,
-    base,
-    margin,
-    textColor,
-  ]);
+  }, [chartCreated, formattedData, width, height, valueFormatter, base, margin, textColor]);
 
   // responsiveness
   useEffect(() => {

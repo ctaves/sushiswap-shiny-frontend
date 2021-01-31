@@ -12,7 +12,7 @@ const Articles = () => {
   return (
     <>
       <div className="pt-4 pb-4 mx-4 flex justify-between border-b border-gray-200">
-        <h3 className="text-2xl leading-6 font-medium text-gray-900">News</h3>
+        <h3 className="text-xl leading-6 font-medium text-gray-900">Announcements</h3>
         <Linker to="https://forum.sushiswapclassic.org/" external>
           View More
         </Linker>
@@ -22,7 +22,7 @@ const Articles = () => {
         return (
           <>
             <Article
-              key={"article_" + article.title}
+              key={article.key}
               title={article.title}
               description={article.description}
               image={article.image}
@@ -40,13 +40,14 @@ const Article = ({ title, description, image, token, list }) => {
   //console.log("tokenData:", tokenData);
   return (
     <>
-      <div className="hover:bg-gray-100">
+      {/* <div className="hover:bg-gray-100"> */}
+      <div className="">
         <div className="pt-6 flex mx-4">
           <div className="pr-4">
             <h4 className="text-sm font-semibold">{title}</h4>
           </div>
         </div>
-        <div className="pb-6 flex mx-4 border-b border-gray-100">
+        <div className="pt-2 pb-6 flex mx-4 border-b border-gray-100">
           <div className="pr-4">
             <p className="mt-1">{description}</p>
             {tokenData && Object.keys(tokenData).length > 0 && (
@@ -62,7 +63,7 @@ const Article = ({ title, description, image, token, list }) => {
           <div className="ml-4 flex items-start">
             {image && (
               <div
-                className="h-20 w-32 rounded bg-gray-300"
+                className="rounded bg-gray-300 mt-2 sm:mt-0 w-20 sm:w-32 h-20"
                 style={{
                   backgroundImage: `url(${image})`,
                   backgroundPosition: "center",

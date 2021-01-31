@@ -81,7 +81,7 @@ export const DashboardContainer = ({ children }) => {
           <Sidebar />
           <div className="sushi-flex sushi-flex-col sushi-w-0 sushi-flex-1 sushi-overflow-hidden">
             <main
-              className="overflow-x-hidden lg:mr-4 lg:p-4 bg-white rounded-b-none lg:rounded-lg sushi-flex-1 sushi-relative sushi-z-0 sushi-overflow-y-auto focus:sushi-outline-none"
+              className="overflow-x-hidden lg:p-4 bg-white rounded-b-none lg:rounded-lg sushi-flex-1 sushi-relative sushi-z-0 sushi-overflow-y-auto focus:sushi-outline-none"
               tabIndex={0}
               style={{
                 borderBottomRightRadius: 0,
@@ -200,31 +200,40 @@ const OverviewPage = () => {
           <div className="sm:mt-2 lg:mt-6 py-2 pl-2 bg-gray-100 sm:rounded-md">
             <GlobalStats />
           </div>
-          <div className="px-2 py-4 block sm:hidden">
+          <div className="px-2 py-4 block md:hidden">
             <MainSearch />
           </div>
-          <div className="hidden sm:block grid grid-cols-1 h-80 ml-4 sm:m-0 pt-4">
-            {/* <LazyComponent component={<AlbumCards />} fallback={<AlbumCardsLoading />} /> */}
-            <div className="col-span-1 flex overflow-x-auto">
+          {/* <div className="hidden sm:block grid grid-cols-1 h-80 ml-4 sm:m-0 pt-4"> */}
+          {/* <LazyComponent component={<AlbumCards />} fallback={<AlbumCardsLoading />} /> */}
+          {/* <div className="col-span-1 flex overflow-x-auto">
               <CardLiquidity />
               <CardVolume />
               <CardOnsen />
-              {/* <CardBentoBox />
-              <CardBentoBox />
-              <CardBentoBox /> */}
-            </div>
-          </div>
-          <div className="pt-4 grid gap-0 mx-auto lg:grid-cols-5 lg:max-w-none">
+            </div> */}
+          {/* </div> */}
+          <div className="grid gap-0 mx-auto lg:grid-cols-5 lg:max-w-none">
             <div className="pt-4 pb-8 lg:pb-20 lg:col-span-3 overflow-x-hidden lg:overflow-visible">
               <div className="lg:mr-4">
-                <FeaturedItem />
-              </div>
-            </div>
-            <div className="hidden pt-6 2xl:px-16 lg:block lg:col-span-2">
-              <div className="lg:sticky top-0">
-                <div className="hidden lg:block bg-gray-100">
+                <div className="flex mb-8 px-2 md:px-0">
+                  <CardLiquidity />
+                  <CardVolume />
+                </div>
+                <div className="hidden md:block">
                   <MainSearch />
                 </div>
+                <div className="pt-4">
+                  <FeaturedItem />
+                </div>
+              </div>
+            </div>
+            <div className="hidden 2xl:px-16 lg:block lg:col-span-2">
+              <div className="pt-4">
+                <CardOnsen />
+              </div>
+              <div className="lg:sticky pt-4 top-0">
+                {/* <div className="hidden lg:block bg-gray-100">
+                  <MainSearch />
+                </div> */}
                 <div className="pt-4">
                   <CardTokenActions initialSection={"swap"} />
                 </div>

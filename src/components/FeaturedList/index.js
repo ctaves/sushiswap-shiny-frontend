@@ -35,7 +35,7 @@ const List = ({ title, image, path }) => {
         <Link to={path} className="flex-shrink-0 group block">
           <div className="flex items-center">
             <div>
-              <img className="inline-block h-9 w-9 rounded-full" src={image} alt="" />
+              <img className="inline-block h-7 w-7 rounded-full" src={image} alt="" />
             </div>
             <div className="ml-3">
               <p className="text-sm leading-5 font-medium text-gray-700 group-hover:text-gray-900">{title}</p>

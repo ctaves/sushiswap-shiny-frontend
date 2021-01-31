@@ -159,7 +159,7 @@ const Token = ({ pairAddress, history }) => {
                       />
                     </>
                   ) : (
-                    ""
+                    <div className="rounded-sm border border-gray h-80"></div>
                   )}
                 </div>
               </div>

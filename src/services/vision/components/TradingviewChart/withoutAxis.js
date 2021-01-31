@@ -21,7 +21,7 @@ const Wrapper = styled.div`
 `;
 
 // constant height for charts
-const HEIGHT = 287; //300;
+const HEIGHT = 155; //287; //300;
 
 const TradingViewChart = ({
   type = CHART_TYPES.BAR,

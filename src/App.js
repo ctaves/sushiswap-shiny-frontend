@@ -5,7 +5,7 @@ import Dashboard from "./sections/Dashboard";
 import Midnight from "./sections/Midnight";
 import Trader from "./sections/Trader";
 import Beginner from "./pages/Beginner";
-import NobleFisherman from "./sections/NobleFisherman";
+import Explore from "./sections/Explore";
 
 import ModalsProvider from "./shared/contexts/ModalsContext";
 
@@ -96,7 +96,7 @@ const App = () => {
             <Route exact path="/" component={Dashboard} />
             <Route exact path="/home" component={Dashboard} />
             <Route exact path="/experimental/beginner" component={Beginner} />
-            <Route exact path="/experimental/fisherman" component={NobleFisherman} />
+            <Route exact path="/experimental/explore" component={Explore} />
             {/* Experimental Routes */}
             <Route exact path="/experimental/midnight" component={Midnight} />
             <Route exact path="/experimental/trader" component={Trader} />

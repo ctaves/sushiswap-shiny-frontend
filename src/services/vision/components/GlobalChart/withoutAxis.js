@@ -85,7 +85,8 @@ const GlobalChart = ({ display }) => {
       )} */}
 
       {chartDataFiltered && chartView === CHART_VIEW.LIQUIDITY && totalLiquidityUSD && (
-        <ResponsiveContainer aspect={60 / 28} ref={ref}>
+        // <ResponsiveContainer aspect={60 / 28} ref={ref}>
+        <ResponsiveContainer aspect={50 / 20} ref={ref}>
           <TradingViewChart
             data={dailyData}
             base={totalLiquidityUSD}
@@ -98,7 +99,8 @@ const GlobalChart = ({ display }) => {
         </ResponsiveContainer>
       )}
       {chartDataFiltered && chartView === CHART_VIEW.VOLUME && (oneWeekVolume || oneDayVolumeUSD) && (
-        <ResponsiveContainer aspect={60 / 28}>
+        // <ResponsiveContainer aspect={60 / 28}>
+        <ResponsiveContainer aspect={20 / 50}>
           <TradingViewChart
             data={chartDataFiltered}
             base={volumeWindow === VOLUME_WINDOW.WEEKLY ? oneWeekVolume : oneDayVolumeUSD}

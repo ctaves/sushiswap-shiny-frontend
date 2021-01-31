@@ -61,7 +61,7 @@ const Tabs = ({ selected, setSelected }) => {
 const TokenActionsCard = ({ initialSection, title, currencyIdA, currencyIdB }) => {
   const [section, setSection] = useState(initialSection);
   return (
-    <div className="mb-4 shadow-2xl sushi-flex sushi-flex-col sushi-rounded-lg sushi-border sushi-border-gray-200 sushi-overflow-hidden">
+    <div className="mb-4 border-2 border-gray-900 sushi-flex sushi-flex-col sushi-rounded-lg sushi-overflow-hidden">
       <div className="sushi-flex-1 sushi-bg-white sushi-p-6 sushi-flex sushi-flex-col sushi-justify-between">
         <div className="sushi-relative sushi-border-b sushi-border-gray-200 sushi-space-y-4 sushi-pb-0">
           {title ? (

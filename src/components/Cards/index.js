@@ -16,12 +16,12 @@ import _ from "lodash";
 export const CardLiquidity = () => {
   return (
     <>
-      <div className="w-1/2 md:w-1/3 h-80 overflow-hidden mr-4 justify-between shadow-md border-2 border-blue-brand-light rounded-md">
+      <div className="w-3/4 md:w-1/2 h-48 overflow-hidden mr-4 justify-between shadow-md border-2 border-blue-brand-light rounded-md">
         <div>
           <div className="text-lg font-base pt-8 px-4">Liquidity</div>
         </div>
         <div className="-mb-6 relative">
-          <div className="absolute w-full">
+          <div className="w-full">
             <SushiGlobalChart display="liquidity" />
           </div>
         </div>
@@ -33,7 +33,7 @@ export const CardLiquidity = () => {
 export const CardVolume = () => {
   return (
     <>
-      <div className="w-1/2 md:w-1/3 h-80 overflow-hidden mr-4 justify-between shadow-md border-2 border-pink-brand rounded-md">
+      <div className="w-3/4 md:w-1/2 h-48 overflow-hidden mr-4 justify-between shadow-md border-2 border-pink-brand rounded-md">
         <div>
           <div className="text-lg font-base pt-8 px-4">Volume</div>
         </div>
@@ -60,7 +60,7 @@ export const CardOnsen = () => {
       try {
         const data = await getFarms(client, "onsen");
         //console.log("getFarms:", data);
-        setFarms(_.orderBy(data, ["roiPerYear"], ["desc"]).slice(0, 5));
+        setFarms(_.orderBy(data, ["roiPerYear"], ["desc"]).slice(0, 3));
       } catch (e) {
         //console.log("getFarms error:", e);
         setIsError(true);
@@ -74,10 +74,15 @@ export const CardOnsen = () => {
 
   return (
     <>
-      <div className=" w-1/2 md:w-1/3 h-80 flex flex-col justify-between shadow border-2 border-gray-900 hover:bg-gray-100 rounded-md p-4">
+      <div
+        className=" w-1/2 md:w-full h-48 flex flex-col justify-between shadow border-2 rounded-md p-4"
+        style={{ border: "2px solid #3e3e7c" }}
+      >
         <div className="pt-4 px-2">
-          <p className="text-lg font-base">Onsen</p>
-          <p className="text-2xl font-normal pt-2.5">{menus.onsen.length} Farms</p>
+          <p className="text-lg font-base">
+            Onsen <Linker to={"/onsen"}>({menus.onsen.length} Farms)</Linker>
+          </p>
+          {/* <p className="text-2xl font-normal pt-2.5">{menus.onsen.length} Farms</p> */}
           <p className="text-base font-normal font-gray-300 pt-4">Highest Yields:</p>
           <div className="pt-4 space-y-1">
             {farms &&

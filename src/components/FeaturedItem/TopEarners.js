@@ -114,7 +114,7 @@ const PairCard = ({ id, token0, token1, apy }) => {
   const below600 = useMedia("(max-width: 600px)");
   return (
     <Link to={"/pair/" + id}>
-      <div className="w-32 h-44 mr-4 flex flex-col justify-between border border-gray-300 hover:bg-gray-100 rounded-md p-4">
+      <div className="w-40 h-44 mr-4 flex flex-col justify-between border border-gray-300 hover:bg-gray-100 rounded-md p-4">
         <div>
           <div className="text-sm font-semibold">
             <FormattedName
