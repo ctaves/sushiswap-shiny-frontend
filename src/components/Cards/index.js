@@ -11,6 +11,8 @@ import { menus, FARM_DETAILS } from "../../constants/farms";
 import { getFarms } from "../Farms/getFarms";
 import { getApollo } from "../../services/analytics/core/apollo";
 
+import { Spinner } from "../Loading";
+
 import _ from "lodash";
 
 export const CardLiquidity = () => {
@@ -85,8 +87,7 @@ export const CardOnsen = () => {
           {/* <p className="text-2xl font-normal pt-2.5">{menus.onsen.length} Farms</p> */}
           <p className="text-base font-normal font-gray-300 pt-4">Highest Yields:</p>
           <div className="pt-4 space-y-1">
-            {farms &&
-              farms.length > 0 &&
+            {farms && farms.length > 0 ? (
               farms.map((farm) => {
                 console.log("farm:", farm);
                 return (
@@ -99,7 +100,10 @@ export const CardOnsen = () => {
                     </div>
                   </>
                 );
-              })}
+              })
+            ) : (
+              <Spinner />
+            )}
           </div>
         </div>
       </div>

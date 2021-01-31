@@ -1,5 +1,51 @@
 import React from "react";
 import Loader from "../../services/exchange/components/Loader";
+import "./styles.css";
+
+export const Spinner = () => {
+  return (
+    <>
+      <div className="loader w-10 h-10 rounded-full">
+        <div className="prong">
+          <div className="inner" />
+        </div>
+        <div className="prong">
+          <div className="inner" />
+        </div>
+        <div className="prong">
+          <div className="inner" />
+        </div>
+        <div className="prong">
+          <div className="inner" />
+        </div>
+        <div className="prong">
+          <div className="inner" />
+        </div>
+        <div className="prong">
+          <div className="inner" />
+        </div>
+        <div className="prong">
+          <div className="inner" />
+        </div>
+        <div className="prong">
+          <div className="inner" />
+        </div>
+        <div className="prong">
+          <div className="inner" />
+        </div>
+        <div className="prong">
+          <div className="inner" />
+        </div>
+        <div className="prong">
+          <div className="inner" />
+        </div>
+        <div className="prong">
+          <div className="inner" />
+        </div>
+      </div>
+    </>
+  );
+};
 
 export const Loading = () => {
   return (
