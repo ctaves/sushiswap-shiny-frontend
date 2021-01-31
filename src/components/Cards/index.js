@@ -76,7 +76,7 @@ export const CardOnsen = () => {
     <>
       <div
         className=" w-1/2 md:w-full h-48 flex flex-col justify-between shadow border-2 rounded-md p-4"
-        style={{ border: "2px solid #3e3e7c" }}
+        style={{ border: "2px solid #0091a7" }}
       >
         <div className="pt-4 px-2">
           <p className="text-lg font-base">
