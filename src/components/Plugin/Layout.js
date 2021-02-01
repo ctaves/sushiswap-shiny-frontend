@@ -10,7 +10,7 @@ import Stakes from "./Stakes";
 const TokenActionsCard = ({ initialSection, title, symbol, currencyIdA, currencyIdB, showWallets }) => {
   const [section, setSection] = useState(initialSection);
   return (
-    <div className="border border-gray-200 shadow-2xl sushi-flex sushi-flex-col sushi-rounded-lg sushi-overflow-hidden">
+    <div className="border-2 border-gray-900 sushi-flex sushi-flex-col sushi-rounded-lg sushi-overflow-hidden">
       <div className="sushi-flex-1 sushi-bg-white sushi-p-6 sushi-flex sushi-flex-col sushi-justify-between">
         <div className="sushi-relative sushi-border-b sushi-border-gray-200 sushi-space-y-4 sushi-pb-0">
           {/* <div className="sushi-space-y-3 sushi-flex sushi-items-center sushi-justify-between sushi-space-y-0">
@@ -35,11 +35,11 @@ const TokenActionsCard = ({ initialSection, title, symbol, currencyIdA, currency
                 <ClassicRemove currencyIdA={currencyIdA} currencyIdB={currencyIdB} />
               </div>
             ),
-            stake: (
-              <div className="sushi-flex-1">
-                <Stakes symbol={symbol} setSelected={setSection} showWallets={showWallets} />
-              </div>
-            ),
+            // stake: (
+            //   <div className="sushi-flex-1">
+            //     <Stakes symbol={symbol} setSelected={setSection} showWallets={showWallets} />
+            //   </div>
+            // ),
           }[section]
         }
       </div>

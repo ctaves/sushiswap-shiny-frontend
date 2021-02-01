@@ -1,6 +1,16 @@
 import React from "react";
-import Loader from "../../services/exchange/components/Loader";
+//import Loader from "../../services/exchange/components/Loader";
 import "./styles.css";
+
+export const Loader = ({ height, width }) => {
+  return (
+    <>
+      <span className="animate-pulse flex align-middle">
+        <div className={`inline-block h-${height ? height : "3"} w-${width ? width : "12"} bg-gray-200 rounded`} />
+      </span>
+    </>
+  );
+};
 
 export const Spinner = ({ height, position }) => {
   return (
@@ -9,7 +19,7 @@ export const Spinner = ({ height, position }) => {
         className={
           `flex justify-${position === "center" || !position ? "center" : "end"} 
            items-center align-middle w-${position === "center" || !position ? "full" : "auto"} ` +
-          (height && `h-${height}`)
+          (height ? `h-${height}` : "")
         }
       >
         <div className="loader">
@@ -58,7 +68,7 @@ export const Chevron = ({ loading }) => {
     <>
       <span className="ml-2">
         {loading && loading === true ? (
-          <Loader />
+          <Spinner />
         ) : (
           <svg
             className="w-6 h-6"
@@ -74,5 +84,3 @@ export const Chevron = ({ loading }) => {
     </>
   );
 };
-
-export default Loading;

@@ -15,6 +15,8 @@ import { useEthPrice } from "../services/vision/contexts/GlobalData";
 import CoinLoader from "../components/CoinLoader";
 import logoNotFound from "../assets/img/logoNotFound.png";
 
+import { Loader, Spinner } from "../components/Loading";
+
 const Token = ({ pairAddress, history }) => {
   //const mobileMenu = useMenu();
   const {
@@ -99,7 +101,7 @@ const Token = ({ pairAddress, history }) => {
         <div className="relative w-full mx-auto sm:px-6 lg:px-6">
           <div className="grid gap-2 mx-auto lg:grid-cols-5 lg:max-w-none">
             <div className="lg:col-span-3">
-              {token0 && token1 && (
+              {token0 && token1 ? (
                 <PairPageTitle
                   name={token0.symbol + "-" + token1.symbol + " Pair"}
                   price={token0USD}
@@ -110,6 +112,8 @@ const Token = ({ pairAddress, history }) => {
                   id={token0.id}
                   id2={token1.id}
                 />
+              ) : (
+                <PairPageTitleLoading />
               )}
               <div className="py-2 px-4">
                 <PairChart
@@ -119,7 +123,7 @@ const Token = ({ pairAddress, history }) => {
                   base1={reserve0 / reserve1}
                 />
               </div>
-              {token0 && token1 && (
+              {token0 && token1 ? (
                 <Details
                   token0={token0}
                   token1={token1}
@@ -140,6 +144,8 @@ const Token = ({ pairAddress, history }) => {
                   fees={fees}
                   feesChange={volumeChange}
                 />
+              ) : (
+                <DetailsLoading />
               )}
             </div>
             <div className="pt-6 lg:col-span-2">
@@ -159,7 +165,9 @@ const Token = ({ pairAddress, history }) => {
                       />
                     </>
                   ) : (
-                    <div className="rounded-sm border border-gray h-80"></div>
+                    <div className="rounded-lg border-2 border-gray-900 h-80">
+                      <Spinner height={"full"} />
+                    </div>
                   )}
                 </div>
               </div>
@@ -182,6 +190,59 @@ const Token = ({ pairAddress, history }) => {
       ) : (
         <CoinLoader size={"sm"} />
       )}
+    </>
+  );
+};
+
+const PairPageTitleLoading = () => {
+  const history = useHistory();
+  return (
+    <>
+      <div className="py-6 px-8">
+        <div>
+          <nav className="sm:hidden">
+            <button
+              onClick={() => {
+                history.goBack();
+              }}
+              className="flex items-center text-sm leading-5 font-medium text-gray-500 hover:text-gray-700 transition duration-150 ease-in-out"
+            >
+              <svg className="flex-shrink-0 -ml-1 mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                <path
+                  fillRule="evenodd"
+                  d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              Back
+            </button>
+          </nav>
+          <nav className="hidden sm:flex items-center text-sm leading-5 font-medium">
+            <Link to="/pairs" className="text-gray-500 hover:text-gray-700 transition duration-150 ease-in-out">
+              Pairs
+            </Link>
+            <svg className="flex-shrink-0 mx-2 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+              <path
+                fillRule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <Loader />
+          </nav>
+        </div>
+        <div className="mt-2 md:flex md:items-center md:justify-between">
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center leading-8">
+              <div className="mr-4 flex items-center flex-shrink-0">
+                <div className="w-10 h-10 relative z-30 inline-block rounded-full text-white shadow-solid bg-gray-100 border border-white" />
+                <div className="w-10 h-10 relative z-20 -ml-4 inline-block rounded-full text-white shadow-solid bg-gray-100 border border-white" />
+              </div>
+              <Loader height={6} width={24} />
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
@@ -220,7 +281,7 @@ const PairPageTitle = ({ name, price, price2, priceChange, symbol, symbol2, id, 
                 clipRule="evenodd"
               />
             </svg>
-            {symbol + "-" + symbol2}
+            {symbol && symbol2 ? symbol + "-" + symbol2 : <Loader />}
           </nav>
         </div>
         <div className="mt-2 md:flex md:items-center md:justify-between">
@@ -255,6 +316,117 @@ const PairPageTitle = ({ name, price, price2, priceChange, symbol, symbol2, id, 
               {name}
             </div>
           </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+const DetailsLoading = () => {
+  const history = useHistory();
+  return (
+    <>
+      <div className="bg-white overflow-hidden sm:rounded-lg">
+        <div className="px-4 pt-2 sm:pt-6 pb-1 sm:px-6">
+          <h3 className="text-lg leading-6 font-medium text-gray-900">Pair Details</h3>
+        </div>
+        <div className="px-4 py-5 sm:px-6">
+          <dl className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3">
+            <div className="sm:col-span-1">
+              <dt className="text-sm leading-5 font-medium text-gray-500">Total Liquidity</dt>
+              <dd className="flex items-baseline mt-1">
+                <div>
+                  <div className="flex items-center text-sm leading-5 text-gray-900">
+                    <Loader />
+                  </div>
+                </div>
+              </dd>
+            </div>
+            <div className="sm:col-span-1">
+              <dt className="text-sm leading-5 font-medium text-gray-500">Volume (24hrs)</dt>
+              <dd className="flex items-baseline mt-1">
+                <div>
+                  <div className="flex items-center text-sm leading-5 text-gray-900">
+                    <Loader />
+                  </div>
+                </div>
+              </dd>
+            </div>
+            <div className="sm:col-span-1">
+              <dt className="text-sm leading-5 font-medium text-gray-500">Fees (24hrs)</dt>
+              <dd className="flex items-baseline mt-1">
+                <div>
+                  <div className="flex items-center text-sm leading-5 text-gray-900">
+                    <Loader />
+                  </div>
+                </div>
+              </dd>
+            </div>
+            <div className="col-span-2 lg:col-span-3">
+              <dt className="text-sm leading-5 font-medium text-gray-500">Tokens</dt>
+              <dd className="mt-1 text-sm leading-5 text-gray-900">
+                <ul className="border border-gray-200 rounded-md">
+                  <li className="pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5">
+                    <div className="w-0 flex-1 flex items-center">
+                      <div
+                        className="mr-2 rounded-full text-white shadow-solid bg-gray-100 border border-white"
+                        style={{ width: "1.125rem", height: "1.125rem" }}
+                        alt=""
+                      />
+                      <span className="ml-2 flex-1 w-0 truncate">
+                        <Loader width={16} />
+                      </span>
+                    </div>
+                  </li>
+                  <li className="border-t border-gray-200 pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5">
+                    <div className="w-0 flex-1 flex items-center">
+                      <div
+                        className="mr-2 rounded-full text-white shadow-solid bg-gray-100 border border-white"
+                        style={{ width: "1.125rem", height: "1.125rem" }}
+                        alt=""
+                      />
+                      <span className="ml-2 flex-1 w-0 truncate">
+                        <Loader width={16} />
+                      </span>
+                    </div>
+                  </li>
+                </ul>
+              </dd>
+            </div>
+            <div className="col-span-2 sm:col-span-3">
+              <dt className="text-sm leading-5 font-medium text-gray-500">Underlying Liquidity</dt>
+              <dd className="mt-1 text-sm leading-5 text-gray-900">
+                <ul className="border border-gray-200 rounded-md">
+                  <li className="pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5">
+                    <div className="w-0 flex-1 flex items-center">
+                      {/* Heroicon name: paper-clip */}
+                      <div
+                        className="mr-2 rounded-full text-white shadow-solid bg-gray-100 border border-white"
+                        style={{ width: "1.125rem", height: "1.125rem" }}
+                        alt=""
+                      />
+                      <span className="ml-2 flex-1 w-0 truncate">
+                        <Loader />
+                      </span>
+                    </div>
+                  </li>
+                  <li className="border-t border-gray-200 pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5">
+                    <div className="w-0 flex-1 flex items-center">
+                      {/* Heroicon name: paper-clip */}
+                      <div
+                        className="mr-2 rounded-full text-white shadow-solid bg-gray-100 border border-white"
+                        style={{ width: "1.125rem", height: "1.125rem" }}
+                        alt=""
+                      />
+                      <span className="ml-2 flex-1 w-0 truncate">
+                        <Loader />
+                      </span>
+                    </div>
+                  </li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
         </div>
       </div>
     </>
