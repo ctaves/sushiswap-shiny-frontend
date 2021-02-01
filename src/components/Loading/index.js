@@ -2,10 +2,16 @@ import React from "react";
 import Loader from "../../services/exchange/components/Loader";
 import "./styles.css";
 
-export const Spinner = ({ height }) => {
+export const Spinner = ({ height, position }) => {
   return (
     <>
-      <div className={"flex justify-center items-center align-middle w-full " + (height && `h-${height}`)}>
+      <div
+        className={
+          `flex justify-${position === "center" || !position ? "center" : "end"} 
+           items-center align-middle w-${position === "center" || !position ? "full" : "auto"} ` +
+          (height && `h-${height}`)
+        }
+      >
         <div className="loader">
           <div className="prong"></div>
           <div className="prong"></div>

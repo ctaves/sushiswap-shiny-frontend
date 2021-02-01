@@ -19,6 +19,8 @@ import { PAIR_SEARCH, TOKEN_SEARCH } from "../../apollo/queries";
 import FormattedName from "../FormattedName";
 import { TYPE } from "../../Theme";
 
+import { Spinner } from "../../../../components/Loading";
+
 const Container = styled.div`
   height: 48px;
   z-index: 30;
@@ -448,7 +450,15 @@ export const Search = ({ small = false }) => {
             }
           }}
         />
-        {!showMenu ? <SearchIconLarge /> : <CloseIcon onClick={() => toggleMenu(false)} />}
+        {allTokens && allTokens.length > 0 ? (
+          !showMenu ? (
+            <SearchIconLarge />
+          ) : (
+            <CloseIcon onClick={() => toggleMenu(false)} />
+          )
+        ) : (
+          <Spinner position={"left"} />
+        )}
       </Wrapper>
       <Menu hide={!showMenu} ref={menuRef}>
         <Heading>
