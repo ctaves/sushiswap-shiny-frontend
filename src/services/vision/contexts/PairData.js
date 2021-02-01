@@ -595,6 +595,8 @@ export function usePairData(pairAddress) {
   const [ethPrice] = useEthPrice();
   const pairData = state?.[pairAddress];
 
+  console.log("pair_state:", state);
+
   useEffect(() => {
     async function fetchData() {
       if (!pairData && pairAddress) {

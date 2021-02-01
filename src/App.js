@@ -41,8 +41,8 @@ import PairDataContextProvider, { Updater as PairDataContextUpdater } from "./se
 import ApplicationContextProvider from "./services/vision/contexts/Application";
 import UserContextProvider from "./services/vision/contexts/User";
 import { ApolloProvider } from "react-apollo";
-//import { useGlobalData, useGlobalChartData } from "./services/vision/contexts/GlobalData";
-//import { useLatestBlock } from "./services/vision/contexts/Application";
+import { useGlobalData, useGlobalChartData } from "./services/vision/contexts/GlobalData";
+import { useLatestBlock } from "./services/vision/contexts/Application";
 
 //Services - Exchange Dependencies
 import Web3Status from "./services/exchange/components/Web3Status";
@@ -85,6 +85,9 @@ const App = () => {
   // const globalData = useGlobalData();
   // const globalChartData = useGlobalChartData();
   // const latestBlock = useLatestBlock();
+  useGlobalData();
+  useGlobalChartData();
+  useLatestBlock();
   return (
     <>
       <Router>

@@ -1,12 +1,4 @@
-import React, {
-  createContext,
-  useContext,
-  useReducer,
-  useMemo,
-  useCallback,
-  useEffect,
-  useState,
-} from "react";
+import React, { createContext, useContext, useReducer, useMemo, useCallback, useEffect, useState } from "react";
 import { client } from "../apollo/client";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
@@ -34,8 +26,7 @@ const UPDATE_TXNS = "UPDATE_TXNS";
 const UPDATE_CHART = "UPDATE_CHART";
 const UPDATE_ETH_PRICE = "UPDATE_ETH_PRICE";
 const ETH_PRICE_KEY = "ETH_PRICE_KEY";
-const UPDATE_ALL_PAIRS_IN_UNISWAP =
-  "UPDAUPDATE_ALL_PAIRS_IN_UNISWAPTE_TOP_PAIRS";
+const UPDATE_ALL_PAIRS_IN_UNISWAP = "UPDAUPDATE_ALL_PAIRS_IN_UNISWAPTE_TOP_PAIRS";
 const UPDATE_ALL_TOKENS_IN_UNISWAP = "UPDATE_ALL_TOKENS_IN_UNISWAP";
 const UPDATE_TOP_LPS = "UPDATE_TOP_LPS";
 
@@ -145,19 +136,16 @@ export default function Provider({ children }) {
     });
   }, []);
 
-  const updateEthPrice = useCallback(
-    (ethPrice, oneDayPrice, ethPriceChange) => {
-      dispatch({
-        type: UPDATE_ETH_PRICE,
-        payload: {
-          ethPrice,
-          oneDayPrice,
-          ethPriceChange,
-        },
-      });
-    },
-    []
-  );
+  const updateEthPrice = useCallback((ethPrice, oneDayPrice, ethPriceChange) => {
+    dispatch({
+      type: UPDATE_ETH_PRICE,
+      payload: {
+        ethPrice,
+        oneDayPrice,
+        ethPriceChange,
+      },
+    });
+  }, []);
 
   const updateAllPairsInUniswap = useCallback((allPairs) => {
     dispatch({
@@ -239,12 +227,7 @@ async function getGlobalData(ethPrice, oldEthPrice) {
     const utcTwoWeeksBack = utcCurrentTime.subtract(2, "week").unix();
 
     // get the blocks needed for time travel queries
-    let [
-      oneDayBlock,
-      twoDayBlock,
-      oneWeekBlock,
-      twoWeekBlock,
-    ] = await getBlocksFromTimestamps([
+    let [oneDayBlock, twoDayBlock, oneWeekBlock, twoWeekBlock] = await getBlocksFromTimestamps([
       utcOneDayBack,
       utcTwoDaysBack,
       utcOneWeekBack,
@@ -404,8 +387,7 @@ const getChartData = async (oldestDateToFetch) => {
       weeklyData[startIndexWeekly] = weeklyData[startIndexWeekly] || {};
       weeklyData[startIndexWeekly].date = data[i].date;
       weeklyData[startIndexWeekly].weeklyVolumeUSD =
-        (weeklyData[startIndexWeekly].weeklyVolumeUSD ?? 0) +
-        data[i].dailyVolumeUSD;
+        (weeklyData[startIndexWeekly].weeklyVolumeUSD ?? 0) + data[i].dailyVolumeUSD;
     });
   } catch (e) {
     console.log(e);
@@ -510,10 +492,7 @@ async function getAllPairsOnUniswap() {
       });
       skipCount = skipCount + PAIRS_TO_FETCH;
       pairs = pairs.concat(result?.data?.pairs);
-      if (
-        result?.data?.pairs.length < PAIRS_TO_FETCH ||
-        pairs.length > PAIRS_TO_FETCH
-      ) {
+      if (result?.data?.pairs.length < PAIRS_TO_FETCH || pairs.length > PAIRS_TO_FETCH) {
         allFound = true;
       }
     }
@@ -540,10 +519,7 @@ async function getAllTokensOnUniswap() {
         fetchPolicy: "cache-first",
       });
       tokens = tokens.concat(result?.data?.tokens);
-      if (
-        result?.data?.tokens?.length < TOKENS_TO_FETCH ||
-        tokens.length > TOKENS_TO_FETCH
-      ) {
+      if (result?.data?.tokens?.length < TOKENS_TO_FETCH || tokens.length > TOKENS_TO_FETCH) {
         allFound = true;
       }
       skipCount = skipCount += TOKENS_TO_FETCH;
@@ -559,10 +535,7 @@ async function getAllTokensOnUniswap() {
  */
 export function useGlobalData() {
   //console.log("GLOBAL:", useGlobalDataContext());
-  const [
-    state,
-    { update, updateAllPairsInUniswap, updateAllTokensInUniswap },
-  ] = useGlobalDataContext();
+  const [state, { update, updateAllPairsInUniswap, updateAllTokensInUniswap }] = useGlobalDataContext();
   const [ethPrice, oldEthPrice] = useEthPrice();
 
   const data = state?.globalData;
@@ -581,14 +554,7 @@ export function useGlobalData() {
     if (!data && ethPrice && oldEthPrice) {
       fetchData();
     }
-  }, [
-    ethPrice,
-    oldEthPrice,
-    update,
-    data,
-    updateAllPairsInUniswap,
-    updateAllTokensInUniswap,
-  ]);
+  }, [ethPrice, oldEthPrice, update, data, updateAllPairsInUniswap, updateAllTokensInUniswap]);
 
   return data || {};
 }
@@ -676,6 +642,7 @@ export function useAllTokensInUniswap() {
   const [state] = useGlobalDataContext();
   let allTokens = state?.allTokens;
 
+  //console.log("state:", state);
   return allTokens || [];
 }
 
@@ -693,9 +660,7 @@ export function useTopLps() {
     async function fetchData() {
       // get top 20 by reserves
       let topPairs = Object.keys(allPairs)
-        ?.sort((a, b) =>
-          parseFloat(allPairs[a].reserveUSD > allPairs[b].reserveUSD ? -1 : 1)
-        )
+        ?.sort((a, b) => parseFloat(allPairs[a].reserveUSD > allPairs[b].reserveUSD ? -1 : 1))
         ?.slice(0, 99)
         .map((pair) => pair);
 
@@ -731,8 +696,7 @@ export function useTopLps() {
               token0: pairData.token0.id,
               token1: pairData.token1.id,
               usd:
-                (parseFloat(entry.liquidityTokenBalance) /
-                  parseFloat(pairData.totalSupply)) *
+                (parseFloat(entry.liquidityTokenBalance) / parseFloat(pairData.totalSupply)) *
                 parseFloat(pairData.reserveUSD),
             });
           });
