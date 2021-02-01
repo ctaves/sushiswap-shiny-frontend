@@ -2,45 +2,23 @@ import React from "react";
 import Loader from "../../services/exchange/components/Loader";
 import "./styles.css";
 
-export const Spinner = () => {
+export const Spinner = ({ height }) => {
   return (
     <>
-      <div className="loader w-10 h-10 rounded-full">
-        <div className="prong">
-          <div className="inner" />
-        </div>
-        <div className="prong">
-          <div className="inner" />
-        </div>
-        <div className="prong">
-          <div className="inner" />
-        </div>
-        <div className="prong">
-          <div className="inner" />
-        </div>
-        <div className="prong">
-          <div className="inner" />
-        </div>
-        <div className="prong">
-          <div className="inner" />
-        </div>
-        <div className="prong">
-          <div className="inner" />
-        </div>
-        <div className="prong">
-          <div className="inner" />
-        </div>
-        <div className="prong">
-          <div className="inner" />
-        </div>
-        <div className="prong">
-          <div className="inner" />
-        </div>
-        <div className="prong">
-          <div className="inner" />
-        </div>
-        <div className="prong">
-          <div className="inner" />
+      <div className={"flex justify-center items-center align-middle w-full " + (height && `h-${height}`)}>
+        <div className="loader">
+          <div className="prong"></div>
+          <div className="prong"></div>
+          <div className="prong"></div>
+          <div className="prong"></div>
+          <div className="prong"></div>
+          <div className="prong"></div>
+          <div className="prong"></div>
+          <div className="prong"></div>
+          <div className="prong"></div>
+          <div className="prong"></div>
+          <div className="prong"></div>
+          <div className="prong"></div>
         </div>
       </div>
     </>

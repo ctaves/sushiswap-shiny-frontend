@@ -10,6 +10,8 @@ import { RowFixed } from "../Row";
 import { getTimeframe } from "../../utils";
 //import { TYPE } from "../../Theme";
 
+import { Spinner } from "../../../../components/Loading";
+
 const CHART_VIEW = {
   VOLUME: "Volume",
   LIQUIDITY: "Liquidity",
@@ -83,36 +85,42 @@ const GlobalChart = ({ display }) => {
       {/* {below800 && (
         <DropdownSelect options={CHART_VIEW} active={chartView} setActive={setChartView} color={"#705240"} />
       )} */}
+      {chartView === CHART_VIEW.LIQUIDITY &&
+        (chartDataFiltered && chartView === CHART_VIEW.LIQUIDITY && totalLiquidityUSD ? (
+          // <ResponsiveContainer aspect={60 / 28} ref={ref}>
+          <ResponsiveContainer aspect={50 / 20} ref={ref}>
+            <TradingViewChart
+              data={dailyData}
+              base={totalLiquidityUSD}
+              baseChange={liquidityChangeUSD}
+              title=""
+              field="totalLiquidityUSD"
+              width={width}
+              type={CHART_TYPES.AREA}
+            />
+          </ResponsiveContainer>
+        ) : (
+          <Spinner height={32} />
+        ))}
+      {chartView === CHART_VIEW.VOLUME &&
+        (chartDataFiltered && chartView === CHART_VIEW.VOLUME && (oneWeekVolume || oneDayVolumeUSD) ? (
+          // <ResponsiveContainer aspect={60 / 28} ref={ref}>
+          <ResponsiveContainer aspect={20 / 50}>
+            <TradingViewChart
+              data={chartDataFiltered}
+              base={volumeWindow === VOLUME_WINDOW.WEEKLY ? oneWeekVolume : oneDayVolumeUSD}
+              baseChange={volumeWindow === VOLUME_WINDOW.WEEKLY ? weeklyVolumeChange : volumeChangeUSD}
+              title="" //{volumeWindow === VOLUME_WINDOW.WEEKLY ? "Sushiswap Volume (7d)" : "Sushiswap Volume"}
+              field={volumeWindow === VOLUME_WINDOW.WEEKLY ? "weeklyVolumeUSD" : "dailyVolumeUSD"}
+              width={width}
+              type={CHART_TYPES.BAR}
+              useWeekly={volumeWindow === VOLUME_WINDOW.WEEKLY}
+            />
+          </ResponsiveContainer>
+        ) : (
+          <Spinner height={32} />
+        ))}
 
-      {chartDataFiltered && chartView === CHART_VIEW.LIQUIDITY && totalLiquidityUSD && (
-        // <ResponsiveContainer aspect={60 / 28} ref={ref}>
-        <ResponsiveContainer aspect={50 / 20} ref={ref}>
-          <TradingViewChart
-            data={dailyData}
-            base={totalLiquidityUSD}
-            baseChange={liquidityChangeUSD}
-            title=""
-            field="totalLiquidityUSD"
-            width={width}
-            type={CHART_TYPES.AREA}
-          />
-        </ResponsiveContainer>
-      )}
-      {chartDataFiltered && chartView === CHART_VIEW.VOLUME && (oneWeekVolume || oneDayVolumeUSD) && (
-        // <ResponsiveContainer aspect={60 / 28}>
-        <ResponsiveContainer aspect={20 / 50}>
-          <TradingViewChart
-            data={chartDataFiltered}
-            base={volumeWindow === VOLUME_WINDOW.WEEKLY ? oneWeekVolume : oneDayVolumeUSD}
-            baseChange={volumeWindow === VOLUME_WINDOW.WEEKLY ? weeklyVolumeChange : volumeChangeUSD}
-            title="" //{volumeWindow === VOLUME_WINDOW.WEEKLY ? "Sushiswap Volume (7d)" : "Sushiswap Volume"}
-            field={volumeWindow === VOLUME_WINDOW.WEEKLY ? "weeklyVolumeUSD" : "dailyVolumeUSD"}
-            width={width}
-            type={CHART_TYPES.BAR}
-            useWeekly={volumeWindow === VOLUME_WINDOW.WEEKLY}
-          />
-        </ResponsiveContainer>
-      )}
       {display === "volume" && (
         <RowFixed
           style={{
