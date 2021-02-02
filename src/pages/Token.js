@@ -14,6 +14,8 @@ import CoinLoader from "../components/CoinLoader";
 import { tokenInfo } from "../constants/tokenInfo.json";
 //import Loader from "../services/vision/components/LocalLoader";
 
+import { Loader, Spinner } from "../components/Loading";
+
 const Token = ({ address, history }) => {
   const {
     id,
@@ -61,25 +63,37 @@ const Token = ({ address, history }) => {
   const additionalTokenInfo = tokenInfo.find((token) => token.address === String(address).toLowerCase());
   const about = additionalTokenInfo?.about;
 
+  console.log("token_transactions:", transactions);
+
   return (
     <>
       <div className="md:flex">
         <div className="relative w-full mx-auto sm:px-6 lg:px-6">
           <div className="grid gap-2 mx-auto lg:grid-cols-5 lg:max-w-none">
             <div className="lg:col-span-3">
-              <TokenPageTitle name={name} price={price} priceChange={priceChange} symbol={symbol} id={id} />
+              {symbol ? (
+                <TokenPageTitle name={name} price={price} priceChange={priceChange} symbol={symbol} id={id} />
+              ) : (
+                <TokenPageTitleLoading />
+              )}
               <div className="py-2 px-4">
-                <TokenChart address={address} color={priceChange < 0 ? "#ff5001" : "#04c806"} base={priceUSD} />
+                {symbol && (
+                  <TokenChart address={address} color={priceChange < 0 ? "#ff5001" : "#04c806"} base={priceUSD} />
+                )}
               </div>
-              <Details
-                liquidity={liquidity}
-                liquidityChange={liquidityChange}
-                volume={volume}
-                volumeChange={volumeChange}
-                transactions={txns}
-                transactionsChange={txnChangeFormatted}
-                about={about}
-              />
+              {symbol ? (
+                <Details
+                  liquidity={liquidity}
+                  liquidityChange={liquidityChange}
+                  volume={volume}
+                  volumeChange={volumeChange}
+                  transactions={txns}
+                  transactionsChange={txnChangeFormatted}
+                  about={about}
+                />
+              ) : (
+                <DetailsLoading />
+              )}
             </div>
             <div className="pt-6 lg:col-span-2">
               <div className="lg:sticky top-0">
@@ -100,7 +114,7 @@ const Token = ({ address, history }) => {
           </div>
         </div>
       </div>
-      {transactions ? (
+      {symbol && transactions && (
         <div className="py-10 px-10 inline-block min-w-full overflow-hidden align-middle">
           <div
             style={{
@@ -112,9 +126,59 @@ const Token = ({ address, history }) => {
             <TxnList transactions={transactions} color={"#0090a6"} />
           </div>
         </div>
-      ) : (
-        <CoinLoader size={"sm"} />
       )}
+    </>
+  );
+};
+
+const TokenPageTitleLoading = () => {
+  const history = useHistory();
+  return (
+    <>
+      <div className="py-6 px-8">
+        <div>
+          <nav className="sm:hidden">
+            <button
+              onClick={() => {
+                history.goBack();
+              }}
+              className="flex items-center text-sm leading-5 font-medium text-gray-500 hover:text-gray-700 transition duration-150 ease-in-out"
+            >
+              <svg className="flex-shrink-0 -ml-1 mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                <path
+                  fillRule="evenodd"
+                  d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              Back
+            </button>
+          </nav>
+          <nav className="hidden sm:flex items-center text-sm leading-5 font-medium">
+            <Link to="/tokens" className="text-gray-500 hover:text-gray-700 transition duration-150 ease-in-out">
+              Tokens
+            </Link>
+            <svg className="flex-shrink-0 mx-2 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+              <path
+                fillRule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <Loader width={12} />
+          </nav>
+        </div>
+        <div className="mt-2 md:flex md:items-center md:justify-between">
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center text-2xl font-semibold leading-8">
+              <div className="mr-4 flex items-center justify-center flex-shrink-0 rounded-full shadow-md">
+                <div className="w-10 h-10 rounded-full text-white bg-gray-100 shadow-solid" />
+              </div>
+              <Loader height={6} width={24} />
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
@@ -171,7 +235,7 @@ const TokenPageTitle = ({ name, price, priceChange, symbol, id }) => {
                 //style={{ border: "solid 1px #ee6d48" }}
               >
                 <img
-                  class="rounded-full text-white shadow-solid"
+                  className="rounded-full text-white shadow-solid"
                   src={`https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/${isAddress(
                     id
                   )}/logo.png`}
@@ -188,6 +252,53 @@ const TokenPageTitle = ({ name, price, priceChange, symbol, id }) => {
               <div className="ml-2 font-normal text-base text-green-500">{priceChange}</div>
             </div>
           </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+const DetailsLoading = () => {
+  const history = useHistory();
+  return (
+    <>
+      <div className="bg-white overflow-hidden sm:rounded-lg">
+        <div className="px-4 pt-2 sm:pt-6 pb-1 sm:px-6">
+          <h3 className="text-lg leading-6 font-medium text-gray-900">Token Details</h3>
+        </div>
+        <div className="px-4 py-5 sm:px-6">
+          <dl className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3">
+            <div className="sm:col-span-1">
+              <dt className="text-sm leading-5 font-medium text-gray-500">Total Liquidity</dt>
+              <dd className="flex items-baseline mt-1">
+                <div>
+                  <div className="flex items-center text-sm leading-5 text-gray-900">
+                    <Loader />
+                  </div>
+                </div>
+              </dd>
+            </div>
+            <div className="sm:col-span-1">
+              <dt className="text-sm leading-5 font-medium text-gray-500">Volume (24hrs)</dt>
+              <dd className="flex items-baseline mt-1">
+                <div>
+                  <div className="flex items-center text-sm leading-5 text-gray-900">
+                    <Loader />
+                  </div>
+                </div>
+              </dd>
+            </div>
+            <div className="sm:col-span-1">
+              <dt className="text-sm leading-5 font-medium text-gray-500">Transactions (24hrs)</dt>
+              <dd className="flex items-baseline mt-1">
+                <div>
+                  <div className="flex items-center text-sm leading-5 text-gray-900">
+                    <Loader />
+                  </div>
+                </div>
+              </dd>
+            </div>
+          </dl>
         </div>
       </div>
     </>

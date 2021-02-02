@@ -626,28 +626,39 @@ export function useTokenData(tokenAddress) {
 }
 
 export function useTokenTransactions(tokenAddress) {
-  const [state, { updateTokenTxns }] = useTokenDataContext();
+  const [state, { updateTokenTxns, updateAllPairs }] = useTokenDataContext();
   const tokenTxns = state?.[tokenAddress]?.txns;
 
-  const allPairsFormatted =
-    state[tokenAddress] &&
-    state[tokenAddress].TOKEN_PAIRS_KEY &&
-    state[tokenAddress].TOKEN_PAIRS_KEY.map((pair) => {
-      return pair.id;
-    });
-
-  console.log("tokenTxns:", tokenTxns, allPairsFormatted, state["0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"]);
+  // const allPairsFormatted =
+  //   state[tokenAddress] &&
+  //   state[tokenAddress].TOKEN_PAIRS_KEY &&
+  //   state[tokenAddress].TOKEN_PAIRS_KEY.map((pair) => {
+  //     return pair.id;
+  //   });
 
   useEffect(() => {
     async function checkForTxns() {
-      if (!tokenTxns && allPairsFormatted) {
+      if (!tokenTxns) {
+        let allPairs = await getTokenPairs(tokenAddress);
+        await updateAllPairs(tokenAddress, allPairs);
+        const allPairsFormatted =
+          allPairs &&
+          allPairs.map((pair) => {
+            return pair.id;
+          });
+
         let transactions = await getTokenTransactions(allPairsFormatted);
-        console.log("transactions_tokens:", transactions);
+        //console.log("transactions_tokens:", transactions, allPairs, state[tokenAddress], allPairsFormatted);
         updateTokenTxns(tokenAddress, transactions);
       }
+      // else if (!tokenTxns && allPairsFormatted) {
+      //   let transactions = await getTokenTransactions(allPairsFormatted);
+      //   console.log("transactions_tokens:", transactions);
+      //   updateTokenTxns(tokenAddress, transactions);
+      // }
     }
     checkForTxns();
-  }, [tokenTxns, tokenAddress, updateTokenTxns, allPairsFormatted]);
+  }, [tokenTxns, tokenAddress, updateTokenTxns]);
 
   return tokenTxns || [];
 }
