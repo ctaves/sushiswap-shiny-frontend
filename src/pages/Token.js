@@ -101,13 +101,21 @@ const Token = ({ address, history }) => {
                   <Search />
                 </div>
                 <div className="pt-4">
-                  <CardTokenActions
-                    initialSection={"swap"}
-                    title={"What would you like to do?"}
-                    symbol={symbol}
-                    currencyIdA={id}
-                    currencyIdB={"ETH"}
-                  />
+                  {symbol ? (
+                    <>
+                      <CardTokenActions
+                        initialSection={"swap"}
+                        title={"What would you like to do?"}
+                        symbol={symbol}
+                        currencyIdA={id}
+                        currencyIdB={"ETH"}
+                      />
+                    </>
+                  ) : (
+                    <div className="rounded-lg border-2 border-gray-900 h-80">
+                      <Spinner height={"full"} />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
