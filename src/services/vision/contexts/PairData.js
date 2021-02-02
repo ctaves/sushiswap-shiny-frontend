@@ -595,18 +595,25 @@ export function usePairData(pairAddress) {
   const [ethPrice] = useEthPrice();
   const pairData = state?.[pairAddress];
 
-  //console.log("pair_state:", state);
+  console.log("pair_state:", pairData, pairAddress);
 
   useEffect(() => {
     async function fetchData() {
-      if (!pairData && pairAddress) {
+      // if (!pairData && pairAddress) {
+      if (!pairData?.id && pairAddress) {
         let data = await getBulkPairData([pairAddress], ethPrice);
+
+        console.log("pair_state_data:", pairData, ethPrice, data);
         data && update(pairAddress, data[0]);
       }
     }
-    if (!pairData && pairAddress && ethPrice && isAddress(pairAddress)) {
+    console.log("pair_init:", pairData, pairAddress, ethPrice);
+    if (!pairData?.id && pairAddress && ethPrice && isAddress(pairAddress)) {
       fetchData();
     }
+    // if (!pairData && pairAddress && ethPrice && isAddress(pairAddress)) {
+    //   fetchData();
+    // }
   }, [pairAddress, pairData, update, ethPrice]);
 
   return pairData || {};
