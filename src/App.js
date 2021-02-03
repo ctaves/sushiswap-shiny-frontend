@@ -47,7 +47,7 @@ import { useLatestBlock } from "./services/vision/contexts/Application";
 //Services - Exchange Dependencies
 import Web3Status from "./services/exchange/components/Web3Status";
 import Popups from "./services/exchange/components/Popups";
-import { createWeb3ReactRoot, Web3ReactProvider } from "@web3-react/core";
+import { createWeb3ReactRoot, Web3ReactProvider } from "@sushi-web3-react/core";
 import { Provider } from "react-redux";
 import { NetworkContextName } from "./services/exchange/constants";
 import store from "./services/exchange/state";

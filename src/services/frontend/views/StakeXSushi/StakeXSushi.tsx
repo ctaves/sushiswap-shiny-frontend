@@ -1,50 +1,46 @@
-import React, {useEffect, useMemo, useState} from 'react'
-import styled from 'styled-components'
-import {useWallet} from 'use-wallet'
-import {provider} from 'web3-core'
-import Spacer from '../../components/Spacer'
-import useSushi from '../../hooks/useSushi'
-import {getContract} from '../../utils/erc20'
-import UnstakeXSushi from './components/UnstakeXSushi'
+import React, { useEffect, useMemo, useState } from "react";
+import styled from "styled-components";
+import { useWallet } from "use-wallet";
+import { provider } from "web3-core";
+import Spacer from "../../components/Spacer";
+import useSushi from "../../hooks/useSushi";
+import { getContract } from "../../utils/erc20";
+import UnstakeXSushi from "./components/UnstakeXSushi";
 import StakeSushi from "./components/StakeSushi";
 
-import {contractAddresses} from '../../sushi/lib/constants'
-import {getXSushiSupply} from "../../sushi/utils";
+import { contractAddresses } from "../../sushi/lib/constants";
+import { getXSushiSupply } from "../../sushi/utils";
 import BigNumber from "bignumber.js";
-import {getBalanceNumber} from "../../utils/formatBalance";
+import { getBalanceNumber } from "../../utils/formatBalance";
 
 const StakeXSushi: React.FC = () => {
-  const {
-    tokenAddress,
-  } = {
+  const { tokenAddress } = {
     tokenAddress: contractAddresses.xSushi[1],
-  }
+  };
 
-  const [totalSupply, setTotalSupply] = useState<BigNumber>()
+  const [totalSupply, setTotalSupply] = useState<BigNumber>();
 
-  const sushi = useSushi()
-  const {ethereum} = useWallet()
+  const sushi = useSushi();
+  const { ethereum } = useWallet();
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     async function fetchTotalSupply() {
-      const supply = await getXSushiSupply(sushi)
-      setTotalSupply(supply)
+      const supply = await getXSushiSupply(sushi);
+      setTotalSupply(supply);
     }
     if (sushi) {
-      fetchTotalSupply()
+      fetchTotalSupply();
     }
-  }, [sushi, setTotalSupply])
-
-
+  }, [sushi, setTotalSupply]);
 
   const lpContract = useMemo(() => {
-    debugger
-    return getContract(ethereum as provider, tokenAddress)
-  }, [ethereum, tokenAddress])
+    debugger;
+    return getContract(ethereum as provider, tokenAddress);
+  }, [ethereum, tokenAddress]);
 
   return (
     <>
@@ -52,31 +48,31 @@ const StakeXSushi: React.FC = () => {
         <StyledCardsWrapper>
           <StyledCardWrapper>
             <UnstakeXSushi
+              //@ts-ignore
               lpContract={lpContract}
             />
           </StyledCardWrapper>
-          <Spacer/>
+          <Spacer />
           <StyledCardWrapper>
-            <StakeSushi
-            />
+            <StakeSushi />
           </StyledCardWrapper>
         </StyledCardsWrapper>
-        <Spacer size="lg"/>
+        <Spacer size="lg" />
         <StyledCardsWrapper>
           <StyledCardWrapper>
             <StyledInfo>
-              ℹ️️ You will earn a portion of the swaps fees based on the amount
-              of xSushi held relative the weight of the staking. xSushi can be minted
-              by staking Sushi. To redeem Sushi staked plus swap fees convert xSushi
-              back to Sushi. {totalSupply ? `There are currently ${getBalanceNumber(totalSupply)} xSUSHI in the whole pool.` : '' }
+              ℹ️️ You will earn a portion of the swaps fees based on the amount of xSushi held relative the weight of
+              the staking. xSushi can be minted by staking Sushi. To redeem Sushi staked plus swap fees convert xSushi
+              back to Sushi.{" "}
+              {totalSupply ? `There are currently ${getBalanceNumber(totalSupply)} xSUSHI in the whole pool.` : ""}
             </StyledInfo>
           </StyledCardWrapper>
         </StyledCardsWrapper>
-        <Spacer size="lg"/>
+        <Spacer size="lg" />
       </StyledFarm>
     </>
-  )
-}
+  );
+};
 
 const StyledFarm = styled.div`
   align-items: center;
@@ -85,7 +81,7 @@ const StyledFarm = styled.div`
   @media (max-width: 768px) {
     width: 100%;
   }
-`
+`;
 
 const StyledCardsWrapper = styled.div`
   display: flex;
@@ -95,7 +91,7 @@ const StyledCardsWrapper = styled.div`
     flex-flow: column nowrap;
     align-items: center;
   }
-`
+`;
 
 const StyledCardWrapper = styled.div`
   display: flex;
@@ -104,7 +100,7 @@ const StyledCardWrapper = styled.div`
   @media (max-width: 768px) {
     width: 80%;
   }
-`
+`;
 
 const StyledInfo = styled.h3`
   color: ${(props) => props.theme.color.grey[400]};
@@ -113,6 +109,6 @@ const StyledInfo = styled.h3`
   margin: 0;
   padding: 0;
   text-align: center;
-`
+`;
 
-export default StakeXSushi
+export default StakeXSushi;
