@@ -1,6 +1,8 @@
+import React from "react";
+import { Linker } from "../components/Linker";
 import StablecoinList from "../assets/articles/stablecoin-list.jpg";
 import OnsenIllustration from "../assets/articles/onsen.jpg";
-import CoverWarningLogo from "../assets/articles/cover-warning.jpg";
+//import CoverWarningLogo from "../assets/articles/cover-warning.jpg";
 import MidnightTrading from "../assets/articles/midnight-trading.jpg";
 
 export const articles = [
@@ -11,6 +13,19 @@ export const articles = [
   //   image: StablecoinList,
   //   token: "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2", // WETH
   // },
+  {
+    key: "midnight-trading",
+    title: "Experimental: Midnight Trading Interface",
+    description: (
+      <p>
+        Check out the new experimental interface built using Sushi Plugin.{" "}
+        <Linker to="/experimental/midnight">Midnight</Linker> is an interface tailored to traders full with live pricing
+        and helpful stats.
+      </p>
+    ),
+    image: MidnightTrading,
+    token: "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2", // SUSHI
+  },
   {
     key: "stablecoin",
     title: "Introducing the Stablecoin List",
@@ -26,28 +41,24 @@ export const articles = [
   //   image: StablecoinList,
   //   token: "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599", // WBTC
   // },
-  {
-    key: "cover-exploit",
-    title: "Warning: COVER Verified Exploit",
-    description:
-      "COVER has experienced a verified exploit and a warning message has been placed on COVER and related pairs. Proceed with caution. Read more about the exploit here.",
-    image: CoverWarningLogo,
-    token: "0x5d8d9f5b96f4438195be9b99eee6118ed4304286", // COVER
-  },
+  // {
+  //   key: "cover-exploit",
+  //   title: "Warning: COVER Verified Exploit",
+  //   description:
+  //     "COVER has experienced a verified exploit and a warning message has been placed on COVER and related pairs. Proceed with caution. Read more about the exploit here.",
+  //   image: CoverWarningLogo,
+  //   token: "0x5d8d9f5b96f4438195be9b99eee6118ed4304286", // COVER
+  // },
   {
     key: "onsen",
     title: "Onsen Liquidity Incentives Program",
     image: OnsenIllustration,
-    description:
-      "New farms, new SUSHI rewards. Check out the Onsen list or head over to Special Farms to provide liquidity to selected projects. Earn accelerated SUSHI rewards on top of trading fees.",
+    description: (
+      <p>
+        New farms, new SUSHI rewards. Check out the <Linker to="/onsen">Onsen</Linker> list to provide liquidity to
+        selected projects. Earn accelerated SUSHI rewards on top of trading fees.
+      </p>
+    ),
     list: "",
-  },
-  {
-    key: "midnight-trading",
-    title: "Experimental: Midnight Trading Interface",
-    description:
-      "Check out the new experimental interface built using Sushi Plugin. Midnight is an interface tailored to traders full with live pricing and helpful stats.",
-    image: MidnightTrading,
-    token: "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2", // SUSHI
   },
 ];
