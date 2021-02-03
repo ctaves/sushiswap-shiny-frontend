@@ -15,7 +15,7 @@ const MobileNavigation = ({ selected, changeMenu, isOpen }) => {
         </div>
         <div className="flex justify-between">
           <Link
-            to="/pairs"
+            to="/swap"
             className="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1"
           >
             <svg

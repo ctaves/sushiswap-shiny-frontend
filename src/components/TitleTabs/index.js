@@ -19,7 +19,7 @@ const TitleTabs = ({ title, tabs, selected, withSearch }) => {
         <div className="relative space-y-4 sm:flex sm:items-baseline sm:space-y-0 sm:space-x-10">
           <h3 className="text-lg leading-6 font-medium text-gray-900">{title}</h3>
           <div className="md:flex md:items-center md:justify-between">
-            <nav className="-mb-px flex space-x-8">
+            <nav className="-mb-px flex space-x-8 overflow-x-scroll">
               {tabs.map((tab) => {
                 return (
                   <>

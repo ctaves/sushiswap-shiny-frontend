@@ -65,7 +65,7 @@ const TokenActionsCard = ({ initialSection, title, currencyIdA, currencyIdB }) =
   const [removeView, setRemoveView] = useState("account");
   return (
     <div
-      className="mb-4 md:shadow-2xl sushi-flex sushi-flex-col md:rounded-lg md:border-2 border-gray-500 sushi-overflow-hidden"
+      className="mb-4 md:shadow-2xl sushi-flex sushi-flex-col rounded-lg border-2 border-gray-900 sushi-overflow-hidden"
       style={{ minHeight: "20rem" }}
     >
       <div className="sushi-flex-1 sushi-bg-white sushi-p-6 sushi-flex sushi-flex-col sushi-justify-between">

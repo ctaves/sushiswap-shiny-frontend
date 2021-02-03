@@ -10,6 +10,8 @@ import { useIsDarkMode } from "../state/user/hooks";
 import { Text, TextProps } from "rebass";
 import { Colors } from "./styled";
 
+import Background from "../../../assets/illustrations/swap_background_1d.svg";
+
 export * from "./components";
 
 const MEDIA_WIDTHS = {
@@ -251,14 +253,13 @@ html {
 export const ThemedGlobalStyle = createGlobalStyle`
 html {
   color: inherit;
-  background-color: ${({ theme }) => theme.bg2};
 }
 
 body {
-  min-height: 100vh;
-  background-position: 0 -30vh;
   background-repeat: no-repeat;
-  background: #0e0e23
+  background-image: url(${Background});
+  background-size: cover;
+  background-position: right bottom;
 }
 `;
 

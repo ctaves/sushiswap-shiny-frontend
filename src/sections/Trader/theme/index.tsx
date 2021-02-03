@@ -253,14 +253,12 @@ html {
 export const ThemedGlobalStyle = createGlobalStyle`
 html {
   color: inherit;
-  background-color: ${({ theme }) => theme.bg2};
 }
 
 body {
   min-height: 100vh;
   background-position: 0 -30vh;
   background-repeat: no-repeat;
-  background: #0e0e23
 }
 `;
 
