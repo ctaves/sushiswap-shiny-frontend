@@ -26,6 +26,8 @@ import Turtle from "../assets/emojis/turtle.png";
 import Unicorn from "../assets/emojis/unicorn.png";
 import Whale from "../assets/emojis/whale.png";
 
+import Doge from "../assets/icons/doge-sushi.png";
+
 export const emojis = {
   Boar,
   Crocodile,
@@ -52,6 +54,7 @@ export const emojis = {
   Turtle,
   Unicorn,
   Whale,
+  Doge,
 };
 
 const menuSetup = {
@@ -282,4 +285,6 @@ export const FARM_DETAILS = [
   { pid: 127, name: "Onsen", symbol: "ARMOR-ETH SLP", icon: "HotSprings" },
   { pid: 128, name: "Onsen", symbol: "ASSY-ETH SLP", icon: "HotSprings" },
   { pid: 129, name: "Onsen", symbol: "ibETHv2-ALPHA SLP", icon: "HotSprings" },
+  { pid: 130, name: "Onsen", symbol: "renDOGE-ETH SLP", icon: "Doge" },
+  { pid: 131, name: "Onsen", symbol: "NCT-ETH SLP", icon: "HotSprings" },
 ];
