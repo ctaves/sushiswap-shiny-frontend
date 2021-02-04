@@ -9,7 +9,11 @@ const ColumnName = ({ farm }) => {
     <>
       <td className="sushi-freeze-cell sushi-px-4 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200 sushi-bg-white">
         <div className="sushi-flex sushi-items-center">
-          <img className="hidden sm:block shadow mr-2 p-2 h-10 w-10 rounded-full" src={emojis[farm.icon]} alt="" />
+          {farm.icon === "Doge" ? (
+            <img className="hidden sm:block shadow mr-2 h-12 w-12 rounded-full" src={emojis[farm.icon]} alt="" />
+          ) : (
+            <img className="hidden sm:block shadow mr-2 p-2 h-10 w-10 rounded-full" src={emojis[farm.icon]} alt="" />
+          )}
           {/* <div className="hidden sm:block sushi-flex-shrink-0 sushi-w-8 sushi-h-8 sushi-text-2xl">{farm.icon}</div> */}
           <div className="sushi-ml-0 sm:sushi-ml-2">
             <div className="sushi-flex sushi-items-center">
