@@ -24,6 +24,7 @@ import { getUnixTime, startOfMinute, startOfSecond } from "date-fns";
 import { POOL_DENY } from "../../services/analytics/core/constants";
 import { toChecksumAddress } from "web3-utils";
 import { useQuery } from "@apollo/client";
+import { ethers } from "ethers";
 
 // Layout
 import TableSushi from "./Tables/Sushi";
@@ -60,6 +61,9 @@ import { client } from "../../services/vision/apollo/client";
 import { USER_POSITIONS, USER_HISTORY } from "../../services/vision/apollo/queries";
 import { getLPReturnsOnPair } from "../../services/vision/utils/returns";
 import { FEE_WARNING_TOKENS } from "../../services/vision/constants";
+
+// additional dependancies
+import useHarvestedSushi from "./hooks/useHarvestedSushi";
 
 // modals
 import HarvestModal from "./Harvest/Modal";
@@ -227,7 +231,7 @@ const Account = () => {
     },
   });
 
-  console.log("poolUsers:", poolData, lockupData);
+  //console.log("poolUsers:", poolData, lockupData);
 
   //console.log("token:", token);
   const { data: { pairs } = {} } = useQuery(pairsQuery);
@@ -306,29 +310,44 @@ const Account = () => {
     })
   );
   // todo: ignores if position withdrawn
-  const totalSushiHarvestedSinceLockup = _.sum(
-    poolUsers?.map((user) => {
-      return parseFloat(user.sushiHarvestedSinceLockup);
-    })
-  );
-  const totalSushiLocked = (totalSushiHarvestedSinceLockup + sumEarning - totalSushiAtLockup) * 2;
+  // const totalSushiHarvestedSinceLockup = _.sum(
+  //   poolUsers?.map((user) => {
+  //     return parseFloat(user.sushiHarvestedSinceLockup);
+  //   })
+  // );
+  const { harvestedSushi, error } = useHarvestedSushi(account);
+
+  const totalSushiHarvestedSinceLockup =
+    harvestedSushi != null && !error && ethers.utils.formatUnits(harvestedSushi, 18);
+
+  // console.log(
+  //   "totalSushiHarvestedSinceLockup:",
+  //   Number(totalSushiHarvestedSinceLockup),
+  //   sumEarning,
+  //   totalSushiAtLockup,
+  //   (Number(totalSushiHarvestedSinceLockup) + sumEarning - totalSushiAtLockup) * 2
+  // );
+
+  const totalSushiLocked = (Number(totalSushiHarvestedSinceLockup) + sumEarning - totalSushiAtLockup) * 2;
   const totalSushiLockedUSD = totalSushiLocked * sushiPrice;
+
+  //console.log("lockedSushi", totalSushiLocked, totalSushiLockedUSD, totalSushiHarvestedSinceLockup);
 
   useEffect(() => {
     const query = async () => {
       const user = await sushiData.lockup.user({ user_address: "0x8867eF1593F6A72DbbB941D4D96b746A4da691B2" });
-      console.log("lockupUser:", user);
+      //console.log("lockupUser:", user);
     };
     query();
   }, [account]);
 
-  console.log(
-    "totalSushiLocked:",
-    totalSushiLocked,
-    sumEarning,
-    _.sum(totalSushiAtLockup),
-    _.sum(totalSushiHarvestedSinceLockup)
-  );
+  // console.log(
+  //   "totalSushiLocked:",
+  //   totalSushiLocked,
+  //   sumEarning,
+  //   _.sum(totalSushiAtLockup),
+  //   _.sum(totalSushiHarvestedSinceLockup)
+  // );
 
   let farmBalances = [];
   // causes no-used-expression warning, see eslint disabling at top of file
@@ -420,10 +439,22 @@ const Account = () => {
     },
     {
       title: "Locked (2/3)",
-      sushi: farmBalances ? decimalFormatter.format(_.sumBy(farmBalances, "lockedSushi")) + " SUSHI" : <Loader />,
-      usd: farmBalances && sushiPrice ? currencyFormatter.format(_.sumBy(farmBalances, "lockedSushiUSD")) : <Loader />,
+      sushi:
+        totalSushiLocked > 0 && totalSushiLocked ? decimalFormatter.format(totalSushiLocked) + " SUSHI" : <Loader />,
+      usd:
+        totalSushiLocked > 0 && totalSushiLockedUSD && sushiPrice ? (
+          currencyFormatter.format(totalSushiLockedUSD)
+        ) : (
+          <Loader />
+        ),
       cta: <Button title="Learn more" onClick={onPresentLocked} />, //<Linker title="Learn more" to="https://docs.sushiswap.fi" external />,
     },
+    // {
+    //   title: "Locked (2/3)",
+    //   sushi: farmBalances ? decimalFormatter.format(_.sumBy(farmBalances, "lockedSushi")) + " SUSHI" : <Loader />,
+    //   usd: farmBalances && sushiPrice ? currencyFormatter.format(_.sumBy(farmBalances, "lockedSushiUSD")) : <Loader />,
+    //   cta: <Button title="Learn more" onClick={onPresentLocked} />, //<Linker title="Learn more" to="https://docs.sushiswap.fi" external />,
+    // },
     {
       title: "Unstaked",
       sushi: totalNotStaked ? `${Number(getBalanceNumber(totalNotStaked)).toFixed(4)} SUSHI` : <Loader />,
