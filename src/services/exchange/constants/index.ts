@@ -43,6 +43,13 @@ export const CRV = new Token(
   "CRV",
   "Curve Dao Token"
 );
+export const ALPHA = new Token(
+  ChainId.MAINNET,
+  "0xa1faa113cbE53436Df28FF0aEe54275c13B40975",
+  18,
+  "ALPHA",
+  "AlphaToken"
+);
 
 const WETH_ONLY: ChainTokenList = {
   [ChainId.MAINNET]: [WETH[ChainId.MAINNET]],
@@ -59,7 +66,21 @@ const WETH_ONLY: ChainTokenList = {
 // }
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT, SUSHI, YAM, WBTC, RUNE, CREAM, BAC, FXS, CRV],
+  [ChainId.MAINNET]: [
+    ...WETH_ONLY[ChainId.MAINNET],
+    DAI,
+    USDC,
+    USDT,
+    SUSHI,
+    YAM,
+    WBTC,
+    RUNE,
+    CREAM,
+    BAC,
+    FXS,
+    CRV,
+    ALPHA,
+  ],
 };
 
 /**
