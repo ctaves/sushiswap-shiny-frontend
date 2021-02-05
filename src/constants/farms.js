@@ -131,6 +131,7 @@ const menuSetup = {
     129,
     130,
     131,
+    132,
   ],
   upcoming: [],
   previous: [],
@@ -289,4 +290,5 @@ export const FARM_DETAILS = [
   { pid: 129, name: "Onsen", symbol: "ibETHv2-ALPHA SLP", icon: "HotSprings" },
   { pid: 130, name: "Onsen", symbol: "renDOGE-ETH SLP", icon: "Doge" },
   { pid: 131, name: "Onsen", symbol: "NCT-ETH SLP", icon: "HotSprings" },
+  { pid: 132, name: "Onsen", symbol: "yveCRV-ETH SLP", icon: "HotSprings" },
 ];
