@@ -48,6 +48,8 @@ export const featured = [
       "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2", //SUSHI
       "0x429881672b9ae42b8eba0e26cd9c73711b891ca5", //PICKLE
       "0x2ba592f78db6436527729929aaf6c908497cb200", //CREAM
+      "0x4688a8b1f292fdab17e9a90c8bc379dc1dbd8713", //COVER GOV
+      "0x8ab7404063ec4dbcfd4598215992dc3f8ec853d7", //AKRO
     ],
   },
 ];
