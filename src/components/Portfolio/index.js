@@ -31,6 +31,7 @@ import TableSushi from "./Tables/Sushi";
 import TableFarms from "./Tables/Farms";
 import TableTotal from "./Tables/Total";
 import TableLP from "./Tables/LiquidityPositions";
+//import WalletBalances from "./Tables/WalletBalances";
 
 // Wallet integration
 import { useActiveWeb3React } from "../../services/exchange/hooks";
@@ -526,6 +527,7 @@ const Account = () => {
 
   return (
     <>
+      {/* <WalletBalances account={account} /> */}
       <TableTotal
         totalBalanceUSD={
           (totalSushiBalance || totalSushiBalance === 0) &&

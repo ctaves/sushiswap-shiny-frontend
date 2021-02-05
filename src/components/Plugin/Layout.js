@@ -3,7 +3,7 @@ import Tabs from "./Tabs";
 import ClassicSwap from "../../services/exchange/pages/Swap/secondary";
 import ClassicPool from "../../services/exchange/pages/AddLiquidity/secondary";
 import ClassicRemove from "../../services/exchange/pages/RemoveLiquidity/secondary";
-import Stakes from "./Stakes";
+//import Stakes from "./Stakes";
 //import Stake from "../../services/frontend/views/Farm/components/Stake";
 //import TokenSwap from "../TokenSwap";
 

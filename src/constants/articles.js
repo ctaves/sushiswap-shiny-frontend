@@ -4,6 +4,8 @@ import StablecoinList from "../assets/articles/stablecoin-list.jpg";
 import OnsenIllustration from "../assets/articles/onsen.jpg";
 //import CoverWarningLogo from "../assets/articles/cover-warning.jpg";
 import MidnightTrading from "../assets/articles/midnight-trading.jpg";
+import Doge from "../assets/articles/doge-sushi.jpg";
+import Landing from "../assets/articles/landing.jpg";
 
 export const articles = [
   // {
@@ -13,6 +15,32 @@ export const articles = [
   //   image: StablecoinList,
   //   token: "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2", // WETH
   // },
+  {
+    key: "moving-app",
+    title: "NOTICE: This page will soon move to app.sushiswap.fi",
+    description: (
+      <p>
+        Please note, this interface will soon move to{" "}
+        <Linker to="https://app.sushiswap.fi" external>
+          app.sushiswap.fi
+        </Linker>
+        . www.sushiswap.fi will host our new landing page. Update your bookmarks accordingly!
+      </p>
+    ),
+    image: Landing,
+  },
+  {
+    key: "renDoge-ETH",
+    title: "Onsen Special Guest: renDOGE",
+    description: (
+      <p>
+        Much excite. Such rewards. Wow. Check out the <Linker to="/onsen">Onsen</Linker> list to provide liquidity to
+        renDOGE-ETH and stake.
+      </p>
+    ),
+    image: Doge,
+    token: "0x3832d2f059e55934220881f831be501d180671a7", // renDOGE
+  },
   {
     key: "midnight-trading",
     title: "Experimental: Midnight Trading Interface",

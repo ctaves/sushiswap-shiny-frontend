@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ClassicSwap from "../../services/exchange/pages/Swap/secondary";
 import ClassicPool from "../../services/exchange/pages/AddLiquidity/secondary";
 import ClassicRemove from "../../services/exchange/pages/RemoveLiquidity/secondary";
-import Stakes from "./Stakes";
+//import Stakes from "./Stakes";
 //import { MigrateNotice } from "../../Overview/MigrateNotice";
 //import { LimitNotice } from "../../Overview/LimitNotice";
 //import Stake from "../../services/frontend/views/Farm/components/Stake";
