@@ -12,6 +12,7 @@ import logoNotFound from "../../../assets/img/logoNotFound.png";
 import SushiLogo from "../../../assets/img/logo.png";
 
 const Table = ({ positions, farmBalanceUSD }) => {
+  console.log("positions:", positions);
   return (
     <>
       <div className="flex overflow-hidden bg-white">

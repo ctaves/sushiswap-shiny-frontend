@@ -366,7 +366,7 @@ const Account = () => {
     // patch: use sumEarnings
     // console.log("pendingSushi:", pendingSushi, sumEarning);
     // const sushiLocked = (parseFloat(user.sushiHarvestedSinceLockup) + pendingSushi - sushiAtLockup) * 2;
-    const sushiLocked = (parseFloat(user.sushiHarvestedSinceLockup) + sumEarning - sushiAtLockup) * 2;
+    const sushiLocked = (parseFloat(user.sushiHarvestedSinceLockup) + pendingSushi - sushiAtLockup) * 2;
     const sushiLockedUSD = sushiLocked * sushiPrice;
 
     farmBalances.push({
