@@ -307,6 +307,23 @@ const Account = () => {
   //console.log("INVESTMENTS:", investments, farmingStaked, barPendingUSD, farmingPending);
 
   // calculate total locked sushi
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const lockups = await sushiData.lockup.user({ user_address: account });
+  //     let atLockup = 0;
+  //     let harvested = 0;
+  //     lockups.map((farm) => {
+  //       const sushiAtLockup = ((farm.amount * farm.pool.accSushiPerShare) / 1e12 - farm.rewardDebt) / 1e18;
+  //       atLockup = atLockup + sushiAtLockup;
+  //       harvested = harvested + farm.sushiHarvestedSinceLockup;
+  //     });
+  //     const total = (harvested + sumEarning - atLockup) * 2;
+  //     console.log("lockup:", total, harvested, sumEarning, atLockup);
+  //   };
+  //   fetchData();
+  // }, []);
+
   const totalSushiAtLockup = _.sum(
     lockupData?.users?.map((lockupUser) => {
       return ((lockupUser.amount * lockupUser.pool.accSushiPerShare) / 1e12 - lockupUser.rewardDebt) / 1e18;
@@ -319,7 +336,6 @@ const Account = () => {
   //   })
   // );
   const { harvestedSushi, error } = useHarvestedSushi(account);
-
   const totalSushiHarvestedSinceLockup =
     harvestedSushi != null && !error && ethers.utils.formatUnits(harvestedSushi, 18);
 
@@ -331,18 +347,16 @@ const Account = () => {
   //   (Number(totalSushiHarvestedSinceLockup) + sumEarning - totalSushiAtLockup) * 2
   // );
 
-  //const totalSushiLocked = (Number(totalSushiHarvestedSinceLockup) + sumEarning - totalSushiAtLockup) * 2;
-  //const totalSushiLockedUSD = totalSushiLocked * sushiPrice;
-
-  //console.log("lockedSushi", totalSushiLocked, totalSushiLockedUSD, totalSushiHarvestedSinceLockup);
-
-  useEffect(() => {
-    const query = async () => {
-      const user = await sushiData.lockup.user({ user_address: "0x8867eF1593F6A72DbbB941D4D96b746A4da691B2" });
-      //console.log("lockupUser:", user);
-    };
-    query();
-  }, [account]);
+  const totalSushiLocked = (Number(totalSushiHarvestedSinceLockup) + sumEarning - totalSushiAtLockup) * 2;
+  const totalSushiLockedUSD = totalSushiLocked * sushiPrice;
+  console.log(
+    "lockedSushi",
+    totalSushiLocked,
+    totalSushiLockedUSD,
+    totalSushiHarvestedSinceLockup,
+    sumEarning,
+    totalSushiAtLockup
+  );
 
   // console.log(
   //   "totalSushiLocked:",
@@ -412,7 +426,8 @@ const Account = () => {
 
   const totalSushiBalance =
     Number(sumEarning) +
-    Number(_.sumBy(farmBalances, "lockedSushi")) +
+    Number(totalSushiLocked) +
+    //Number(_.sumBy(farmBalances, "lockedSushi")) +
     Number(getBalanceNumber(totalNotStaked)) +
     Number(sushiStaked);
 
@@ -440,18 +455,18 @@ const Account = () => {
         ),
       cta: <Button title="Harvest" onClick={onPresentHarvest} />,
     },
-    // {
-    //   title: "Locked (2/3)",
-    //   sushi:
-    //     totalSushiLocked > 0 && totalSushiLocked ? decimalFormatter.format(totalSushiLocked) + " SUSHI" : <Loader />,
-    //   usd:
-    //     totalSushiLocked > 0 && totalSushiLockedUSD && sushiPrice ? (
-    //       currencyFormatter.format(totalSushiLockedUSD)
-    //     ) : (
-    //       <Loader />
-    //     ),
-    //   cta: <Button title="Learn more" onClick={onPresentLocked} />, //<Linker title="Learn more" to="https://docs.sushiswap.fi" external />,
-    // },
+    {
+      title: "Locked (2/3)",
+      sushi:
+        totalSushiLocked > 0 && totalSushiLocked ? decimalFormatter.format(totalSushiLocked) + " SUSHI" : <Loader />,
+      usd:
+        totalSushiLocked > 0 && totalSushiLockedUSD && sushiPrice ? (
+          currencyFormatter.format(totalSushiLockedUSD)
+        ) : (
+          <Loader />
+        ),
+      cta: <Button title="Learn more" onClick={onPresentLocked} />, //<Linker title="Learn more" to="https://docs.sushiswap.fi" external />,
+    },
     // {
     //   title: "Locked (2/3)",
     //   sushi: farmBalances ? decimalFormatter.format(_.sumBy(farmBalances, "lockedSushi")) + " SUSHI" : <Loader />,

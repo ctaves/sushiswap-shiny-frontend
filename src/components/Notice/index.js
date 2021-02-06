@@ -23,10 +23,7 @@ const Notice = () => {
           </div>
           <div className="ml-3">
             <p className="text-sm text-yellow-700">
-              We're currently investigating a UI bug for locked sushi amounts and have disabled this query
-              <div className="font-medium underline text-yellow-700">
-                Your total sushi balance will not account for locked sushi until this issue is fixed.
-              </div>
+              We're currently investigating a UI bug for locked sushi amounts. The result may not be accurate
             </p>
           </div>
         </div>
