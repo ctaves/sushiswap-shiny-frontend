@@ -77,6 +77,8 @@ import { Loader } from "./Tables/Loader";
 import _ from "lodash";
 import sushiData from "@sushiswap/sushi-data";
 
+import Notice from "../Notice";
+
 const Account = () => {
   const { account } = useActiveWeb3React();
   //const account = "0x8867eF1593F6A72DbbB941D4D96b746A4da691B2";
@@ -329,8 +331,8 @@ const Account = () => {
   //   (Number(totalSushiHarvestedSinceLockup) + sumEarning - totalSushiAtLockup) * 2
   // );
 
-  const totalSushiLocked = (Number(totalSushiHarvestedSinceLockup) + sumEarning - totalSushiAtLockup) * 2;
-  const totalSushiLockedUSD = totalSushiLocked * sushiPrice;
+  //const totalSushiLocked = (Number(totalSushiHarvestedSinceLockup) + sumEarning - totalSushiAtLockup) * 2;
+  //const totalSushiLockedUSD = totalSushiLocked * sushiPrice;
 
   //console.log("lockedSushi", totalSushiLocked, totalSushiLockedUSD, totalSushiHarvestedSinceLockup);
 
@@ -438,18 +440,18 @@ const Account = () => {
         ),
       cta: <Button title="Harvest" onClick={onPresentHarvest} />,
     },
-    {
-      title: "Locked (2/3)",
-      sushi:
-        totalSushiLocked > 0 && totalSushiLocked ? decimalFormatter.format(totalSushiLocked) + " SUSHI" : <Loader />,
-      usd:
-        totalSushiLocked > 0 && totalSushiLockedUSD && sushiPrice ? (
-          currencyFormatter.format(totalSushiLockedUSD)
-        ) : (
-          <Loader />
-        ),
-      cta: <Button title="Learn more" onClick={onPresentLocked} />, //<Linker title="Learn more" to="https://docs.sushiswap.fi" external />,
-    },
+    // {
+    //   title: "Locked (2/3)",
+    //   sushi:
+    //     totalSushiLocked > 0 && totalSushiLocked ? decimalFormatter.format(totalSushiLocked) + " SUSHI" : <Loader />,
+    //   usd:
+    //     totalSushiLocked > 0 && totalSushiLockedUSD && sushiPrice ? (
+    //       currencyFormatter.format(totalSushiLockedUSD)
+    //     ) : (
+    //       <Loader />
+    //     ),
+    //   cta: <Button title="Learn more" onClick={onPresentLocked} />, //<Linker title="Learn more" to="https://docs.sushiswap.fi" external />,
+    // },
     // {
     //   title: "Locked (2/3)",
     //   sushi: farmBalances ? decimalFormatter.format(_.sumBy(farmBalances, "lockedSushi")) + " SUSHI" : <Loader />,
@@ -528,6 +530,7 @@ const Account = () => {
   return (
     <>
       {/* <WalletBalances account={account} /> */}
+      <Notice />
       <TableTotal
         totalBalanceUSD={
           (totalSushiBalance || totalSushiBalance === 0) &&
