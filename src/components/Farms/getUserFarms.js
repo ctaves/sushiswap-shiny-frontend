@@ -74,7 +74,7 @@ export async function getUserFarms(id, farms, client = getApollo()) {
 
       // derive additional details
       const slp = Number(userFarm?.amount / 1e18);
-      const share = userFarm?.amount / userFarm?.pool.balance;
+      const share = slp / userFarm?.pool?.totalSupply; //userFarm?.amount / userFarm?.pool.balance;
       const token0 = farm?.liquidityPair?.reserve0 * share;
       const token1 = farm?.liquidityPair?.reserve1 * share;
       const valueUSD = farm?.liquidityPair?.reserveUSD * share;
