@@ -79,7 +79,7 @@ import SwapWrapper from "./pages/Swap";
 import PoolWrapper from "./pages/Pool";
 
 // Services - Lite Dependancies
-import { ContextProvider as LiteProvider } from "./services/lite/context";
+//import { ContextProvider as LiteProvider } from "./services/lite/context";
 
 const App = () => {
   // const globalData = useGlobalData();
@@ -158,7 +158,6 @@ const App = () => {
             <Route exact strict path="/remove/:currencyIdA/:currencyIdB" component={RemoveLiquidity} />
             <Redirect to="/home" />
             {/* 404 or Redirect */}
-            <Redirect to="/home" />
           </Switch>
         </Web3ReactManager>
       </Router>
@@ -173,13 +172,13 @@ const ServicesProviders = ({ children }) => {
         <SushiVisionProviders>
           {/* Exchange goes last so its theme takes precedence */}
           <SushiExchangeProviders>
-            <SushiLiteProviders>
-              <SushiAnalyticsProviders>
-                <ModalsProvider>
-                  <App />
-                </ModalsProvider>
-              </SushiAnalyticsProviders>
-            </SushiLiteProviders>
+            {/* <SushiLiteProviders> */}
+            <SushiAnalyticsProviders>
+              <ModalsProvider>
+                <App />
+              </ModalsProvider>
+            </SushiAnalyticsProviders>
+            {/* </SushiLiteProviders> */}
           </SushiExchangeProviders>
         </SushiVisionProviders>
       </SushiFrontendProviders>
@@ -203,9 +202,9 @@ const SushiAnalyticsProviders = ({ children }) => {
   );
 };
 
-const SushiLiteProviders = ({ children }) => {
-  return <LiteProvider>{children}</LiteProvider>;
-};
+// const SushiLiteProviders = ({ children }) => {
+//   return <LiteProvider>{children}</LiteProvider>;
+// };
 
 const SushiFrontendProviders = ({ children }) => {
   return (

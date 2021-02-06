@@ -371,7 +371,7 @@ const Account = () => {
   poolUsers?.map((user) => {
     const pair = pairs?.find((pair) => pair?.id == user.pool.pair);
     const slp = Number(user.amount / 1e18);
-    const share = user.amount / user.pool.balance;
+    const share = slp / pair?.totalSupply; // user.amount / user.pool.balance;
     const token0 = pair?.reserve0 * share;
     const token1 = pair?.reserve1 * share;
     const pendingSushi = ((user.amount * user.pool.accSushiPerShare) / 1e12 - user.rewardDebt) / 1e18;
