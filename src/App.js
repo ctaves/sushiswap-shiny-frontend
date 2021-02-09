@@ -86,9 +86,9 @@ const App = () => {
   // const globalChartData = useGlobalChartData();
   // const latestBlock = useLatestBlock();
 
-  //useGlobalData();
-  //useGlobalChartData();
-  //useLatestBlock();
+  useGlobalData();
+  useGlobalChartData();
+  useLatestBlock();
   return (
     <>
       <Router>
