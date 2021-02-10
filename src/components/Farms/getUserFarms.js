@@ -74,9 +74,10 @@ export async function getUserFarms(id, farms, client = getApollo()) {
 
       // derive additional details
       const slp = Number(userFarm?.amount / 1e18);
-      const share = slp / userFarm?.pool?.totalSupply; //userFarm?.amount / userFarm?.pool.balance;
+      const share = userFarm?.amount / userFarm?.pool.balance; // slp / userFarm?.pool?.totalSupply;
       const token0 = farm?.liquidityPair?.reserve0 * share;
       const token1 = farm?.liquidityPair?.reserve1 * share;
+
       const valueUSD = farm?.liquidityPair?.reserveUSD * share;
       //const pendingSushi = ((userFarm.amount * userFarm.pool.accSushiPerShare) / 1e12 - userFarm.rewardDebt) / 1e18;
       //console.log("farm_user:", farm, data.users, slp, share, token0, token1, valueUSD);

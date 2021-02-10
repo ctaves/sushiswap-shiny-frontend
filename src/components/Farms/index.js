@@ -69,7 +69,6 @@ const Farms = ({ group }) => {
     //   selected: true,
     //   component: <ColumnBalance />,
     // },
-
     {
       name: "Staked",
       account: true,

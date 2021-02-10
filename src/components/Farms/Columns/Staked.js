@@ -3,6 +3,7 @@ import { formattedNum } from "../../../services/vision/utils";
 import { formatCurrency, formatDecimal } from "../../../services/analytics/core";
 
 const ColumnStaked = ({ farm }) => {
+  console.log("farm:", farm);
   return (
     <>
       <td className="sushi-px-4 sushi-py-4 sushi-text-sm sushi-whitespace-no-wrap sushi-border-b sushi-border-gray-200">
