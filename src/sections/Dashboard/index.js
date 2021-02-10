@@ -11,6 +11,7 @@ import Sidebar from "../../components/Sidebar/Layout";
 //import MainSearch from "../../components/Search/Desktop";
 import MainSearch from "../../services/vision/components/Search/secondary";
 import useMenu from "../../shared/hooks/useMenu";
+import ModalsProvider from "../../shared/contexts/ModalsContext";
 // Overview
 import CardTokenActions from "../../components/Plugin/StandaloneWithoutRemove";
 //import Flickity from "react-flickity-component";
@@ -64,11 +65,11 @@ const LazyComponent = ({ component, fallback }) => {
 
 const Dashboard = () => {
   return (
-    <>
+    <ModalsProvider>
       <DashboardContainer>
         <DashboardRoutes />
       </DashboardContainer>
-    </>
+    </ModalsProvider>
   );
 };
 
