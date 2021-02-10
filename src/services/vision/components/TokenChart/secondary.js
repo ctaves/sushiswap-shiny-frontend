@@ -118,7 +118,7 @@ const TokenChart = ({ address, color, base }) => {
   let utcStartTime = getTimeframe(timeWindow);
   const domain = [(dataMin) => (dataMin > utcStartTime ? dataMin : utcStartTime), "dataMax"];
   //const aspect = below1080 ? 60 / 32 : below600 ? 60 / 42 : 60 / 22;
-  const aspect = below1080 ? 60 / 32 : below600 ? 60 / 42 : 60 / 33;
+  const aspect = below1080 ? 60 / 50 : below600 ? 60 / 42 : 60 / 33;
 
   chartData = chartData?.filter((entry) => entry.date >= utcStartTime);
 
@@ -349,97 +349,91 @@ const TokenChart = ({ address, color, base }) => {
           </BarChart>
         </ResponsiveContainer>
       )}
-      {below600 ? (
-        <RowBetween mb={40}>
-          <DropdownSelect options={CHART_VIEW} active={chartFilter} setActive={setChartFilter} color={color} />
-          <DropdownSelect options={timeframeOptions} active={timeWindow} setActive={setTimeWindow} color={color} />
-        </RowBetween>
-      ) : (
-        <RowBetween
-          mb={
-            chartFilter === CHART_VIEW.LIQUIDITY ||
-            chartFilter === CHART_VIEW.VOLUME ||
-            (chartFilter === CHART_VIEW.PRICE && frequency === DATA_FREQUENCY.LINE)
-              ? 40
-              : 0
-          }
-          align="flex-start"
-        >
-          <OptionsRow>
-            <AutoColumn gap="8px">
-              <RowFixed>
-                <OptionButton
-                  active={chartFilter === CHART_VIEW.PRICE}
-                  onClick={() => {
-                    setChartFilter(CHART_VIEW.PRICE);
-                  }}
-                >
-                  Price
-                </OptionButton>
-                <OptionButton
-                  active={chartFilter === CHART_VIEW.LIQUIDITY}
-                  onClick={() => setChartFilter(CHART_VIEW.LIQUIDITY)}
-                  style={{ marginRight: "6px" }}
-                >
-                  Liquidity
-                </OptionButton>
-                <OptionButton
-                  active={chartFilter === CHART_VIEW.VOLUME}
-                  onClick={() => setChartFilter(CHART_VIEW.VOLUME)}
-                  style={{ marginRight: "6px" }}
-                >
-                  Volume
-                </OptionButton>
-              </RowFixed>
-              {/* {chartFilter === CHART_VIEW.PRICE && (
-              <AutoRow gap="4px">
-                <PriceOption
-                  active={frequency === DATA_FREQUENCY.DAY}
-                  onClick={() => {
-                    setTimeWindow(timeframeOptions.MONTH);
-                    setFrequency(DATA_FREQUENCY.DAY);
-                  }}
-                >
-                  D
-                </PriceOption>
-                <PriceOption
-                  active={frequency === DATA_FREQUENCY.HOUR}
-                  onClick={() => setFrequency(DATA_FREQUENCY.HOUR)}
-                >
-                  H
-                </PriceOption>
-                <PriceOption
-                  active={frequency === DATA_FREQUENCY.LINE}
-                  onClick={() => setFrequency(DATA_FREQUENCY.LINE)}
-                >
-                  <Activity size={14} />
-                </PriceOption>
-              </AutoRow>
-            )} */}
-            </AutoColumn>
-            <AutoRow justify="flex-end" gap="6px" align="flex-start">
+      <RowBetween
+        mb={
+          chartFilter === CHART_VIEW.LIQUIDITY ||
+          chartFilter === CHART_VIEW.VOLUME ||
+          (chartFilter === CHART_VIEW.PRICE && frequency === DATA_FREQUENCY.LINE)
+            ? 40
+            : 0
+        }
+        align="flex-start"
+      >
+        <OptionsRow>
+          <AutoColumn gap="8px">
+            <RowFixed>
               <OptionButton
-                active={timeWindow === timeframeOptions.WEEK}
-                onClick={() => setTimeWindow(timeframeOptions.WEEK)}
+                active={chartFilter === CHART_VIEW.PRICE}
+                onClick={() => {
+                  setChartFilter(CHART_VIEW.PRICE);
+                }}
+                style={{ marginRight: "6px" }}
               >
-                1W
+                Price
               </OptionButton>
               <OptionButton
-                active={timeWindow === timeframeOptions.MONTH}
-                onClick={() => setTimeWindow(timeframeOptions.MONTH)}
+                active={chartFilter === CHART_VIEW.LIQUIDITY}
+                onClick={() => setChartFilter(CHART_VIEW.LIQUIDITY)}
+                style={{ marginRight: "6px" }}
               >
-                1M
+                Liquidity
               </OptionButton>
               <OptionButton
-                active={timeWindow === timeframeOptions.ALL_TIME}
-                onClick={() => setTimeWindow(timeframeOptions.ALL_TIME)}
+                active={chartFilter === CHART_VIEW.VOLUME}
+                onClick={() => setChartFilter(CHART_VIEW.VOLUME)}
+                style={{ marginRight: "6px" }}
               >
-                All
+                Volume
               </OptionButton>
+            </RowFixed>
+            {/* {chartFilter === CHART_VIEW.PRICE && (
+            <AutoRow gap="4px">
+              <PriceOption
+                active={frequency === DATA_FREQUENCY.DAY}
+                onClick={() => {
+                  setTimeWindow(timeframeOptions.MONTH);
+                  setFrequency(DATA_FREQUENCY.DAY);
+                }}
+              >
+                D
+              </PriceOption>
+              <PriceOption
+                active={frequency === DATA_FREQUENCY.HOUR}
+                onClick={() => setFrequency(DATA_FREQUENCY.HOUR)}
+              >
+                H
+              </PriceOption>
+              <PriceOption
+                active={frequency === DATA_FREQUENCY.LINE}
+                onClick={() => setFrequency(DATA_FREQUENCY.LINE)}
+              >
+                <Activity size={14} />
+              </PriceOption>
             </AutoRow>
-          </OptionsRow>
-        </RowBetween>
-      )}
+          )} */}
+          </AutoColumn>
+          <AutoRow justify="flex-end" gap="6px" align="flex-start">
+            <OptionButton
+              active={timeWindow === timeframeOptions.WEEK}
+              onClick={() => setTimeWindow(timeframeOptions.WEEK)}
+            >
+              1W
+            </OptionButton>
+            <OptionButton
+              active={timeWindow === timeframeOptions.MONTH}
+              onClick={() => setTimeWindow(timeframeOptions.MONTH)}
+            >
+              1M
+            </OptionButton>
+            <OptionButton
+              active={timeWindow === timeframeOptions.ALL_TIME}
+              onClick={() => setTimeWindow(timeframeOptions.ALL_TIME)}
+            >
+              All
+            </OptionButton>
+          </AutoRow>
+        </OptionsRow>
+      </RowBetween>
     </ChartWrapper>
   );
 };
