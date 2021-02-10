@@ -7,6 +7,7 @@ import MidnightTrading from "../assets/articles/midnight-trading.jpg";
 import Doge from "../assets/articles/doge-sushi.jpg";
 import Tornado from "../assets/articles/tornado-onsen.jpg";
 import Landing from "../assets/articles/landing.jpg";
+import OnsenAMA from "../assets/articles/ama-bg.gif";
 
 export const articles = [
   // {
@@ -30,6 +31,21 @@ export const articles = [
       </p>
     ),
     image: OnsenIllustration,
+  },
+  {
+    key: "88mph-onsen-ama",
+    title: "Onsen AMA: 88mph",
+    description: (
+      <p>
+        Tune into the next Onsen AMA series with 88mph on Thursday 02/11, 6pm CET (5pm UTC) at the SushiSwap{" "}
+        <Linker to="discord.gg/g7W7FJHASS" external>
+          discord voice channel
+        </Linker>
+        .{" "}
+      </p>
+    ),
+    image: OnsenAMA,
+    token: "0x8888801af4d980682e47f1a9036e589479e835c5", //88MPH
   },
   {
     key: "TORN-ETH",
