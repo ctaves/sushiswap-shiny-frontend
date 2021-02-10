@@ -5,6 +5,7 @@ import OnsenIllustration from "../assets/articles/onsen.jpg";
 //import CoverWarningLogo from "../assets/articles/cover-warning.jpg";
 import MidnightTrading from "../assets/articles/midnight-trading.jpg";
 import Doge from "../assets/articles/doge-sushi.jpg";
+import Tornado from "../assets/articles/tornado-onsen.jpg";
 import Landing from "../assets/articles/landing.jpg";
 
 export const articles = [
@@ -29,6 +30,18 @@ export const articles = [
       </p>
     ),
     image: OnsenIllustration,
+  },
+  {
+    key: "TORN-ETH",
+    title: "Tornado Cash whirls into Onsen",
+    description: (
+      <p>
+        Whoosh. DeFi is dizzy and its about to get more dizzy. Check out the <Linker to="/onsen">Onsen</Linker> list to
+        provide liquidity to TORN-ETH and stake.
+      </p>
+    ),
+    image: Tornado,
+    token: "0x77777feddddffc19ff86db637967013e6c6a116c", // tornado
   },
   {
     key: "moving-app",
