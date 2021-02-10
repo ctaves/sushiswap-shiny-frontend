@@ -241,7 +241,7 @@ const TableRow = ({ position, ethPrice }) => {
         </td>
         <td className="table-cell px-6 py-3 whitespace-no-wrap text-sm leading-5 text-gray-500 text-right">
           <div className="text-green-500">{formattedNum(position?.fees.sum, true, true)}</div>
-          <div>
+          {/* <div>
             {parseFloat(position.pair.token0.derivedETH)
               ? formattedNum(
                   position?.fees.sum / (parseFloat(position.pair.token0.derivedETH) * ethPrice) / 2,
@@ -260,7 +260,7 @@ const TableRow = ({ position, ethPrice }) => {
                 )
               : 0}{" "}
             {position.pair.token1.symbol}
-          </div>
+          </div> */}
         </td>
         <td className="table-cell px-6 py-3 whitespace-no-wrap text-sm leading-5 text-gray-500 text-right">
           <div>
