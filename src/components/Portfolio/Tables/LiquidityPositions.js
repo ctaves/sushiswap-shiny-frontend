@@ -118,7 +118,7 @@ const Card = ({ position, ethPrice }) => {
                 </div>
                 <div className="mt-2">
                   <div className="text-green-500">{formattedNum(position?.fees.sum, true, true)}</div>
-                  <div>
+                  {/* <div>
                     {parseFloat(position.pair.token0.derivedETH)
                       ? formattedNum(
                           position?.fees.sum / (parseFloat(position.pair.token0.derivedETH) * ethPrice) / 2,
@@ -137,7 +137,7 @@ const Card = ({ position, ethPrice }) => {
                         )
                       : 0}{" "}
                     {position.pair.token1.symbol}
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
