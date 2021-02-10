@@ -5,9 +5,7 @@ import OnsenIllustration from "../assets/articles/onsen.jpg";
 //import CoverWarningLogo from "../assets/articles/cover-warning.jpg";
 import MidnightTrading from "../assets/articles/midnight-trading.jpg";
 import Doge from "../assets/articles/doge-sushi.jpg";
-import Tornado from "../assets/articles/tornado-onsen.jpg";
 import Landing from "../assets/articles/landing.jpg";
-import OnsenAMA from "../assets/articles/ama-bg.gif";
 
 export const articles = [
   // {
@@ -17,48 +15,6 @@ export const articles = [
   //   image: StablecoinList,
   //   token: "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2", // WETH
   // },
-  {
-    key: "wallet-issues",
-    title: "NOTICE: Wallet Issues",
-    description: (
-      <p>
-        We are currently investigating wallet issues with Trust Wallet and Coinbase Mobile Wallet. Metamask Desktop
-        Wallet is operating normally. Please use{" "}
-        <Linker to="https://exchange.sushiswap.fi" external>
-          exchange.sushiswap.fi
-        </Linker>{" "}
-        in the meantime. We expect this issue to be resolved in a day.
-      </p>
-    ),
-    image: OnsenIllustration,
-  },
-  {
-    key: "88mph-onsen-ama",
-    title: "Onsen AMA: 88mph",
-    description: (
-      <p>
-        Tune into the next Onsen AMA series with 88mph on Thursday 02/11, 6pm CET (5pm UTC) at the SushiSwap{" "}
-        <Linker to="discord.gg/g7W7FJHASS" external>
-          discord voice channel
-        </Linker>
-        .{" "}
-      </p>
-    ),
-    image: OnsenAMA,
-    token: "0x8888801af4d980682e47f1a9036e589479e835c5", //88MPH
-  },
-  {
-    key: "TORN-ETH",
-    title: "Tornado Cash whirls into Onsen",
-    description: (
-      <p>
-        Whoosh. DeFi is dizzy and its about to get more dizzy. Check out the <Linker to="/onsen">Onsen</Linker> list to
-        provide liquidity to TORN-ETH and stake.
-      </p>
-    ),
-    image: Tornado,
-    token: "0x77777feddddffc19ff86db637967013e6c6a116c", // tornado
-  },
   {
     key: "moving-app",
     title: "NOTICE: This page will soon move to app.sushiswap.fi",

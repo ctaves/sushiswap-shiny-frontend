@@ -167,32 +167,7 @@ const DashboardRoutes = () => {
   );
 };
 
-const SearchPage = () => {
-  return (
-    <>
-      <TitleTabs title={"Governance"} />
-      <div className="py-4 px-4 lg:sushi-block">
-        <MainSearch />
-      </div>
-    </>
-  );
-};
-const ConnectPage = () => {
-  return (
-    <>
-      <Connect />
-    </>
-  );
-};
-
 const OverviewPage = () => {
-  useEffect(() => {
-    document.getElementById("scroller").scroll(0, 0);
-    window.scrollTo({
-      behavior: "smooth",
-      top: 0,
-    });
-  }, []);
   return (
     <>
       <div className="md:flex" id={"overview-page"}>
@@ -263,7 +238,7 @@ const PortfolioTabs = [
 const PortfolioBalancesPage = () => {
   return (
     <>
-      <TitleTabs title={"Omakase: Your Portfolio"} tabs={PortfolioTabs} selected={"balances"} />
+      <TitleTabs title={"Omakase: Your Portfolio"} tabs={PortfolioTabs} selected={"balances"} withSearch />
       <div className="bg-white">
         <PortfolioPage />
       </div>
@@ -273,7 +248,7 @@ const PortfolioBalancesPage = () => {
 const PortfolioTransactionsPage = () => {
   return (
     <>
-      <TitleTabs title={"Omakase: Your Portfolio"} tabs={PortfolioTabs} selected={"transactions"} />
+      <TitleTabs title={"Omakase: Your Portfolio"} tabs={PortfolioTabs} selected={"transactions"} withSearch />
       <div className="min-h-full bg-gray-100 shadow-inner py-6 space-y-6 sm:p-6">
         <TransactionsPage />
       </div>

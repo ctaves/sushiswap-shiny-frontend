@@ -10,9 +10,6 @@ import { NetworkContextName } from "../constants";
 export function useActiveWeb3React(): Web3ReactContextInterface<Web3Provider> & { chainId?: ChainId } {
   const context = useWeb3ReactCore<Web3Provider>();
   const contextNetwork = useWeb3ReactCore<Web3Provider>(NetworkContextName);
-
-  //console.log("ActiveWeb3React:");
-
   return context.active ? context : contextNetwork;
 }
 
@@ -27,6 +24,7 @@ export function useEagerConnect() {
           setTried(true);
         });
       } else {
+        //@ts-ignore
         if (isMobile && window.ethereum) {
           activate(injected, undefined, true).catch(() => {
             setTried(true);
@@ -56,6 +54,7 @@ export function useInactiveListener(suppress = false) {
   const { active, error, activate } = useWeb3ReactCore(); // specifically using useWeb3React because of what this hook does
 
   useEffect(() => {
+    //@ts-ignore
     const { ethereum } = window;
 
     if (ethereum && ethereum.on && !active && !error && !suppress) {

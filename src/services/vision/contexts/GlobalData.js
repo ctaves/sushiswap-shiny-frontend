@@ -564,6 +564,7 @@ export function useGlobalChartData() {
   //console.log("GLOBAL:", useGlobalDataContext());
   const [oldestDateFetch, setOldestDateFetched] = useState();
   const [activeWindow] = useTimeframe();
+  console.log("activeWindow:", activeWindow);
 
   const chartDataDaily = state?.chartData?.daily;
   const chartDataWeekly = state?.chartData?.weekly;

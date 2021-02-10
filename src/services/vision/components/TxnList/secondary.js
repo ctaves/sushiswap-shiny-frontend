@@ -8,7 +8,7 @@ import { useMedia } from "react-use";
 import { useCurrentCurrency } from "../../contexts/Application";
 import { RowFixed, RowBetween } from "../Row";
 
-import LocalLoader from "../../../../components/CoinLoader";
+import { Spinner as LocalLoader } from "../../../../components/Loading";
 import { Box, Flex, Text } from "rebass";
 import Link from "../Link";
 import { Divider, EmptyCard } from "..";

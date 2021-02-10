@@ -27,7 +27,6 @@ import Unicorn from "../assets/emojis/unicorn.png";
 import Whale from "../assets/emojis/whale.png";
 
 import Doge from "../assets/icons/doge-sushi.png";
-import Tornado from "../assets/emojis/tornado.png";
 
 export const emojis = {
   Boar,
@@ -56,7 +55,6 @@ export const emojis = {
   Unicorn,
   Whale,
   Doge,
-  Tornado,
 };
 
 const menuSetup = {
@@ -70,7 +68,6 @@ const menuSetup = {
     48,
     53,
     59,
-    60,
     63,
     65,
     66,
@@ -97,7 +94,7 @@ const menuSetup = {
     87,
     88,
     89,
-    //90,
+    90,
     91,
     92,
     93,
@@ -135,7 +132,6 @@ const menuSetup = {
     130,
     131,
     132,
-    133,
   ],
   upcoming: [],
   previous: [],
@@ -228,7 +224,7 @@ export const FARM_DETAILS = [
   { pid: 58, name: "Chef's Menu", symbol: "KP3R-ETH SLP", icon: "Chef" },
   { pid: 59, name: "Onsen", symbol: "SEEN-ETH SLP", icon: "HotSprings" },
   { pid: 59, name: "Chef's Menu", symbol: "SEEN-ETH SLP", icon: "Chef" },
-  { pid: 60, name: "Onsen", symbol: "AXS-ETH SLP", icon: "HotSprings" },
+  { pid: 60, name: "Chef's Menu", symbol: "AXS-ETH SLP", icon: "Chef" },
   { pid: 63, name: "Onsen", symbol: "ESD-ETH SLP", icon: "HotSprings" },
   { pid: 65, name: "Onsen", symbol: "PNK-ETH SLP", icon: "HotSprings" },
   { pid: 66, name: "Onsen", symbol: "CVP-ETH SLP", icon: "HotSprings" },
@@ -295,6 +291,4 @@ export const FARM_DETAILS = [
   { pid: 130, name: "Onsen", symbol: "renDOGE-ETH SLP", icon: "Doge" },
   { pid: 131, name: "Onsen", symbol: "NCT-ETH SLP", icon: "HotSprings" },
   { pid: 132, name: "Onsen", symbol: "yveCRV-ETH SLP", icon: "HotSprings" },
-  { pid: 132, name: "Onsen", symbol: "yveCRV-ETH SLP", icon: "HotSprings" },
-  { pid: 133, name: "Onsen", symbol: "TORN-ETH SLP", icon: "Tornado" },
 ];

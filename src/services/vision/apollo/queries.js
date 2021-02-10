@@ -220,7 +220,7 @@ export const USER = (block, account) => {
   return gql(queryString);
 };
 
-export const USER_MINTS_BUNRS_PER_PAIR = gql`
+export const USER_MINTS_BURNS_PER_PAIR = gql`
   query events($user: Bytes!, $pair: Bytes!) {
     mints(where: { to: $user, pair: $pair }) {
       amountUSD

@@ -30,5 +30,6 @@ export function RedirectDuplicateTokenIds(props: RouteComponentProps<{ currencyI
   if (currencyIdA.toLowerCase() === currencyIdB.toLowerCase()) {
     return <Redirect to={`/add/${currencyIdA}`} />;
   }
+  //@ts-ignore
   return <AddLiquidity currencyIdA={currencyIdA} currencyIdB={currencyIdB} />;
 }

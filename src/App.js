@@ -1,16 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
-import Dashboard from "./sections/Dashboard";
-import Midnight from "./sections/Midnight";
-import Trader from "./sections/Trader";
-import Beginner from "./pages/Beginner";
-import Explore from "./sections/Explore";
-
+import WalletRoute from "./shared/WalletRoute";
 import ModalsProvider from "./shared/contexts/ModalsContext";
 
 //Services - Shared Dependencies
 import { ThemeProvider } from "styled-components";
+
+// Services -  Analytics Dependencies
+import { ApolloProvider as SushiAnalyticsApolloProvider } from "@apollo/client";
+import { useApollo } from "./services/analytics/core";
 
 // Services - Classic Dependencies
 import { UseWalletProvider } from "use-wallet";
@@ -19,15 +18,6 @@ import ServicesModalsProvider from "./services/frontend/contexts/Modals";
 import TransactionProvider from "./services/frontend/contexts/Transactions";
 import SushiProvider from "./services/frontend/contexts/SushiProvider";
 import theme from "./services/frontend/theme";
-
-// Services -  Analytics Dependencies
-import { ApolloProvider as SushiAnalyticsApolloProvider } from "@apollo/client";
-import SushiAnalyticsCssBaseline from "@material-ui/core/CssBaseline";
-import { useApollo } from "./services/analytics/core";
-
-// Services - Sushi View Dependencies (Deprecated)
-// import AnalyticsGlobalDataContextProvider from "./services/view/contexts/globalData";
-// import AnalyticsApplicationContextProvider from "./services/view/contexts/application";
 
 //Services - Vision Dependencies
 import VisionThemeProvider from "./services/vision/Theme";
@@ -70,30 +60,49 @@ import {
 //import MigrateV1 from "./services/exchange/pages/MigrateV1";
 //import MigrateV1Exchange from "./services/exchange/pages/MigrateV1/MigrateV1Exchange";
 //import RemoveV1Exchange from "./services/exchange/pages/MigrateV1/RemoveV1Exchange";
-//import Pool from "./services/exchange/pages/Pool";
+import Pool from "./services/exchange/pages/Pool";
 import PoolFinder from "./services/exchange/pages/PoolFinder";
 import RemoveLiquidity from "./services/exchange/pages/RemoveLiquidity";
 //import { RedirectOldRemoveLiquidityPathStructure } from "./services/exchange/pages/RemoveLiquidity/redirects";
 import { RedirectPathToSwapOnly, RedirectToSwap } from "./services/exchange/pages/Swap/redirects";
-import SwapWrapper from "./pages/Swap";
-import PoolWrapper from "./pages/Pool";
 
-// Services - Lite Dependancies
-//import { ContextProvider as LiteProvider } from "./services/lite/context";
+// pages
+// import Midnight from "./experimental/Midnight";
+// import Trader from "./experimental/Trader";
+// import Beginner from "./experimental/Beginner";
+// import Explore from "./experimental/Explore";
 
-// const Test = () => {
-//   console.log("test:");
-//   return <></>;
-// };
+import Connect from "./pages/Connect";
+// import Search from "./pages/Search";
+// import Lists from "./pages/Lists";
+import PortfolioBalances from "./pages/PortfolioBalances";
+// import PortfolioTransactions from "./pages/Portfolio/Transactions";
+// import YeildAll from "./pages/Yield/All";
+// import YeildMain from "./pages/Yield/Main";
+// import YeildOnsen from "./pages/Yield/Onsen";
+// import YeildPrevious from "./pages/Yield/Previous";
+// import YeildSushiBar from "./pages/Yield/SushiBar";
+
+import Home from "./pages/Home";
+import Swap from "./pages/Swap";
+import Tokens from "./pages/Tokens";
+import Pairs from "./pages/Pairs";
+// import Pairs from "./pages/Pairs";
+// import Pair from "./pages/Pair";
+// import Tokens from "./pages/Tokens";
+// import Token from "./pages/Token";
+
+// import GovernanceTimelock from "./pages/Governance/Timelock";
+// import GovernanceMultisig from "./pages/Governance/Multisig";
+
+//import Swap from "./pages/Swap";
+
+import { GlobalDataContextProvider as GlobalDataProvider } from "./shared/contexts/GlobalData";
 
 const App = () => {
-  // const globalData = useGlobalData();
-  // const globalChartData = useGlobalChartData();
-  // const latestBlock = useLatestBlock();
-
-  useGlobalData();
-  useGlobalChartData();
-  useLatestBlock();
+  // useGlobalData();
+  // useGlobalChartData();
+  // useLatestBlock();
   return (
     <>
       <Router>
@@ -102,59 +111,54 @@ const App = () => {
         <Web3ReactManager>
           <Switch>
             {/* Home Routes */}
-            {/* <Route exact path="/test" component={Test} /> */}
-            <Route exact path="/" component={Dashboard} />
-            <Route exact path="/home" component={Dashboard} />
-            <Route exact path="/experimental/beginner" component={Beginner} />
-            <Route exact path="/experimental/explore" component={Explore} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/home" component={Home} />
+            {/* <Route exact path="/lists/:listId" component={Dashboard} /> */}
+
             {/* Experimental Routes */}
+            {/* <Route exact path="/experimental/beginner" component={Beginner} />
+            <Route exact path="/experimental/explore" component={Explore} />
             <Route exact path="/experimental/midnight" component={Midnight} />
-            <Route exact path="/experimental/trader" component={Trader} />
+            <Route exact path="/experimental/trader" component={Trader} /> */}
+
             {/* Account Routes */}
-            <Route exact path="/connect" component={Dashboard} />
-            <Route exact path="/search" component={Dashboard} />
-            <Route exact path="/omakase" component={Dashboard} />
-            <Route exact path="/account" component={Dashboard} />
-            <Route exact path="/portfolio/balances" component={Dashboard} />
-            <Route exact path="/portfolio/transactions" component={Dashboard} />
-            <Route exact path="/portfolio" component={Dashboard} />
-            <Route exact path="/lists/:listId" component={Dashboard} />
+            <Route exact path="/connect" component={Connect} />
+
+            {/* Portfolio Routes */}
+            <WalletRoute exact path="/omakase" component={PortfolioBalances} />
+            <WalletRoute exact path="/portfolio" component={PortfolioBalances} />
+            <WalletRoute exact path="/portfolio/balances" component={PortfolioBalances} />
+            {/* <Route exact path="/portfolio/transactions" component={PortfolioTransactions} /> */}
+
             {/* Farm Routes */}
-            <Route exact path="/pools">
-              <Redirect to="/farms" />
-            </Route>
-            <Route exact path="/weekly">
-              <Redirect to="/farms/special" />
-            </Route>
-            <Route exact path="/farms" component={Dashboard} />
-            <Route exact path="/farms/all" component={Dashboard} />
-            <Route exact path="/farms/special" component={Dashboard} />
-            <Route exact path="/onsen" component={Dashboard} />
-            <Route exact path="/farms/permanent" component={Dashboard} />
-            <Route exact path="/sushibar" component={Dashboard} />
-            <Route exact path="/farms/xsushi" component={Dashboard} />
-            <Route exact path="/farms/previous" component={Dashboard} />
-            {/* Dashboard Routes */}
-            <Route exact path="/" component={Dashboard} />
-            <Route exact path="/home" component={Dashboard} />
-            <Route exact path="/tokens" component={Dashboard} />
-            <Route exact path="/pairs" component={Dashboard} />
-            <Route exact path="/pair/:pairId" component={Dashboard} />
-            <Route exact path="/governance" component={Dashboard} />
-            <Route exact path="/governance/timelock" component={Dashboard} />
-            <Route exact path="/governance/treasury" component={Dashboard} />
-            <Route exact path="/community" component={Dashboard} />
-            <Route exact path="/about" component={Dashboard} />
-            <Route exact path="/about/overview" component={Dashboard} />
-            <Route exact path="/about/team" component={Dashboard} />
-            <Route exact path="/about/faq" component={Dashboard} />
-            <Route exact path="/faq" component={Dashboard} />
-            <Route exact path="/faqs" component={Dashboard} />
-            <Route exacts strict path="/token/:tokenAddress" component={Dashboard} />
-            <Route exacts strict path="/pair/:pairAddress" component={Dashboard} />
+            {/* <Route exact path="/pools" render={() => <Redirect to="/farms" />} />
+            <Route exact path="/weekly" render={() => <Redirect to="/farms/special" />} />
+            <Route exact path="/farms/permanent" render={() => <Redirect to="/farms/main" />} />
+            <Route exact path="/farms/main" component={YeildMain} />
+            <Route exact path="/farms" render={() => <Redirect to="/farms/all" />} />
+            <Route exact path="/farms/all" component={YeildAll} />
+            <Route exact path="/farms/special" render={() => <Redirect to="/onsen" />} />
+            <Route exact path="/onsen" component={YeildOnsen} />
+            <Route exact path="/sushibar" component={YeildSushiBar} />
+            <Route exact path="/farms/xsushi" render={() => <Redirect to="/sushibar" />} />
+            <Route exact path="/farms/previous" component={YeildPrevious} /> */}
+
+            {/* Tokens and Pairs Routes */}
+            <Route exacts strict path="/tokens" component={Tokens} />
+            <Route exact path="/pairs" component={Pairs} />
+            {/* <Route exacts strict path="/token/:tokenAddress" component={Dashboard} />
+            <Route exact path="/pair/:pairAddress" component={Pair} /> */}
+
+            {/* Informational Routes */}
+            {/* <Route exact path="/governance" component={GovernanceTimelock} />
+            <Route exact path="/governance/timelock" component={GovernanceTimelock} />
+            <Route exact path="/governance/treasury" component={GovernanceMultisig} /> */}
+
+            {/* Dashboard Swap */}
+            <Route exact strict path="/swap" component={Swap} />
+
             {/* Exchange Routes */}
-            <Route exact strict path="/swap" component={SwapWrapper} />
-            <Route exact strict path="/swap/:outputCurrency" component={RedirectToSwap} />
+            {/* <Route exact strict path="/swap/:outputCurrency" component={RedirectToSwap} />
             <Route exact strict path="/send" component={RedirectPathToSwapOnly} />
             <Route exact strict path="/find" component={PoolFinder} />
             <Route exact strict path="/pool" component={PoolWrapper} />
@@ -162,9 +166,10 @@ const App = () => {
             <Route exact path="/add" component={AddLiquidity} />
             <Route exact path="/add/:currencyIdA" component={RedirectOldAddLiquidityPathStructure} />
             <Route exact path="/add/:currencyIdA/:currencyIdB" component={RedirectDuplicateTokenIds} />
-            <Route exact strict path="/remove/:currencyIdA/:currencyIdB" component={RemoveLiquidity} />
+            <Route exact strict path="/remove/:currencyIdA/:currencyIdB" component={RemoveLiquidity} /> */}
+
+            {/* 404 */}
             <Redirect to="/home" />
-            {/* 404 or Redirect */}
           </Switch>
         </Web3ReactManager>
       </Router>
@@ -176,105 +181,86 @@ const ServicesProviders = ({ children }) => {
   return (
     <>
       <SushiFrontendProviders>
-        <SushiVisionProviders>
-          {/* Exchange goes last so its theme takes precedence */}
-          <SushiExchangeProviders>
-            {/* <SushiLiteProviders> */}
-            <SushiAnalyticsProviders>
-              <ModalsProvider>
-                <App />
-              </ModalsProvider>
-            </SushiAnalyticsProviders>
-            {/* </SushiLiteProviders> */}
-          </SushiExchangeProviders>
-        </SushiVisionProviders>
+        {/* <SushiVisionProviders> */}
+        {/* Exchange goes last so its theme takes precedence */}
+        <SushiExchangeProviders>
+          {/* <SushiAnalyticsProviders> */}
+          <ModalsProvider>
+            <GlobalDataProvider>
+              <App />
+            </GlobalDataProvider>
+          </ModalsProvider>
+          {/* </SushiAnalyticsProviders> */}
+        </SushiExchangeProviders>
+        {/* </SushiVisionProviders> */}
       </SushiFrontendProviders>
     </>
   );
 };
 
-const SushiAnalyticsProviders = ({ children }) => {
-  const client = useApollo(null);
-  return (
-    <SushiAnalyticsApolloProvider client={client}>
-      {/* <SushiAnalyticsThemeProvider
-        theme={{
-          ...theme,
-        }}
-      > */}
-      <SushiAnalyticsCssBaseline />
-      {children}
-      {/* </SushiAnalyticsThemeProvider> */}
-    </SushiAnalyticsApolloProvider>
-  );
-};
+// const SushiAnalyticsProviders = ({ children }) => {
+//   const client = useApollo(null);
+//   return <SushiAnalyticsApolloProvider client={client}>{children}</SushiAnalyticsApolloProvider>;
+// };
 
-// const SushiLiteProviders = ({ children }) => {
-//   return <LiteProvider>{children}</LiteProvider>;
+// const SushiVisionProviders = ({ children }) => {
+//   return (
+//     <>
+//       <SushiVisionContextProviders>
+//         <SushiVisionUpdaters />
+//         <VisionThemeProvider>
+//           <GlobalStyle />
+//           <ApolloProvider>{children}</ApolloProvider>
+//         </VisionThemeProvider>
+//       </SushiVisionContextProviders>
+//     </>
+//   );
+// };
+// const SushiVisionUpdaters = () => {
+//   return (
+//     <>
+//       <LocalStorageContextUpdater />
+//       <PairDataContextUpdater />
+//       <TokenDataContextUpdater />
+//     </>
+//   );
+// };
+// const SushiVisionContextProviders = ({ children }) => {
+//   return (
+//     <>
+//       <LocalStorageContextProvider>
+//         <ApplicationContextProvider>
+//           <TokenDataContextProvider>
+//             <GlobalDataContextProvider>
+//               <PairDataContextProvider>
+//                 <UserContextProvider>{children}</UserContextProvider>
+//               </PairDataContextProvider>
+//             </GlobalDataContextProvider>
+//           </TokenDataContextProvider>
+//         </ApplicationContextProvider>
+//       </LocalStorageContextProvider>
+//     </>
+//   );
 // };
 
 const SushiFrontendProviders = ({ children }) => {
   return (
-    <ThemeProvider theme={theme}>
-      <UseWalletProvider
-        chainId={1}
-        connectors={{
-          walletconnect: { rpcUrl: "https://mainnet.eth.aragon.network/" },
-        }}
-      >
-        <SushiProvider>
-          <TransactionProvider>
-            <FarmsProvider>
-              {/* <AnalyticsApplicationContextProvider>
-                <AnalyticsGlobalDataContextProvider> */}
-              <ServicesModalsProvider>{children}</ServicesModalsProvider>
-              {/* </AnalyticsGlobalDataContextProvider>
-              </AnalyticsApplicationContextProvider> */}
-            </FarmsProvider>
-          </TransactionProvider>
-        </SushiProvider>
-      </UseWalletProvider>
-    </ThemeProvider>
-  );
-};
-
-const SushiVisionProviders = ({ children }) => {
-  return (
-    <>
-      <SushiVisionContextProviders>
-        <SushiVisionUpdaters />
-        <VisionThemeProvider>
-          <GlobalStyle />
-          <ApolloProvider>{children}</ApolloProvider>
-        </VisionThemeProvider>
-      </SushiVisionContextProviders>
-    </>
-  );
-};
-const SushiVisionUpdaters = () => {
-  return (
-    <>
-      <LocalStorageContextUpdater />
-      <PairDataContextUpdater />
-      <TokenDataContextUpdater />
-    </>
-  );
-};
-const SushiVisionContextProviders = ({ children }) => {
-  return (
-    <>
-      <LocalStorageContextProvider>
-        <ApplicationContextProvider>
-          <TokenDataContextProvider>
-            <GlobalDataContextProvider>
-              <PairDataContextProvider>
-                <UserContextProvider>{children}</UserContextProvider>
-              </PairDataContextProvider>
-            </GlobalDataContextProvider>
-          </TokenDataContextProvider>
-        </ApplicationContextProvider>
-      </LocalStorageContextProvider>
-    </>
+    // <ThemeProvider theme={theme}>
+    <UseWalletProvider
+      chainId={1}
+      connectors={{
+        walletconnect: { rpcUrl: "https://mainnet.eth.aragon.network/" },
+      }}
+    >
+      <SushiProvider>
+        <TransactionProvider>
+          <FarmsProvider>
+            <ServicesModalsProvider>{children}</ServicesModalsProvider>
+          </FarmsProvider>
+        </TransactionProvider>
+      </SushiProvider>
+    </UseWalletProvider>
+    // </ThemeProvider>
   );
 };
 

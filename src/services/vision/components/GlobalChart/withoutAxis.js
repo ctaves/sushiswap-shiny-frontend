@@ -2,6 +2,8 @@ import React, { useState, useMemo, useEffect, useRef } from "react";
 import { ResponsiveContainer } from "recharts";
 import { timeframeOptions } from "../../constants";
 import { useGlobalChartData, useGlobalData } from "../../contexts/GlobalData";
+//import { useGlobalChartData, useGlobalData } from "../../../../shared/contexts/GlobalData";
+
 import { useMedia } from "react-use";
 import DropdownSelect from "../DropdownSelect";
 import TradingViewChart, { CHART_TYPES } from "../TradingviewChart/withoutAxis";
@@ -78,16 +80,10 @@ const GlobalChart = ({ display }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, [isClient, width]); // Empty array ensures that effect is only run on mount and unmount
 
-  //console.log("totalLiquidityUSD:", totalLiquidityUSD);
-
   return chartDataFiltered ? (
     <>
-      {/* {below800 && (
-        <DropdownSelect options={CHART_VIEW} active={chartView} setActive={setChartView} color={"#705240"} />
-      )} */}
       {chartView === CHART_VIEW.LIQUIDITY &&
         (chartDataFiltered && chartView === CHART_VIEW.LIQUIDITY && totalLiquidityUSD ? (
-          // <ResponsiveContainer aspect={60 / 28} ref={ref}>
           <ResponsiveContainer aspect={50 / 20} ref={ref}>
             <TradingViewChart
               data={dailyData}
@@ -104,7 +100,6 @@ const GlobalChart = ({ display }) => {
         ))}
       {chartView === CHART_VIEW.VOLUME &&
         (chartDataFiltered && chartView === CHART_VIEW.VOLUME && (oneWeekVolume || oneDayVolumeUSD) ? (
-          // <ResponsiveContainer aspect={60 / 28} ref={ref}>
           <ResponsiveContainer aspect={20 / 50}>
             <TradingViewChart
               data={chartDataFiltered}
