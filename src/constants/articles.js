@@ -38,7 +38,7 @@ export const articles = [
     description: (
       <p>
         Tune into the next Onsen AMA series with 88mph on Thursday 02/11, 6pm CET (5pm UTC) at the SushiSwap{" "}
-        <Linker to="discord.gg/g7W7FJHASS" external>
+        <Linker to="https://discord.gg/g7W7FJHASS" external>
           discord voice channel
         </Linker>
         .{" "}
