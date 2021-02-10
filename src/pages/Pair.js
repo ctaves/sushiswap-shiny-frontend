@@ -17,8 +17,7 @@ import logoNotFound from "../assets/img/logoNotFound.png";
 
 import { Loader, Spinner } from "../components/Loading";
 
-const Token = ({ pairAddress, history }) => {
-  //const mobileMenu = useMenu();
+const Pair = ({ pairAddress, history }) => {
   const {
     token0,
     token1,
@@ -656,4 +655,4 @@ const Details = ({
   );
 };
 
-export default Token;
+export default Pair;

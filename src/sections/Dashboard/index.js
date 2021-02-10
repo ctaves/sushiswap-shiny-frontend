@@ -142,7 +142,7 @@ const DashboardRoutes = () => {
           }
         }}
       />
-      <Route
+      {/* <Route
         exacts
         strict
         path="/pair/:pairAddress"
@@ -153,7 +153,7 @@ const DashboardRoutes = () => {
             return <Redirect to="/home" />;
           }
         }}
-      />
+      /> */}
       {/* Community */}
       <Route exact path="/governance" component={GovernanceTimelockPage} />
       <Route exact path="/governance/timelock" component={GovernanceTimelockPage} />
@@ -263,7 +263,7 @@ const PortfolioTabs = [
 const PortfolioBalancesPage = () => {
   return (
     <>
-      <TitleTabs title={"Omakase: Your Portfolio"} tabs={PortfolioTabs} selected={"balances"} withSearch />
+      <TitleTabs title={"Omakase: Your Portfolio"} tabs={PortfolioTabs} selected={"balances"} />
       <div className="bg-white">
         <PortfolioPage />
       </div>
@@ -273,7 +273,7 @@ const PortfolioBalancesPage = () => {
 const PortfolioTransactionsPage = () => {
   return (
     <>
-      <TitleTabs title={"Omakase: Your Portfolio"} tabs={PortfolioTabs} selected={"transactions"} withSearch />
+      <TitleTabs title={"Omakase: Your Portfolio"} tabs={PortfolioTabs} selected={"transactions"} />
       <div className="min-h-full bg-gray-100 shadow-inner py-6 space-y-6 sm:p-6">
         <TransactionsPage />
       </div>

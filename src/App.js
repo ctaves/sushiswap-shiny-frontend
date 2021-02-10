@@ -81,6 +81,11 @@ import PoolWrapper from "./pages/Pool";
 // Services - Lite Dependancies
 //import { ContextProvider as LiteProvider } from "./services/lite/context";
 
+// const Test = () => {
+//   console.log("test:");
+//   return <></>;
+// };
+
 const App = () => {
   // const globalData = useGlobalData();
   // const globalChartData = useGlobalChartData();
@@ -97,6 +102,7 @@ const App = () => {
         <Web3ReactManager>
           <Switch>
             {/* Home Routes */}
+            {/* <Route exact path="/test" component={Test} /> */}
             <Route exact path="/" component={Dashboard} />
             <Route exact path="/home" component={Dashboard} />
             <Route exact path="/experimental/beginner" component={Beginner} />

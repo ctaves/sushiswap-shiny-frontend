@@ -16,6 +16,17 @@ export const articles = [
   //   token: "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2", // WETH
   // },
   {
+    key: "wallet-issues",
+    title: "NOTICE: Wallet Issues",
+    description: (
+      <p>
+        We are currently investigating wallet issues with Trust Wallet and Coinbase Mobile Wallet. Metamask Desktop
+        Wallet is operating normally. We expect this issue to be resolved in a day.
+      </p>
+    ),
+    image: OnsenIllustration,
+  },
+  {
     key: "moving-app",
     title: "NOTICE: This page will soon move to app.sushiswap.fi",
     description: (

@@ -57,7 +57,7 @@ import { formattedNum } from "../../services/vision/utils";
 import { getBalanceNumber } from "../../services/frontend/utils/formatBalance";
 
 // vision dependancies
-//import { useEthPrice } from "../../services/vision/contexts/GlobalData";
+import { useEthPrice } from "../../services/vision/contexts/GlobalData";
 import { client } from "../../services/vision/apollo/client";
 import { USER_POSITIONS, USER_HISTORY } from "../../services/vision/apollo/queries";
 import { getLPReturnsOnPair } from "../../services/vision/utils/returns";
@@ -79,10 +79,12 @@ import sushiData from "@sushiswap/sushi-data";
 
 import Notice from "../Notice";
 
-const AccountQueries = () => {
+const Account = () => {
   const { account } = useActiveWeb3React();
   //const account = "0x8867eF1593F6A72DbbB941D4D96b746A4da691B2";
-  //const { ethereum } = window;
+  const { ethereum } = window;
+  //console.log("ethereum:", ethereum, account);
+  //const id = account;
 
   // GET USER SNAPSHOTS
   const [snapshots, setSnapshots] = useState();
@@ -122,8 +124,7 @@ const AccountQueries = () => {
   }, [account]);
 
   // Get Unstaked Liquidity Positions
-  //const [ethPrice] = useEthPrice();
-  const ethPrice = 1;
+  const [ethPrice] = useEthPrice();
   const [positions, setPositions] = useState();
   useEffect(() => {
     async function fetchData(account) {
@@ -154,6 +155,9 @@ const AccountQueries = () => {
     fetchData(account);
   }, [account, snapshots]);
 
+  //console.log("POSITIONS:", positions);
+  //console.log("SNAPSHOTS:", snapshots);
+
   // Get Sushi Price in USD
   const { priceUSD } = useTokenData("0x6b3595068778dd592e39a122f4f5a5cf09c90fe2");
 
@@ -170,6 +174,14 @@ const AccountQueries = () => {
   const poolShare = new BigNumber(xSushiBalance).div(new BigNumber(totalSupply));
   const poolStaked = new BigNumber(poolShare).times(new BigNumber(totalStaked));
   const sushiStaked = new BigNumber(poolStaked).div(new BigNumber(1000000000000000000));
+  // console.log("sushiStaked:", {
+  //   xSushiBalance: xSushiBalance,
+  //   totalSupply: totalSupply,
+  //   totalStaked: totalStaked,
+  //   poolShare: poolShare,
+  //   poolStaked: poolStaked,
+  //   sushiStaked: sushiStaked,
+  // });
 
   // Get all pending Sushi from farms
   const allEarnings = useAllEarningsAccount(account);
@@ -177,37 +189,13 @@ const AccountQueries = () => {
   for (let earning of allEarnings) {
     sumEarning += new BigNumber(earning).div(new BigNumber(10).pow(18)).toNumber();
   }
+  //const [farms] = useFarms();
+  //console.log("farms_:", farms);
+  // const allStakedValue = useAllStakedValue();
+  // if (allStakedValue && allStakedValue.length) {
+  //   const sumWeth = farms.reduce((c, { id }, i) => c + (allStakedValue[i].totalWethValue.toNumber() || 0), 0);
+  // }
 
-  console.log("sumEarning:", sumEarning);
-
-  return (
-    <>
-      <Account
-        account={account}
-        sumEarning={sumEarning}
-        priceUSD={priceUSD}
-        totalNotStaked={totalNotStaked}
-        totalNotStakedUSD={totalNotStakedUSD}
-        sushiStaked={sushiStaked}
-        xSushiFormatted={xSushiFormatted}
-        positions={positions}
-        ethPrice={ethPrice}
-      />
-    </>
-  );
-};
-
-const Account = ({
-  account,
-  sumEarning,
-  priceUSD,
-  totalNotStaked,
-  totalNotStakedUSD,
-  sushiStaked,
-  xSushiFormatted,
-  positions,
-  ethPrice,
-}) => {
   // Initialize Analytics Queries -------------------------------------------//
 
   const { data: { bundles } = {} } = useQuery(ethPriceQuery, {
@@ -245,6 +233,10 @@ const Account = ({
       id: "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2",
     },
   });
+
+  //console.log("poolUsers:", poolData, lockupData);
+
+  //console.log("token:", token);
   const { data: { pairs } = {} } = useQuery(pairsQuery);
 
   // Sushi Price
@@ -311,17 +303,51 @@ const Account = ({
   const barRoiDailySushi = ((barPending + barRoiSushi - barStaked) / blockDifference) * 6440;
   const investments = farmingStaked + barPendingUSD + farmingPending;
 
+  //console.log("ACCOUNTS:", account, id);
+  //console.log("INVESTMENTS:", investments, farmingStaked, barPendingUSD, farmingPending);
+
+  // calculate total locked sushi
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const lockups = await sushiData.lockup.user({ user_address: account });
+  //     let atLockup = 0;
+  //     let harvested = 0;
+  //     lockups.map((farm) => {
+  //       const sushiAtLockup = ((farm.amount * farm.pool.accSushiPerShare) / 1e12 - farm.rewardDebt) / 1e18;
+  //       atLockup = atLockup + sushiAtLockup;
+  //       harvested = harvested + farm.sushiHarvestedSinceLockup;
+  //     });
+  //     const total = (harvested + sumEarning - atLockup) * 2;
+  //     console.log("lockup:", total, harvested, sumEarning, atLockup);
+  //   };
+  //   fetchData();
+  // }, []);
+
   const totalSushiAtLockup = _.sum(
     lockupData?.users?.map((lockupUser) => {
       return ((lockupUser.amount * lockupUser.pool.accSushiPerShare) / 1e12 - lockupUser.rewardDebt) / 1e18;
     })
   );
-
-  console.log("poolData:", poolData);
-
-  const { harvestedSushi, error } = useHarvestedSushi(account);
+  // todo: ignores if position withdrawn
+  // const totalSushiHarvestedSinceLockup = _.sum(
+  //   poolUsers?.map((user) => {
+  //     return parseFloat(user.sushiHarvestedSinceLockup);
+  //   })
+  // );
+  // const { harvestedSushi, error } = useHarvestedSushi(account);
+  const harvestedSushi = null;
+  const error = true;
   const totalSushiHarvestedSinceLockup =
     harvestedSushi != null && !error && ethers.utils.formatUnits(harvestedSushi, 18);
+
+  // console.log(
+  //   "totalSushiHarvestedSinceLockup:",
+  //   Number(totalSushiHarvestedSinceLockup),
+  //   sumEarning,
+  //   totalSushiAtLockup,
+  //   (Number(totalSushiHarvestedSinceLockup) + sumEarning - totalSushiAtLockup) * 2
+  // );
 
   const totalSushiLocked = (Number(totalSushiHarvestedSinceLockup) + sumEarning - totalSushiAtLockup) * 2;
   const totalSushiLockedUSD = totalSushiLocked * sushiPrice;
@@ -333,6 +359,14 @@ const Account = ({
     sumEarning,
     totalSushiAtLockup
   );
+
+  // console.log(
+  //   "totalSushiLocked:",
+  //   totalSushiLocked,
+  //   sumEarning,
+  //   _.sum(totalSushiAtLockup),
+  //   _.sum(totalSushiHarvestedSinceLockup)
+  // );
 
   let farmBalances = [];
   // causes no-used-expression warning, see eslint disabling at top of file
@@ -383,12 +417,29 @@ const Account = ({
     });
   });
 
+  //console.log("FARM BALANCES:", farmBalances);
+  //console.log("FARM VALUE: ", _.sumBy(farmBalances, "valueUSD"));
+
+  // const totalSushiBalance =
+  //   Number(sumEarning) +
+  //   Number(_.sumBy(farmBalances, "lockedSushi")) +
+  //   Number(getBalanceNumber(totalNotStaked)) +
+  //   Number(barStaked); // issue with barStaked calculation
+
   const totalSushiBalance =
     Number(sumEarning) +
     Number(totalSushiLocked) +
     //Number(_.sumBy(farmBalances, "lockedSushi")) +
     Number(getBalanceNumber(totalNotStaked)) +
     Number(sushiStaked);
+
+  // console.log("BALANCES:", {
+  //   totalSushiBalance: totalSushiBalance,
+  //   sumEarning: sumEarning,
+  //   lockedSushi: _.sumBy(farmBalances, "lockedSushi"),
+  //   notStaked: getBalanceNumber(totalNotStaked),
+  //   staked: Number(barStaked),
+  // });
 
   // initialize modals
   const [onPresentHarvest] = useModal(<HarvestModal />, null, null, null);
@@ -524,8 +575,49 @@ const Account = ({
       />
       <TableLP positions={positions} ethPrice={ethPrice} LPBalanceUSD={formattedNum(LPBalance, true)} />
       <TableFarms positions={farmBalances} farmBalanceUSD={formattedNum(_.sumBy(farmBalances, "valueUSD"), true)} />
+      {/* <div className="grid grid-cols-12 gap-8 bg-gray-100">
+        <div className="col-span-4">
+          <div className="p-4 rounded-md "> Hello </div>
+        </div>
+        <div className="col-span-8">
+          <div className="p-4">
+            <TableTotal
+              totalBalanceUSD={
+                (totalSushiBalance || totalSushiBalance === 0) &&
+                sushiPrice &&
+                farmBalances &&
+                (LPBalance || LPBalance === 0) ? (
+                  formattedNum(totalSushiBalance * sushiPrice + _.sumBy(farmBalances, "valueUSD") + LPBalance, true)
+                ) : (
+                  <Loader />
+                )
+              }
+              account={account}
+            />
+            <TableSushi
+              balances={balances ? balances : <Loader />}
+              price={sushiPrice ? currencyFormatter.format(sushiPrice) : <Loader />}
+              totalSushiBalance={
+                totalSushiBalance || totalSushiBalance === 0 ? formattedNum(totalSushiBalance) : <Loader />
+              }
+              totalSushiBalanceUSD={
+                (totalSushiBalance && sushiPrice) || (totalSushiBalance === 0 && sushiPrice) ? (
+                  formattedNum(totalSushiBalance * sushiPrice, true)
+                ) : (
+                  <Loader />
+                )
+              }
+            />
+            <TableLP positions={positions} ethPrice={ethPrice} LPBalanceUSD={formattedNum(LPBalance, true)} />
+            <TableFarms
+              positions={farmBalances}
+              farmBalanceUSD={formattedNum(_.sumBy(farmBalances, "valueUSD"), true)}
+            />
+          </div>
+        </div>
+      </div> */}
     </>
   );
 };
 
-export default AccountQueries;
+export default Account;
