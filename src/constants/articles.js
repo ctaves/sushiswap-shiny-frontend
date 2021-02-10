@@ -21,7 +21,11 @@ export const articles = [
     description: (
       <p>
         We are currently investigating wallet issues with Trust Wallet and Coinbase Mobile Wallet. Metamask Desktop
-        Wallet is operating normally. We expect this issue to be resolved in a day.
+        Wallet is operating normally. Please use{" "}
+        <Linker to="https://exchange.sushiswap.fi" external>
+          exchange.sushiswap.fi
+        </Linker>{" "}
+        in the meantime. We expect this issue to be resolved in a day.
       </p>
     ),
     image: OnsenIllustration,

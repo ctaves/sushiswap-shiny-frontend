@@ -142,7 +142,7 @@ const DashboardRoutes = () => {
           }
         }}
       />
-      {/* <Route
+      <Route
         exacts
         strict
         path="/pair/:pairAddress"
@@ -153,7 +153,7 @@ const DashboardRoutes = () => {
             return <Redirect to="/home" />;
           }
         }}
-      /> */}
+      />
       {/* Community */}
       <Route exact path="/governance" component={GovernanceTimelockPage} />
       <Route exact path="/governance/timelock" component={GovernanceTimelockPage} />
