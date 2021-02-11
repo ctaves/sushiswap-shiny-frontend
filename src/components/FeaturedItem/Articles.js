@@ -48,7 +48,7 @@ const Article = ({ title, description, image, token, list }) => {
           </div>
         </div>
         <div className="pt-2 pb-6 flex mx-4 border-b border-gray-100">
-          <div className="pr-4">
+          <div className="pr-4 2xl:w-full">
             <div className="mt-1">{description}</div>
             {tokenData && Object.keys(tokenData).length > 0 && (
               <Link to={"/token/" + tokenData.id}>
