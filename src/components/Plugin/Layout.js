@@ -10,7 +10,7 @@ import ClassicRemove from "../../services/exchange/pages/RemoveLiquidity/seconda
 const TokenActionsCard = ({ initialSection, title, symbol, currencyIdA, currencyIdB, showWallets }) => {
   const [section, setSection] = useState(initialSection);
   return (
-    <div className="sm:border-2 sm:border-gray-900 flex flex-col rounded-lg overflow-hidden">
+    <div className="lg:border-2 lg:border-gray-900 flex flex-col rounded-lg overflow-hidden">
       <div className="flex-1 bg-white lg:p-6 flex flex-col justify-between">
         <div className="relative border-b border-gray-200 space-y-4 pb-0">
           {/* <div className="space-y-3 flex items-center justify-between space-y-0">
