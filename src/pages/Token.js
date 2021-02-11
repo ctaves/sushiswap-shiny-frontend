@@ -15,6 +15,7 @@ import { tokenInfo } from "../constants/tokenInfo.json";
 //import Loader from "../services/vision/components/LocalLoader";
 
 import { Loader, Spinner } from "../components/Loading";
+import useModal from "../shared/hooks/useModal";
 
 const Token = ({ address, history }) => {
   const {
@@ -63,6 +64,9 @@ const Token = ({ address, history }) => {
   const additionalTokenInfo = tokenInfo.find((token) => token.address === String(address).toLowerCase());
   const about = additionalTokenInfo?.about;
 
+  const [onPresentCardTokenSwapActions] = useModal(<CardTokenActionsModal address={address} />, null, null, null);
+  const [onPresentCardTokenLiquidityActions] = useModal(<CardTokenActionsModal address={address} initialTab="pool" />, null, null, null);
+
   console.log("token_transactions:", transactions);
 
   return (
@@ -97,10 +101,10 @@ const Token = ({ address, history }) => {
             </div>
             <div className="pt-6 lg:col-span-2">
               <div className="lg:sticky top-0">
-                <div className="hidden lg:block">
+                <div className="hidden xl:block">
                   <Search />
                 </div>
-                <div className="pt-4">
+                <div className="hidden xl:block pt-4">
                   {symbol ? (
                     <>
                       <CardTokenActions
@@ -123,7 +127,7 @@ const Token = ({ address, history }) => {
         </div>
       </div>
       {symbol && transactions && (
-        <div className="py-10 px-10 inline-block min-w-full overflow-hidden align-middle">
+        <div className="py-5 px-4 md:py-10 md:px-10 inline-block min-w-full overflow-hidden align-middle">
           <div
             style={{
               position: "relative",
@@ -135,6 +139,34 @@ const Token = ({ address, history }) => {
           </div>
         </div>
       )}
+      <div
+        className="block pt-2 xl:hidden bg-white fixed w-full flex justify-around" 
+        style={{
+          bottom: '73px',
+          height: '64px',
+          zIndex: 21,
+        }}>
+        <button
+          className="bg-black text-white font-bold rounded-md w-full"
+          onClick={onPresentCardTokenSwapActions}
+          style={{
+            padding: '15px',
+            margin: '0 15px',
+          }}
+          >
+           Trade
+        </button>
+        <button
+          className="bg-black text-white font-bold rounded-md w-full"
+          onClick={onPresentCardTokenLiquidityActions}
+          style={{
+            padding: '15px',
+            margin: '0 15px',
+          }}
+          >
+           Liquidity
+        </button>
+      </div>
     </>
   );
 };
@@ -237,9 +269,9 @@ const TokenPageTitle = ({ name, price, priceChange, symbol, id }) => {
         </div>
         <div className="mt-2 md:flex md:items-center md:justify-between">
           <div className="flex-1 min-w-0">
-            <div className="flex items-center text-2xl font-semibold leading-8 text-gray-900">
+            <div className="flex items-center md:text-2xl text-lg font-semibold leading-5 md:leading-8 text-gray-900">
               <div
-                className="mr-4 flex items-center justify-center flex-shrink-0 w-10 h-10 text-2xl rounded-full shadow-md"
+                className="mr-4 flex items-center justify-center flex-shrink-0 w-10 h-10 md:text-2xl text-lg rounded-full shadow-md"
                 //style={{ border: "solid 1px #ee6d48" }}
               >
                 <img
@@ -365,6 +397,60 @@ const Details = ({ liquidity, liquidityChange, volume, volumeChange, transaction
               </div>
             )}
           </dl>
+        </div>
+      </div>
+    </>
+  );
+};
+
+const CardTokenActionsModal = ({ address, initialTab, onDismiss }) => {
+  const {
+    id,
+    symbol,
+  } = useTokenData(address);
+
+  return (
+    <>
+      <span className="hidden md:inline-block md:align-middle md:h-screen" />
+      <div
+        className="p-4 w-full md:align-middle md:max-w-lg bg-white inline-block align-bottom bg-white rounded-md text-left overflow-hidden shadow-xl transform transition-all"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-headline"
+      >
+        <div className="block absolute top-0 right-0 pt-4 pr-4">
+          <button
+            onClick={() => {
+              onDismiss();
+            }}
+            type="button"
+            className="text-gray-400 hover:text-gray-500 focus:outline-none focus:text-gray-500 transition ease-in-out duration-150"
+            aria-label="Close"
+          >
+            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div className="items-start">
+          <div className="text-center sm:text-left">
+            <h3 className="pb-2 text-lg leading-6 font-medium text-gray-900" id="modal-headline">
+              Token Actions
+            </h3>
+            {symbol ? (
+              <CardTokenActions
+                initialSection={initialTab ? initialTab : "swap"}
+                title={"What would you like to do?"}
+                symbol={symbol}
+                currencyIdA={id}
+                currencyIdB={"ETH"}
+              />
+            ) : (
+              <div className="rounded-lg border-2 border-gray-900 h-80">
+                <Spinner height={"full"} />
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </>

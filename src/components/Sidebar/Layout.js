@@ -8,7 +8,7 @@ import logo from "../../assets/img/logo.png";
 
 const Sidebar = ({ selected }) => {
   return (
-    <div className="sushi-hidden lg:sushi-flex lg:sushi-flex-shrink-0">
+    <div className="sushi-hidden xl:sushi-flex lg:sushi-flex-shrink-0">
       <div className="sushi-flex sushi-flex-col sushi-w-64 sushi-pt-5 sushi-pb-4 bg-white">
         <div className="sushi-flex sushi-items-center sushi-flex-shrink-0 sushi-px-5">
           <img className="sushi-h-8 sushi-w-auto" src={logo} alt="Sushiswap" />
