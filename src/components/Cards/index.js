@@ -18,9 +18,9 @@ import _ from "lodash";
 export const CardLiquidity = () => {
   return (
     <>
-      <div className="w-3/4 md:w-1/2 h-48 overflow-hidden mr-4 justify-between shadow-md border-2 border-blue-brand-light rounded-md">
+      <div className="w-3/4 md:w-1/2 h-48 3xl:h-72 overflow-hidden mr-4 justify-between shadow-md border-2 border-blue-brand-light rounded-md">
         <div>
-          <div className="text-lg font-base pt-8 px-4">Liquidity</div>
+          <div className="text-lg font-base pt-8 3xl:pt-24 px-4">Liquidity</div>
         </div>
         <div className="-mb-6 relative">
           <div className="w-full">
@@ -35,9 +35,9 @@ export const CardLiquidity = () => {
 export const CardVolume = () => {
   return (
     <>
-      <div className="w-3/4 md:w-1/2 h-48 overflow-hidden justify-between shadow-md border-2 border-pink-brand rounded-md">
+      <div className="w-3/4 md:w-1/2 h-48 3xl:h-72 overflow-hidden justify-between shadow-md border-2 border-pink-brand rounded-md">
         <div>
-          <div className="text-lg font-base pt-8 px-4">Volume</div>
+          <div className="text-lg font-base pt-8 3xl:pt-24 px-4">Volume</div>
         </div>
         <div className="-mb-6 relative">
           <div className="absolute w-full">
