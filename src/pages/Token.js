@@ -140,10 +140,10 @@ const Token = ({ address, history }) => {
         </div>
       )}
       <div
-        className="block lg:hidden bg-white fixed w-full flex justify-around" 
+        className="block pt-2 lg:hidden bg-white fixed w-full flex justify-around" 
         style={{
           bottom: '73px',
-          height: '51px',
+          height: '64px',
           zIndex: 21,
         }}>
         <button
