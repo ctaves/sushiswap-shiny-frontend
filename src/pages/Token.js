@@ -101,10 +101,10 @@ const Token = ({ address, history }) => {
             </div>
             <div className="pt-6 lg:col-span-2">
               <div className="lg:sticky top-0">
-                <div className="hidden lg:block">
+                <div className="hidden xl:block">
                   <Search />
                 </div>
-                <div className="hidden lg:block pt-4">
+                <div className="hidden xl:block pt-4">
                   {symbol ? (
                     <>
                       <CardTokenActions
@@ -140,7 +140,7 @@ const Token = ({ address, history }) => {
         </div>
       )}
       <div
-        className="block pt-2 lg:hidden bg-white fixed w-full flex justify-around" 
+        className="block pt-2 xl:hidden bg-white fixed w-full flex justify-around" 
         style={{
           bottom: '73px',
           height: '64px',

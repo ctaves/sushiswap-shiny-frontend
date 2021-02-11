@@ -54,7 +54,7 @@ const TitleTabs = ({ title, tabs, selected, withSearch }) => {
               })}
             </nav>
             {withSearch && (
-              <div className="hidden lg:block lg:absolute lg:right-0">
+              <div className="hidden xl:block lg:absolute lg:right-0">
                 <HeaderSearch />
               </div>
             )}
