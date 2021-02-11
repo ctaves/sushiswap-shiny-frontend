@@ -11,6 +11,7 @@ import Sidebar from "../../components/Sidebar/Layout";
 //import MainSearch from "../../components/Search/Desktop";
 import MainSearch from "../../services/vision/components/Search/secondary";
 import useMenu from "../../shared/hooks/useMenu";
+import ModalsProvider from "../../shared/contexts/ModalsContext";
 // Overview
 import CardTokenActions from "../../components/Plugin/StandaloneWithoutRemove";
 //import Flickity from "react-flickity-component";
@@ -64,11 +65,11 @@ const LazyComponent = ({ component, fallback }) => {
 
 const Dashboard = () => {
   return (
-    <>
+    <ModalsProvider>
       <DashboardContainer>
         <DashboardRoutes />
       </DashboardContainer>
-    </>
+    </ModalsProvider>
   );
 };
 
@@ -226,7 +227,7 @@ const OverviewPage = () => {
                 </div>
               </div>
             </div>
-            <div className="hidden 2xl:px-16 lg:block lg:col-span-2">
+            <div className="hidden 2xl:px-16 xl:block lg:col-span-2">
               <div className="pt-4">
                 <CardOnsen />
               </div>
@@ -380,7 +381,7 @@ const FeaturedListPage = () => {
   return (
     <>
       {/* <MainSearch /> */}
-      <div className="sushi-px-4 py-4 sushi-hidden lg:sushi-block">
+      <div className="sushi-px-4 py-4 sushi-hidden xl:sushi-block">
         <MainSearch />
       </div>
       <h2 className="sushi-max-w-6xl sushi-mx-auto sushi-mt-4 sushi-px-4 text-xl sushi-leading-6 font-semibold sushi-text-cool-gray-900">
@@ -419,7 +420,7 @@ const TokensPage = () => {
   const allTokens = useAllTokenData();
   return (
     <>
-      <div className="sushi-px-4 py-4 sushi-hidden lg:sushi-block">
+      <div className="sushi-px-4 py-4 sushi-hidden xl:sushi-block">
         <MainSearch />
       </div>
       <FeaturedList />
@@ -442,7 +443,7 @@ const PairsPage = () => {
   const allPairs = useAllPairData();
   return (
     <>
-      <div className="sushi-px-4 py-4 sushi-hidden lg:sushi-block">
+      <div className="sushi-px-4 py-4 sushi-hidden xl:sushi-block">
         <MainSearch />
       </div>
       <div className="my-4 sushi-inline-block sushi-min-w-full sushi-overflow-hidden sushi-align-middle">

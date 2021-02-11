@@ -24,27 +24,25 @@ const Tabs = ({ selected, setSelected }) => {
     },
   ];
   return (
-    <div>
-      <div className="sushi-block">
-        <nav className="sushi--mb-px sushi-flex sushi-space-x-8">
-          {tabs.map((tab) => {
-            return (
-              <button
-                onClick={() => {
-                  setSelected(tab.id);
-                }}
-                className={
-                  selected === tab.id
-                    ? "sushi-whitespace-no-wrap sushi-pb-4 sushi-px-1 sushi-border-b-2 border-gray-900 sushi-font-medium sushi-text-sm sushi-leading-5 text-gray-900 focus:sushi-outline-none focus:text-gray-900 focus:border-gray-700"
-                    : "sushi-whitespace-no-wrap sushi-pb-4 sushi-px-1 sushi-border-b-2 sushi-border-transparent sushi-font-medium sushi-text-sm sushi-leading-5 sushi-text-gray-500 hover:sushi-text-gray-700 hover:sushi-border-gray-300 focus:sushi-outline-none focus:sushi-text-gray-700 focus:sushi-border-gray-300"
-                }
-              >
-                {tab.title}
-              </button>
-            );
-          })}
-        </nav>
-      </div>
+    <div className="block">
+      <nav className="justify-center sm:justify-start mb-px flex space-x-5">
+        {tabs.map((tab) => {
+          return (
+            <button
+              onClick={() => {
+                setSelected(tab.id);
+              }}
+              className={
+                selected === tab.id
+                  ? "whitespace-no-wrap pb-4 px-1 border-b-2 border-gray-900 font-medium text-sm leading-5 text-gray-900 focus:outline-none focus:text-gray-900 focus:border-gray-700"
+                  : "whitespace-no-wrap pb-4 px-1 border-b-2 border-transparent font-medium text-sm leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300"
+              }
+            >
+              {tab.title}
+            </button>
+          );
+        })}
+      </nav>
     </div>
   );
 };

@@ -10,33 +10,33 @@ import ClassicRemove from "../../services/exchange/pages/RemoveLiquidity/seconda
 const TokenActionsCard = ({ initialSection, title, symbol, currencyIdA, currencyIdB, showWallets }) => {
   const [section, setSection] = useState(initialSection);
   return (
-    <div className="border-2 border-gray-900 sushi-flex sushi-flex-col sushi-rounded-lg sushi-overflow-hidden">
-      <div className="sushi-flex-1 sushi-bg-white sushi-p-6 sushi-flex sushi-flex-col sushi-justify-between">
-        <div className="sushi-relative sushi-border-b sushi-border-gray-200 sushi-space-y-4 sushi-pb-0">
-          {/* <div className="sushi-space-y-3 sushi-flex sushi-items-center sushi-justify-between sushi-space-y-0">
-            <h3 className="sushi-pt-2 sushi-text-lg sushi-leading-6 sushi-font-medium sushi-text-gray-900">{title}</h3>
+    <div className="lg:border-2 lg:border-gray-900 flex flex-col rounded-lg overflow-hidden">
+      <div className="flex-1 bg-white lg:p-6 flex flex-col justify-between">
+        <div className="relative border-b border-gray-200 space-y-4 pb-0">
+          {/* <div className="space-y-3 flex items-center justify-between space-y-0">
+            <h3 className="pt-2 text-lg leading-6 font-medium text-gray-900">{title}</h3>
           </div> */}
           <Tabs selected={section} setSelected={setSection} />
         </div>
         {
           {
             swap: (
-              <div className="sushi-mt-6 sushi-flex-1">
+              <div className="mt-6 flex-1">
                 <ClassicSwap outputCurrency={currencyIdA} />
               </div>
             ),
             pool: (
-              <div className="sushi-mt-6 sushi-flex-1">
+              <div className="mt-6 flex-1">
                 <ClassicPool currencyIdA={currencyIdA} currencyIdB={currencyIdB} />
               </div>
             ),
             remove: (
-              <div className="sushi-mt-6 sushi-flex-1">
+              <div className="mt-6 flex-1">
                 <ClassicRemove currencyIdA={currencyIdA} currencyIdB={currencyIdB} />
               </div>
             ),
             // stake: (
-            //   <div className="sushi-flex-1">
+            //   <div className="flex-1">
             //     <Stakes symbol={symbol} setSelected={setSection} showWallets={showWallets} />
             //   </div>
             // ),

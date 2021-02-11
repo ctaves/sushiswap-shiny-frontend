@@ -149,7 +149,7 @@ const Pair = ({ pairAddress, history }) => {
             </div>
             <div className="pt-6 lg:col-span-2">
               <div className="lg:sticky top-0">
-                <div className="hidden lg:block">
+                <div className="hidden xl:block">
                   <Search />
                 </div>
                 <div className="pt-4">
