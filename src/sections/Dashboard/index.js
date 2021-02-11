@@ -88,7 +88,7 @@ export const DashboardContainer = ({ children }) => {
                 borderBottomLeftRadius: 0,
               }}
             >
-              <div className="bg-white 2xl:mx-20 lg:rounded-lg pb-36 lg:pb-4 md:border md:border-grey-300 md:shadow-xl">
+              <div className="bg-white 2xl:mx-20 3xl:mx-56 lg:rounded-lg pb-36 lg:pb-4 md:border md:border-grey-300 md:shadow-xl">
                 {children}
               </div>
             </main>
