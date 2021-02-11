@@ -6,9 +6,9 @@ const MobileNavigation = ({ selected, changeMenu, isOpen }) => {
   return (
     <>
       {/* Tablet and Mobile */}
-      <section className="z-20 xl:hidden block fixed inset-x-0 bottom-0 bg-white shadow pb-4">
+      <section className="z-20 lg:hidden block fixed inset-x-0 bottom-0 bg-white shadow pb-4">
         {/* <section className="block fixed inset-x-0 bottom-0 z-10 bg-purple-900 shadow"> */}
-        <div className={isOpen ? "block xl:hidden" : "hidden xl:hidden"}>
+        <div className={isOpen ? "block lg:hidden" : "hidden lg:hidden"}>
           <nav className="px-3 py-4 overflow-scroll">
             <MenuItems selected={selected} />
           </nav>

@@ -65,7 +65,12 @@ const Token = ({ address, history }) => {
   const about = additionalTokenInfo?.about;
 
   const [onPresentCardTokenSwapActions] = useModal(<CardTokenActionsModal address={address} />, null, null, null);
-  const [onPresentCardTokenLiquidityActions] = useModal(<CardTokenActionsModal address={address} initialTab="pool" />, null, null, null);
+  const [onPresentCardTokenLiquidityActions] = useModal(
+    <CardTokenActionsModal address={address} initialTab="pool" />,
+    null,
+    null,
+    null
+  );
 
   console.log("token_transactions:", transactions);
 
@@ -101,10 +106,10 @@ const Token = ({ address, history }) => {
             </div>
             <div className="pt-6 lg:col-span-2">
               <div className="lg:sticky top-0">
-                <div className="hidden xl:block">
+                <div className="hidden lg:block">
                   <Search />
                 </div>
-                <div className="hidden xl:block pt-4">
+                <div className="hidden lg:block pt-4">
                   {symbol ? (
                     <>
                       <CardTokenActions
@@ -140,31 +145,32 @@ const Token = ({ address, history }) => {
         </div>
       )}
       <div
-        className="block pt-2 xl:hidden bg-white fixed w-full flex justify-around" 
+        className="block pt-2 lg:hidden bg-white fixed w-full flex justify-around"
         style={{
-          bottom: '73px',
-          height: '64px',
+          bottom: "73px",
+          height: "64px",
           zIndex: 21,
-        }}>
+        }}
+      >
         <button
           className="bg-black text-white font-bold rounded-md w-full"
           onClick={onPresentCardTokenSwapActions}
           style={{
-            padding: '15px',
-            margin: '0 15px',
+            padding: "15px",
+            margin: "0 15px",
           }}
-          >
-           Trade
+        >
+          Trade
         </button>
         <button
           className="bg-black text-white font-bold rounded-md w-full"
           onClick={onPresentCardTokenLiquidityActions}
           style={{
-            padding: '15px',
-            margin: '0 15px',
+            padding: "15px",
+            margin: "0 15px",
           }}
-          >
-           Liquidity
+        >
+          Liquidity
         </button>
       </div>
     </>
@@ -404,10 +410,7 @@ const Details = ({ liquidity, liquidityChange, volume, volumeChange, transaction
 };
 
 const CardTokenActionsModal = ({ address, initialTab, onDismiss }) => {
-  const {
-    id,
-    symbol,
-  } = useTokenData(address);
+  const { id, symbol } = useTokenData(address);
 
   return (
     <>
