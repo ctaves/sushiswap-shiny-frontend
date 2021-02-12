@@ -22,6 +22,10 @@ const ChartWrapper = styled.div`
   @media screen and (max-width: 600px) {
     min-height: 200px;
   }
+
+  @media screen and (max-width: 768px) {
+    position: relative;
+  }
 `;
 
 const OptionsRow = styled.div`
@@ -32,6 +36,14 @@ const OptionsRow = styled.div`
   border-bottom: 1px solid #e5e7eb;
   overflow-x: scroll;
   white-space: nowrap;
+`;
+
+const MobileAutoRow = styled(AutoRow)`
+  @media screen and (max-width: 768px) {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 `;
 
 const CHART_VIEW = {
@@ -82,6 +94,7 @@ const PairChart = ({ address, color, base0, base1 }) => {
   const below1600 = useMedia("(max-width: 1600px)");
   const below1080 = useMedia("(max-width: 1080px)");
   const below600 = useMedia("(max-width: 600px)");
+  const below768 = useMedia("(max-width: 768px)");
 
   let utcStartTime = getTimeframe(timeWindow);
   chartData = chartData?.filter((entry) => entry.date >= utcStartTime);
@@ -303,7 +316,7 @@ const PairChart = ({ address, color, base0, base1 }) => {
             {pairData.token0 ? formattedSymbol0 + "/" + formattedSymbol1 : "-"}
           </OptionButton>
         </AutoRow>
-        <AutoRow justify="flex-end" gap="6px">
+        <MobileAutoRow justify={ below768 ? "flex-start" : "flex-end" } gap="6px">
           <OptionButton
             active={timeWindow === timeframeOptions.WEEK}
             onClick={() => setTimeWindow(timeframeOptions.WEEK)}
@@ -322,7 +335,7 @@ const PairChart = ({ address, color, base0, base1 }) => {
           >
             All
           </OptionButton>
-        </AutoRow>
+        </MobileAutoRow>
       </OptionsRow>
       {/* {below600 ? (
         <RowBetween mb={40}>
