@@ -114,7 +114,7 @@ const PairChart = ({ address, color, base0, base1 }) => {
     }
   }
 
-  const aspect = below1080 ? 60 / 20 : below1600 ? 60 / 28 : 60 / 22;
+  const aspect = below1080 ? 60 / 50 : below1600 ? 60 / 28 : 60 / 22;
 
   return (
     <ChartWrapper>
