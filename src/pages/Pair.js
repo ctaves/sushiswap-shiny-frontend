@@ -200,7 +200,7 @@ const Pair = ({ pairAddress, history }) => {
         </div>
       </div>
       {transactions ? (
-        <div className="py-10 px-10 inline-block min-w-full overflow-hidden align-middle">
+        <div className="py-5 px-4 md:py-10 md:px-10 inline-block min-w-full overflow-hidden align-middle">
           <div
             style={{
               position: "relative",
