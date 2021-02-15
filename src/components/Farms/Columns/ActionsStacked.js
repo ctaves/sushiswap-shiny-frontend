@@ -134,7 +134,7 @@ const Actions = ({ farm }) => {
             />
           </div>
         )} */}
-        {!state.needsApproval && state.availableSLP && (
+        {!state.needsApproval && (
           <div>
             <Button title={"Stake"} onClick={onPresentDeposit} />
           </div>

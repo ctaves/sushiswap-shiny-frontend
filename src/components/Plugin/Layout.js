@@ -3,6 +3,7 @@ import Tabs from "./Tabs";
 import ClassicSwap from "../../services/exchange/pages/Swap/secondary";
 import ClassicPool from "../../services/exchange/pages/AddLiquidity/secondary";
 import ClassicRemove from "../../services/exchange/pages/RemoveLiquidity/secondary";
+import QuickStake from "./QuickStake";
 //import Stakes from "./Stakes";
 //import Stake from "../../services/frontend/views/Farm/components/Stake";
 //import TokenSwap from "../TokenSwap";
@@ -35,11 +36,12 @@ const TokenActionsCard = ({ initialSection, title, symbol, currencyIdA, currency
                 <ClassicRemove currencyIdA={currencyIdA} currencyIdB={currencyIdB} />
               </div>
             ),
-            // stake: (
-            //   <div className="flex-1">
-            //     <Stakes symbol={symbol} setSelected={setSection} showWallets={showWallets} />
-            //   </div>
-            // ),
+            stake: (
+              <div className="flex-1">
+                <QuickStake symbol={symbol} />
+                {/* <Stakes symbol={symbol} setSelected={setSection} showWallets={showWallets} /> */}
+              </div>
+            ),
           }[section]
         }
       </div>
