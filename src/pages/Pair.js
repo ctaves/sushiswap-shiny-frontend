@@ -7,6 +7,7 @@ import CardTokenActions from "../components/Plugin/Layout";
 
 import PairChart from "../services/vision/components/PairChart/secondary";
 import TxnList from "../services/vision/components/TxnList/secondary";
+import { TokenActionsButtons } from '../components/MobileNavigation/TokenActionsButtons';
 
 import { formattedNum, formattedPercent } from "../services/vision/utils";
 import { usePairData, usePairTransactions } from "../services/vision/contexts/PairData";
@@ -16,6 +17,8 @@ import CoinLoader from "../components/CoinLoader";
 import logoNotFound from "../assets/img/logoNotFound.png";
 
 import { Loader, Spinner } from "../components/Loading";
+import { CardTokenActionsModal } from '../components/Modals/CardTokenActionsModal';
+import useModal from "../shared/hooks/useModal";
 
 const Pair = ({ pairAddress, history }) => {
   const {
@@ -92,6 +95,28 @@ const Pair = ({ pairAddress, history }) => {
   //const txnChangeFormatted = formattedPercent(txnChange);
   //console.log("TXNCHANGE", oneDayTxns, txnChangeFormatted);
 
+  const [onPresentCardTokenSwapActions] = useModal(
+    <CardTokenActionsModal
+      symbol={token0 && token0.symbol}
+      currencyIdA={token0 && token0.id}
+      currencyIdB={token1 && token1.id}
+      isLoading={token0 && token1} />,
+    null,
+    null,
+    null
+  );
+  const [onPresentCardTokenLiquidityActions] = useModal(
+    <CardTokenActionsModal
+      symbol={token0 && token0.symbol}
+      currencyIdA={token0 && token0.id}
+      currencyIdB={token1 && token1.id}
+      isLoading={token0 && token1}
+      initialTab="pool" />,
+    null,
+    null,
+    null
+  );
+
   console.log("pair_diagnosis:", token0, token1);
 
   return (
@@ -152,7 +177,7 @@ const Pair = ({ pairAddress, history }) => {
                 <div className="hidden lg:block">
                   <Search />
                 </div>
-                <div className="pt-4">
+                <div className="hidden lg:block pt-4">
                   {token0 && token1 ? (
                     <>
                       <CardTokenActions
@@ -175,7 +200,7 @@ const Pair = ({ pairAddress, history }) => {
         </div>
       </div>
       {transactions ? (
-        <div className="py-10 px-10 inline-block min-w-full overflow-hidden align-middle">
+        <div className="py-5 px-4 md:py-10 md:px-10 inline-block min-w-full overflow-hidden align-middle">
           <div
             style={{
               position: "relative",
@@ -189,6 +214,10 @@ const Pair = ({ pairAddress, history }) => {
       ) : (
         <CoinLoader size={"sm"} />
       )}
+      <TokenActionsButtons 
+        onTradeClick={onPresentCardTokenSwapActions}
+        onLiquidityClick={onPresentCardTokenLiquidityActions}
+      />
     </>
   );
 };

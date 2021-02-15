@@ -13,8 +13,10 @@ import TxnList from "../services/vision/components/TxnList/secondary";
 import CoinLoader from "../components/CoinLoader";
 import { tokenInfo } from "../constants/tokenInfo.json";
 //import Loader from "../services/vision/components/LocalLoader";
+import { TokenActionsButtons } from '../components/MobileNavigation/TokenActionsButtons';
 
 import { Loader, Spinner } from "../components/Loading";
+import { CardTokenActionsModal } from '../components/Modals/CardTokenActionsModal';
 import useModal from "../shared/hooks/useModal";
 
 const Token = ({ address, history }) => {
@@ -64,9 +66,23 @@ const Token = ({ address, history }) => {
   const additionalTokenInfo = tokenInfo.find((token) => token.address === String(address).toLowerCase());
   const about = additionalTokenInfo?.about;
 
-  const [onPresentCardTokenSwapActions] = useModal(<CardTokenActionsModal address={address} />, null, null, null);
+  const [onPresentCardTokenSwapActions] = useModal(
+    <CardTokenActionsModal
+      symbol={symbol}
+      currencyIdA={id}
+      currencyIdB={"ETH"}
+      isLoading={symbol} />,
+    null,
+    null,
+    null
+  );
   const [onPresentCardTokenLiquidityActions] = useModal(
-    <CardTokenActionsModal address={address} initialTab="pool" />,
+    <CardTokenActionsModal
+      symbol={symbol}
+      currencyIdA={id}
+      currencyIdB={"ETH"}
+      isLoading={symbol}
+      initialTab="pool" />,
     null,
     null,
     null
@@ -144,35 +160,10 @@ const Token = ({ address, history }) => {
           </div>
         </div>
       )}
-      <div
-        className="block pt-2 lg:hidden bg-white fixed w-full flex justify-around"
-        style={{
-          bottom: "73px",
-          height: "64px",
-          zIndex: 21,
-        }}
-      >
-        <button
-          className="bg-black text-white font-bold rounded-md w-full"
-          onClick={onPresentCardTokenSwapActions}
-          style={{
-            padding: "15px",
-            margin: "0 15px",
-          }}
-        >
-          Trade
-        </button>
-        <button
-          className="bg-black text-white font-bold rounded-md w-full"
-          onClick={onPresentCardTokenLiquidityActions}
-          style={{
-            padding: "15px",
-            margin: "0 15px",
-          }}
-        >
-          Liquidity
-        </button>
-      </div>
+      <TokenActionsButtons 
+        onTradeClick={onPresentCardTokenSwapActions}
+        onLiquidityClick={onPresentCardTokenLiquidityActions}
+      />
     </>
   );
 };
@@ -403,57 +394,6 @@ const Details = ({ liquidity, liquidityChange, volume, volumeChange, transaction
               </div>
             )}
           </dl>
-        </div>
-      </div>
-    </>
-  );
-};
-
-const CardTokenActionsModal = ({ address, initialTab, onDismiss }) => {
-  const { id, symbol } = useTokenData(address);
-
-  return (
-    <>
-      <span className="hidden md:inline-block md:align-middle md:h-screen" />
-      <div
-        className="p-4 w-full md:align-middle md:max-w-lg bg-white inline-block align-bottom bg-white rounded-md text-left overflow-hidden shadow-xl transform transition-all"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="modal-headline"
-      >
-        <div className="block absolute top-0 right-0 pt-4 pr-4">
-          <button
-            onClick={() => {
-              onDismiss();
-            }}
-            type="button"
-            className="text-gray-400 hover:text-gray-500 focus:outline-none focus:text-gray-500 transition ease-in-out duration-150"
-            aria-label="Close"
-          >
-            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-        <div className="items-start">
-          <div className="text-center sm:text-left">
-            <h3 className="pb-2 text-lg leading-6 font-medium text-gray-900" id="modal-headline">
-              Token Actions
-            </h3>
-            {symbol ? (
-              <CardTokenActions
-                initialSection={initialTab ? initialTab : "swap"}
-                title={"What would you like to do?"}
-                symbol={symbol}
-                currencyIdA={id}
-                currencyIdB={"ETH"}
-              />
-            ) : (
-              <div className="rounded-lg border-2 border-gray-900 h-80">
-                <Spinner height={"full"} />
-              </div>
-            )}
-          </div>
         </div>
       </div>
     </>
