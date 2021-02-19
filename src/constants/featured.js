@@ -52,4 +52,21 @@ export const featured = [
       "0x8ab7404063ec4dbcfd4598215992dc3f8ec853d7", //AKRO
     ],
   },
+  {
+    id: "nftx-funds",
+    title: "NFTX Funds",
+    path: "/lists/nftx-funds",
+    image:
+      "https://raw.githubusercontent.com/sushiswapclassic/token-list/master/assets/nftx_logo.png",
+    pairs: [],
+    tokens: [
+      "0x9cea2ed9e47059260c97d697f82b8a14efa61ea5", // PUNK
+      "0x69bbe2fa02b4d90a944ff328663667dc32786385", // PUNK-BASIC
+      "0x27ffed7e5926fb2795fc85aaab558243f280a8a2", // PUNK-FEMALE
+      "0x49706a576bb823cde3180c930f9947d59e2ded4d", // PUNK-ATTR-4
+      "0xab9c92a9337a1494c6d545e48187fa37144403c8", // PUNNK-ATTR-5
+      "0xf18ade29a225faa555e475ee01f9eb66eb4a3a74", // PUNK-ZOMBIE
+      "0x0fe629d1e84e171f8ff0c1ded2cc2221caa48a3f", // MASK
+    ],
+  },
 ];
