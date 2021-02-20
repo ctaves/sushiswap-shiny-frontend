@@ -139,7 +139,7 @@ const Pair = ({ pairAddress, history }) => {
               ) : (
                 <PairPageTitleLoading />
               )}
-              <div className="py-2 px-4">
+              <div className="pt-2 pb-10 lg:pb-2 px-4">
                 <PairChart
                   address={pairAddress}
                   color={liquidityChange < 0 ? "#ff5001" : "#04c806"}
