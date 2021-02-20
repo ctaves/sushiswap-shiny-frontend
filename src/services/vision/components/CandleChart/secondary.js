@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { createChart, CrosshairMode } from "lightweight-charts";
 import dayjs from "dayjs";
 import { formattedNum } from "../../utils";
-import { usePrevious } from "react-use";
+import { usePrevious, useMedia } from "react-use";
 import styled from "styled-components";
 import { Play } from "react-feather";
 import { useDarkModeManager } from "../../contexts/LocalStorage";
@@ -36,6 +36,7 @@ const CandleStickChart = ({
 }) => {
   // reference for DOM element to create with chart
   const ref = useRef();
+  const isMobile = useMedia("(max-width: 1025px)");
 
   const formattedData = data?.map((entry) => {
     return {
@@ -137,9 +138,20 @@ const CandleStickChart = ({
       toolTip.className = "three-line-legend";
       ref.current.appendChild(toolTip);
       toolTip.style.display = "block";
-      toolTip.style.left = (margin ? 50 : 50) + "px";
-      toolTip.style.top = 95 + "px";
-      toolTip.style.backgroundColor = "transparent";
+
+      if (isMobile) {
+        toolTip.style.right = "42px";
+        toolTip.style.top = "0px";
+        toolTip.style.backgroundColor = "#fff";
+        toolTip.style.padding = 0;
+        toolTip.style.paddingTop = '6px';
+        toolTip.style.height = 'auto';
+        toolTip.style.lineHeight = '1em';
+      } else {
+        toolTip.style.left = (margin ? 50 : 50) + "px";
+        toolTip.style.top = 95 + "px";
+        toolTip.style.backgroundColor = "transparent";
+      }
 
       // get the title of the chart
       function setLastBarText() {

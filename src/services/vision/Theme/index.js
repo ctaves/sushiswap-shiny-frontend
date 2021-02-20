@@ -209,6 +209,10 @@ export const GlobalStyle = createGlobalStyle`
 	text-align: left;
 	z-index: 10;
   pointer-events: none;
+
+  @media screen and (max-width: 1025px) {
+    width: auto;
+  }
 }
 
 .three-line-legend-dark {
