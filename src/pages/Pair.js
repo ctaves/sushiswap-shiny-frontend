@@ -485,11 +485,11 @@ const Details = ({
   return (
     <>
       <div className="bg-white overflow-hidden sm:rounded-lg">
-        <div className="px-4 pt-2 sm:pt-6 pb-1 sm:px-6">
+        <div className="px-4 pt-2 sm:pt-6 pb-1">
           <h3 className="text-lg leading-6 font-medium text-gray-900">Pair Details</h3>
           {/* <p className="mt-1 max-w-2xl text-sm leading-5 text-gray-500">Personal details and application.</p> */}
         </div>
-        <div className="px-4 py-5 sm:px-6">
+        <div className="px-4 py-5">
           <dl className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3">
             <div className="sm:col-span-1">
               <dt className="text-sm leading-5 font-medium text-gray-500">Total Liquidity</dt>
@@ -525,7 +525,7 @@ const Details = ({
                 </div>
               </dd>
             </div>
-            <div className="col-span-2 lg:col-span-3">
+            <div className="col-span-2 sm:col-span-3">
               <dt className="text-sm leading-5 font-medium text-gray-500">Tokens</dt>
               <dd className="mt-1 text-sm leading-5 text-gray-900">
                 <ul className="border border-gray-200 rounded-md">
