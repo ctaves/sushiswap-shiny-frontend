@@ -327,7 +327,7 @@ export const FARM_DETAILS = [
   { pid: 134, name: "Onsen", symbol: "mBTC-ETH SLP", icon: "HotSprings" },
   { pid: 135, name: "Onsen", symbol: "VSP-ETH SLP", icon: "HotSprings" },
   { pid: 136, name: "Onsen", symbol: "YLD-ETH SLP", icon: "HotSprings" },
-  { pid: 137, name: "Onsen", symbol: "stETH-ETH SLP", icon: "HotSprings" },
+  { pid: 137, name: "Onsen", symbol: "stETH(StakeHound)-ETH SLP", icon: "HotSprings" },
   { pid: 138, name: "Onsen", symbol: "DAO-ETH SLP", icon: "HotSprings" },
   { pid: 139, name: "Onsen", symbol: "GRT-ETH SLP", icon: "HotSprings" },
   { pid: 140, name: "Onsen", symbol: "FTM-ETH SLP", icon: "HotSprings" },
