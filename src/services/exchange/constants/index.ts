@@ -50,6 +50,13 @@ export const ALPHA = new Token(
   "ALPHA",
   "AlphaToken"
 );
+export const USDP = new Token(
+  ChainId.MAINNET,
+  "0x1456688345527bE1f37E9e627DA0837D6f08C925",
+  18,
+  "USDP",
+  "USDP Stablecoin"
+);
 
 const WETH_ONLY: ChainTokenList = {
   [ChainId.MAINNET]: [WETH[ChainId.MAINNET]],
@@ -80,6 +87,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     FXS,
     CRV,
     ALPHA,
+    USDP,
   ],
 };
 
