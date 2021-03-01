@@ -57,7 +57,7 @@ export const featured = [
     title: "NFTX Funds",
     path: "/lists/nftx-funds",
     image:
-      "https://raw.githubusercontent.com/sushiswapclassic/token-list/master/assets/nftx_logo.png",
+      "https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/0x87d73E916D7057945c9BcD8cdd94e42A6F47f776/logo.png",
     pairs: [],
     tokens: [
       "0x9cea2ed9e47059260c97d697f82b8a14efa61ea5", // PUNK
