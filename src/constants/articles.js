@@ -17,20 +17,35 @@ export const articles = [
   //   image: StablecoinList,
   //   token: "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2", // WETH
   // },
+  // {
+  //   key: "wallet-issues",
+  //   title: "NOTICE: Wallet Issues",
+  //   description: (
+  //     <p>
+  //       We are currently investigating wallet issues with Trust Wallet and Coinbase Mobile Wallet. Metamask Desktop
+  //       Wallet is operating normally. Please use{" "}
+  //       <Linker to="https://exchange.sushiswap.fi" external>
+  //         exchange.sushiswap.fi
+  //       </Linker>{" "}
+  //       in the meantime. We expect this issue to be resolved in a day.
+  //     </p>
+  //   ),
+  //   image: OnsenIllustration,
+  // },
   {
-    key: "wallet-issues",
-    title: "NOTICE: Wallet Issues",
+    key: "stakehound-onsen-ama",
+    title: "Onsen AMA: StakeHound",
     description: (
       <p>
-        We are currently investigating wallet issues with Trust Wallet and Coinbase Mobile Wallet. Metamask Desktop
-        Wallet is operating normally. Please use{" "}
-        <Linker to="https://exchange.sushiswap.fi" external>
-          exchange.sushiswap.fi
-        </Linker>{" "}
-        in the meantime. We expect this issue to be resolved in a day.
+        Tune into the next Onsen AMA series with StakeHound on FRIDAY 03/05, 11am EST (4pm UTC) at the SushiSwap{" "}
+        <Linker to="https://t.co/w3svF4Jaoi" external>
+          discord voice channel
+        </Linker>
+        .{" "}
       </p>
     ),
-    image: OnsenIllustration,
+    image: OnsenAMA,
+    token: "0xdfe66b14d37c77f4e9b180ceb433d1b164f0281d", //stakedETH
   },
   {
     key: "88mph-onsen-ama",
