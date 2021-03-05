@@ -29,10 +29,10 @@ const Tabs = ({ selected, setSelected }) => {
       title: "+ Liquidity",
       id: "pool",
     },
-    {
-      title: "- Liquidity",
-      id: "remove",
-    },
+    // {
+    //   title: "- Liquidity",
+    //   id: "remove",
+    // },
   ];
   return (
     <div>
