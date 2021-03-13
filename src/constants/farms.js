@@ -166,6 +166,9 @@ const menuSetup = {
     162,
     163,
     164,
+    165,
+    166,
+    167,
   ],
   upcoming: [],
   previous: [],
@@ -357,4 +360,7 @@ export const FARM_DETAILS = [
   { pid: 162, name: "Onsen", symbol: "oneVBTC-ETH SLP", icon: "HotSprings" },
   { pid: 163, name: "Onsen", symbol: "TRDL-ETH SLP", icon: "HotSprings" },
   { pid: 164, name: "Onsen", symbol: "RLC-ETH SLP", icon: "HotSprings" },
+  { pid: 165, name: "Onsen", symbol: "bDIGG-ETH  SLP", icon: "HotSprings" },
+  { pid: 166, name: "Onsen", symbol: "bBADGER-ETH SLP", icon: "HotSprings" },
+  { pid: 167, name: "Onsen", symbol: "YLA-USDC SLP", icon: "HotSprings" },
 ];
