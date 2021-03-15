@@ -4,6 +4,8 @@
  */
 export const UNSUPPORTED_LIST_URLS: string[] = [];
 
+export const DEFAULT_TOKEN_LIST_URL = 'https://raw.githubusercontent.com/sushiswapclassic/token-list/master/sushiswap.tokenlist.json';
+
 const COMPOUND_LIST = 'https://raw.githubusercontent.com/compound-finance/token-list/master/compound.tokenlist.json';
 const UMA_LIST = 'https://umaproject.org/uma.tokenlist.json';
 const NFTX_LIST = 'https://nftx.ethereumdb.com/v1/tokenlist/';
