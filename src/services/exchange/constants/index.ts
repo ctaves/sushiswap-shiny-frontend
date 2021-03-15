@@ -45,12 +45,52 @@ export const DUCK = new Token(ChainId.MAINNET, '0x92E187a03B6CD19CB6AF293ba17F27
 export const BAB = new Token(ChainId.MAINNET, '0xC36824905dfF2eAAEE7EcC09fCC63abc0af5Abc5', 18, 'BAB', 'BAB');
 export const HBTC = new Token(ChainId.MAINNET, '0x0316EB71485b0Ab14103307bf65a021042c6d380', 18, 'HBTC', 'Huobi BTC');
 export const FRAX = new Token(ChainId.MAINNET, '0x853d955aCEf822Db058eb8505911ED77F175b99e', 18, 'FRAX', 'FRAX');
-export const ibETH = new Token(
+export const IBETH = new Token(
   ChainId.MAINNET,
   '0xeEa3311250FE4c3268F8E684f7C87A82fF183Ec1',
   8,
   'ibETHv2',
   'Interest Bearing Ether v2'
+);
+
+export const PONT = new Token(
+  ChainId.MAINNET,
+  '0xcb46C550539ac3DB72dc7aF7c89B11c306C727c2',
+  9,
+  'pONT',
+  'Poly Ontology Token'
+);
+
+export const PWING = new Token(
+  ChainId.MAINNET,
+  '0xDb0f18081b505A7DE20B18ac41856BCB4Ba86A1a',
+  9,
+  'pWING',
+  'Poly Ontology Wing Token'
+);
+
+export const NFTX = new Token(
+  ChainId.MAINNET,
+  '0x87d73E916D7057945c9BcD8cdd94e42A6F47f776',
+  18,
+  'NFTX',
+  'NFTX'
+);
+
+export const UMA = new Token(
+  ChainId.MAINNET,
+  '0x04Fa0d235C4abf4BcF4787aF4CF447DE572eF828',
+  18,
+  'UMA',
+  'UMA'
+);
+
+export const UMA_CALL = new Token(
+  ChainId.MAINNET,
+  '0x1062aD0E59fa67fa0b27369113098cC941Dd0D5F',
+  18,
+  'UMA',
+  'UMA 35 Call [30 Apr 2021]'
 );
 
 const WETH_ONLY: ChainTokenList = {
@@ -69,7 +109,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     USDC,
     USDT,
     WBTC,
-    RUNE
+    NFTX
   ],
 };
 
@@ -84,7 +124,9 @@ export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: To
     [BAB.address]: [BAC, WETH[ChainId.MAINNET]],
     [HBTC.address]: [CREAM, WETH[ChainId.MAINNET]],
     [FRAX.address]: [FXS, WETH[ChainId.MAINNET]],
-    [ibETH.address]: [ALPHA, WETH[ChainId.MAINNET]]
+    [IBETH.address]: [ALPHA, WETH[ChainId.MAINNET]],
+    [PONT.address]: [PWING, WETH[ChainId.MAINNET]],
+    [UMA_CALL.address]: [UMA, WETH[ChainId.MAINNET]]
   },
 };
 
