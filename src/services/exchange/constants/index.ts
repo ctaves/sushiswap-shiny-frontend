@@ -77,6 +77,13 @@ export const NFTX = new Token(
   'NFTX'
 );
 
+export const STETH = new Token(
+  ChainId.MAINNET,
+  '0xDFe66B14D37C77F4E9b180cEb433d1b164f0281D',
+  18,
+  'stETH',
+  'stakedETH');
+
 export const UMA = new Token(
   ChainId.MAINNET,
   '0x04Fa0d235C4abf4BcF4787aF4CF447DE572eF828',
@@ -109,7 +116,8 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     USDC,
     USDT,
     WBTC,
-    NFTX
+    NFTX,
+    STETH
   ],
 };
 
