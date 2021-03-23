@@ -80,8 +80,8 @@ import sushiData from "@sushiswap/sushi-data";
 import Notice from "../Notice";
 
 const AccountQueries = () => {
-  const { account } = useActiveWeb3React();
-  //const account = "0x8867eF1593F6A72DbbB941D4D96b746A4da691B2";
+  //const { account } = useActiveWeb3React();
+  const account = "0xDbcd4479f8751a5A5c5e1e40DBb405a530218a21";
   //const { ethereum } = window;
 
   // GET USER SNAPSHOTS
