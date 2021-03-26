@@ -100,6 +100,22 @@ export const UMA_CALL = new Token(
   'UMA 35 Call [30 Apr 2021]'
 );
 
+export const DOUGH = new Token(
+  ChainId.MAINNET,
+  '0xad32A8e6220741182940c5aBF610bDE99E737b2D',
+  18,
+  'DOUGH',
+  'PieDAO Dough v2'
+);
+
+export const PLAY = new Token(
+  ChainId.MAINNET,
+  '0x33e18a092a93ff21aD04746c7Da12e35D34DC7C4',
+  18,
+  'PLAY',
+  'Metaverse NFT Index'
+);
+
 const WETH_ONLY: ChainTokenList = {
   [ChainId.MAINNET]: [WETH[ChainId.MAINNET]],
   [ChainId.ROPSTEN]: [WETH[ChainId.ROPSTEN]],
@@ -134,7 +150,8 @@ export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: To
     [FRAX.address]: [FXS, WETH[ChainId.MAINNET]],
     [IBETH.address]: [ALPHA, WETH[ChainId.MAINNET]],
     [PONT.address]: [PWING, WETH[ChainId.MAINNET]],
-    [UMA_CALL.address]: [UMA, WETH[ChainId.MAINNET]]
+    [UMA_CALL.address]: [UMA, WETH[ChainId.MAINNET]],
+    [PLAY.address]: [DOUGH, WETH[ChainId.MAINNET]],
   },
 };
 
