@@ -64,10 +64,11 @@ export default function ListUpdatePopup({
             <div>
               <Text>
                 An update is available for the token list &quot;{oldList.name}&quot; (
-                {listVersionLabel(oldList.version)} to {listVersionLabel(newList.version)}).
+                {listVersionLabel(oldList.version)} to {listVersionLabel(newList.version)}). This update is brought to
+                you courtesy of DR. We love you DR ❤️
               </Text>
               <ul>
-                {tokensAdded.length > 0 ? (
+                {/* {tokensAdded.length > 0 ? (
                   <li>
                     {tokensAdded.map((token, i) => (
                       <React.Fragment key={`${token.chainId}-${token.address}`}>
@@ -88,7 +89,7 @@ export default function ListUpdatePopup({
                     ))}{" "}
                     removed
                   </li>
-                ) : null}
+                ) : null} */}
                 {numTokensChanged > 0 ? <li>{numTokensChanged} tokens updated</li> : null}
               </ul>
             </div>
