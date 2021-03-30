@@ -107,8 +107,8 @@ const AccountQueries = () => {
               <h3 className="text-lg leading-6 font-medium text-gray-900">Upgrading to v2</h3>
               <div className="mt-2 max-w-xl text-sm text-gray-500">
                 <p>
-                  We're currently working on updating this interface to v2. Please visit Sushi Analytics in the meantime
-                  for the most up to date stats for your balances.
+                  We're currently working on updating this interface to v2. In the meantime, please visit Sushi
+                  Analytics for the most up to date stats for your balances.
                 </p>
               </div>
               <div className="mt-3 text-sm">
