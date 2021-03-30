@@ -78,454 +78,504 @@ import _ from "lodash";
 import sushiData from "@sushiswap/sushi-data";
 
 import Notice from "../Notice";
+import { shortenAddress } from "../../services/exchange/utils";
 
 const AccountQueries = () => {
   const { account } = useActiveWeb3React();
-  //const account = "0x8867eF1593F6A72DbbB941D4D96b746A4da691B2";
-  //const { ethereum } = window;
-
-  // GET USER SNAPSHOTS
-  const [snapshots, setSnapshots] = useState();
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        let skip = 0;
-        let allResults = [];
-        let found = false;
-        while (!found) {
-          let result = await client.query({
-            query: USER_HISTORY,
-            variables: {
-              skip: skip,
-              user: account.toLowerCase(),
-            },
-            fetchPolicy: "cache-first",
-          });
-
-          //console.log("LP SNAPSHOT:", result.data.liquidityPositionSnapshots);
-
-          allResults = allResults.concat(result.data.liquidityPositionSnapshots);
-          if (result.data.liquidityPositionSnapshots.length < 1000) {
-            found = true;
-          } else {
-            skip += 1000;
-          }
-        }
-        if (allResults) {
-          setSnapshots(allResults);
-        }
-      } catch (e) {
-        console.log(e);
-      }
-    }
-    fetchData();
-  }, [account]);
-
-  // Get Unstaked Liquidity Positions
-  //const [ethPrice] = useEthPrice();
-  const ethPrice = 1;
-  const [positions, setPositions] = useState();
-  useEffect(() => {
-    async function fetchData(account) {
-      try {
-        let result = await client.query({
-          query: USER_POSITIONS,
-          variables: {
-            user: account.toLowerCase(),
-          },
-          fetchPolicy: "no-cache",
-        });
-        if (result?.data?.liquidityPositions) {
-          let formattedPositions = await Promise.all(
-            result?.data?.liquidityPositions.map(async (positionData) => {
-              const returnData = await getLPReturnsOnPair(account, positionData.pair, ethPrice, snapshots);
-              return {
-                ...positionData,
-                ...returnData,
-              };
-            })
-          );
-          setPositions(formattedPositions);
-        }
-      } catch (e) {
-        console.log(e);
-      }
-    }
-    fetchData(account);
-  }, [account, snapshots]);
-
-  // Get Sushi Price in USD
-  const { priceUSD } = useTokenData("0x6b3595068778dd592e39a122f4f5a5cf09c90fe2");
-
-  // Get users # of Sushi not staked
-  const totalNotStaked = useTokenBalance(contractAddresses.sushi[1]);
-  const totalNotStakedUSD = priceUSD ? formattedNum(getBalanceNumber(totalNotStaked) * priceUSD, true) : "";
-  //console.log("totalNotStaked:", totalNotStaked);
-
-  // Get Sushi staked, issue with analytics query:
-  const xSushiBalance = useTokenBalance(contractAddresses.xSushi[1]);
-  const xSushiFormatted = new BigNumber(xSushiBalance).div(new BigNumber(1000000000000000000));
-  const totalSupply = useTotalXSushiSupply();
-  const totalStaked = useTotalSushiStakedInBar();
-  const poolShare = new BigNumber(xSushiBalance).div(new BigNumber(totalSupply));
-  const poolStaked = new BigNumber(poolShare).times(new BigNumber(totalStaked));
-  const sushiStaked = new BigNumber(poolStaked).div(new BigNumber(1000000000000000000));
-
-  // Get all pending Sushi from farms
-  const allEarnings = useAllEarningsAccount(account);
-  let sumEarning = 0;
-  for (let earning of allEarnings) {
-    sumEarning += new BigNumber(earning).div(new BigNumber(10).pow(18)).toNumber();
-  }
-
-  console.log("sumEarning:", sumEarning);
-
   return (
     <>
-      <Account
-        account={account}
-        sumEarning={sumEarning}
-        priceUSD={priceUSD}
-        totalNotStaked={totalNotStaked}
-        totalNotStakedUSD={totalNotStakedUSD}
-        sushiStaked={sushiStaked}
-        xSushiFormatted={xSushiFormatted}
-        positions={positions}
-        ethPrice={ethPrice}
-      />
+      <div className="flex overflow-hidden bg-white">
+        <div className="flex flex-col w-0 flex-1 overflow-hidden">
+          <div className="bg-white px-4 py-5 border-b border-gray-200 sm:px-8">
+            <div className="-ml-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-no-wrap">
+              <div className="ml-4 mt-4">
+                <h3 className="text-lg leading-6 font-medium text-gray-900">
+                  Portfolio <span className="text-gray-600">({shortenAddress(account)})</span>
+                </h3>
+              </div>
+              {/* {account && (
+                <div className="ml-4 mt-4 flex-shrink-0">
+                  <a href={"https://analytics.sushi.com/users/" + account} target="_blank" rel="noopener noreferrer">
+                    <h3 className="text-lg text-right leading-6 font-medium text-gray-900">Sushi Analytics↗</h3>
+                  </a>
+                </div>
+              )} */}
+            </div>
+          </div>
+          <div>
+            <div className="bg-white px-4 py-5 sm:px-8">
+              <h3 className="text-lg leading-6 font-medium text-gray-900">Upgrading to v2</h3>
+              <div className="mt-2 max-w-xl text-sm text-gray-500">
+                <p>
+                  We're currently working on updating this interface to v2. Please visit Sushi Analytics in the meantime
+                  for the most up to date stats for your balances.
+                </p>
+              </div>
+              <div className="mt-3 text-sm">
+                <a
+                  href={"https://analytics.sushi.com/users/" + account}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-blue-brand"
+                >
+                  View your Portfolio on Sushi Analytics <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
 
-const Account = ({
-  account,
-  sumEarning,
-  priceUSD,
-  totalNotStaked,
-  totalNotStakedUSD,
-  sushiStaked,
-  xSushiFormatted,
-  positions,
-  ethPrice,
-}) => {
-  // Initialize Analytics Queries -------------------------------------------//
+// const AccountQueries = () => {
+//   const { account } = useActiveWeb3React();
+//   //const account = "0x8867eF1593F6A72DbbB941D4D96b746A4da691B2";
+//   //const { ethereum } = window;
 
-  const { data: { bundles } = {} } = useQuery(ethPriceQuery, {
-    pollInterval: 60000,
-  });
-  const { data: barData } = useQuery(barUserQuery, {
-    variables: {
-      id: account.toLowerCase(),
-    },
-    context: {
-      clientName: "bar",
-    },
-  });
-  const { data: poolData } = useQuery(poolUserQuery, {
-    variables: {
-      address: account.toLowerCase(),
-    },
-    context: {
-      clientName: "masterchef",
-    },
-  });
-  const { data: lockupData } = useQuery(lockupUserQuery, {
-    variables: {
-      address: account.toLowerCase(),
-    },
-    context: {
-      clientName: "lockup",
-    },
-  });
-  const poolUsers = poolData?.users.filter(
-    (user) => user.pool && !POOL_DENY.includes(user.pool.id) && user.pool.allocPoint !== "0"
-  );
-  const { data: { token } = {} } = useQuery(tokenQuery, {
-    variables: {
-      id: "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2",
-    },
-  });
-  const { data: { pairs } = {} } = useQuery(pairsQuery);
+//   // GET USER SNAPSHOTS
+//   const [snapshots, setSnapshots] = useState();
+//   useEffect(() => {
+//     async function fetchData() {
+//       try {
+//         let skip = 0;
+//         let allResults = [];
+//         let found = false;
+//         while (!found) {
+//           let result = await client.query({
+//             query: USER_HISTORY,
+//             variables: {
+//               skip: skip,
+//               user: account.toLowerCase(),
+//             },
+//             fetchPolicy: "cache-first",
+//           });
 
-  // Sushi Price
-  const sushiPrice = parseFloat(token?.derivedETH) * parseFloat(bundles?.[0].ethPrice);
-  // Amount of Staked Sushi (xSUSHI)
-  const xSushi = parseFloat(barData?.user?.xSushi);
-  //
-  const barPending =
-    (xSushi * parseFloat(barData?.user?.bar?.sushiStaked)) / parseFloat(barData?.user?.bar?.totalSupply);
+//           //console.log("LP SNAPSHOT:", result.data.liquidityPositionSnapshots);
 
-  //console.log("barPending:", barPending, xSushi, barData?.user?.bar?.sushiStaked, barData?.user?.bar?.totalSupply);
-  //console.log("sushiPrice:", sushiPrice, token, parseFloat(token?.derivedETH), parseFloat(bundles?.[0].ethPrice));
-  const xSushiTransfered =
-    barData?.user?.xSushiIn > barData?.user?.xSushiOut
-      ? parseFloat(barData?.user?.xSushiIn) - parseFloat(barData?.user?.xSushiOut)
-      : parseFloat(barData?.user?.xSushiOut) - parseFloat(barData?.user?.xSushiIn);
+//           allResults = allResults.concat(result.data.liquidityPositionSnapshots);
+//           if (result.data.liquidityPositionSnapshots.length < 1000) {
+//             found = true;
+//           } else {
+//             skip += 1000;
+//           }
+//         }
+//         if (allResults) {
+//           setSnapshots(allResults);
+//         }
+//       } catch (e) {
+//         console.log(e);
+//       }
+//     }
+//     fetchData();
+//   }, [account]);
 
-  const stakedTransferProportion = parseFloat(
-    (barData?.user?.sushiStaked / (xSushi + xSushiTransfered)) * xSushiTransfered
-  );
-  const stakedUSDTransferProportion = parseFloat(
-    (barData?.user?.sushiStakedUSD / (xSushi + xSushiTransfered)) * xSushiTransfered
-  );
-  const barStaked = barData?.user?.sushiStaked;
-  const barStakedUSD = barData?.user?.sushiStakedUSD;
-  const farmingStaked = poolUsers?.reduce((previousValue, currentValue) => {
-    // console.log(currentValue);
-    const pair = pairs?.find((pair) => pair?.id == currentValue?.pool?.pair);
-    if (!pair) {
-      return previousValue;
-    }
-    // console.log(currentValue?.pool?.pair);
-    const share = currentValue.amount / currentValue?.pool?.balance;
-    return previousValue + pair?.reserveUSD * share;
-  }, 0);
-  const farmingPending =
-    poolUsers?.reduce((previousValue, currentValue) => {
-      return (
-        previousValue +
-        ((currentValue.amount * currentValue.pool.accSushiPerShare) / 1e12 - currentValue.rewardDebt) / 1e18
-      );
-    }, 0) * sushiPrice;
-  const poolInvestments = poolData?.users.reduce((previousValue, currentValue) => {
-    return parseFloat(previousValue) + parseFloat(currentValue.entryUSD);
-  }, 0);
-  const originalInvestments = parseFloat(barData?.user?.sushiStakedUSD) + parseFloat(poolInvestments);
-  const barPendingUSD = barPending > 0 ? barPending * sushiPrice : 0;
+//   // Get Unstaked Liquidity Positions
+//   //const [ethPrice] = useEthPrice();
+//   const ethPrice = 1;
+//   const [positions, setPositions] = useState();
+//   useEffect(() => {
+//     async function fetchData(account) {
+//       try {
+//         let result = await client.query({
+//           query: USER_POSITIONS,
+//           variables: {
+//             user: account.toLowerCase(),
+//           },
+//           fetchPolicy: "no-cache",
+//         });
+//         if (result?.data?.liquidityPositions) {
+//           let formattedPositions = await Promise.all(
+//             result?.data?.liquidityPositions.map(async (positionData) => {
+//               const returnData = await getLPReturnsOnPair(account, positionData.pair, ethPrice, snapshots);
+//               return {
+//                 ...positionData,
+//                 ...returnData,
+//               };
+//             })
+//           );
+//           setPositions(formattedPositions);
+//         }
+//       } catch (e) {
+//         console.log(e);
+//       }
+//     }
+//     fetchData(account);
+//   }, [account, snapshots]);
 
-  //console.log("barPendingUSD:", barPendingUSD, barPending, sushiPrice);
-  const barRoiSushi =
-    parseFloat(barData?.user?.sushiHarvested) -
-    parseFloat(barData?.user?.sushiStaked) -
-    parseFloat(barData?.user?.sushiOut) +
-    // parseFloat(barData?.user?.sushiIn) +
-    barPending;
-  const barRoiUSD =
-    barData?.user?.sushiHarvestedUSD - barData?.user?.sushiStakedUSD - barData?.user?.usdOut + barPendingUSD;
-  const { data: blocksData } = useQuery(latestBlockQuery, {
-    context: {
-      clientName: "blocklytics",
-    },
-  });
-  const blockDifference = parseInt(blocksData?.blocks[0].number) - parseInt(barData?.user?.createdAtBlock);
-  const barRoiDailySushi = ((barPending + barRoiSushi - barStaked) / blockDifference) * 6440;
-  const investments = farmingStaked + barPendingUSD + farmingPending;
+//   // Get Sushi Price in USD
+//   const { priceUSD } = useTokenData("0x6b3595068778dd592e39a122f4f5a5cf09c90fe2");
 
-  const totalSushiAtLockup = _.sum(
-    lockupData?.users?.map((lockupUser) => {
-      return ((lockupUser.amount * lockupUser.pool.accSushiPerShare) / 1e12 - lockupUser.rewardDebt) / 1e18;
-    })
-  );
+//   // Get users # of Sushi not staked
+//   const totalNotStaked = useTokenBalance(contractAddresses.sushi[1]);
+//   const totalNotStakedUSD = priceUSD ? formattedNum(getBalanceNumber(totalNotStaked) * priceUSD, true) : "";
+//   //console.log("totalNotStaked:", totalNotStaked);
 
-  console.log("poolData:", poolData);
+//   // Get Sushi staked, issue with analytics query:
+//   const xSushiBalance = useTokenBalance(contractAddresses.xSushi[1]);
+//   const xSushiFormatted = new BigNumber(xSushiBalance).div(new BigNumber(1000000000000000000));
+//   const totalSupply = useTotalXSushiSupply();
+//   const totalStaked = useTotalSushiStakedInBar();
+//   const poolShare = new BigNumber(xSushiBalance).div(new BigNumber(totalSupply));
+//   const poolStaked = new BigNumber(poolShare).times(new BigNumber(totalStaked));
+//   const sushiStaked = new BigNumber(poolStaked).div(new BigNumber(1000000000000000000));
 
-  const { harvestedSushi, error } = useHarvestedSushi(account);
-  const totalSushiHarvestedSinceLockup =
-    harvestedSushi != null && !error && ethers.utils.formatUnits(harvestedSushi, 18);
+//   // Get all pending Sushi from farms
+//   const allEarnings = useAllEarningsAccount(account);
+//   let sumEarning = 0;
+//   for (let earning of allEarnings) {
+//     sumEarning += new BigNumber(earning).div(new BigNumber(10).pow(18)).toNumber();
+//   }
 
-  const totalSushiLocked = (Number(totalSushiHarvestedSinceLockup) + sumEarning - totalSushiAtLockup) * 2;
-  const totalSushiLockedUSD = totalSushiLocked * sushiPrice;
-  console.log(
-    "lockedSushi",
-    totalSushiLocked,
-    totalSushiLockedUSD,
-    totalSushiHarvestedSinceLockup,
-    sumEarning,
-    totalSushiAtLockup
-  );
+//   console.log("sumEarning:", sumEarning);
 
-  let farmBalances = [];
-  // causes no-used-expression warning, see eslint disabling at top of file
-  poolUsers?.map((user) => {
-    const pair = pairs?.find((pair) => pair?.id == user.pool.pair);
-    const slp = Number(user.amount / 1e18);
-    const share = slp / pair?.totalSupply; // user.amount / user.pool.balance;
-    const token0 = pair?.reserve0 * share;
-    const token1 = pair?.reserve1 * share;
-    const pendingSushi = ((user.amount * user.pool.accSushiPerShare) / 1e12 - user.rewardDebt) / 1e18;
-    const lockupUser = lockupData?.users.find((u) => u.pool.id === user.pool.id);
-    const sushiAtLockup = lockupUser
-      ? ((lockupUser.amount * lockupUser.pool.accSushiPerShare) / 1e12 - lockupUser.rewardDebt) / 1e18
-      : 0;
-    // todo: pending sushi doesnt account for farms user has unstaked
-    // patch: use sumEarnings
-    // console.log("pendingSushi:", pendingSushi, sumEarning);
-    // const sushiLocked = (parseFloat(user.sushiHarvestedSinceLockup) + pendingSushi - sushiAtLockup) * 2;
-    const sushiLocked = (parseFloat(user.sushiHarvestedSinceLockup) + pendingSushi - sushiAtLockup) * 2;
-    const sushiLockedUSD = sushiLocked * sushiPrice;
+//   return (
+//     <>
+//       <Account
+//         account={account}
+//         sumEarning={sumEarning}
+//         priceUSD={priceUSD}
+//         totalNotStaked={totalNotStaked}
+//         totalNotStakedUSD={totalNotStakedUSD}
+//         sushiStaked={sushiStaked}
+//         xSushiFormatted={xSushiFormatted}
+//         positions={positions}
+//         ethPrice={ethPrice}
+//       />
+//     </>
+//   );
+// };
 
-    farmBalances.push({
-      id: Number(user.pool.id),
-      pair: user.pool.pair,
-      name: pair?.token0.symbol + "-" + pair?.token1.symbol,
-      slp: decimalFormatter.format(slp),
-      token0Address: pair?.token0.id,
-      token0Symbol: pair?.token0.symbol,
-      token0Balance: decimalFormatter.format(token0),
-      token1Address: pair?.token1.id,
-      token1Symbol: pair?.token1.symbol,
-      token1Balance: decimalFormatter.format(token1),
-      valueUSD: pair?.reserveUSD * share,
-      pendingSushi: decimalFormatter.format(pendingSushi),
-      pendingSushiUSD: currencyFormatter.format(pendingSushi * sushiPrice),
-      harvestedSushi: decimalFormatter.format(user.sushiHarvested),
-      harvestedSushiUSD: currencyFormatter.format(user.sushiHarvestedUSD),
-      lockedSushi: sushiLocked,
-      lockedSushiUSD: sushiLockedUSD,
-      entriesUSD: currencyFormatter.format(user.entryUSD),
-      exitsUSD: currencyFormatter.format(user.exitUSD),
-      profitUSD:
-        parseFloat(pair?.reserveUSD * share) +
-        parseFloat(user.exitUSD) +
-        parseFloat(user.sushiHarvestedUSD) +
-        parseFloat(pendingSushi * sushiPrice) -
-        parseFloat(user.entryUSD),
-    });
-  });
+// const Account = ({
+//   account,
+//   sumEarning,
+//   priceUSD,
+//   totalNotStaked,
+//   totalNotStakedUSD,
+//   sushiStaked,
+//   xSushiFormatted,
+//   positions,
+//   ethPrice,
+// }) => {
+//   // Initialize Analytics Queries -------------------------------------------//
 
-  const totalSushiBalance =
-    Number(sumEarning) +
-    Number(totalSushiLocked) +
-    //Number(_.sumBy(farmBalances, "lockedSushi")) +
-    Number(getBalanceNumber(totalNotStaked)) +
-    Number(sushiStaked);
+//   const { data: { bundles } = {} } = useQuery(ethPriceQuery, {
+//     pollInterval: 60000,
+//   });
+//   const { data: barData } = useQuery(barUserQuery, {
+//     variables: {
+//       id: account.toLowerCase(),
+//     },
+//     context: {
+//       clientName: "bar",
+//     },
+//   });
+//   const { data: poolData } = useQuery(poolUserQuery, {
+//     variables: {
+//       address: account.toLowerCase(),
+//     },
+//     context: {
+//       clientName: "masterchef",
+//     },
+//   });
+//   const { data: lockupData } = useQuery(lockupUserQuery, {
+//     variables: {
+//       address: account.toLowerCase(),
+//     },
+//     context: {
+//       clientName: "lockup",
+//     },
+//   });
+//   const poolUsers = poolData?.users.filter(
+//     (user) => user.pool && !POOL_DENY.includes(user.pool.id) && user.pool.allocPoint !== "0"
+//   );
+//   const { data: { token } = {} } = useQuery(tokenQuery, {
+//     variables: {
+//       id: "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2",
+//     },
+//   });
+//   const { data: { pairs } = {} } = useQuery(pairsQuery);
 
-  // initialize modals
-  const [onPresentHarvest] = useModal(<HarvestModal />, null, null, null);
-  const [onPresentLocked] = useModal(<LockedModal />, null, null, null);
+//   // Sushi Price
+//   const sushiPrice = parseFloat(token?.derivedETH) * parseFloat(bundles?.[0].ethPrice);
+//   // Amount of Staked Sushi (xSUSHI)
+//   const xSushi = parseFloat(barData?.user?.xSushi);
+//   //
+//   const barPending =
+//     (xSushi * parseFloat(barData?.user?.bar?.sushiStaked)) / parseFloat(barData?.user?.bar?.totalSupply);
 
-  const balances = [
-    {
-      title: "Harvestable",
-      sushi: sumEarning || sumEarning === 0 ? formattedNum(sumEarning, false) : <Loader />,
-      usd:
-        (sumEarning && priceUSD) || (sumEarning === 0 && priceUSD) ? (
-          formattedNum(sumEarning * priceUSD, true)
-        ) : (
-          <Loader />
-        ),
-      cta: <Button title="Harvest" onClick={onPresentHarvest} />,
-    },
-    {
-      title: "Locked (2/3)",
-      sushi:
-        totalSushiLocked > 0 && totalSushiLocked ? decimalFormatter.format(totalSushiLocked) + " SUSHI" : <Loader />,
-      usd:
-        totalSushiLocked > 0 && totalSushiLockedUSD && sushiPrice ? (
-          currencyFormatter.format(totalSushiLockedUSD)
-        ) : (
-          <Loader />
-        ),
-      cta: <Button title="Learn more" onClick={onPresentLocked} />, //<Linker title="Learn more" to="https://docs.sushiswap.fi" external />,
-    },
-    // {
-    //   title: "Locked (2/3)",
-    //   sushi: farmBalances ? decimalFormatter.format(_.sumBy(farmBalances, "lockedSushi")) + " SUSHI" : <Loader />,
-    //   usd: farmBalances && sushiPrice ? currencyFormatter.format(_.sumBy(farmBalances, "lockedSushiUSD")) : <Loader />,
-    //   cta: <Button title="Learn more" onClick={onPresentLocked} />, //<Linker title="Learn more" to="https://docs.sushiswap.fi" external />,
-    // },
-    {
-      title: "Unstaked",
-      sushi: totalNotStaked ? `${Number(getBalanceNumber(totalNotStaked)).toFixed(4)} SUSHI` : <Loader />,
-      usd: totalNotStakedUSD ? totalNotStakedUSD : <Loader />,
-      cta: <StakeSushi />,
-    },
-    {
-      title: "Staked",
-      sushi:
-        Number(sushiStaked) || Number(sushiStaked) === 0 ? (
-          `${decimalFormatter.format(Number(sushiStaked))} SUSHI`
-        ) : (
-          <Loader />
-        ),
-      //sushi: barStaked ? `${decimalFormatter.format(barStaked)} SUSHI` : <Loader />,
-      xsushi:
-        Number(xSushiFormatted) || Number(xSushiFormatted) === 0 ? (
-          `(${Number(xSushiFormatted.toFixed(2)).toLocaleString()} xSUSHI)`
-        ) : (
-          <Loader />
-        ),
-      //xsushi: xSushi ? `${Number(xSushi.toFixed(2)).toLocaleString()} xSUSHI` : <Loader />,
-      //usd: `${currencyFormatter.format(barStakedUSD)}`, // incorrect for some reason
-      //usd: barStaked && priceUSD ? `${currencyFormatter.format(barStaked * priceUSD)}` : <Loader />,
-      usd:
-        (Number(sushiStaked) && priceUSD) || (Number(sushiStaked) === 0 && priceUSD) ? (
-          `${currencyFormatter.format(Number(sushiStaked) * priceUSD)}`
-        ) : (
-          <Loader />
-        ),
-      cta: <UnstakeSushi />,
-    },
-  ];
+//   //console.log("barPending:", barPending, xSushi, barData?.user?.bar?.sushiStaked, barData?.user?.bar?.totalSupply);
+//   //console.log("sushiPrice:", sushiPrice, token, parseFloat(token?.derivedETH), parseFloat(bundles?.[0].ethPrice));
+//   const xSushiTransfered =
+//     barData?.user?.xSushiIn > barData?.user?.xSushiOut
+//       ? parseFloat(barData?.user?.xSushiIn) - parseFloat(barData?.user?.xSushiOut)
+//       : parseFloat(barData?.user?.xSushiOut) - parseFloat(barData?.user?.xSushiIn);
 
-  // console.log("formatted:", totalSushiBalance, formattedNum(totalSushiBalance), formattedNum(totalSushiBalance, true));
-  // console.log(
-  //   "formatted:",
-  //   totalSushiBalance * sushiPrice,
-  //   formattedNum(totalSushiBalance * sushiPrice),
-  //   formattedNum(totalSushiBalance * sushiPrice, true)
-  // );
+//   const stakedTransferProportion = parseFloat(
+//     (barData?.user?.sushiStaked / (xSushi + xSushiTransfered)) * xSushiTransfered
+//   );
+//   const stakedUSDTransferProportion = parseFloat(
+//     (barData?.user?.sushiStakedUSD / (xSushi + xSushiTransfered)) * xSushiTransfered
+//   );
+//   const barStaked = barData?.user?.sushiStaked;
+//   const barStakedUSD = barData?.user?.sushiStakedUSD;
+//   const farmingStaked = poolUsers?.reduce((previousValue, currentValue) => {
+//     // console.log(currentValue);
+//     const pair = pairs?.find((pair) => pair?.id == currentValue?.pool?.pair);
+//     if (!pair) {
+//       return previousValue;
+//     }
+//     // console.log(currentValue?.pool?.pair);
+//     const share = currentValue.amount / currentValue?.pool?.balance;
+//     return previousValue + pair?.reserveUSD * share;
+//   }, 0);
+//   const farmingPending =
+//     poolUsers?.reduce((previousValue, currentValue) => {
+//       return (
+//         previousValue +
+//         ((currentValue.amount * currentValue.pool.accSushiPerShare) / 1e12 - currentValue.rewardDebt) / 1e18
+//       );
+//     }, 0) * sushiPrice;
+//   const poolInvestments = poolData?.users.reduce((previousValue, currentValue) => {
+//     return parseFloat(previousValue) + parseFloat(currentValue.entryUSD);
+//   }, 0);
+//   const originalInvestments = parseFloat(barData?.user?.sushiStakedUSD) + parseFloat(poolInvestments);
+//   const barPendingUSD = barPending > 0 ? barPending * sushiPrice : 0;
 
-  let LPBalance = 0;
-  positions?.forEach((position) => {
-    const poolOwnership = position.liquidityTokenBalance / position.pair.totalSupply;
-    const valueUSD = poolOwnership * position.pair.reserveUSD;
-    LPBalance = LPBalance + valueUSD;
-  });
+//   //console.log("barPendingUSD:", barPendingUSD, barPending, sushiPrice);
+//   const barRoiSushi =
+//     parseFloat(barData?.user?.sushiHarvested) -
+//     parseFloat(barData?.user?.sushiStaked) -
+//     parseFloat(barData?.user?.sushiOut) +
+//     // parseFloat(barData?.user?.sushiIn) +
+//     barPending;
+//   const barRoiUSD =
+//     barData?.user?.sushiHarvestedUSD - barData?.user?.sushiStakedUSD - barData?.user?.usdOut + barPendingUSD;
+//   const { data: blocksData } = useQuery(latestBlockQuery, {
+//     context: {
+//       clientName: "blocklytics",
+//     },
+//   });
+//   const blockDifference = parseInt(blocksData?.blocks[0].number) - parseInt(barData?.user?.createdAtBlock);
+//   const barRoiDailySushi = ((barPending + barRoiSushi - barStaked) / blockDifference) * 6440;
+//   const investments = farmingStaked + barPendingUSD + farmingPending;
 
-  // const totalBalanceUSD = formattedNum(
-  //   totalSushiBalance * sushiPrice + _.sumBy(farmBalances, "valueUSD") + LPBalance,
-  //   true
-  // );
+//   const totalSushiAtLockup = _.sum(
+//     lockupData?.users?.map((lockupUser) => {
+//       return ((lockupUser.amount * lockupUser.pool.accSushiPerShare) / 1e12 - lockupUser.rewardDebt) / 1e18;
+//     })
+//   );
 
-  // if any position has token from fee warning list, show warning
-  const [showWarning, setShowWarning] = useState(false);
-  useEffect(() => {
-    if (positions) {
-      for (let i = 0; i < positions.length; i++) {
-        if (
-          FEE_WARNING_TOKENS.includes(positions[i].pair.token0.id) ||
-          FEE_WARNING_TOKENS.includes(positions[i].pair.token1.id)
-        ) {
-          setShowWarning(true);
-        }
-      }
-    }
-  }, [positions]);
+//   console.log("poolData:", poolData);
 
-  return (
-    <>
-      {/* <WalletBalances account={account} /> */}
-      <Notice />
-      <TableTotal
-        totalBalanceUSD={
-          (totalSushiBalance || totalSushiBalance === 0) &&
-          sushiPrice &&
-          farmBalances &&
-          (LPBalance || LPBalance === 0) ? (
-            formattedNum(totalSushiBalance * sushiPrice + _.sumBy(farmBalances, "valueUSD") + LPBalance, true)
-          ) : (
-            <Loader />
-          )
-        }
-        account={account}
-      />
-      <TableSushi
-        balances={balances ? balances : <Loader />}
-        price={sushiPrice ? currencyFormatter.format(sushiPrice) : <Loader />}
-        totalSushiBalance={totalSushiBalance || totalSushiBalance === 0 ? formattedNum(totalSushiBalance) : <Loader />}
-        totalSushiBalanceUSD={
-          (totalSushiBalance && sushiPrice) || (totalSushiBalance === 0 && sushiPrice) ? (
-            formattedNum(totalSushiBalance * sushiPrice, true)
-          ) : (
-            <Loader />
-          )
-        }
-      />
-      <TableLP positions={positions} ethPrice={ethPrice} LPBalanceUSD={formattedNum(LPBalance, true)} />
-      <TableFarms positions={farmBalances} farmBalanceUSD={formattedNum(_.sumBy(farmBalances, "valueUSD"), true)} />
-    </>
-  );
-};
+//   const { harvestedSushi, error } = useHarvestedSushi(account);
+//   const totalSushiHarvestedSinceLockup =
+//     harvestedSushi != null && !error && ethers.utils.formatUnits(harvestedSushi, 18);
+
+//   const totalSushiLocked = (Number(totalSushiHarvestedSinceLockup) + sumEarning - totalSushiAtLockup) * 2;
+//   const totalSushiLockedUSD = totalSushiLocked * sushiPrice;
+//   console.log(
+//     "lockedSushi",
+//     totalSushiLocked,
+//     totalSushiLockedUSD,
+//     totalSushiHarvestedSinceLockup,
+//     sumEarning,
+//     totalSushiAtLockup
+//   );
+
+//   let farmBalances = [];
+//   // causes no-used-expression warning, see eslint disabling at top of file
+//   poolUsers?.map((user) => {
+//     const pair = pairs?.find((pair) => pair?.id == user.pool.pair);
+//     const slp = Number(user.amount / 1e18);
+//     const share = slp / pair?.totalSupply; // user.amount / user.pool.balance;
+//     const token0 = pair?.reserve0 * share;
+//     const token1 = pair?.reserve1 * share;
+//     const pendingSushi = ((user.amount * user.pool.accSushiPerShare) / 1e12 - user.rewardDebt) / 1e18;
+//     const lockupUser = lockupData?.users.find((u) => u.pool.id === user.pool.id);
+//     const sushiAtLockup = lockupUser
+//       ? ((lockupUser.amount * lockupUser.pool.accSushiPerShare) / 1e12 - lockupUser.rewardDebt) / 1e18
+//       : 0;
+//     // todo: pending sushi doesnt account for farms user has unstaked
+//     // patch: use sumEarnings
+//     // console.log("pendingSushi:", pendingSushi, sumEarning);
+//     // const sushiLocked = (parseFloat(user.sushiHarvestedSinceLockup) + pendingSushi - sushiAtLockup) * 2;
+//     const sushiLocked = (parseFloat(user.sushiHarvestedSinceLockup) + pendingSushi - sushiAtLockup) * 2;
+//     const sushiLockedUSD = sushiLocked * sushiPrice;
+
+//     farmBalances.push({
+//       id: Number(user.pool.id),
+//       pair: user.pool.pair,
+//       name: pair?.token0.symbol + "-" + pair?.token1.symbol,
+//       slp: decimalFormatter.format(slp),
+//       token0Address: pair?.token0.id,
+//       token0Symbol: pair?.token0.symbol,
+//       token0Balance: decimalFormatter.format(token0),
+//       token1Address: pair?.token1.id,
+//       token1Symbol: pair?.token1.symbol,
+//       token1Balance: decimalFormatter.format(token1),
+//       valueUSD: pair?.reserveUSD * share,
+//       pendingSushi: decimalFormatter.format(pendingSushi),
+//       pendingSushiUSD: currencyFormatter.format(pendingSushi * sushiPrice),
+//       harvestedSushi: decimalFormatter.format(user.sushiHarvested),
+//       harvestedSushiUSD: currencyFormatter.format(user.sushiHarvestedUSD),
+//       lockedSushi: sushiLocked,
+//       lockedSushiUSD: sushiLockedUSD,
+//       entriesUSD: currencyFormatter.format(user.entryUSD),
+//       exitsUSD: currencyFormatter.format(user.exitUSD),
+//       profitUSD:
+//         parseFloat(pair?.reserveUSD * share) +
+//         parseFloat(user.exitUSD) +
+//         parseFloat(user.sushiHarvestedUSD) +
+//         parseFloat(pendingSushi * sushiPrice) -
+//         parseFloat(user.entryUSD),
+//     });
+//   });
+
+//   const totalSushiBalance =
+//     Number(sumEarning) +
+//     Number(totalSushiLocked) +
+//     //Number(_.sumBy(farmBalances, "lockedSushi")) +
+//     Number(getBalanceNumber(totalNotStaked)) +
+//     Number(sushiStaked);
+
+//   // initialize modals
+//   const [onPresentHarvest] = useModal(<HarvestModal />, null, null, null);
+//   const [onPresentLocked] = useModal(<LockedModal />, null, null, null);
+
+//   const balances = [
+//     {
+//       title: "Harvestable",
+//       sushi: sumEarning || sumEarning === 0 ? formattedNum(sumEarning, false) : <Loader />,
+//       usd:
+//         (sumEarning && priceUSD) || (sumEarning === 0 && priceUSD) ? (
+//           formattedNum(sumEarning * priceUSD, true)
+//         ) : (
+//           <Loader />
+//         ),
+//       cta: <Button title="Harvest" onClick={onPresentHarvest} />,
+//     },
+//     {
+//       title: "Locked (2/3)",
+//       sushi:
+//         totalSushiLocked > 0 && totalSushiLocked ? decimalFormatter.format(totalSushiLocked) + " SUSHI" : <Loader />,
+//       usd:
+//         totalSushiLocked > 0 && totalSushiLockedUSD && sushiPrice ? (
+//           currencyFormatter.format(totalSushiLockedUSD)
+//         ) : (
+//           <Loader />
+//         ),
+//       cta: <Button title="Learn more" onClick={onPresentLocked} />, //<Linker title="Learn more" to="https://docs.sushiswap.fi" external />,
+//     },
+//     // {
+//     //   title: "Locked (2/3)",
+//     //   sushi: farmBalances ? decimalFormatter.format(_.sumBy(farmBalances, "lockedSushi")) + " SUSHI" : <Loader />,
+//     //   usd: farmBalances && sushiPrice ? currencyFormatter.format(_.sumBy(farmBalances, "lockedSushiUSD")) : <Loader />,
+//     //   cta: <Button title="Learn more" onClick={onPresentLocked} />, //<Linker title="Learn more" to="https://docs.sushiswap.fi" external />,
+//     // },
+//     {
+//       title: "Unstaked",
+//       sushi: totalNotStaked ? `${Number(getBalanceNumber(totalNotStaked)).toFixed(4)} SUSHI` : <Loader />,
+//       usd: totalNotStakedUSD ? totalNotStakedUSD : <Loader />,
+//       cta: <StakeSushi />,
+//     },
+//     {
+//       title: "Staked",
+//       sushi:
+//         Number(sushiStaked) || Number(sushiStaked) === 0 ? (
+//           `${decimalFormatter.format(Number(sushiStaked))} SUSHI`
+//         ) : (
+//           <Loader />
+//         ),
+//       //sushi: barStaked ? `${decimalFormatter.format(barStaked)} SUSHI` : <Loader />,
+//       xsushi:
+//         Number(xSushiFormatted) || Number(xSushiFormatted) === 0 ? (
+//           `(${Number(xSushiFormatted.toFixed(2)).toLocaleString()} xSUSHI)`
+//         ) : (
+//           <Loader />
+//         ),
+//       //xsushi: xSushi ? `${Number(xSushi.toFixed(2)).toLocaleString()} xSUSHI` : <Loader />,
+//       //usd: `${currencyFormatter.format(barStakedUSD)}`, // incorrect for some reason
+//       //usd: barStaked && priceUSD ? `${currencyFormatter.format(barStaked * priceUSD)}` : <Loader />,
+//       usd:
+//         (Number(sushiStaked) && priceUSD) || (Number(sushiStaked) === 0 && priceUSD) ? (
+//           `${currencyFormatter.format(Number(sushiStaked) * priceUSD)}`
+//         ) : (
+//           <Loader />
+//         ),
+//       cta: <UnstakeSushi />,
+//     },
+//   ];
+
+//   // console.log("formatted:", totalSushiBalance, formattedNum(totalSushiBalance), formattedNum(totalSushiBalance, true));
+//   // console.log(
+//   //   "formatted:",
+//   //   totalSushiBalance * sushiPrice,
+//   //   formattedNum(totalSushiBalance * sushiPrice),
+//   //   formattedNum(totalSushiBalance * sushiPrice, true)
+//   // );
+
+//   let LPBalance = 0;
+//   positions?.forEach((position) => {
+//     const poolOwnership = position.liquidityTokenBalance / position.pair.totalSupply;
+//     const valueUSD = poolOwnership * position.pair.reserveUSD;
+//     LPBalance = LPBalance + valueUSD;
+//   });
+
+//   // const totalBalanceUSD = formattedNum(
+//   //   totalSushiBalance * sushiPrice + _.sumBy(farmBalances, "valueUSD") + LPBalance,
+//   //   true
+//   // );
+
+//   // if any position has token from fee warning list, show warning
+//   const [showWarning, setShowWarning] = useState(false);
+//   useEffect(() => {
+//     if (positions) {
+//       for (let i = 0; i < positions.length; i++) {
+//         if (
+//           FEE_WARNING_TOKENS.includes(positions[i].pair.token0.id) ||
+//           FEE_WARNING_TOKENS.includes(positions[i].pair.token1.id)
+//         ) {
+//           setShowWarning(true);
+//         }
+//       }
+//     }
+//   }, [positions]);
+
+//   return (
+//     <>
+//       {/* <WalletBalances account={account} /> */}
+//       <Notice />
+//       <TableTotal
+//         totalBalanceUSD={
+//           (totalSushiBalance || totalSushiBalance === 0) &&
+//           sushiPrice &&
+//           farmBalances &&
+//           (LPBalance || LPBalance === 0) ? (
+//             formattedNum(totalSushiBalance * sushiPrice + _.sumBy(farmBalances, "valueUSD") + LPBalance, true)
+//           ) : (
+//             <Loader />
+//           )
+//         }
+//         account={account}
+//       />
+//       <TableSushi
+//         balances={balances ? balances : <Loader />}
+//         price={sushiPrice ? currencyFormatter.format(sushiPrice) : <Loader />}
+//         totalSushiBalance={totalSushiBalance || totalSushiBalance === 0 ? formattedNum(totalSushiBalance) : <Loader />}
+//         totalSushiBalanceUSD={
+//           (totalSushiBalance && sushiPrice) || (totalSushiBalance === 0 && sushiPrice) ? (
+//             formattedNum(totalSushiBalance * sushiPrice, true)
+//           ) : (
+//             <Loader />
+//           )
+//         }
+//       />
+//       <TableLP positions={positions} ethPrice={ethPrice} LPBalanceUSD={formattedNum(LPBalance, true)} />
+//       <TableFarms positions={farmBalances} farmBalanceUSD={formattedNum(_.sumBy(farmBalances, "valueUSD"), true)} />
+//     </>
+//   );
+// };
 
 export default AccountQueries;
