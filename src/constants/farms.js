@@ -406,7 +406,7 @@ export const FARM_DETAILS = [
   { pid: 183, name: "Onsen", symbol: "MUST-ETH", icon: "HotSprings" },
   { pid: 184, name: "Onsen", symbol: "MARK-ETH", icon: "HotSprings" },
   { pid: 185, name: "Onsen", symbol: "OHM-DAI", icon: "HotSprings" },
-  { pid: 186, name: "Onsen", symbol: "POOL-ETH", icon: "HotSrpings" },
+  { pid: 186, name: "Onsen", symbol: "POOL-ETH", icon: "HotSprings" },
   { pid: 187, name: "Onsen", symbol: "YLD(YieldApp)-ETH", icon: "HotSprings"},
   { pid: 188, name: "Onsen", symbol: "BZRX-ETH", icon: "HotSprings"}
 ];
