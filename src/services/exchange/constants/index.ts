@@ -116,6 +116,22 @@ export const PLAY = new Token(
   'Metaverse NFT Index'
 );
 
+export const XSUSHI_CALL = new Token(
+  ChainId.MAINNET,
+  '0xada279f9301C01A4eF914127a6C2a493Ad733924',
+  18,
+  'XSUc25-0531',
+  'XSUSHI 25 Call [31 May 2021]'
+);
+
+export const XSUSHI = new Token(
+  ChainId.MAINNET,
+  '0x8798249c2E607446EfB7Ad49eC89dD1865Ff4272',
+  18,
+  'xSUSHI',
+  'SushiBar'
+);
+
 const WETH_ONLY: ChainTokenList = {
   [ChainId.MAINNET]: [WETH[ChainId.MAINNET]],
   [ChainId.ROPSTEN]: [WETH[ChainId.ROPSTEN]],
@@ -152,6 +168,7 @@ export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: To
     [PONT.address]: [PWING, WETH[ChainId.MAINNET]],
     [UMA_CALL.address]: [UMA, WETH[ChainId.MAINNET]],
     [PLAY.address]: [DOUGH, WETH[ChainId.MAINNET]],
+    [XSUSHI_CALL]: [XSUSHI, WETH[ChainId.MAINNET]]
   },
 };
 
