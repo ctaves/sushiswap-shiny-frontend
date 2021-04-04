@@ -146,7 +146,8 @@ export async function getFarms(client = getApollo(), group) {
 
       const rewardPerBlock = ((pool.allocPoint / pool.owner.totalAllocPoint) * pool.owner.sushiPerBlock) / 1e18;
 
-      const roiPerBlock = (rewardPerBlock * 3 * sushiPrice) / balanceUSD;
+      //const roiPerBlock = (rewardPerBlock * 3 * sushiPrice) / balanceUSD;
+      const roiPerBlock = (rewardPerBlock * sushiPrice) / balanceUSD;
 
       const roiPerHour = roiPerBlock * blocksPerHour;
       const roiPerDay = roiPerHour * 24;
