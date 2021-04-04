@@ -44,7 +44,8 @@ export const articles = [
         .{" "}
       </p>
     ),
-    image: OnsenAMA,
+    image: "https://raw.githubusercontent.com/sushiswap/sushi-content/master/images/ama-bg.gif",
+    //image: OnsenAMA,
     token: "0xdfe66b14d37c77f4e9b180ceb433d1b164f0281d", //stakedETH
   },
   {
@@ -59,7 +60,8 @@ export const articles = [
         .{" "}
       </p>
     ),
-    image: OnsenAMA,
+    image: "https://raw.githubusercontent.com/sushiswap/sushi-content/master/images/ama-bg.gif",
+    //image: OnsenAMA,
     token: "0x8888801af4d980682e47f1a9036e589479e835c5", //88MPH
   },
   {
@@ -71,7 +73,8 @@ export const articles = [
         provide liquidity to TORN-ETH and stake.
       </p>
     ),
-    image: Tornado,
+    image: "https://raw.githubusercontent.com/sushiswap/sushi-content/master/images/tornado-onsen.jpg",
+    //image: Tornado,
     token: "0x77777feddddffc19ff86db637967013e6c6a116c", // tornado
   },
   {
@@ -86,7 +89,8 @@ export const articles = [
         . www.sushiswap.fi will host our new landing page. Update your bookmarks accordingly!
       </p>
     ),
-    image: Landing,
+    //image: Landing,
+    image: "https://raw.githubusercontent.com/sushiswap/sushi-content/master/images/landing.jpg",
   },
   {
     key: "renDoge-ETH",
@@ -97,7 +101,8 @@ export const articles = [
         renDOGE-ETH and stake.
       </p>
     ),
-    image: Doge,
+    //image: Doge,
+    image: "https://raw.githubusercontent.com/sushiswap/sushi-content/master/images/doge-sushi.jpg",
     token: "0x3832d2f059e55934220881f831be501d180671a7", // renDOGE
   },
   {
@@ -110,7 +115,8 @@ export const articles = [
         and helpful stats.
       </p>
     ),
-    image: MidnightTrading,
+    //image: MidnightTrading,
+    image: "https://raw.githubusercontent.com/sushiswap/sushi-content/master/images/midnight-trading.jpg",
     token: "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2", // SUSHI
   },
   {
