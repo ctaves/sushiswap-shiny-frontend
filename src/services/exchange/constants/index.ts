@@ -41,95 +41,78 @@ export const USDP = new Token(
 );
 
 // tokens to set custom bases for
-export const DUCK = new Token(ChainId.MAINNET, '0x92E187a03B6CD19CB6AF293ba17F2745Fd2357D5', 18, 'DUCK', 'DUCK');
-export const BAB = new Token(ChainId.MAINNET, '0xC36824905dfF2eAAEE7EcC09fCC63abc0af5Abc5', 18, 'BAB', 'BAB');
-export const HBTC = new Token(ChainId.MAINNET, '0x0316EB71485b0Ab14103307bf65a021042c6d380', 18, 'HBTC', 'Huobi BTC');
-export const FRAX = new Token(ChainId.MAINNET, '0x853d955aCEf822Db058eb8505911ED77F175b99e', 18, 'FRAX', 'FRAX');
+export const DUCK = new Token(ChainId.MAINNET, "0x92E187a03B6CD19CB6AF293ba17F2745Fd2357D5", 18, "DUCK", "DUCK");
+export const BAB = new Token(ChainId.MAINNET, "0xC36824905dfF2eAAEE7EcC09fCC63abc0af5Abc5", 18, "BAB", "BAB");
+export const HBTC = new Token(ChainId.MAINNET, "0x0316EB71485b0Ab14103307bf65a021042c6d380", 18, "HBTC", "Huobi BTC");
+export const FRAX = new Token(ChainId.MAINNET, "0x853d955aCEf822Db058eb8505911ED77F175b99e", 18, "FRAX", "FRAX");
 export const IBETH = new Token(
   ChainId.MAINNET,
-  '0xeEa3311250FE4c3268F8E684f7C87A82fF183Ec1',
+  "0xeEa3311250FE4c3268F8E684f7C87A82fF183Ec1",
   8,
-  'ibETHv2',
-  'Interest Bearing Ether v2'
+  "ibETHv2",
+  "Interest Bearing Ether v2"
 );
 
 export const PONT = new Token(
   ChainId.MAINNET,
-  '0xcb46C550539ac3DB72dc7aF7c89B11c306C727c2',
+  "0xcb46C550539ac3DB72dc7aF7c89B11c306C727c2",
   9,
-  'pONT',
-  'Poly Ontology Token'
+  "pONT",
+  "Poly Ontology Token"
 );
 
 export const PWING = new Token(
   ChainId.MAINNET,
-  '0xDb0f18081b505A7DE20B18ac41856BCB4Ba86A1a',
+  "0xDb0f18081b505A7DE20B18ac41856BCB4Ba86A1a",
   9,
-  'pWING',
-  'Poly Ontology Wing Token'
+  "pWING",
+  "Poly Ontology Wing Token"
 );
 
-export const NFTX = new Token(
-  ChainId.MAINNET,
-  '0x87d73E916D7057945c9BcD8cdd94e42A6F47f776',
-  18,
-  'NFTX',
-  'NFTX'
-);
+export const NFTX = new Token(ChainId.MAINNET, "0x87d73E916D7057945c9BcD8cdd94e42A6F47f776", 18, "NFTX", "NFTX");
 
-export const STETH = new Token(
-  ChainId.MAINNET,
-  '0xDFe66B14D37C77F4E9b180cEb433d1b164f0281D',
-  18,
-  'stETH',
-  'stakedETH');
+export const STETH = new Token(ChainId.MAINNET, "0xDFe66B14D37C77F4E9b180cEb433d1b164f0281D", 18, "stETH", "stakedETH");
 
-export const UMA = new Token(
-  ChainId.MAINNET,
-  '0x04Fa0d235C4abf4BcF4787aF4CF447DE572eF828',
-  18,
-  'UMA',
-  'UMA'
-);
+export const UMA = new Token(ChainId.MAINNET, "0x04Fa0d235C4abf4BcF4787aF4CF447DE572eF828", 18, "UMA", "UMA");
 
 export const UMA_CALL = new Token(
   ChainId.MAINNET,
-  '0x1062aD0E59fa67fa0b27369113098cC941Dd0D5F',
+  "0x1062aD0E59fa67fa0b27369113098cC941Dd0D5F",
   18,
-  'UMA',
-  'UMA 35 Call [30 Apr 2021]'
+  "UMA",
+  "UMA 35 Call [30 Apr 2021]"
 );
 
 export const DOUGH = new Token(
   ChainId.MAINNET,
-  '0xad32A8e6220741182940c5aBF610bDE99E737b2D',
+  "0xad32A8e6220741182940c5aBF610bDE99E737b2D",
   18,
-  'DOUGH',
-  'PieDAO Dough v2'
+  "DOUGH",
+  "PieDAO Dough v2"
 );
 
 export const PLAY = new Token(
   ChainId.MAINNET,
-  '0x33e18a092a93ff21aD04746c7Da12e35D34DC7C4',
+  "0x33e18a092a93ff21aD04746c7Da12e35D34DC7C4",
   18,
-  'PLAY',
-  'Metaverse NFT Index'
+  "PLAY",
+  "Metaverse NFT Index"
 );
 
 export const XSUSHI_CALL = new Token(
   ChainId.MAINNET,
-  '0xada279f9301C01A4eF914127a6C2a493Ad733924',
+  "0xada279f9301C01A4eF914127a6C2a493Ad733924",
   18,
-  'XSUc25-0531',
-  'XSUSHI 25 Call [31 May 2021]'
+  "XSUc25-0531",
+  "XSUSHI 25 Call [31 May 2021]"
 );
 
 export const XSUSHI = new Token(
   ChainId.MAINNET,
-  '0x8798249c2E607446EfB7Ad49eC89dD1865Ff4272',
+  "0x8798249c2E607446EfB7Ad49eC89dD1865Ff4272",
   18,
-  'xSUSHI',
-  'SushiBar'
+  "xSUSHI",
+  "SushiBar"
 );
 
 const WETH_ONLY: ChainTokenList = {
@@ -142,15 +125,7 @@ const WETH_ONLY: ChainTokenList = {
 
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.MAINNET]: [
-    ...WETH_ONLY[ChainId.MAINNET],
-    DAI,
-    USDC,
-    USDT,
-    WBTC,
-    NFTX,
-    STETH
-  ],
+  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT, WBTC, NFTX, STETH],
 };
 
 /**
@@ -168,7 +143,7 @@ export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: To
     [PONT.address]: [PWING, WETH[ChainId.MAINNET]],
     [UMA_CALL.address]: [UMA, WETH[ChainId.MAINNET]],
     [PLAY.address]: [DOUGH, WETH[ChainId.MAINNET]],
-    [XSUSHI_CALL.address]: [XSUSHI, WETH[ChainId.MAINNET]]
+    [XSUSHI_CALL.address]: [XSUSHI, WETH[ChainId.MAINNET]],
   },
 };
 
@@ -225,59 +200,59 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     href: null,
     color: "#E8831D",
   },
-  WALLET_CONNECT: {
-    connector: walletconnect,
-    name: "WalletConnect",
-    iconName: "walletConnectIcon.svg",
-    description: "Connect to Trust Wallet, Rainbow Wallet and more...",
-    href: null,
-    color: "#4196FC",
-    mobile: true,
-  },
-  LATTICE: {
-    connector: lattice,
-    name: "Lattice",
-    iconName: "gridPlusWallet.png",
-    description: "Connect to GridPlus Wallet.",
-    href: null,
-    color: "#40a9ff",
-    mobile: true,
-  },
-  WALLET_LINK: {
-    connector: walletlink,
-    name: "Coinbase Wallet",
-    iconName: "coinbaseWalletIcon.svg",
-    description: "Use Coinbase Wallet app on mobile device",
-    href: null,
-    color: "#315CF5",
-  },
-  COINBASE_LINK: {
-    name: "Open in Coinbase Wallet",
-    iconName: "coinbaseWalletIcon.svg",
-    description: "Open in Coinbase Wallet app.",
-    href: "https://go.cb-w.com/",
-    color: "#315CF5",
-    mobile: true,
-    mobileOnly: true,
-  },
-  FORTMATIC: {
-    connector: fortmatic,
-    name: "Fortmatic",
-    iconName: "fortmaticIcon.png",
-    description: "Login using Fortmatic hosted wallet",
-    href: null,
-    color: "#6748FF",
-    mobile: true,
-  },
-  Portis: {
-    connector: portis,
-    name: "Portis",
-    iconName: "portisIcon.png",
-    description: "Login using Portis hosted wallet",
-    href: null,
-    color: "#4A6C9B",
-    mobile: true,
-  },
+  // WALLET_CONNECT: {
+  //   connector: walletconnect,
+  //   name: "WalletConnect",
+  //   iconName: "walletConnectIcon.svg",
+  //   description: "Connect to Trust Wallet, Rainbow Wallet and more...",
+  //   href: null,
+  //   color: "#4196FC",
+  //   mobile: true,
+  // },
+  // LATTICE: {
+  //   connector: lattice,
+  //   name: "Lattice",
+  //   iconName: "gridPlusWallet.png",
+  //   description: "Connect to GridPlus Wallet.",
+  //   href: null,
+  //   color: "#40a9ff",
+  //   mobile: true,
+  // },
+  // WALLET_LINK: {
+  //   connector: walletlink,
+  //   name: "Coinbase Wallet",
+  //   iconName: "coinbaseWalletIcon.svg",
+  //   description: "Use Coinbase Wallet app on mobile device",
+  //   href: null,
+  //   color: "#315CF5",
+  // },
+  // COINBASE_LINK: {
+  //   name: "Open in Coinbase Wallet",
+  //   iconName: "coinbaseWalletIcon.svg",
+  //   description: "Open in Coinbase Wallet app.",
+  //   href: "https://go.cb-w.com/",
+  //   color: "#315CF5",
+  //   mobile: true,
+  //   mobileOnly: true,
+  // },
+  // FORTMATIC: {
+  //   connector: fortmatic,
+  //   name: "Fortmatic",
+  //   iconName: "fortmaticIcon.png",
+  //   description: "Login using Fortmatic hosted wallet",
+  //   href: null,
+  //   color: "#6748FF",
+  //   mobile: true,
+  // },
+  // Portis: {
+  //   connector: portis,
+  //   name: "Portis",
+  //   iconName: "portisIcon.png",
+  //   description: "Login using Portis hosted wallet",
+  //   href: null,
+  //   color: "#4A6C9B",
+  //   mobile: true,
+  // },
 };
 
 export const NetworkContextName = "NETWORK";
