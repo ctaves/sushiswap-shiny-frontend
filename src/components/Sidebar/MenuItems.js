@@ -282,7 +282,7 @@ const MenuItems = ({ selected }) => {
             Governance
           </Link>
           <a
-            href="https://forum.sushiswapclassic.org"
+            href="https://forum.sushi.com"
             target="_blank"
             className={
               selected === "community"
@@ -390,7 +390,7 @@ rel="noopener noreferrer"
             <span className="truncate">Sushiswapclassic.org</span>
           </a> */}
           <a
-            href="https://docs.sushiswap.fi/"
+            href="https://docs.sushi.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center px-3 py-1 text-sm leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition ease-in-out duration-150"
@@ -399,7 +399,7 @@ rel="noopener noreferrer"
             <span className="truncate">Docs</span>
           </a>
           <a
-            href="https://lite.sushiswap.fi/"
+            href="https://lite.sushi.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center px-3 py-1 text-sm leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition ease-in-out duration-150"
@@ -408,16 +408,16 @@ rel="noopener noreferrer"
             <span className="truncate">SushiSwap Lite</span>
           </a>
           <a
-            href="https://www.sushiswapclassic.org/"
+            href="https://legacy.sushi.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center px-3 py-1 text-sm leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition ease-in-out duration-150"
           >
             <span className="w-2.5 h-2.5 mr-4 bg-brand-3 rounded-md" />
-            <span className="truncate">SushiSwap Classic</span>
+            <span className="truncate">SushiSwap Legacy</span>
           </a>
           <a
-            href="https://www.sushiswapanalytics.com/"
+            href="https://analytics.sushi.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center px-3 py-1 text-sm leading-5 font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition ease-in-out duration-150"
