@@ -64,8 +64,7 @@ export default function ListUpdatePopup({
             <div>
               <Text>
                 An update is available for the token list &quot;{oldList.name}&quot; (
-                {listVersionLabel(oldList.version)} to {listVersionLabel(newList.version)}). This update is brought to
-                you courtesy of DR. We love you DR ❤️
+                {listVersionLabel(oldList.version)} to {listVersionLabel(newList.version)}).
               </Text>
               <ul>
                 {/* {tokensAdded.length > 0 ? (
