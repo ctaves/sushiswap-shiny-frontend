@@ -33,6 +33,19 @@ export const articles = [
   //   image: OnsenIllustration,
   // },
   {
+    key: "new-interface",
+    title: "New Interface: App.sushi.com",
+    description: (
+      <p>
+        As part of our efforts to consolidate and enhance our community interfaces, this interface is now considered
+        classic and will not recieve regular updates. Please visting our fully featured Exchange Interface
+        (app.sushi.com) for access to our multinetwork features, bentobox dapps, kashi lending, and masterchef v2.
+      </p>
+    ),
+    image: OnsenIllustration,
+  },
+  ,
+  {
     key: "stakehound-onsen-ama",
     title: "Onsen AMA: StakeHound",
     description: (

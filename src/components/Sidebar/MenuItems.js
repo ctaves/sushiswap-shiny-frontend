@@ -100,7 +100,12 @@ const MenuItems = ({ selected }) => {
             </svg>
             Swap
           </Link>
-          <div className="group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-500">
+          <a
+            href="https://app.sushi.com/bento/kashi"
+            target="_blank"
+            rel="noreferrer"
+            className="group flex items-center px-2 py-1 text-sm leading-5 font-medium rounded-md text-gray-700 hover:text-gray-900  focus:outline-none focus:bg-gray-200 transition ease-in-out duration-150"
+          >
             <svg
               className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-900 group-focus:text-gray-600 transition ease-in-out duration-150"
               fill="none"
@@ -113,7 +118,7 @@ const MenuItems = ({ selected }) => {
             {/* <span className="ml-auto inline-block py-0.5 px-3 text-xs leading-4 font-medium rounded-md gray-100 transition ease-in-out duration-150 group-hover:bg-orange-200 group-focus:bg-orange-200">
               Coming Soon
             </span> */}
-          </div>
+          </a>
           <Link
             to="/farms/permanent"
             className={
