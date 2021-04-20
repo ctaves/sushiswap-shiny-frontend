@@ -34,15 +34,19 @@ export const articles = [
   // },
   {
     key: "new-interface",
-    title: "New Interface: App.sushi.com",
+    title: "New Interface: app.sushi.com",
     description: (
       <p>
         As part of our efforts to consolidate and enhance our community interfaces, this interface is now considered
         classic and will not recieve regular updates. Please visting our fully featured Exchange Interface
-        (app.sushi.com) for access to our multinetwork features, bentobox dapps, kashi lending, and masterchef v2.
+        (app.sushi.com) for access to our multinetwork features, Bentobox dapps, Kashi lending, and Masterchef v2. You
+        can find the latest interface{" "}
+        <Linker to="https://app.sushi.com" external>
+          here: app.sushi.com
+        </Linker>
       </p>
     ),
-    image: OnsenIllustration,
+    image: "https://raw.githubusercontent.com/sushiswap/sushi-content/master/images/new-interface.jpg",
   },
   ,
   {
